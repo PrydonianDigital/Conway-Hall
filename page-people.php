@@ -12,7 +12,7 @@
 		<?php
 		// WP_Query arguments
 		$args = array (
-			'post_type' => 'venue',
+			'post_type' => 'people',
 		);
 		// The Query
 		$room_hire = new WP_Query( $args );
@@ -21,17 +21,18 @@
 			while ( $room_hire->have_posts() ) {
 				$room_hire->the_post();
 		?>
-		<div class="sticky">
+		<div <?php post_class('sticky'); ?>>
 			<div class="row">
-				<div class="twelve columns">
-					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<div class="twelve columns ">
+					<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+					<h5><?php global $post; $text = get_post_meta( $post->ID, '_cmb_title', true ); echo $text; ?></h5>
 				</div>
 			</div>
 			<div class="row">
-				<div class="five columns">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article'); ?></a>
+				<div class="three columns">
+					<a href="<?php the_permalink(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 				</div>
-				<div class="seven columns">
+				<div class="nine columns">
 					<?php the_excerpt(); ?>
 				</div>
 			</div>

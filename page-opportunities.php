@@ -12,7 +12,7 @@
 		<?php
 		// WP_Query arguments
 		$args = array (
-			'post_type' => 'venue',
+			'post_type' => 'jobs',
 		);
 		// The Query
 		$room_hire = new WP_Query( $args );
@@ -25,14 +25,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="five columns">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article'); ?></a>
-				</div>
-				<div class="seven columns">
 					<?php the_excerpt(); ?>
+					<p>Posted in: <?php the_category(', '); ?></p>
 				</div>
 			</div>
 		</div>

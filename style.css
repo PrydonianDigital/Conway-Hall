@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	padding-top: 0;
 	margin-top: 0;
+	line-height: 1;
 }
 .homePage h1, .homePage h2, .homePage h3, .homePage h4, .homePage h5, .homePage h6 {
 	margin-bottom: 1em;
@@ -53,8 +54,15 @@ p {
 	font-family: "Clarendon", Georgia, Times, serif; 
 	line-height: 1.4em;
 }
+a {
+    color: #136972;
+    line-height: inherit;
+    outline: 0 none;
+    text-decoration: underline;
+}
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	color: #136972;
+	text-decoration: none;
 }
 a:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 	color: #0B3539;
@@ -76,14 +84,16 @@ footer p {
 #nav1 {
 	margin-bottom: 0;
 }
-.gumby-no-touch .navbar ul li:hover > a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a {
+.navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a {
 	background: #EBF3F4;
 	color: #000; 
+	text-decoration: none;
 }
 .navbar ul li > a {
 	text-shadow: none !important;
+	text-decoration: none;
 }
-.navbar ul li.current-menu-item a, .navbar ul li.current-post-parent a {
+.gumby-no-touch .navbar ul li:hover > a {
 	background: #EBF3F4;
 	color: #136972; 
 }
@@ -170,6 +180,9 @@ footer p {
 }
 .tab-nav {
 	border-color: #136972 !important;
+}
+.tab-nav a {
+	text-decoration: none;
 }
 .tribe-events-day .tribe-events-day-time-slot h5 {
 	margin-top: 0;
@@ -338,6 +351,10 @@ div.jetpack-likes-widget-wrapper {
 .home .category-videos iframe {
 	width: 340px !important;
 	height: 255px !important;
+}
+iframe {
+	width: 100% !important;
+	margin-bottom: 1em;
 }
 #nav2 {
 	display: none;

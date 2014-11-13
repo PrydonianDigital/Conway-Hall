@@ -160,20 +160,20 @@
 								$sunday_posts->the_post();
 						?>
 						<div <?php post_class('sticky'); ?>>
-						<div class="row">
-							<div class="twelve columns ">
-								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-								<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
+							<div class="row">
+								<div class="twelve columns ">
+									<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="five columns">
-								<a href="<?php the_permalink(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+							<div class="row">
+								<div class="five columns">
+									<a href="<?php the_permalink(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+								</div>
+								<div class="seven columns">
+									<?php the_excerpt(); ?>
+								</div>
 							</div>
-							<div class="seven columns">
-								<?php the_excerpt(); ?>
-							</div>
-						</div>
 						</div>
 						<?php
 							}
