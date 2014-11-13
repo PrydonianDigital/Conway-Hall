@@ -1,0 +1,412 @@
+/*  
+Theme Name: Conway Hall
+Theme URI: http://www.conwayhall.org.uk
+Description: WordPress theme for Conway Hall
+Version: 1
+Author: Mark Duwe
+Author URI: http://www.prydonian.digital
+Tags: 
+License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
+License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
+*/
+@font-face { 
+	font-family: 'Clarendon'; 
+	src: url('fonts/clarebtbol-webfont.eot'); 
+	src: url('fonts/clarebtbol-webfont.eot?#iefix') format('embedded-opentype'), 
+		url('fonts/clarebtbol-webfont.woff') format('woff'), 
+		url('fonts/clarebtbol-webfont.ttf') format('truetype'), 
+		url('fonts/clarebtbol-webfont.svg#ClarendonRegular') format('svg'); 
+	font-weight: bold; 
+	font-style: normal; 
+} 
+@font-face { 
+	font-family: 'Clarendon'; 
+	src: url('fonts/clarebtlig-webfont.eot'); 
+	src: url('fonts/clarebtlig-webfont.eot?#iefix') format('embedded-opentype'), 
+		url('fonts/clarebtlig-webfont.woff') format('woff'), 
+		url('fonts/clarebtlig-webfont.ttf') format('truetype'), 
+		url('fonts/clarebtlig-webfont.svg#') format('svg'); 
+	font-weight: normal; 
+	font-style: normal;
+}
+html, body { 
+	margin: 0; 
+	padding: 0; 
+	height: 100%; 
+} 
+body { 
+	color: #000; 
+	background: #FFF; 
+	font-family: Georgia, Times, serif; 
+	text-shadow: 0 0 0 rgba(0,0,0,0) !important;
+} 
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-weight: 700;
+	padding-top: 0;
+	margin-top: 0;
+}
+.homePage h1, .homePage h2, .homePage h3, .homePage h4, .homePage h5, .homePage h6 {
+	margin-bottom: 1em;
+}
+p {
+	font-family: "Clarendon", Georgia, Times, serif; 
+	line-height: 1.4em;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #136972;
+}
+a:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: #0B3539;
+}
+footer {
+	background: #136972;
+	color: #fff;
+	padding: 1em 0;
+}
+footer p {
+	font-size: 14px;
+	font-size: 0.8rem;
+	margin: 0;
+}
+.navbar {
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-weight: 700;
+}
+#nav1 {
+	margin-bottom: 0;
+}
+.gumby-no-touch .navbar ul li:hover > a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a {
+	background: #EBF3F4;
+	color: #000; 
+}
+.navbar ul li > a {
+	text-shadow: none !important;
+}
+.navbar ul li.current-menu-item a, .navbar ul li.current-post-parent a {
+	background: #EBF3F4;
+	color: #136972; 
+}
+.header {
+	width: 100%;
+	padding: 1.5em 0;
+	text-align: center;
+	clear: both;
+	background: #ffffff;
+}
+.sticky, .post-sticky, .post-stick {
+	background: #EBF3F4;
+	padding: 10px !important;
+	margin-bottom: 0.5em !important;
+	margin-left: 0 !important;
+	border-bottom: 1px solid #c6e1e3;
+}
+.thumb {
+	padding: 0;
+}
+.side .row, .widget {
+	margin-bottom: 20px;
+}
+.input.narrow, .input.narrow {
+    margin: 0;
+    width: 57.6667%;
+}
+.article {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #c6e1e3;
+}
+.sidebar {
+	background: #EBF3F4;
+	padding: 10px;
+}
+.widget {
+	padding: 0 10px 10px 10px;
+	background: #EBEBEB;
+}
+.sidebar h2, .widget h4, .widget h5 {
+	padding-top: 0;
+}
+#search .btn.medium a {
+    padding: 0 9px;
+}
+.widget h5, .widget h3.sd-title {
+	background: #136972;
+	color: #fff;
+	padding: 0 10px;
+	margin: 0 -10px 10px -10px;
+	border: 0;
+}
+.widget #search h5 {
+	background: #136972;
+	color: #fff;
+	padding: 0 10px;
+	margin: 0 -20px 10px -20px;
+}
+.tribe-event-categories li {
+	display: inline-block;
+	padding: 0 5px 0 0;
+}
+.tribe-event-categories li:after {
+	content: " |"	
+}
+#tribe-bar-form input[type="text"] {
+	background: #EBF3F4;
+	color: #000;
+	font-family: Georgia, Times, serif;
+	font-weight: 200;
+	border-bottom: 1px dashed #136972;
+}
+.tribe-event-categories li:last-child:after {
+	content: " "	
+}
+.tribe-events-button.tribe-inactive,
+.tribe-events-button:hover,
+#tribe-events .tribe-events-button:hover,
+.tribe-events-button.tribe-active:hover {
+	background: #EBF3F4;
+	text-shadow: none !important;
+	color: #136972;
+	border-color: #136972 !important;
+}
+.tab-nav {
+	border-color: #136972 !important;
+}
+.tribe-events-day .tribe-events-day-time-slot h5 {
+	margin-top: 0;
+}
+.tribe-grid-body div[id*="tribe-events-event-"] .hentry.vevent:hover , .tribe-grid-body div[id*="tribe-events-event-"] .hentry.vevent:hover a, .tribe-events-day .tribe-events-day-time-slot h5 {
+	background: #136972;
+	color: #ffffff;
+	border-color: #136972 !important;
+}
+.tab-nav > li.active > a, .tribe-events-button, #tribe-events .tribe-events-button, .tribe-events-list-separator-month, .tribe-events-calendar th, .tribe-events-calendar td.tribe-events-present div[id*="tribe-events-daynum-"], .tribe-events-calendar td.tribe-events-present div[id*="tribe-events-daynum-"] > a, #tribe-events-content .tribe-events-tooltip h4 {
+	background: #136972;
+	color: #ffffff;
+	border-color: #136972 !important;
+}
+.tab-nav > li > a {
+	background: #136972;
+	border-color: #136972 !important;
+	text-shadow: none !important;
+	color: #ffffff;
+	margin-bottom: -1px;
+}
+.tab-nav > li > a:hover {
+	background: #EBF3F4;
+	text-shadow: none !important;
+	color: #136972;
+	margin-bottom: -1px;
+}
+.tab-nav > li.active > a {
+	background: #fff;
+	color: #136972;
+}
+#tribe-events-content .tribe-events-tooltip h4 {
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.1;
+    padding: 6px;
+}
+.tribe-grid-header {
+	background: #136972;
+	color: #ffffff;	
+}
+.tribe-grid-header .column a {
+	color: #000;
+}
+#tribe-bar-form{
+	background: #136972;
+	color: #ffffff;
+}
+#tribe-bar-form .tribe-bar-submit input[type="submit"], .tribe-bar-views-inner, #tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a, .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"], .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a, .tribe-grid-body div[id*="tribe-events-event-"] .hentry.vevent  {
+	background: #EBF3F4;
+	text-shadow: none !important;
+	color: #136972;
+	border-color: #136972 !important;	
+}
+.tribe-events-notices {
+    background: #EBF3F4;
+    border: 1px solid #136972;
+    border-radius: 4px;
+    color: #136972;
+    margin: 10px 0 18px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: none !important;
+}
+#options {
+	display: none;
+}
+article.video {
+	height: 200px;
+}
+#search label {
+    cursor: pointer;
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    margin-bottom: 5px;
+}
+.screen-reader-text {
+	display: none;
+}
+.sidebar p {
+	font-size: 0.8rem;
+	line-height: 1.2em;
+	font-weight: 300;
+}
+
+/* Post Like System */
+a.jm-post-like {
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	font-size: 13px;
+	font-size: 0.928571429rem;
+	line-height: 1.846153846;
+	-moz-transition: all 0.3s ease-out 0.2s;
+	-webkit-transition: all 0.3s ease-out 0.2s;
+	-o-transition: all 0.3s ease-out 0.2s;
+}
+a.jm-post-like.liked {
+	color: #da1b1b;
+}
+a.jm-post-like:hover,
+a.jm-post-like:active,
+a.jm-post-like:focus,
+a.liked:hover,
+a.liked:active,
+a.liked:focus { /* default on hover */
+	color: #000;
+}
+.textalignleft {
+	text-align: left;
+}
+.textalignright {
+	text-align: right;
+}
+.widget p, .wp-caption-text {
+	line-height: 1.2;
+}
+.widget p {
+	margin-bottom: 7px;
+}
+.widget .menu {
+	margin: 0;
+	padding: 0;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-weight: 700;
+}
+.widget .menu .current-menu-item a, .widget .menu .current-menu-parent a {
+	color: #000;
+}
+.sd-block {
+	display: block;
+	overflow: hidden;
+}
+div.jetpack-likes-widget-wrapper {
+    height: auto !important;
+    position: relative;
+    width: 100%;
+}
+.widget div.jetpack-likes-widget-wrapper, .widget .sharedaddy {
+    display: none !important;
+}
+#cookie {
+	position: fixed;
+	bottom: 0;
+	margin: 0;
+	width: 100%;
+	z-index: 11000;
+	text-align: center;
+}
+.kindleWidget {
+	margin-bottom: 10px;
+}
+.share-kindle span {
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 20px;
+}
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+.home .category-videos iframe {
+	width: 340px !important;
+	height: 255px !important;
+}
+#nav2 {
+	display: none;
+}
+.owl-theme .owl-controls {
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 1em;
+}
+.owl-theme .owl-controls .owl-buttons div {
+	display: none;
+}
+.owl-theme .owl-controls .owl-page span {
+	background: #136972;
+}
+.owl-item img {
+	min-height: 170px;
+}
+.ic_container{
+    vertical-align:baseline;
+    margin:10px;
+    position:relative;
+    /*-moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -khtml-border-radius:10px;
+    -moz-box-shadow: 0 1px 3px #888;
+    -webkit-box-shadow: 0 1px 3px #888;*/
+}
+.ic_caption {
+    position: absolute;    
+    opacity: 0.8;   
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #136972;
+    width: 100%;
+    cursor: default;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+.ic_caption h3 {
+    padding: 0 5px 5px 5px;
+    margin: 0;
+    color: #fff;
+}
+.ic_caption p {
+    padding: 0 5px 5px 5px;
+    margin: 0;
+    text-align: justify;
+    color: #fff;
+    line-height: 1.1;
+}
+
+@media only screen and (max-width: 768px) {
+	#nav2 {
+		display: block;
+	}
+}
+@media (max-width: 480px) {
+	.home .category-videos iframe {
+		width: 300px !important;
+		height: 215px !important;
+	}
+	.ic_caption h3 {
+	    font-size: 80%;
+	}
+	.ic_caption p {
+	    font-size: 80%;
+	}
+}
