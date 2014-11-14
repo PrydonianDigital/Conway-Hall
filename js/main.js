@@ -4,7 +4,7 @@ $(function() {
 		items: 1,
 		lazyLoad : true,
 		navigation : true,
-		slideSpeed : 800,
+		slideSpeed : 2000,
 		paginationSpeed : 800,
 		navigationText: ["",""],
 		autoPlay: true,
@@ -30,6 +30,9 @@ $(function() {
 	}
 	if (element_exists('#russellSqP')){
 		russellSq();
+	}
+	if (element_exists('#busses')){
+		busses();
 	}
 	$('body').on('click', '.tube-loop', function(e){
 		location.reload();
@@ -86,7 +89,7 @@ function holBornC() {
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
 			stationName = data.S['@attributes'].N.replace('.', ''),
-			plat = '<div class="row"><div class="twelve columns stationTitle C"><h4>Central Line</h4> <i class="tube-loop"></i></div></div>';
+			plat = '<div class="row"><div class="twelve columns stationTitle C"><h4>Central Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
 			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
@@ -134,7 +137,7 @@ function chanceryL() {
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
 			stationName = data.S['@attributes'].N.replace('.', ''),
-			plat = '<div class="row"><div class="twelve columns stationTitle C"><h4>Central Line</h4> <i class="tube-loop"></i></div></div>';
+			plat = '<div class="row"><div class="twelve columns stationTitle C"><h4>Central Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
 			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
@@ -182,7 +185,7 @@ function holBornP() {
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
 			stationName = data.S['@attributes'].N.replace('.', ''),
-			plat = '<div class="row"><div class="twelve columns stationTitle P"><h4>Picadilly Line</h4> <i class="tube-loop"></i></div></div>';
+			plat = '<div class="row"><div class="twelve columns stationTitle P"><h4>Picadilly Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
 			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
@@ -230,7 +233,7 @@ function russellSq() {
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
 			stationName = data.S['@attributes'].N.replace('.', ''),
-			plat = '<div class="row"><div class="twelve columns stationTitle P"><h4>Picadilly Line</h4> <i class="tube-loop"></i></div></div>';
+			plat = '<div class="row"><div class="twelve columns stationTitle P"><h4>Picadilly Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
 			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
@@ -272,17 +275,96 @@ function russellSq() {
 		}
 	});	
 }
+function busses() {
+	var lat = 51.519532,
+		lng = -0.118446;
+    			//var pos = new google.maps.LatLng(lat, lng);
+				var swLat = lat - 0.003,
+		    		swLng = lng - 0.003,
+		    		neLat = lat + 0.003,
+		    		neLng = lng + 0.003,
+					stops = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/bus.php?swLat='+swLat+'&swLng='+swLng+'&neLat='+neLat+'&neLng='+neLng;
+		    	
+	$.getJSON(stops, function(data) {
+		$.each(data.markers, function (i, a) {
+			$('#map').gmap3({
+				marker: {
+					latLng: [a.lat, a.lng],
+					id: a.id,
+					title: a.name,
+					events:{
+						click: function(marker, event, context) {
+							var id = a.id,
+								name = a.name,
+								towards = a.towards,
+								stopID = a.stopIndicator;
+							getStop(id, name, towards, stopID);
+							$('#busses').html('<div id="loading"></div>');
+						}
+					},
+					options: {
+						icon: '//localhost:8888/conwayhall/wp-content/themes/conwayhall/img/busMarker.png'
+					}
+				},
+				circle:{
+					options:{
+						center: [lat, lng],
+						radius : 320,
+						fillColor : 'rgba(0,139,178,0.05)',
+						strokeColor : 'rgba(0,139,178,0.3)'
+					}
+				},
+				map: {
+					options: {
+						center: [lat, lng],
+						zoom: 16,
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+						mapTypeControl: true
+					}
+				}
+			});
+		});
+	});
+}
+function getStop(id, name, towards, stopID) {
+	var stopSearch = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/busstop.php?stop='+id;
+	$.getJSON(stopSearch, function(data) {
+		if(data.arrivals != '') {
+			var stop = '<div class="row"><div class="twelve columns"><h3>'+name+' | Towards '+towards+' | Stop '+stopID+'</h3></div></div><div class="row"><div class="two columns"><h4>Route</h4></div><div class="eight columns"><h4>To</h4></div><div class="two columns"><h4>Arrives</h4></div></div>';
+			$.each(data.arrivals, function (i, a) {
+				stop += '<div class="row"><div class="two columns">';
+				stop += '<p><strong>'+a.routeName+'</strong></p>';
+				stop += '</div>';
+				stop += '<div class="eight columns">';
+				stop += '<p>'+a.destination+'</p>';
+				stop += '</div>';
+				stop += '<div class="two columns">';
+				stop += '<p>'+a.estimatedWait+'</p>';
+				stop += '</div></div>';
+			});
+			if(data.serviceDisruptions.infoMessages.length > 0) {
+				stop += '<div class="row"><div class="twelve columns"><div class="alert alert-info">'+data.serviceDisruptions.infoMessages+'</div></div></div>';
+			}
+			if(data.serviceDisruptions.importantMessages.length > 0) {
+				stop += '<div class="row"><div class="twelve columns"><div class="alert alert-success">'+data.serviceDisruptions.importantMessages+'</div></div></div>';
+			}
+			if(data.serviceDisruptions.criticalMessages.length > 0) {
+				stop += '<div class="row"><div class="twelve columns"><div class="alert alert-danger">'+data.serviceDisruptions.criticalMessages+'</div></div></div>';
+			}
+			stop += '</div>';
+			$('#busses').html(stop);
+		} else {
+			$('#busses').html('<h4>No data currently available for this stop.<br />Please try later</h4>');
+		}
+	});
+}
 (function($){
 	$.fn.sixteenbynine=function(){
 		var width=this.width();
 		this.height(width*9/16);
 	};
 })(jQuery);
-
 (function($,sr){
-
-  // debouncing function from John Hann
-  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
   var debounce = function (func, threshold, execAsap) {
       var timeout;
 
@@ -293,7 +375,6 @@ function russellSq() {
                   func.apply(obj, args);
               timeout = null;
           };
-
           if (timeout)
               clearTimeout(timeout);
           else if (execAsap)
@@ -302,11 +383,8 @@ function russellSq() {
           timeout = setTimeout(delayed, threshold || 100);
       };
   }
-  // smartresize 
   jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
-
 })(jQuery,'smartresize');
-
 $(window).smartresize(function(){
 	$('iframe').sixteenbynine();
 });

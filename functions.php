@@ -573,7 +573,7 @@ function add_menu_icons_styles(){
 		content: "\f233";
 	}
 	#adminmenu #menu-posts-people div.wp-menu-image:before, #dashboard_right_now .people-count a:before {
-		content: "\f110";
+		content: "\f307";
 	}
 	#adminmenu #menu-posts-jobs div.wp-menu-image:before, #dashboard_right_now .jobs-count a:before {
 		content: "\f484";
