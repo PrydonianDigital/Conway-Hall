@@ -29,6 +29,21 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 	font-weight: normal; 
 	font-style: normal;
 }
+@font-face {
+    font-family: 'TubeIcons';
+    src: url('fonts/TubeIcons.eot');
+    src: url('fonts/TubeIcons.eot?#iefix') format('embedded-opentype'),
+         url('fonts/TubeIcons.woff') format('woff'),
+         url('fonts/TubeIcons.ttf') format('truetype'),
+         url('fonts/TubeIcons.svg#LondonTubeNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[data-tube]:before {
+	font-family: 'TubeIcons';
+	content: attr(data-tube);
+	speak: none;
+}
 html, body { 
 	margin: 0; 
 	padding: 0; 
@@ -50,6 +65,9 @@ h1, h2, h3, h4, h5, h6 {
 .homePage h1, .homePage h2, .homePage h3, .homePage h4, .homePage h5, .homePage h6 {
 	margin-bottom: 1em;
 }
+.homePage h2 {
+	font-size: 1.8rem;
+}
 p {
 	font-family: "Clarendon", Georgia, Times, serif; 
 	line-height: 1.4em;
@@ -59,6 +77,11 @@ a {
     line-height: inherit;
     outline: 0 none;
     text-decoration: underline;
+}
+
+.menu a {
+	text-decoration: none;
+	line-height: 1;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	color: #136972;
@@ -84,7 +107,7 @@ footer p {
 #nav1 {
 	margin-bottom: 0;
 }
-.navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a {
+.navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a, .navbar li.current-page-ancestor .dropdown .current-menu-item > a {
 	background: #EBF3F4;
 	color: #000; 
 	text-decoration: none;
@@ -96,6 +119,9 @@ footer p {
 .gumby-no-touch .navbar ul li:hover > a {
 	background: #EBF3F4;
 	color: #136972; 
+}
+.widget_subpages_current_page a {
+	color: #000;
 }
 .header {
 	width: 100%;
@@ -197,14 +223,14 @@ footer p {
 	color: #ffffff;
 	border-color: #136972 !important;
 }
-.tab-nav > li > a {
+.tab-nav > li > a, .gumby-no-touch .navbar li .dropdown ul li a {
 	background: #136972;
 	border-color: #136972 !important;
 	text-shadow: none !important;
 	color: #ffffff;
 	margin-bottom: -1px;
 }
-.tab-nav > li > a:hover {
+.tab-nav > li > a:hover, .gumby-no-touch .navbar li .dropdown ul li a:hover {
 	background: #EBF3F4;
 	text-shadow: none !important;
 	color: #136972;
@@ -214,6 +240,7 @@ footer p {
 	background: #fff;
 	color: #136972;
 }
+
 #tribe-events-content .tribe-events-tooltip h4 {
     color: #fff;
     font-weight: 600;
@@ -245,6 +272,38 @@ footer p {
     margin: 10px 0 18px;
     padding: 8px 35px 8px 14px;
     text-shadow: none !important;
+}
+.tribe-mini-calendar-nav .prev-month {
+    margin: 0 10px 0 0 !important;
+}
+.tribe-mini-calendar-nav .next-month {
+    margin: 0 0 0 10px !important;
+}
+.tribe-mini-calendar-nav span, .tribe-mini-calendar td, .tribe-mini-calendar th {
+	font-size: 12px;
+}
+.tribe-mini-calendar th {
+	font-weight: 200;
+}
+.tribe-mini-calendar td, .tribe-mini-calendar th {
+    border: 1px solid #136972 !important;
+}
+.tribe-mini-calendar-nav div {
+    background: #136972 !important;
+}
+.tribe-mini-calendar .tribe-events-present, .tribe-mini-calendar .tribe-mini-calendar-today {
+    background: #136972 !important;
+}
+.tribe-mini-calendar .tribe-events-has-events:hover {
+    background: #EBF3F4 !important;
+}
+.tribe-mini-calendar .tribe-events-has-events:hover {
+	color: #136972 !important;
+	background: #EBF3F4 !important;
+}
+.tribe-mini-calendar .tribe-events-has-events:hover a:hover {
+	color: #136972 !important;
+	background: #EBF3F4 !important;
 }
 #options {
 	display: none;
@@ -297,6 +356,27 @@ a.liked:focus { /* default on hover */
 .textalignright {
 	text-align: right;
 }
+#loading {
+	min-height: 300px;
+	-webkit-transition: height 2s linear;
+	-moz-transition: height 2s linear;
+	-k-transition: height 2s linear;
+	-ms-transition: height 2s linear;
+	transition: height 2s linear;
+	background: url(img/Preloader_3.gif) no-repeat center center;
+}
+#map { 
+	height: 400px; 
+}
+#map img {
+	max-width: none !important;
+}
+#bikemap, #busmap { 
+	height: 350px; 
+}
+#map img, #bikemap img {
+	max-width: none;
+}
 .widget p, .wp-caption-text {
 	line-height: 1.2;
 }
@@ -309,8 +389,14 @@ a.liked:focus { /* default on hover */
 	font-family: "Clarendon", Georgia,​ Times, ​serif;
 	font-weight: 700;
 }
+.widget .menu .menu {
+	margin: 0 0 0 15px;
+}
 .widget .menu .current-menu-item a, .widget .menu .current-menu-parent a {
 	color: #000;
+}
+.widget_subpages_current_page ul.menu li a {
+	color: #136972;
 }
 .sd-block {
 	display: block;
@@ -323,6 +409,9 @@ div.jetpack-likes-widget-wrapper {
 }
 .widget div.jetpack-likes-widget-wrapper, .widget .sharedaddy {
     display: none !important;
+}
+td {
+	font-size: 14px;
 }
 #cookie {
 	position: fixed;
@@ -426,4 +515,210 @@ iframe {
 	.ic_caption p {
 	    font-size: 80%;
 	}
+}
+[class^="tube-"]:before, [class*=" tube-"]:before {
+	font-family: 'TubeIcons';
+	font-style: normal;
+	speak: none;
+}
+.tube-GoodService:before {
+	content: "\e342";
+}
+.tube-x:before {
+	content: "\e344";
+}
+.tube-map:before {
+	content: "\e01b";
+}
+.tube-direction:before {
+	content: "\e019";
+}
+.tube-time:before {
+	content: "\76";
+}
+.tube-info:before {
+	content: "\6a";
+}
+.tube-blocked:before {
+	content: "\6b";
+}
+.tube-help:before {
+	content: "\68";
+}
+.tube-home:before {
+	content: "\21";
+}
+.tube-broadcast:before {
+	content: "\22";
+}
+.tube-broadcast-2:before {
+	content: "\23";
+}
+.tube-podcast:before {
+	content: "\24";
+}
+.tube-broadcast-3:before {
+	content: "\25";
+}
+.tube-clock:before {
+	content: "\26";
+}
+.tube-clock-2:before {
+	content: "\27";
+}
+.tube-comments:before {
+	content: "\28";
+}
+.tube-comments-2:before {
+	content: "\29";
+}
+.tube-cars:before {
+	content: "\2a";
+}
+.tube-bus:before {
+	content: "\2b";
+}
+.tube-road:before {
+	content: "\2c";
+}
+.tube-bike:before {
+	content: "\2d";
+}
+.tube-accessibility:before {
+	content: "\2e";
+}
+.tube-enter:before {
+	content: "\30";
+}
+.tube-exit:before {
+	content: "\31";
+}
+.tube-checkbox-unchecked:before {
+	content: "\32";
+}
+.tube-checkbox-partial:before {
+	content: "\33";
+}
+.tube-html5:before {
+	content: "\34";
+}
+.tube-css3:before {
+	content: "\35";
+}
+.tube-IcoMoon:before {
+	content: "\36";
+}
+.tube-location:before {
+	content: "\37";
+}
+.tube-MinorDelays:before {
+	content: "\2f";
+}
+.tube-calendar:before {
+	content: "\38";
+}
+.tube-search:before {
+	content: "\39";
+}
+.tube-ellipsis:before {
+	content: "\3e";
+}
+.tube-PartSuspended:before {
+	content: "\3a";
+}
+.tube-PartClosure:before {
+	content: "\3b";
+}
+.tube-Suspended:before {
+	content: "\3b";
+}
+.tube-train:before {
+	content: "\3c";
+}
+.tube-weekend:before {
+	content: "\3d";
+}
+.tube-part-suspended-2:before {
+	content: "\40";
+}
+.tube-SevereDelays:before {
+	content: "\3f";
+}
+.tube-office:before {
+	content: "\42";
+}
+.tube-wrench:before {
+	content: "\43";
+}
+.tube-station:before {
+	content: "\44";
+}
+.tube-info-circle:before {
+	content: "\45";
+}
+.tube-people:before {
+	content: "\46";
+}
+.tube-woman:before {
+	content: "\47";
+}
+.tube-toilets:before {
+	content: "\48";
+}
+.tube-jquery:before {
+	content: "\49";
+}
+.tube-loop:before {
+	content: "\4a";
+	float: right;
+	margin: 7px 0;
+	cursor: pointer;
+}
+.tube-battery:before {
+	content: "\4b";
+}
+.tube-river:before {
+	content: "\4c";
+}
+.tube-arrow-up:before {
+	content: "\4d";
+}
+.tube-arrow-down:before {
+	content: "\4e";
+}
+.tube-tram:before {
+	content: "\50";
+}
+.tube-train-2:before {
+	content: "\51";
+}
+.tube-tfl:before {
+	content: "\52";
+}
+.tube-closed:before {
+	content: "\53";
+}
+.tube-Suspended:before {
+	content: "\53";
+}
+.tube-DisruptedService:before {
+	content: "\53";
+}
+.tube-bus-2:before {
+	content: "\54";
+}
+.tube-river-2:before {
+	content: "\55";
+}
+.tube-borisbike:before {
+	content: "\56";
+}
+.tube-works:before {
+	content: "\4f";
+}
+.tube-busstop:before {
+	content: "\41";
+}
+.tube-arrow-down {
+	display: none;	
 }

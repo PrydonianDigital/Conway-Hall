@@ -24,13 +24,13 @@
 		<div <?php post_class('sticky'); ?>>
 			<div class="row">
 				<div class="twelve columns ">
-					<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+					<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
 					<h5><?php global $post; $text = get_post_meta( $post->ID, '_cmb_title', true ); echo $text; ?></h5>
 				</div>
 			</div>
 			<div class="row">
 				<div class="three columns">
-					<a href="<?php the_permalink(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+					<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 				</div>
 				<div class="nine columns">
 					<?php the_excerpt(); ?>

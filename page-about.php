@@ -19,15 +19,15 @@
 				    continue;
 				$content = apply_filters( 'the_excerpt', $content );
 			?>
-			<div class="sticky">
+			<div <?php post_class('sticky'); ?>>
 				<div class="row">
 					<div class="twelve columns">
-						<h3><a href="<?php echo get_permalink( $page->ID); ?>"><?php echo $page->post_title; ?></a></h3>
+						<h3><a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo $page->post_title; ?></a></h3>
 					</div>
 				</div>
 				<div class="row">
 					<div class="five columns">
-						<a href="<?php echo get_permalink( $page->ID); ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
+						<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
 					</div>
 					<div class="seven columns">
 						<?php echo $content; ?>	

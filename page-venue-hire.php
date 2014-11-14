@@ -10,41 +10,34 @@
 		<?php the_content(); ?>
 
 		<?php
-		// WP_Query arguments
-		$args = array (
-			'post_type' => 'venue',
-		);
-		// The Query
-		$room_hire = new WP_Query( $args );
-		// The Loop
-		if ( $room_hire->have_posts() ) {
-			while ( $room_hire->have_posts() ) {
-				$room_hire->the_post();
-		?>
-		<div class="sticky">
-			<div class="row">
-				<div class="twelve columns">
-					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
+		
+			foreach( $mypages as $page ) {		
+				$content = $page->post_excerpt;
+				if ( ! $content ) // Check for empty excerpt content & fallback to full content
+				    $content = $page->post_content;
+				if ( ! $content ) // Check for empty page
+				    continue;
+				$content = apply_filters( 'the_excerpt', $content );
+			?>
+			<div <?php post_class('sticky'); ?>>
+				<div class="row">
+					<div class="twelve columns">
+						<h3><a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo $page->post_title; ?></a></h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="five columns">
+						<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
+					</div>
+					<div class="seven columns">
+						<?php echo $content; ?>	
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="five columns">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article'); ?></a>
-				</div>
-				<div class="seven columns">
-					<?php the_excerpt(); ?>
-				</div>
-			</div>
-		</div>
 		<?php
-			}
-		} else {
-			// no posts found
-		}
-		// Restore original Post Data
-		wp_reset_postdata();	
-		?>
-	
+			}	
+		?>		
 	<?php endwhile; ?>
 	
 	<?php endif; ?>

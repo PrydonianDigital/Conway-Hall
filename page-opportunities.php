@@ -24,7 +24,7 @@
 		<div class="sticky">
 			<div class="row">
 				<div class="twelve columns">
-					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h3><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h3>
 					<?php the_excerpt(); ?>
 					<p>Posted in: <?php the_category(', '); ?></p>
 				</div>

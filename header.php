@@ -24,13 +24,13 @@ $background_image = get_background_image();
 <div class="navbar" id="nav1">
 	<div class="row">
 		<a class="toggle" gumby-trigger="#nav1 ul.menu" href="#"><i class="icon-menu"></i></a>
-		<?php wp_nav_menu( array( 'theme_location' => 'chmenu', 'container' => false ) ); ?>
+		<?php wp_nav_menu( array( 'theme_location' => 'chmenu', 'container' => false, 'walker' => new Walker_Page_Custom ) ); ?>
 	</div>
 </div>
 <div class="header">
 	<div class="row">
 		<div class="twelve columns">
-			<a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png"></a>
+			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png"></a></h1>
 		</div>
 	</div>
 </div>

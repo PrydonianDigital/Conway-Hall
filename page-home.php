@@ -62,7 +62,7 @@
 		    </ul>
 		
 		    <div class="tab-content active">
-		        <h2>Upcoming Events</h2>
+		        <h3>Upcoming Events</h3>
 					<?php
 						$args = array (
 							'post_type' => 'tribe_events',
@@ -73,18 +73,18 @@
 							while ( $event_posts->have_posts() ) {
 								$event_posts->the_post();
 						?>
-						<div <?php post_class('sticky'); ?>>
+						<div <?php post_class('sticky vevent hentry'); ?>>
 						<div class="row">
 							<div class="twelve columns ">
-								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+								<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><?php the_title(); ?></a></h4>
 								<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
 							</div>
 						</div>
 						<div class="row">
 							<div class="five columns">
-								<a href="<?php the_permalink(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+								<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 							</div>
-							<div class="seven columns">
+							<div class="seven columns entry-content description">
 								<?php the_excerpt(); ?>
 								<?php echo tribe_get_event_categories( $event_id ); ?>
 							</div>
@@ -100,48 +100,105 @@
 					<p><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
 		    </div>
 		    <div class="tab-content">
-		        <h2>Venue Hire</h2>
-				<?php
-				// WP_Query arguments
-				$args = array (
-					'post_type' => 'venue',
-				);
-				// The Query
-				$room_hire = new WP_Query( $args );
-				// The Loop
-				if ( $room_hire->have_posts() ) {
-					while ( $room_hire->have_posts() ) {
-						$room_hire->the_post();
-				?>
-				<div <?php post_class('sticky'); ?>>
-					<div class="row">
-						<div class="twelve columns">
-							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		        <h3>Venue Hire</h3>
+		        <?php
+					// WP_Query arguments
+					$args = array (
+						'page_id' => '11',
+					);
+					// The Query
+					$library = new WP_Query( $args );
+					// The Loop
+					if ( $library->have_posts() ) {
+						while ( $library->have_posts() ) {
+							$library->the_post();
+					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
+				
+					foreach( $mypages as $page ) {		
+						$content = $page->post_excerpt;
+						if ( ! $content ) // Check for empty excerpt content & fallback to full content
+						    $content = $page->post_content;
+						if ( ! $content ) // Check for empty page
+						    continue;
+						$content = apply_filters( 'the_excerpt', $content );
+					?>
+					<div <?php post_class('sticky'); ?>>
+						<div class="row">
+							<div class="twelve columns">
+								<h3><a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo $page->post_title; ?></a></h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="five columns">
+								<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
+							</div>
+							<div class="seven columns">
+								<?php echo $content; ?>	
+							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="five columns">
-							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article'); ?></a>
-						</div>
-						<div class="seven columns">
-							<?php the_excerpt(); ?>
-						</div>
-					</div>
-				</div>
 				<?php
+					}	
+						}
+					} else {
+						// no posts found
 					}
-				} else {
-					// no posts found
-				}
-				// Restore original Post Data
-				wp_reset_postdata();	
+					
+					// Restore original Post Data
+					wp_reset_postdata();
 				?>
 		    </div>
 		    <div class="tab-content">
-		        <h2>Library</h2>
+		        <h3>Library</h3>
+		        <?php
+					// WP_Query arguments
+					$args = array (
+						'page_id' => '13',
+					);
+					// The Query
+					$library = new WP_Query( $args );
+					// The Loop
+					if ( $library->have_posts() ) {
+						while ( $library->have_posts() ) {
+							$library->the_post();
+					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
+				
+					foreach( $mypages as $page ) {		
+						$content = $page->post_excerpt;
+						if ( ! $content ) // Check for empty excerpt content & fallback to full content
+						    $content = $page->post_content;
+						if ( ! $content ) // Check for empty page
+						    continue;
+						$content = apply_filters( 'the_excerpt', $content );
+					?>
+					<div <?php post_class('sticky'); ?>>
+						<div class="row">
+							<div class="twelve columns">
+								<h3><a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo $page->post_title; ?></a></h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="five columns">
+								<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
+							</div>
+							<div class="seven columns">
+								<?php echo $content; ?>	
+							</div>
+						</div>
+					</div>
+				<?php
+					}	
+						}
+					} else {
+						// no posts found
+					}
+					
+					// Restore original Post Data
+					wp_reset_postdata();
+				?>
 		    </div>
 		    <div class="tab-content">
-		        <h2>Sunday Concerts</h2>
+		        <h3>Sunday Concerts</h3>
 					<?php
 						$args = array (
 							'post_type' => 'tribe_events',
@@ -162,13 +219,13 @@
 						<div <?php post_class('sticky'); ?>>
 							<div class="row">
 								<div class="twelve columns ">
-									<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+									<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
 									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
 								</div>
 							</div>
 							<div class="row">
 								<div class="five columns">
-									<a href="<?php the_permalink(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 								</div>
 								<div class="seven columns">
 									<?php the_excerpt(); ?>
@@ -185,7 +242,7 @@
 					<p><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
 		    </div>
 		    <div class="tab-content">
-		        <h2>Exhibitions</h2>
+		        <h3>Exhibitions</h3>
 					<?php
 						$args = array (
 							'post_type' => 'tribe_events',
@@ -206,13 +263,13 @@
 						<div <?php post_class('sticky'); ?>>
 						<div class="row">
 							<div class="twelve columns ">
-								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+								<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
 								<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
 							</div>
 						</div>
 						<div class="row">
 							<div class="five columns">
-								<a href="<?php the_permalink(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+								<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 							</div>
 							<div class="seven columns">
 								<?php the_excerpt(); ?>
