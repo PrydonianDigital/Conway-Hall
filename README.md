@@ -3,5 +3,7 @@
 ### Features
 
 * Page Templates
-* TfL data
+* Custom Post Types
+* TfL data for visitors
 * Events Calendar
+* Custom Fonts & Icons
