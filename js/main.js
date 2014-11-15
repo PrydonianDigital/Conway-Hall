@@ -94,26 +94,28 @@ function holBornC() {
 			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
-					if(exists(b.TimeTo)) { 
-						var mins = (b.TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b.Destination).replace(' and ', ' &amp; ');
-				    	if(b.TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-				    	}
-					} else {
-						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-				    	if(b['@attributes'].TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	}					
+					if(i < 5) {
+						if(exists(b.TimeTo)) { 
+							var mins = (b.TimeTo).replace(':00', ' mins'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b.Destination).replace(' and ', ' &amp; ');
+							if(b.TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+							}
+						} else {
+							var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+							if(b['@attributes'].TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							}					
+						}
 					}
 				});
 			} else {
@@ -132,6 +134,32 @@ function holBornC() {
 			$('#station').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		}
 	});	
+	$("#map").gmap3({ 
+		getroute:{
+			options:{
+				origin:"Conway Hall, 25 Red Lion Square, London, WC1R 4RL",
+				destination:"Holborn Station",
+				travelMode: google.maps.DirectionsTravelMode.WALKING
+			},
+			callback: function(results){
+				if (!results) return;
+				$(this).gmap3({
+					map:{
+						options:{
+							zoom: 13,	
+							center: [-33.879, 151.235]
+						}
+					},
+					directionsrenderer:{
+						container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#map")),
+						options:{
+							directions:results
+						} 
+					}
+				});
+			}
+		}
+	});	
 }
 function chanceryL() {
 	var chanceryL = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=C&station=CYL';
@@ -144,26 +172,29 @@ function chanceryL() {
 			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
-					if(exists(b.TimeTo)) { 
-						var mins = (b.TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b.Destination).replace(' and ', ' &amp; ');
-				    	if(b.TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-				    	}
-					} else {
-						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-				    	if(b['@attributes'].TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	}					
+					if(i < 5) {
+						if(exists(b.TimeTo)) { 
+							var mins = (b.TimeTo).replace(':00', ' mins'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b.Destination).replace(' and ', ' &amp; ');
+							if(b.TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+							}
+						} else {
+							var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+								due = (b['@attributes'].TimeTo).replace('-', ' due'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+							if(b['@attributes'].TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							}					
+						}
 					}
 				});
 			} else {
@@ -182,6 +213,32 @@ function chanceryL() {
 			$('#station').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		}
 	});	
+	$("#map").gmap3({ 
+		getroute:{
+			options:{
+				origin:"Conway Hall, 25 Red Lion Square, London, WC1R 4RL",
+				destination:"Chancery Lane Station",
+				travelMode: google.maps.DirectionsTravelMode.WALKING
+			},
+			callback: function(results){
+				if (!results) return;
+				$(this).gmap3({
+					map:{
+						options:{
+							zoom: 13,	
+							center: [-33.879, 151.235]
+						}
+					},
+					directionsrenderer:{
+						container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#map")),
+						options:{
+							directions:results
+						} 
+					}
+				});
+			}
+		}
+	});	
 }
 function holBornP() {
 	var holBornP = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=P&station=HOL';
@@ -194,26 +251,28 @@ function holBornP() {
 			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
-					if(exists(b.TimeTo)) { 
-						var mins = (b.TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b.Destination).replace(' and ', ' &amp; ');
-				    	if(b.TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-				    	}
-					} else {
-						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-				    	if(b['@attributes'].TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	}					
+					if(i < 5) {
+						if(exists(b.TimeTo)) { 
+							var mins = (b.TimeTo).replace(':00', ' mins'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b.Destination).replace(' and ', ' &amp; ');
+							if(b.TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+							}
+						} else {
+							var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+							if(b['@attributes'].TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							}					
+						}
 					}
 				});
 			} else {
@@ -244,26 +303,28 @@ function russellSq() {
 			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
-					if(exists(b.TimeTo)) { 
-						var mins = (b.TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b.Destination).replace(' and ', ' &amp; ');
-				    	if(b.TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-				    	}
-					} else {
-						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-							halfMins = (mins).replace(':30', ':30 mins'),
-							secs = (halfMins).replace('0:30 mins', '30 secs'),
-							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-				    	if(b['@attributes'].TimeTo == '-') {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	} else {
-				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-				    	}					
+					if(i < 5) {
+						if(exists(b.TimeTo)) { 
+							var mins = (b.TimeTo).replace(':00', ' mins'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b.Destination).replace(' and ', ' &amp; ');
+							if(b.TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+							}
+						} else {
+							var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+								halfMins = (mins).replace(':30', '&frac12; mins'),
+								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
+								amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+							if(b['@attributes'].TimeTo == '-') {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							} else {
+								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+							}					
+						}
 					}
 				});
 			} else {
@@ -282,17 +343,43 @@ function russellSq() {
 			$('#station').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		}
 	});	
+	$("#map").gmap3({ 
+		getroute:{
+			options:{
+				origin:"Conway Hall, 25 Red Lion Square, London, WC1R 4RL",
+				destination:"Russell Square Station",
+				travelMode: google.maps.DirectionsTravelMode.WALKING
+			},
+			callback: function(results){
+				if (!results) return;
+				$(this).gmap3({
+					map:{
+						options:{
+							zoom: 13,	
+							center: [-33.879, 151.235]
+						}
+					},
+					directionsrenderer:{
+						container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#map")),
+						options:{
+							directions:results
+						} 
+					}
+				});
+			}
+		}
+	});	
 }
 function busses() {
 	var lat = 51.519532,
 		lng = -0.118446;
-    			//var pos = new google.maps.LatLng(lat, lng);
+					//var pos = new google.maps.LatLng(lat, lng);
 				var swLat = lat - 0.003,
-		    		swLng = lng - 0.003,
-		    		neLat = lat + 0.003,
-		    		neLng = lng + 0.003,
+						swLng = lng - 0.003,
+						neLat = lat + 0.003,
+						neLng = lng + 0.003,
 					stops = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/bus.php?swLat='+swLat+'&swLng='+swLng+'&neLat='+neLat+'&neLng='+neLng;
-		    	
+					
 	$.getJSON(stops, function(data) {
 		$.each(data.markers, function (i, a) {
 			$('#map').gmap3({
@@ -338,17 +425,19 @@ function getStop(id, name, towards, stopID) {
 	var stopSearch = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/busstop.php?stop='+id;
 	$.getJSON(stopSearch, function(data) {
 		if(data.arrivals != '') {
-			var stop = '<div class="row"><div class="twelve columns"><h3>'+name+' | Towards '+towards+' | Stop '+stopID+'</h3></div></div><div class="row"><div class="two columns"><h4>Route</h4></div><div class="eight columns"><h4>To</h4></div><div class="two columns"><h4>Arrives</h4></div></div>';
+			var stop = '<div class="row"><div class="twelve columns stationTitle bus"><h4>'+name+' <br /> Towards '+towards+' <br /> Stop '+stopID+'</h4></div></div><div class="row"><div class="two columns"><h5>Route</h5></div><div class="eight columns"><h5>To</h5></div><div class="two columns"><h5>Arrives</h5></div></div>';
 			$.each(data.arrivals, function (i, a) {
-				stop += '<div class="row"><div class="two columns">';
-				stop += '<p><strong>'+a.routeName+'</strong></p>';
-				stop += '</div>';
-				stop += '<div class="eight columns">';
-				stop += '<p>'+a.destination+'</p>';
-				stop += '</div>';
-				stop += '<div class="two columns">';
-				stop += '<p>'+a.estimatedWait+'</p>';
-				stop += '</div></div>';
+				if(i < 10) {
+					stop += '<div class="row"><div class="two columns">';
+					stop += '<p><strong>'+a.routeName+'</strong></p>';
+					stop += '</div>';
+					stop += '<div class="eight columns">';
+					stop += '<p>'+a.destination+'</p>';
+					stop += '</div>';
+					stop += '<div class="two columns">';
+					stop += '<p>'+a.estimatedWait+'</p>';
+					stop += '</div></div>';
+				}
 			});
 			if(data.serviceDisruptions.infoMessages.length > 0) {
 				stop += '<div class="row"><div class="twelve columns"><div class="alert alert-info">'+data.serviceDisruptions.infoMessages+'</div></div></div>';
@@ -373,25 +462,25 @@ function getStop(id, name, towards, stopID) {
 	};
 })(jQuery);
 (function($,sr){
-  var debounce = function (func, threshold, execAsap) {
-      var timeout;
+	var debounce = function (func, threshold, execAsap) {
+			var timeout;
 
-      return function debounced () {
-          var obj = this, args = arguments;
-          function delayed () {
-              if (!execAsap)
-                  func.apply(obj, args);
-              timeout = null;
-          };
-          if (timeout)
-              clearTimeout(timeout);
-          else if (execAsap)
-              func.apply(obj, args);
+			return function debounced () {
+					var obj = this, args = arguments;
+					function delayed () {
+							if (!execAsap)
+									func.apply(obj, args);
+							timeout = null;
+					};
+					if (timeout)
+							clearTimeout(timeout);
+					else if (execAsap)
+							func.apply(obj, args);
 
-          timeout = setTimeout(delayed, threshold || 100);
-      };
-  }
-  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+					timeout = setTimeout(delayed, threshold || 100);
+			};
+	}
+	jQuery.fn[sr] = function(fn){	return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
 })(jQuery,'smartresize');
 $(window).smartresize(function(){
 	$('iframe').sixteenbynine();

@@ -8,6 +8,7 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
+		<div id="map"></div>
 		<div id="holbornStationC"><div id="loading"></div></div>
 		<div id="holbornStationP"><div id="loading"></div></div>
 	<?php endwhile; ?>

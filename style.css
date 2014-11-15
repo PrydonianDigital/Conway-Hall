@@ -130,6 +130,9 @@ footer p {
 	clear: both;
 	background: #ffffff;
 }
+.header h1 {
+	padding-bottom: 0;
+}
 .sticky, .post-sticky, .post-stick {
 	background: #EBF3F4;
 	padding: 10px !important;
@@ -364,6 +367,10 @@ footer p {
 	background: #61abd2;
 	color: #fff !important;
 }
+.bus {
+	background: #DC241F;
+	color: #fff;
+}
 .bike h4 {
 	margin: 0;
 	color: #fff;
@@ -452,6 +459,7 @@ a.liked:focus { /* default on hover */
 }
 #map { 
 	height: 400px; 
+	margin-bottom: 0.5em;
 }
 #map img {
 	max-width: none !important;
