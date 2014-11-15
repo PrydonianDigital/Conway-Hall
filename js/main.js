@@ -44,7 +44,7 @@ function bikes() {
 		var tfl = '';
 		$.each(data, function(i,a) {
 			$('title').prepend(a.name + ' | ');
-			tfl = '<div class="row"><div class="twelve columsn bike"><h4>'+a.name+'</h4></div></div>';
+			tfl = '<div class="row"><div class="twelve columns stationTitle bike"><h4>'+a.name+'</h4></div></div>';
 			tfl += '<div class="row"><div class="four columns"><h5>Available Bikes</h5></div><div class="four columns"><h5>Spaces Available</h5></div><div class="four columns"><h5>Total Spaces</h5></div></div>';
 			tfl += '<div class="row">';
 			tfl += '<div class="four columns">';
@@ -91,31 +91,33 @@ function holBornC() {
 			stationName = data.S['@attributes'].N.replace('.', ''),
 			plat = '<div class="row"><div class="twelve columns stationTitle C"><h4>Central Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
-			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
+			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
-			$.each(a.T, function(i,b) {
-				if(exists(b.TimeTo)) { 
-					var mins = (b.TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b.Destination).replace(' and ', ' &amp; ');
-			    	if(b.TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-			    	}
-				} else {
-					var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-			    	if(b['@attributes'].TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	}					
-				}
-			});
+				$.each(a.T, function(i,b) {
+					if(exists(b.TimeTo)) { 
+						var mins = (b.TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b.Destination).replace(' and ', ' &amp; ');
+				    	if(b.TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+				    	}
+					} else {
+						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+				    	if(b['@attributes'].TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	}					
+					}
+				});
+			} else {
+				plat += '<div class="row"><div class="twelve columns"><h5>Service closed</h5></div></div>';
 			}
 		});
 		plat += '</div>';
@@ -139,31 +141,33 @@ function chanceryL() {
 			stationName = data.S['@attributes'].N.replace('.', ''),
 			plat = '<div class="row"><div class="twelve columns stationTitle C"><h4>Central Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
-			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
+			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
-			$.each(a.T, function(i,b) {
-				if(exists(b.TimeTo)) { 
-					var mins = (b.TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b.Destination).replace(' and ', ' &amp; ');
-			    	if(b.TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-			    	}
-				} else {
-					var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-			    	if(b['@attributes'].TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	}					
-				}
-			});
+				$.each(a.T, function(i,b) {
+					if(exists(b.TimeTo)) { 
+						var mins = (b.TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b.Destination).replace(' and ', ' &amp; ');
+				    	if(b.TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+				    	}
+					} else {
+						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+				    	if(b['@attributes'].TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	}					
+					}
+				});
+			} else {
+				plat += '<div class="row"><div class="twelve columns"><h5>Service closed</h5></div></div>';
 			}
 		});
 		plat += '</div>';
@@ -187,31 +191,33 @@ function holBornP() {
 			stationName = data.S['@attributes'].N.replace('.', ''),
 			plat = '<div class="row"><div class="twelve columns stationTitle P"><h4>Picadilly Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
-			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
+			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
-			$.each(a.T, function(i,b) {
-				if(exists(b.TimeTo)) { 
-					var mins = (b.TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b.Destination).replace(' and ', ' &amp; ');
-			    	if(b.TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-			    	}
-				} else {
-					var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-			    	if(b['@attributes'].TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	}					
-				}
-			});
+				$.each(a.T, function(i,b) {
+					if(exists(b.TimeTo)) { 
+						var mins = (b.TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b.Destination).replace(' and ', ' &amp; ');
+				    	if(b.TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+				    	}
+					} else {
+						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+				    	if(b['@attributes'].TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	}					
+					}
+				});
+			} else {
+				plat += '<div class="row"><div class="twelve columns"><h5>Service closed</h5></div></div>';
 			}
 		});
 		plat += '</div>';
@@ -235,31 +241,33 @@ function russellSq() {
 			stationName = data.S['@attributes'].N.replace('.', ''),
 			plat = '<div class="row"><div class="twelve columns stationTitle P"><h4>Picadilly Line <i class="tube-loop"></i></h4></div></div>';
 		$.each(data.S.P, function(i,a) {
-			plat += '<div class="row"><div class="twelve columns platformholder platform"><h5>'+a['@attributes'].N+'</h5></div></div>';
+			plat += '<div class="row"><div class="twelve columns platformholder platform alert info"><h5>'+a['@attributes'].N+'</h5></div></div>';
 			if(exists(a.T)){
-			$.each(a.T, function(i,b) {
-				if(exists(b.TimeTo)) { 
-					var mins = (b.TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b.Destination).replace(' and ', ' &amp; ');
-			    	if(b.TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
-			    	}
-				} else {
-					var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
-						halfMins = (mins).replace(':30', ':30 mins'),
-						secs = (halfMins).replace('0:30 mins', '30 secs'),
-						amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
-			    	if(b['@attributes'].TimeTo == '-') {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	} else {
-			    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-			    	}					
-				}
-			});
+				$.each(a.T, function(i,b) {
+					if(exists(b.TimeTo)) { 
+						var mins = (b.TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b.Destination).replace(' and ', ' &amp; ');
+				    	if(b.TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>due</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div>';
+				    	}
+					} else {
+						var mins = (b['@attributes'].TimeTo).replace(':00', ' mins'),
+							halfMins = (mins).replace(':30', ':30 mins'),
+							secs = (halfMins).replace('0:30 mins', '30 secs'),
+							amp = (b['@attributes'].Destination).replace(' and ', ' &amp; ');
+				    	if(b['@attributes'].TimeTo == '-') {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	} else {
+				    		plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
+				    	}					
+					}
+				});
+			} else {
+				plat += '<div class="row"><div class="twelve columns"><h5>Service closed</h5></div></div>';
 			}
 		});
 		plat += '</div>';

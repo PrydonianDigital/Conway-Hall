@@ -584,6 +584,9 @@ function add_menu_icons_styles(){
 	#dashboard_right_now .feedback-count a:before {
 	    content: "\f175";
 	}
+	#dashboard_right_now .taxonomy-count a:before {
+	    content: "\f325";
+	}
 	</style>';
 
 }

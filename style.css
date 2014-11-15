@@ -305,6 +305,91 @@ footer p {
 	color: #136972 !important;
 	background: #EBF3F4 !important;
 }
+.line1, .B {
+	background: #AE6118;
+	color: #fff !important;
+}
+.line2, .C {
+	background: #E41F1F;
+	color: #fff !important;
+}
+.line3, .V {
+	background: #009FE0;
+	color: #fff !important;
+}
+.line4, .J {
+	background: #686E72;
+	color: #fff !important;
+}
+.line5, .N {
+	background: #000000;
+	color: #fff !important;
+}
+.line6, .P {
+	background: #0450A1;
+	color: #fff !important;
+}
+.line7, .H {
+	background: #F8D42D;
+	color: #113892 !important;
+}
+.line8, .H {
+	background: #E899A8;
+	color: #113892 !important;
+}
+.line9, .D {
+	background: #007229;
+	color: #fff !important;
+}
+.line10 {
+	
+}
+.line11, .M {
+	background: #893267;
+	color: #fff !important;
+}
+.line12, .W {
+	background: #70C3CE;
+	color: #113892 !important;
+}
+.line81, .dlr {
+	background: #00BBB4;
+	color: #fff !important;
+}
+.line82, .overground {
+	background: #F86C00;
+	color: #fff !important;
+}
+.bike {
+	background: #61abd2;
+	color: #fff !important;
+}
+.bike h4 {
+	margin: 0;
+	color: #fff;
+	line-height: 1;
+	padding: 0;	
+}
+.stationTitle {
+	padding: 0.5em;
+	margin-bottom: 0.5em;
+}
+.stationTitle h4, .stationTitle h4 i {
+	margin: 0;
+	color: #fff;
+	line-height: 1;
+	padding: 0;
+}
+.stationTitle h4 i {
+	font-size: 20px;
+	font-size: 1.2rem;
+}
+.alert.info h5 {
+	color: #fff;
+	margin: 0;
+	line-height: 1;
+	padding: 0;
+}
 #options {
 	display: none;
 }

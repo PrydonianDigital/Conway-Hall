@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: Sub Pages
+*/
+get_header(); ?>
 
 <div class="row">
 
@@ -8,7 +12,6 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
-
 		<?php
 			$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
 		
@@ -37,7 +40,7 @@
 			</div>
 		<?php
 			}	
-		?>		
+		?>	
 	<?php endwhile; ?>
 	
 	<?php endif; ?>
