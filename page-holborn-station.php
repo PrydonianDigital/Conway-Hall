@@ -8,9 +8,26 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
-		<div id="map"></div>
-		<div id="holbornStationC"><div id="loading"></div></div>
-		<div id="holbornStationP"><div id="loading"></div></div>
+		
+		<section class="tabs">
+		
+		    <ul class="tab-nav">
+		        <li class="active"><a href="#">Map</a></li>
+		        <li><a href="#">Central Line</a></li>
+		        <li><a href="#">Piccadilly Line</a></li>
+		    </ul>
+		    
+		    <div class="tab-content active">
+				<div id="map"></div>
+		    </div>
+		    <div class="tab-content">
+				<div id="holbornStationC"><div id="loading"></div></div>
+		    </div>
+		    <div class="tab-content">
+				<div id="holbornStationP"><div id="loading"></div></div>
+		    </div>
+		
+		</section>
 	<?php endwhile; ?>
 	
 	<?php endif; ?>

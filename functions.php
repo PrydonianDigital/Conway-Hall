@@ -1,11 +1,14 @@
 <?php
 
+if ( ! isset( $content_width ) )
+	$content_width = 700;
+	
 function conway_hall_init()  {
 	remove_action( 'wp_head', 'wp_generator' );
 	show_admin_bar( false );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
-
+	//add_theme_support( 'jetpack-responsive-videos' );
 	set_post_thumbnail_size( 700, 394, true );
 	add_image_size( 'featured', 700, 394, true );
 	add_image_size( 'full', 1000, 563, true );
@@ -640,3 +643,27 @@ function rdc_add_views_colurdc_data( $colname ) {
 }
 add_action( 'manage_posts_custom_column', 'rdc_add_views_colurdc_data' );
 
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login  {
+	    	background: #fff;
+	    }
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/header/logo.png);
+            padding-bottom: 30px;
+		    background-position: center top;
+		    background-repeat: no-repeat;
+		    background-size: 257px auto;
+		    height: 99px;
+		    line-height: 1;
+		    margin: 0 auto 25px;
+		    outline: 0 none;
+		    overflow: hidden;
+		    padding: 0;
+		    text-decoration: none;
+		    text-indent: -9999px;
+		    width: 257px;
+		}
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );

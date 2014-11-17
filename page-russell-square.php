@@ -8,8 +8,21 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
-		<div id="map"></div>
-		<div id="russellSqP"><div id="loading"></div></div>
+		<section class="tabs">
+		
+		    <ul class="tab-nav">
+		        <li class="active"><a href="#">Map</a></li>
+		        <li> <a href="#">Piccadilly Line</a></li>
+		    </ul>
+		    
+		    <div class="tab-content active">
+				<div id="map"></div>
+		    </div>
+		    <div class="tab-content">
+				<div id="russellSqP"><div id="loading"></div></div>
+		    </div>
+		
+		</section>
 	<?php endwhile; ?>
 	
 	<?php endif; ?>

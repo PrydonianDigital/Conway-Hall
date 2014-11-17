@@ -13,7 +13,7 @@ get_header(); ?>
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
 		<?php
-			$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
+			$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc', 'parent' => $post->ID ) );
 		
 			foreach( $mypages as $page ) {		
 				$content = $page->post_excerpt;
