@@ -269,6 +269,18 @@ input.text, input.email, input.phone, input.name {
 	color: #136972;
 	border-color: #136972 !important;
 }
+.tribe-events-list .tribe-events-event-cost span {
+    background: #136972;
+    border: 1px solid #fefefe;
+    color: #fff;
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.3;
+    padding: 5px 10px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
 .tab-nav {
 	border-color: #136972 !important;
 }
