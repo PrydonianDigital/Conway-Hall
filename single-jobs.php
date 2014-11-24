@@ -8,26 +8,7 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
-		
-		<section class="tabs">
-		
-		    <ul class="tab-nav">
-		        <li class="active"><a href="#">Map</a></li>
-		        <li><a href="#">Central Line</a></li>
-		        <li><a href="#">Piccadilly Line</a></li>
-		    </ul>
-		    
-		    <div class="tab-content active">
-				<div id="map"></div>
-		    </div>
-		    <div class="tab-content">
-				<div id="holbornStationC"><div id="loading"></div></div>
-		    </div>
-		    <div class="tab-content">
-				<div id="holbornStationP"><div id="loading"></div></div>
-		    </div>
-		
-		</section>
+	
 	<?php endwhile; ?>
 	
 	<?php endif; ?>
@@ -42,7 +23,7 @@
 					<?php
 					// Find connected pages
 					$connected = new WP_Query( array(
-						'connected_type' => 'pdf_to_page',
+						'connected_type' => 'pdf_to_job',
 						'connected_items' => get_queried_object(),
 						'nopaging' => true,
 					) );
@@ -63,7 +44,7 @@
 					wp_reset_postdata();
 					
 					endif;
-					?>					
+					?>	
 					<?php dynamic_sidebar( 'homepage' ); ?>
 				</ul>
 			</div>

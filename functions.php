@@ -136,6 +136,92 @@ function carousel() {
 // Hook into the 'init' action
 add_action( 'init', 'carousel', 0 );
 
+// Register Custom Conway Memorial Lectures Type
+function chml() {
+
+	$labels = array(
+		'name'                => _x( 'Conway Memorial Lectures', 'Post Type General Name', 'ch' ),
+		'singular_name'       => _x( 'Conway Memorial Lecture', 'Post Type Singular Name', 'ch' ),
+		'menu_name'           => __( 'Conway Lecture', 'ch' ),
+		'parent_item_colon'   => __( 'Parent Conway Lecture:', 'ch' ),
+		'all_items'           => __( 'All Conway Lectures', 'ch' ),
+		'view_item'           => __( 'View Conway Lecture', 'ch' ),
+		'add_new_item'        => __( 'Add New Conway Lecture', 'ch' ),
+		'add_new'             => __( 'Add New', 'ch' ),
+		'edit_item'           => __( 'Edit Conway Lecture', 'ch' ),
+		'update_item'         => __( 'Update Conway Lecture', 'ch' ),
+		'search_items'        => __( 'Search Conway Lecture', 'ch' ),
+		'not_found'           => __( 'Not found', 'ch' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+	);
+	$args = array(
+		'label'               => __( 'memorial_lecture', 'ch' ),
+		'description'         => __( '<h4>The Conway Memorial Lectures were introduced in 1910 to honour Moncure Conway.</h4><p>For over one hundred years, a guest lecturer has been selected each year to give the Conway Memorial Lecture.</p><p><em>Please note that the views and ideas expressed within these lectures are of their time and they should be regarded as historicial documents which may not represent the current views of Conway Hall Ethical Society.</em></p>', 'ch' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'memorial_lecture', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'chml', 0 );
+
+// Register Product Post Type
+function products() {
+	$labels = array(
+		'name'                => _x( 'Products', 'Post Type General Name', 'ch' ),
+		'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'ch' ),
+		'menu_name'           => __( 'Products', 'ch' ),
+		'parent_item_colon'   => __( 'Parent Product:', 'ch' ),
+		'all_items'           => __( 'All Products', 'ch' ),
+		'view_item'           => __( 'View Product', 'ch' ),
+		'add_new_item'        => __( 'Add New Product', 'ch' ),
+		'add_new'             => __( 'Add New', 'ch' ),
+		'edit_item'           => __( 'Edit Product', 'ch' ),
+		'update_item'         => __( 'Update Product', 'ch' ),
+		'search_items'        => __( 'Search Products', 'ch' ),
+		'not_found'           => __( 'Not found', 'ch' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+	);
+	$args = array(
+		'label'               => __( 'product', 'ch' ),
+		'description'         => __( 'Conway Hall shop products', 'ch' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title' ),
+		'taxonomies'          => array( 'type' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'rewrite'			  => array('slug' => 'shop'),
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+	);
+	register_post_type( 'product', $args );
+}
+// Hook into the 'init' action
+add_action( 'init', 'products', 0 );
+
 // Register People Post Type
 function people() {
 	$labels = array(
@@ -218,6 +304,106 @@ function jobs() {
 // Hook into the 'init' action
 add_action( 'init', 'jobs', 0 );
 
+// Register PDF Post Type
+function pdf() {
+	$labels = array(
+		'name'                => _x( 'PDFs', 'Post Type General Name', 'ch' ),
+		'singular_name'       => _x( 'PDF', 'Post Type Singular Name', 'ch' ),
+		'menu_name'           => __( 'PDFs', 'ch' ),
+		'parent_item_colon'   => __( 'Parent PDF:', 'ch' ),
+		'all_items'           => __( 'All PDFs', 'ch' ),
+		'view_item'           => __( 'View PDF', 'ch' ),
+		'add_new_item'        => __( 'Add New PDF', 'ch' ),
+		'add_new'             => __( 'Add PDF', 'ch' ),
+		'edit_item'           => __( 'Edit PDF', 'ch' ),
+		'update_item'         => __( 'Update PDF', 'ch' ),
+		'search_items'        => __( 'Search PDFs', 'ch' ),
+		'not_found'           => __( 'Not found', 'ch' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+	);
+	$args = array(
+		'label'               => __( 'pdf', 'ch' ),
+		'description'         => __( 'All PDFs for the site', 'ch' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'pdf', $args );
+}
+// Hook into the 'init' action
+add_action( 'init', 'pdf', 0 );
+
+// Register Custom Taxonomy Types
+function type() {
+	$labels = array(
+		'name'                       => _x( 'Types', 'Taxonomy General Name', 'ch' ),
+		'singular_name'              => _x( 'Type', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'                  => __( 'Types', 'ch' ),
+		'all_items'                  => __( 'All Types', 'ch' ),
+		'parent_item'                => __( 'Parent Type', 'ch' ),
+		'parent_item_colon'          => __( 'Parent Type:', 'ch' ),
+		'new_item_name'              => __( 'New Type', 'ch' ),
+		'add_new_item'               => __( 'Add New Type', 'ch' ),
+		'edit_item'                  => __( 'Edit Type', 'ch' ),
+		'update_item'                => __( 'Update Types', 'ch' ),
+		'separate_items_with_commas' => __( 'Separate Types with commas', 'ch' ),
+		'search_items'               => __( 'Search Types', 'ch' ),
+		'add_or_remove_items'        => __( 'Add or remove Types', 'ch' ),
+		'choose_from_most_used'      => __( 'Choose from the most used Types', 'ch' ),
+		'not_found'                  => __( 'Not Found', 'ch' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'type', array( 'product' ), $args );
+}
+// Hook into the 'init' action
+add_action( 'init', 'type', 0 );
+
+function my_connection_types() {
+    p2p_register_connection_type( array(
+        'name' => 'pdf_to_page',
+        'from' => 'pdf',
+        'to' => 'page'
+    ) );
+}
+add_action( 'p2p_init', 'my_connection_types' );
+
+function job_pdf() {
+    p2p_register_connection_type( array(
+        'name' => 'pdf_to_job',
+        'from' => 'pdf',
+        'to' => 'jobs'
+    ) );
+}
+add_action( 'p2p_init', 'job_pdf' );
+
+function lecture_pdf() {
+    p2p_register_connection_type( array(
+        'name' => 'pdf_to_lecture',
+        'from' => 'pdf',
+        'to' => 'memorial_lecture'
+    ) );
+}
+add_action( 'p2p_init', 'lecture_pdf' );
+
 add_action( 'init', 'my_add_excerpts_to_pages' );
 function my_add_excerpts_to_pages() {
      add_post_type_support( 'page', 'excerpt' );
@@ -265,7 +451,68 @@ function job_title( $meta_boxes ) {
 }
 add_filter( 'cmb_meta_boxes', 'job_title' );
 
+function pdf_box( $meta_boxes ) {
+	$prefix = '_cmb_';
+	$meta_boxes[] = array(
+		'id' => 'meta',
+		'title' => 'PDF',
+		'pages' => array('pdf'),
+		'context' => 'normal',
+		'priority' => 'high',
+		'show_names' => true,
+		'fields' => array(
+			array(
+				'name' => __( 'PDF file', 'ch' ),
+				'id'   => $prefix . 'pdf',
+				'type' => 'file',
+			),
+		),
+	);
+	return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'pdf_box' );
 
+function amazon_asin( $meta_boxes ) {
+	$prefix = '_cmb_';
+	$meta_boxes[] = array(
+		'id' => 'meta',
+		'title' => 'Product ASIN',
+		'pages' => array('product'),
+		'context' => 'normal',
+		'priority' => 'high',
+		'show_names' => true,
+		'fields' => array(
+			array(
+				'name' => __( 'ASIN #', 'ch' ),
+				'id'   => $prefix . 'asin',
+				'type' => 'text',
+			),
+		),
+	);
+	return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'amazon_asin' );
+
+function memorial_speaker( $meta_boxes ) {
+	$prefix = '_cmb_';
+	$meta_boxes[] = array(
+		'id' => 'meta',
+		'title' => 'Speaker',
+		'pages' => array('memorial_lecture'),
+		'context' => 'normal',
+		'priority' => 'high',
+		'show_names' => true,
+		'fields' => array(
+			array(
+				'name' => __( 'Speaker', 'ch' ),
+				'id'   => $prefix . 'speaker',
+				'type' => 'text',
+			),
+		),
+	);
+	return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'memorial_speaker' );
 
 add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
 function be_initialize_cmb_meta_boxes() {
@@ -589,6 +836,15 @@ function add_menu_icons_styles(){
 	}
 	#dashboard_right_now .taxonomy-count a:before {
 	    content: "\f325";
+	}
+	#adminmenu #menu-posts-pdf div.wp-menu-image:before, #dashboard_right_now .pdf-count a:before {
+	    content: "\f497";
+	}
+	#adminmenu #menu-posts-product div.wp-menu-image:before, #dashboard_right_now .product-count a:before {
+	    content: "\f313";
+	}
+	#adminmenu #menu-posts-memorial_lecture div.wp-menu-image:before, #dashboard_right_now .memorial_lecture-count a:before {
+	    content: "\f488";
 	}
 	</style>';
 

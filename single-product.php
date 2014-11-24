@@ -8,7 +8,8 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
-	
+		<?php global $post; $text = get_post_meta( $post->ID, '_cmb_asin', true ); ?>
+		<?php echo do_shortcode( '[asa book]' . $text . '[/asa]' ); ?>
 	<?php endwhile; ?>
 	
 	<?php endif; ?>
