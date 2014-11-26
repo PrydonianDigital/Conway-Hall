@@ -7,3 +7,5 @@
 * TfL data for visitors
 * Events Calendar
 * Custom Fonts & Icons
+* Room Planners
+* 360º Tours

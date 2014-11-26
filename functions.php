@@ -102,7 +102,7 @@ function room_planner() {
 add_action('wp_enqueue_scripts', 'room_planner');
 
 function tour() {
-    if ( is_page(array('artists-room-306o-tour')) ) {
+    if ( is_page(array('artists-room-360o-tour')) ) {
         wp_enqueue_script('swf');
         wp_enqueue_script('json2');
     } 
