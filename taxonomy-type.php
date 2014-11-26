@@ -2,10 +2,10 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 	<h2><?php $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); echo $term->name; ?></h2>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<div class="shop_item">
+		<div <?php post_class('shop_item'); ?>>
 		<?php global $post; $text = get_post_meta( $post->ID, '_cmb_asin', true ); ?>
 		<?php echo do_shortcode( '[asa book]' . $text . '[/asa]' ); ?>
 		</div>
@@ -19,7 +19,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

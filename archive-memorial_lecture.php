@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 		<h2><?php post_type_archive_title(); ?></h2>
 		<h5><?php $obj = get_post_type_object( 'memorial_lecture' ); echo $obj->description;  ?> </h5>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -29,7 +29,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

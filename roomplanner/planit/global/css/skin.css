@@ -1,0 +1,60 @@
+/* set selected colour */	
+
+#planit_container .planit_left_col ul li.selected, #planit_container .button, #planit_container #tour_button,#lightbox .print {
+    background-color: #136972;
+}
+
+#planit_container #floorplan_title {
+    color: #136972;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+
+/* set widths */
+
+#planit_container {
+    width: 100%;
+}
+
+#planit_container #planit_right_footer {
+    width: 100%;
+}
+
+#planit_container #planit_floorplan_display {
+    width: 100%;
+}
+
+#planit_container #floorplan_title {
+    width: 100%;
+
+}
+
+/* set heights */
+
+#planit_container #main_content_panel {
+    height: 540px;
+    width: 100%;
+}
+
+#planit_container #planit_floorplan_display {
+    height: 540px;
+}
+
+#planit_container ul#capacities {
+    height: 400px;
+}
+
+#planit_left {
+    height: 600px;
+    position: relative;
+
+}
+
+#planit_container img#image_floorplan, img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_compass{
+    height: 485px;
+	display:none;
+	margin: 0 auto;
+}
+
+

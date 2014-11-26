@@ -6,7 +6,7 @@ get_header(); ?>
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 	
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
@@ -47,7 +47,7 @@ get_header(); ?>
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

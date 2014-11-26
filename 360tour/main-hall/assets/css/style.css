@@ -1,0 +1,131 @@
+/*-----------------------------------------------------------------------------
+
+Panaround Style Sheet 
+
+version:   2.0
+author:    Panaround Ltd
+email:     info@panaround.com
+website:   http://www.panaround.co.uk
+credits:   based on an original css structure by http://www.andybudd.com/
+
+-----------------------------------------------------------------------------*/
+
+/* =General
+-----------------------------------------------------------------------------*/
+
+
+/* Remove padding and margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Put it back on certain elements */
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, fieldset, table, ul {
+  margin: 0px 0 10px 0;
+  padding:0px;
+}
+
+/* Class for clearing floats */
+.clear {
+	clear:both;
+}
+
+
+/* Remove border around linked images */
+img {
+	border: 0;	
+}
+
+.left {float:left}
+.right {float:right}
+
+
+/* =Typography
+-----------------------------------------------------------------------------*/
+
+body {
+  font: 16px Georgia, "Times New Roman", Times, serif;
+  background-color:#F5F5F3;
+  color:#838383;
+}
+
+
+/* =Headings -- Change the hex value for the H1 to control heading text colour
+-----------------------------------------------------------------------------*/
+
+h1{ font-size:18px; color:#3DAAD5; font-weight:normal; margin:0px; padding:0px 0px 8px 0px}
+p{color:#838383; line-height:24px;}
+a{color:#838383; text-decoration:none;}
+
+
+/* =Virtual Tour
+-----------------------------------------------------------------------------*/
+
+#panaround_virtual_tour{
+
+	padding:9px 10px 10px 10px;
+	margin: 10px 0px 0px 10px;
+}
+
+#alternate_content   { height:210px; text-align:center; padding-top:140px;}
+#alternate_content a { color:#D24C0C; }
+
+
+/* =Branding
+-----------------------------------------------------------------------------*/
+
+#produced_by_panaround a {
+position:absolute;
+display:block;
+left:25px;
+top:10px;
+width:155px;
+height:20px;
+}
+
+#produced_by_panaround a span{
+display:none;
+}
+
+/* =Wrappers
+-----------------------------------------------------------------------------*/
+
+#center_float_container{	
+    width: 1015px;
+	height: 520px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -507px;
+	margin-top: -262px;
+	background:#F5F5F3 url(../img/ui/shadows.jpg) bottom no-repeat;
+	}
+	
+#main_content_wrapper{	
+    width: 995px;
+	padding:10px;
+	height: 478px;
+	border:1px solid #DDD;
+	background:#FFF url(../img/ui/line-bg.jpg) 5px 2px no-repeat;
+	}
+
+
+/* =Secondary Content
+-----------------------------------------------------------------------------*/
+
+#tour_details{
+	width: 280px;
+	padding:16px 30px 5px 20px;
+}
+#client_logo{
+	width: 340px;
+	margin-top:12px;
+}
+#contact_details{
+	width: 300px;
+	padding:16px 20px 5px 0px;
+	text-align:right;
+}	
+#contact_details a:hover{color:#666;}
+

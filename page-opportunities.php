@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 	
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
@@ -21,19 +21,21 @@
 			while ( $room_hire->have_posts() ) {
 				$room_hire->the_post();
 		?>
-		<div class="sticky">
+		<div <?php post_class('sticky'); ?>>
 			<div class="row">
 				<div class="twelve columns">
 					<h3><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h3>
 					<?php the_excerpt(); ?>
-					<p>Posted in: <?php the_category(', '); ?></p>
+					<p><?php echo get_the_term_list( $post->ID, 'job_type', 'Posted in: ', ', ', '' ); ?></p>
 				</div>
 			</div>
 		</div>
 		<?php
 			}
 		} else {
-			// no posts found
+		?>
+			<h5>No vacancies found</h5>
+		<?php
 		}
 		// Restore original Post Data
 		wp_reset_postdata();	
@@ -45,7 +47,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

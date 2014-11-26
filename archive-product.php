@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 
 		<?php
 		$id = 356;
@@ -21,7 +21,7 @@
 		?>	
 		<?php if ( $speaker->have_posts() ) :  while ( $speaker->have_posts() ) : $speaker->the_post(); ?>
 		
-			<div class="shop_item">
+			<div <?php post_class('shop_item'); ?>>
 				<?php //echo get_the_term_list( $post->ID, 'type', 'Type: ', ', ', '' ); ?>
 				<?php global $post; $text = get_post_meta( $post->ID, '_cmb_asin', true ); ?>
 				<?php echo do_shortcode( '[asa book]' . $text . '[/asa]' ); ?>		
@@ -39,7 +39,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

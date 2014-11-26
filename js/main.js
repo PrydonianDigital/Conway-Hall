@@ -1,5 +1,99 @@
 Gumby.init();
 $(function() {
+	if (element_exists('#mainhall')){
+	   $('#planit').planit({
+			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
+			roomName: 'main-hall',
+			selectedLayout: 'boardroom',
+			pageTitle: 'Main Hall',
+			roomDimensions: true,
+			power: true,
+			tvScreens: true,
+			fireEscapes: true,
+		 });
+	};
+	if (element_exists('#brockway')){
+	   $('#planit').planit({
+			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
+			roomName: 'brockway-room',
+            selectedLayout: 'boardroom',
+			pageTitle: 'Brockway Room',
+			roomDimensions: true,
+			power:true,
+			tvScreens: true,
+			fireEscapes: false,
+		 });
+	};
+	if (element_exists('#artists')){
+	   $('#planit').planit({
+			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
+			roomName: 'artists-room',
+            selectedLayout: 'boardroom',
+			pageTitle: "Artists' Room",
+			roomDimensions: true,
+			power:true,
+			tvScreens: false,
+			fireEscapes: false,
+		 });
+	};
+	if (element_exists('#foyer')){
+	   $('#planit').planit({
+			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
+			roomName: 'foyer',
+            selectedLayout: 'buffet',
+			pageTitle: 'Foyer',
+			roomDimensions: true,
+			power:true,
+			tvScreens: false,
+			fireEscapes: false,
+		 });
+	};
+	if (element_exists('#bertrand')){
+	   $('#planit').planit({
+			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
+			roomName: 'bertrand-russell-room',
+            selectedLayout: 'boardroom',
+			pageTitle: 'Bertrand Russell Room',
+			roomDimensions: true,
+			power:true,		
+			fireEscapes: false,
+			tvScreens: false,
+		 });
+	};
+	if (element_exists('#club')){
+	   $('#planit').planit({
+			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
+			roomName: 'club-room',
+            selectedLayout: 'boardroom',
+			pageTitle: 'Club Room',
+			roomDimensions: true,
+			power:true,
+			tvScreens: false,
+			fireEscapes: true,
+		 });
+	};
+	if (element_exists('#balcony')){
+	   $('#planit').planit({
+			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
+			roomName: 'balcony',
+            selectedLayout: 'theatre',
+			pageTitle: 'Balcony',
+			roomDimensions: false,
+			power:true,
+			tvScreens: false,
+			fireEscapes: true,
+			virtualTour: false,
+		 });
+	};
+	if (element_exists('#artists360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/artists-room/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/artists-room/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("artists360"); 
+	};
+	$('#artists360').sixteenbynine();
+	$('#pano').sixteenbynine();
 	$("#ch-carousel").owlCarousel({
 		items: 1,
 		lazyLoad : true,

@@ -37,7 +37,7 @@ add_action( 'after_setup_theme', 'conway_hall_init' );
 
 function ch_scripts() {
 	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', get_template_directory_uri() . '/js/jquery.js', false, '1.11.1', true );
+	wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js', false, '1.11.1', true );
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', false, '2.8.1', false );
 	wp_register_script( 'gumby', get_template_directory_uri() . '/js/libs/gumby.min.js', false, '2.6', true );
 	wp_register_script( 'cookie', get_template_directory_uri() . '/js/libs/cookie.js', false, '1.4.1', true );
@@ -46,6 +46,16 @@ function ch_scripts() {
 	wp_register_script( 'gmap', '//maps.googleapis.com/maps/api/js?sensor=false&region=GB', false, '6.0.0', true );
 	wp_register_script( 'gmap3', get_template_directory_uri() . '/js/gmap3.js', false, '6.0.0', true );
 	wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', false, '2.6', true );
+	wp_register_script( 'planittooltip', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.tooltip.js', false, '2.6', true );
+	wp_register_script( 'planitcarousel', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.jcarousel.min.js', false, '2.6', true );
+	wp_register_script( 'planitswf', get_template_directory_uri() . '/roomplanner/planit/global/js/swfobject.js', false, '2.6', true );	
+	wp_register_script( 'planitflash', get_template_directory_uri() . '/roomplanner/planit/global/js/flash-detection.js', false, '2.6', true );
+	wp_register_script( 'planittour', get_template_directory_uri() . '/roomplanner/planit/global/tour.js', false, '2.6', true );
+	wp_register_script( 'planitfancybox', get_template_directory_uri() . '/roomplanner/planit/global/lightwindow/jquery.fancybox.js', false, '2.6', true );
+	wp_register_script( 'planitprint', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.printarea.js', false, '2.6', true );
+	wp_register_script( 'planit', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.planit.js', false, '2.6', true );
+	wp_register_script( 'swf', get_template_directory_uri() . '/360tour/js/swfobject.js', false, '2.6', true );
+	wp_register_script( 'json2', get_template_directory_uri() . '/360tour/js/json2.js', false, '2.6', true );
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'modernizr' );
 	wp_enqueue_script( 'gumby' );
@@ -64,12 +74,40 @@ function ch_styles() {
 	wp_register_style( 'owl', get_template_directory_uri() . '/owl-carousel/owl.carousel.css', false, '3.0.1' );
 	wp_register_style( 'theme', get_template_directory_uri() . '/owl-carousel/owl.theme.css', false, '3.0.1' );
 	wp_register_style( 'normalise', get_template_directory_uri() . '/css/normalize.css', false, '3.0.1' );
+	wp_register_style( 'planit', get_template_directory_uri() . '/roomplanner/planit/global/css/style.css', false, '2.6' );
+	wp_register_style( 'planitskin', get_template_directory_uri() . '/roomplanner/planit/global/css/skin.css', false, '2.6' );
+	wp_register_style( 'planitprint', get_template_directory_uri() . '/roomplanner/planit/global/css/print.css', false, '2.6', 'print' );
 	wp_enqueue_style( 'normalise' );
 	wp_enqueue_style( 'owl' );
 	wp_enqueue_style( 'theme' );
 	wp_enqueue_style( 'base' );
 }
 add_action( 'wp_enqueue_scripts', 'ch_styles' );
+
+function room_planner() {
+    if ( is_page(array('main-hall-room-planner', 'brockway-room-planner', 'balcony-room-planner', 'artists-room-planner', 'bertrand-russell-room-planner', 'foyer-room-planner', 'club-room-planner')) ) {
+        wp_enqueue_script('planittooltip');
+        wp_enqueue_script('planitcarousel');
+        wp_enqueue_script('planitswf');
+        wp_enqueue_script('planitflash');
+        wp_enqueue_script('planittour');
+        wp_enqueue_script('planitfancybox');
+        wp_enqueue_script('planitprint');
+        wp_enqueue_script('planit');
+		wp_enqueue_style( 'planit' );
+		wp_enqueue_style( 'planitskin' );
+		wp_enqueue_style( 'planitprint' );
+    } 
+}
+add_action('wp_enqueue_scripts', 'room_planner');
+
+function tour() {
+    if ( is_page(array('artists-room-306o-tour')) ) {
+        wp_enqueue_script('swf');
+        wp_enqueue_script('json2');
+    } 
+}
+add_action('wp_enqueue_scripts', 'tour');
 
 function ch_menu() {
 	$locations = array(
@@ -285,7 +323,7 @@ function jobs() {
 		'description'         => __( 'Job/Volunteering listings', 'ch' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
-		'taxonomies'          => array( 'category' ),
+		'taxonomies'          => array( 'job_type' ),
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -344,7 +382,7 @@ function pdf() {
 // Hook into the 'init' action
 add_action( 'init', 'pdf', 0 );
 
-// Register Custom Taxonomy Types
+// Register Custom Types Taxonomy
 function type() {
 	$labels = array(
 		'name'                       => _x( 'Types', 'Taxonomy General Name', 'ch' ),
@@ -376,6 +414,40 @@ function type() {
 }
 // Hook into the 'init' action
 add_action( 'init', 'type', 0 );
+
+// Register Custom Jobs Taxonomy
+function job_type() {
+	$labels = array(
+		'name'                       => _x( 'Job Type', 'Taxonomy General Name', 'ch' ),
+		'singular_name'              => _x( 'Job Type', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'                  => __( 'Job Types', 'ch' ),
+		'all_items'                  => __( 'All Job Types', 'ch' ),
+		'parent_item'                => __( 'Parent Job Type', 'ch' ),
+		'parent_item_colon'          => __( 'Parent Job Type:', 'ch' ),
+		'new_item_name'              => __( 'New Job Type', 'ch' ),
+		'add_new_item'               => __( 'Add New Job Type', 'ch' ),
+		'edit_item'                  => __( 'Edit Job Type', 'ch' ),
+		'update_item'                => __( 'Update Job Types', 'ch' ),
+		'separate_items_with_commas' => __( 'Separate Job Types with commas', 'ch' ),
+		'search_items'               => __( 'Search Job Types', 'ch' ),
+		'add_or_remove_items'        => __( 'Add or remove Job Types', 'ch' ),
+		'choose_from_most_used'      => __( 'Choose from the most used Job Types', 'ch' ),
+		'not_found'                  => __( 'Not Found', 'ch' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'job_type', array( 'jobs' ), $args );
+}
+// Hook into the 'init' action
+add_action( 'init', 'job_type', 0 );
+
 
 function my_connection_types() {
     p2p_register_connection_type( array(

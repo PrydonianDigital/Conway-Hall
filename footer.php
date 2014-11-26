@@ -9,7 +9,7 @@
 	</div>
 	
 	<div class="four columns">
-		
+		<h2><a href="https://www.facebook.com/pages/Conway-Hall/109921265690429" target="_blank" rel="Facebook"><i class="icon-facebook-circled"></i></a> <a href="https://twitter.com/conwayhall" target="_blank" rel="Twitter"><i class="icon-twitter-circled"></i></a> <a href="https://www.google.co.uk/maps/place/Conway+Hall/" target="_blank" rel="Location"><i class="icon-location"></i></a></h2>
 	</div>
 	
 

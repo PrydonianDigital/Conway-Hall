@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 		<?php
 		$id = 771;
 		$p = get_page($id);
@@ -33,7 +33,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

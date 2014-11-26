@@ -20,7 +20,7 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 	font-style: normal; 
 } 
 @font-face { 
-	font-family: 'Clarendon'; 
+	font-family: 'Clarendonlig'; 
 	src: url('fonts/clarebtlig-webfont.eot'); 
 	src: url('fonts/clarebtlig-webfont.eot?#iefix') format('embedded-opentype'), 
 		url('fonts/clarebtlig-webfont.woff') format('woff'), 
@@ -52,7 +52,7 @@ html, body {
 body { 
 	color: #000; 
 	background: #FFF; 
-	font-family: Georgia, Times, serif; 
+	font-family: "Clarendonlig", Georgia, Times, serif; 
 	text-shadow: 0 0 0 rgba(0,0,0,0) !important;
 } 
 h1, h2, h3, h4, h5, h6 {
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 1.45rem;
 }
 p {
-	font-family: "Clarendon", Georgia, Times, serif; 
+	font-family: "Clarendonlig", Georgia, Times, serif; 
 	line-height: 1.4em;
 }
 a {
@@ -82,8 +82,11 @@ a {
 	text-decoration: none;
 	line-height: 1;
 }
-
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #136972;
+	text-decoration: underline;
+}
+.sticky h1 a, .sticky h2 a, .sticky h3 a, .sticky h4 a, .sticky h5 a, .sticky h6 a {
 	color: #136972;
 	text-decoration: none;
 }
@@ -99,6 +102,12 @@ footer p {
 	font-size: 14px;
 	font-size: 0.8rem;
 	margin: 0;
+}
+footer h2 {
+	text-align: right;
+}
+footer h2 a {
+	color: #fff;
 }
 .navbar {
 	font-family: "Clarendon", Georgia,​ Times, ​serif;
@@ -128,7 +137,7 @@ footer p {
 #nav1 {
 	margin-bottom: 0;
 }
-.navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a, .navbar li.current-page-ancestor .dropdown .current-menu-item > a {
+.navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a, .navbar li.current-page-ancestor .dropdown .current-menu-item > a, .page-template-taxonomy-type-php .menu-item-607 a {
 	background: #EBF3F4;
 	color: #000; 
 	text-decoration: none;
@@ -269,7 +278,11 @@ input.text, input.email, input.phone, input.name {
 	color: #136972;
 	border-color: #136972 !important;
 }
-.tribe-events-list .tribe-events-event-cost span {
+.tribe-events-event-cost {
+    float: right;
+    margin: 0 0 5px 5px;
+}
+.tribe-events-list .tribe-events-event-cost span, .sticky .tribe-events-event-cost span {
     background: #136972;
     border: 1px solid #fefefe;
     color: #fff;
@@ -280,6 +293,10 @@ input.text, input.email, input.phone, input.name {
     padding: 5px 10px;
     text-align: center;
     text-overflow: ellipsis;
+}
+.tribe_events.sticky h4 {
+	display: inline;
+	float: none;
 }
 .tab-nav {
 	border-color: #136972 !important;
@@ -536,11 +553,11 @@ a.liked:focus { /* default on hover */
 }
 .alignleft {
 	float: left;
-	margin: 0 0.5em 0 0;
+	margin: 0 0.75em 0 0;
 }
 .alignright {
 	float: right;
-	margin: 0 0 0 0.5em;
+	margin: 0 0 0 0.75em;
 }
 .aligncenter {
 	margin: 0 auto;
@@ -585,6 +602,9 @@ a.liked:focus { /* default on hover */
 }
 .widget .menu .menu {
 	margin: 0.273em 0 0 15px;
+}
+.widget a {
+	text-decoration: none;
 }
 .widget .menu .current-menu-item a, .widget .menu .current-menu-parent a {
 	color: #000;
@@ -700,7 +720,7 @@ iframe {
 }
 .attachment-speaker {
 	float: left;
-	margin: 0 0.5em 0 0;
+	margin: 0 1em 0 0;
 }
 .page-template-single-php h2 {
 	clear: left;
@@ -708,6 +728,9 @@ iframe {
 .columns ul:not(.tab-nav), .columns ul:not(.menu), {
 	list-style: disc;
 	margin: 0 0 0 1em;
+}
+.pano {
+	margin: 0 auto 1.5em auto;
 }
 
 @media only screen and (max-width: 768px) {

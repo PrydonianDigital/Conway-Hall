@@ -1,0 +1,1467 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@charset "utf-8";
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, a, em, font, img, strong, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, input table, caption, tbody, tfoot, thead, tr, th, td {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+}
+legend, caption {
+    display: none;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Georgia,Times,serif;
+    font-size: 16px;
+    line-height: 1.4em;
+    overflow-y: scroll;
+}
+* html body {
+    overflow-y: visible;
+}
+* + html body {
+    overflow-y: visible;
+}
+a {
+    color: #000000;
+    text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+    padding: 0 0 10px;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.8em;
+}
+h3 {
+    font-size: 1.6em;
+}
+h4 {
+    font-size: 1.4em;
+}
+h5 {
+    font-size: 1.2em;
+}
+h6 {
+    font-size: 1.1em;
+}
+p {
+    margin: 0 0 8px;
+}
+ol, ul {
+    list-style-type: none;
+}
+ul {
+    padding: 0 0 0 15px;
+}
+li {
+    padding: 0;
+}
+dl {
+    padding: 0 0 20px;
+}
+dt {
+    padding: 0 0 5px;
+}
+dd {
+    padding: 0 0 5px;
+}
+#madeByMU a {
+    position: fixed;
+    visibility: hidden;
+}
+#madeByMU .r {
+    bottom: 30px;
+    right: 0;
+}
+#madeByMU .l {
+    bottom: 30px;
+    left: 0;
+    width: 15px;
+}
+#madeByMU .b {
+    bottom: 0;
+    right: 30px;
+}
+* html #madeByMU a {
+    position: absolute;
+    right: 0;
+}
+* html #madeByMU .r, * html #madeByMU .l {
+}
+* html #madeByMU .b {
+}
+div.mediaPlayer div.videoControls {
+    background-image: url("http://assets1.conwayhall.org.uk/lib/mediaPlayer/black60.png");
+    bottom: 0;
+    height: 25px;
+    position: absolute;
+    right: 0;
+}
+div.mediaPlayer div.videoPlay {
+    background-image: url("http://assets2.conwayhall.org.uk/lib/mediaPlayer/videoControls/play.png");
+    cursor: pointer;
+    float: left;
+    height: 25px;
+    width: 25px;
+}
+div.mediaPlayer div.videoPlay.playing {
+    background-image: url("http://assets3.conwayhall.org.uk/lib/mediaPlayer/videoControls/pause.png");
+}
+div.mediaPlayer div.videoProgress {
+    float: left;
+    height: 25px;
+    width: 100px;
+}
+div.mediaPlayer div.videoProgress div.videoProgressHolder {
+    background-color: #666666;
+    cursor: pointer;
+    height: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 90px;
+}
+div.mediaPlayer div.videoProgressSlider {
+    background-color: #FFFFFF;
+    height: 5px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+}
+div.mediaPlayer div.videoTime {
+    color: #FFFFFF;
+    float: left;
+    font-size: 0.7em;
+    font-weight: bold;
+    height: 20px;
+    padding-left: 2px;
+    padding-top: 5px;
+    width: 63px;
+}
+div.mediaPlayer div.volumeButton {
+    background-image: url("http://assets4.conwayhall.org.uk/lib/mediaPlayer/videoControls/mute.png");
+    cursor: pointer;
+    float: left;
+    height: 25px;
+    width: 25px;
+}
+div.mediaPlayer div.volumeButton.muted {
+    background-image: url("http://assets5.conwayhall.org.uk/lib/mediaPlayer/videoControls/mute_active.png");
+}
+div.pageMedia {
+    height: 250px;
+    left: 0;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    width: 630px;
+}
+div.mediaSwapper div.mediaItem {
+    display: none;
+    height: inherit;
+    overflow: hidden;
+    width: inherit;
+}
+body.noJavascript div.mediaSwapper div.mediaItem {
+    display: block;
+}
+div.mediaSwapper div.mediaItem.current {
+    z-index: 10;
+}
+div.mediaSwapper div.mediaItem.previous {
+    z-index: 9;
+}
+div.mediaSwapper div.mediaCaption {
+    background-image: url("http://assets1.conwayhall.org.uk/lib/mediaPlayer/black60.png");
+    color: #FFFFFF;
+    height: 190px;
+    left: 20px;
+    padding: 10px;
+    position: relative;
+    top: -230px;
+    width: 190px;
+}
+div.mediaSwapper div.mediaCaption h3, div.mediaSwapper div.mediaCaption p {
+    margin: 0;
+    padding: 0;
+}
+div.mediaSwapper .first {
+    padding-top: 0;
+}
+div.mediaSwapper div#transport {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: inherit;
+    z-index: 11;
+}
+div.mediaSwapper div#transport_playpause {
+    background-image: url("http://assets1.conwayhall.org.uk/lib/mediaPlayer/black60.png");
+}
+div.mediaSwapper div#transport div#transport_next, div.mediaSwapper div#transport div#transport_previous {
+    background-image: url("http://assets3.conwayhall.org.uk/lib/mediaPlayer/transportControls/next.png");
+    background-position: 0 0;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 180px;
+    width: 20px;
+}
+div.mediaSwapper div#transport div#transport_previous {
+    background-image: url("http://assets4.conwayhall.org.uk/lib/mediaPlayer/transportControls/previous.png");
+    left: 0;
+}
+div.mediaSwapper div#transport div#transport_next.hover {
+    background-image: url("http://assets5.conwayhall.org.uk/lib/mediaPlayer/transportControls/next_hover.png");
+}
+div.mediaSwapper div#transport div#transport_previous.hover {
+    background-image: url("http://assets1.conwayhall.org.uk/lib/mediaPlayer/transportControls/previous_hover.png");
+}
+div.mediaSwapper div#transport div#transport_playpause {
+    cursor: pointer;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+div.mediaSwapper div#transport div.transport_chooser {
+    background-image: url("http://assets2.conwayhall.org.uk/lib/mediaPlayer/transportControls/inactive.png");
+    cursor: pointer;
+    float: left;
+    height: 25px;
+    width: 25px;
+}
+div.mediaSwapper div#transport div.transport_chooser.current {
+    background-image: url("http://assets3.conwayhall.org.uk/lib/mediaPlayer/transportControls/active.png");
+}
+div.mediaSwapper div#transport div#transport_playpause div#transport_play {
+    background-image: url("http://assets4.conwayhall.org.uk/lib/mediaPlayer/transportControls/play.png");
+    float: left;
+    height: 25px;
+    width: 25px;
+}
+div.mediaSwapper div#transport div#transport_playpause div#transport_play.playing {
+    background-image: url("http://assets5.conwayhall.org.uk/lib/mediaPlayer/transportControls/pause.png");
+}
+.pdfLink, .docLink, .xlsLink, .pptLink, .jpgLink {
+    background: url("http://assets1.conwayhall.org.uk/lib/icons/pdf.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 10px 0 10px 35px;
+}
+.docLink {
+    background-image: url("http://assets2.conwayhall.org.uk/lib/icons/doc.png");
+}
+.xlsLink {
+    background-image: url("http://assets3.conwayhall.org.uk/lib/icons/xls.png");
+}
+.pptLink {
+    background-image: url("http://assets4.conwayhall.org.uk/lib/icons/ppt.png");
+}
+.jpgLink {
+    background-image: url("http://assets5.conwayhall.org.uk/lib/icons/jpg.png");
+}
+/*
+@font-face {
+    font-family: "Clarendon";
+    font-style: normal;
+    font-weight: bold;
+    src: url("/font/clarebtbol-webfont.eot?#iefix") format("embedded-opentype"), url("/font/clarebtbol-webfont.woff") format("woff"), url("/font/clarebtbol-webfont.ttf") format("truetype"), url("/font/clarebtbol-webfont.svg#ClarendonRegular") format("svg");
+}
+@font-face {
+    font-family: "Clarendon";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/font/clarebtlig-webfont.eot?#iefix") format("embedded-opentype"), url("/font/clarebtlig-webfont.woff") format("woff"), url("/font/clarebtlig-webfont.ttf") format("truetype"), url("/font/clarebtlig-webfont.svg#") format("svg");
+}*/
+body {
+    font-family: 'Clarendon',Georgia,Times,serif;
+    letter-spacing: 1px;
+    line-height: 1.3em;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    font-size: 1.9em;
+    font-weight: bold;
+    line-height: 0.9em;
+    padding-bottom: 0.5em;
+}
+h3 {
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding-top: 0;
+}
+h4 {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding-top: 0;
+}
+h5 {
+    font-size: 1.067em;
+    font-weight: bold;
+    padding-bottom: 0.4em;
+    padding-top: 0;
+}
+blockquote, p.leadQuote {
+    background-image: url("/imgs/quote-mark1.png");
+    background-repeat: no-repeat;
+    color: #136972;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.1em;
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 100px;
+}
+ul, ol {
+    margin: 0;
+    padding: 0 0 1.2em 1.8em;
+}
+ol li {
+    list-style-type: decimal;
+    padding-left: 0;
+}
+ul li {
+    list-style-type: disc;
+    padding-left: 0;
+}
+li {
+}
+p {
+    margin: 0;
+    padding: 0 0 1em;
+}
+a {
+    color: #136972;
+}
+a:hover {
+    color: #0B3539;
+}
+#childNav ol {
+    padding-left: 0;
+}
+#childNav ol li {
+    list-style-type: none;
+}
+#childNav ol a {
+    background-image: url("/imgs/child-link-dot.png");
+    background-position: 3px 4px;
+    background-repeat: no-repeat;
+    padding-left: 15px;
+    text-decoration: none;
+}
+#childNav li.backTo {
+    margin-top: 30px;
+}
+#childNav li.backTo a {
+    background-color: #DFE7EA;
+    background-position: 8px 11px;
+    height: 20px;
+    padding: 6px 12px 5px 20px;
+}
+#childNav li.backTo a:hover {
+    background-color: #BED7DA;
+}
+.pdfLink, .docLink, .xlsLink, .pptLink, .jpgLink {
+    background-position: 3px 8px;
+}
+#childNav .pdfLink a, #childNav .docLink a, #childNav .xlsLink a, #childNav .pptLink a, #childNav .jpgLink a {
+    background-image: none;
+    padding-left: 1px;
+}
+body {
+}
+#container {
+    width: 100%;
+}
+#centerArea {
+    margin: 55px auto;
+    width: 940px;
+}
+#header {
+    height: 136px;
+    width: 940px;
+}
+#logo {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 257px;
+}
+#content {
+    float: left;
+    padding-bottom: 30px;
+    width: 720px;
+}
+#content .col {
+    width: 690px;
+}
+br.clear, div.clear {
+    display: none;
+}
+#navOuter {
+    background-image: url("/imgs/bg.png");
+    background-repeat: repeat-x;
+    height: 29px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 55000;
+}
+#nav {
+    height: 29px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 950px;
+}
+
+#nav li {
+    background-image: url("/imgs/1nav-sep.png");
+    background-position: 0 3px;
+    background-repeat: no-repeat;
+    float: left;
+    list-style-type: none;
+    margin: 0 0 0 8px;
+    padding: 0 0 0 12px;
+}
+#nav li.first {
+    background-image: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+#nav li a {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+#nav li a:hover {
+    color: #0E4C52;
+}
+#nav li.activeParent a, #nav li.active a {
+    color: #000000;
+}
+div.pageMedia, div.eventMedia {
+    height: 200px;
+    padding-bottom: 32px;
+    width: 690px;
+}
+div.mediaSwapper div.mediaCaption {
+    background-image: url("/imgs/imageSwapper/gradient-bottom.png");
+    background-repeat: repeat-x;
+    height: 200px;
+    left: 0;
+    padding: 170px 10px;
+    pointer-events: none;
+    top: -200px;
+    width: 690px;
+}
+div.mediaSwapper div.mediaCaption h4, div.mediaSwapper div.mediaCaption h3 {
+    font-size: 1em;
+    text-shadow: 1px 1px 2px #000000;
+}
+div.mediaSwapper div#transport div#transport_playpause {
+    left: 0;
+}
+div.mediaSwapper div#transport_playpause {
+    background-image: none;
+}
+#transport_nextPrevious {
+    display: none;
+}
+#widgets {
+    float: left;
+    overflow: hidden;
+    width: 220px;
+}
+#widgets .col {
+    width: 220px;
+}
+#followSupport {
+}
+#followSupport {
+    left: 0;
+    position: fixed;
+    top: 25px;
+    width: 100%;
+    z-index: 54000;
+}
+#followSupportInner {
+    left: 50%;
+    position: absolute;
+    width: 470px;
+}
+#followTab, #supportTab {
+    background-color: #126972;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 2px 6px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#followTab a, #supportTab a {
+    color: #FFFFFF;
+    text-decoration: none;
+
+}
+#followTab a:hover, #supportTab a:hover {
+    color: #CCCCCC;
+}
+#followTab {
+    right: 115px;
+}
+#supportPopup {
+    background-image: url("/imgs/supportUs/popup-support.png");
+    background-repeat: no-repeat;
+    display: none;
+    height: 112px;
+    padding-left: 12px;
+    padding-right: 15px;
+    padding-top: 23px;
+    position: absolute;
+    right: 0;
+    top: 22px;
+    width: 257px;
+}
+#supportPopup p {
+    display: block;
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 0.9em;
+    padding-bottom: 10px;
+    width: 157px;
+}
+#supportPopup hr {
+    background-color: #126972;
+    clear: both;
+    color: #126972;
+    height: 1px;
+}
+img.supportClose {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 8px;
+}
+#followPopup {
+    background-image: url("/imgs/followUs/popup-follow.png");
+    background-repeat: no-repeat;
+    display: none;
+    height: 112px;
+    padding-left: 12px;
+    padding-right: 0;
+    padding-top: 23px;
+    position: absolute;
+    right: 0;
+    top: 22px;
+    width: 290px;
+}
+#followPopup div {
+    float: left;
+}
+#followPopup .mailingList {
+    width: 130px;
+}
+#followPopup .twitterShare {
+    width: 68px;
+}
+#footerOuter {
+    background-color: #1A8B99;
+    clear: both;
+    color: #FFFFFF;
+    height: 90px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+#footerOuter #last {
+    display: none;
+}
+#footer {
+    font-size: 0.8em;
+    height: 90px;
+    line-height: 1em;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 940px;
+}
+#footerLogo {
+    float: left;
+    padding-top: 20px;
+    width: 70px;
+}
+#fctext1 {
+    float: left;
+    padding-top: 35px;
+    width: 655px;
+}
+#fctext2 {
+    float: left;
+    padding-top: 35px;
+    width: 200px;
+}
+#footer p {
+    margin: 0;
+    padding: 0;
+}
+#footer a {
+    color: #FFFFFF;
+}
+#footer a:hover {
+    color: #CCCCCC;
+}
+#footer #fcsocial h3, #footer #fcsocial .mediaCaption {
+    display: none;
+}
+#footer #fcsocial .mediaItem {
+    float: left;
+    overflow: hidden;
+    width: 36px;
+}
+.calendarHolderOuter {
+    clear: both;
+    height: 100px;
+    margin: 0 auto;
+    width: 940px;
+}
+.calendarHolderOuter h3 {
+    font-size: 1.2em;
+    padding-bottom: 4px;
+    text-align: center;
+}
+table.calendarTable {
+    border-bottom: 1px solid #828282;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 1px solid #828282;
+    text-align: center;
+    width: 940px;
+}
+.calendarHolder caption {
+    color: #198C98;
+    display: table-caption;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.calendarHolder caption .calPrev a {
+    background-image: url("/imgs/calendar/back.png");
+    background-position: 4px 1px;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    height: 10px;
+    overflow: hidden;
+    padding-left: 25px;
+    text-decoration: none;
+}
+.calendarHolder caption .calPrev a:hover {
+    background-position: 4px -40px;
+}
+.calendarHolder caption .calNext a {
+    background-image: url("/imgs/calendar/next.png");
+    background-position: 100% 1px;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    padding-left: 0;
+    padding-right: 20px;
+    text-decoration: none;
+}
+.calendarHolder caption .calNext a:hover {
+    background-position: 100% -40px;
+}
+.calendarHolder caption .calMonth {
+    padding: 0 20px;
+}
+.calendarTable th {
+    border-left: medium none;
+    font-size: 0.9em;
+    font-weight: normal;
+    padding-top: 2px;
+}
+.calendarTable td {
+    border-left: medium none;
+    font-size: 0.9em;
+    padding-bottom: 2px;
+}
+.calendarTable .odd {
+    background-color: #E4E4E4;
+}
+#container .calendarTable td.calToday, #container .calendarTable th.calToday {
+    background-color: #1D879D;
+}
+#container .calendarTable td.calToday a, #container .calendarTable th.calToday a {
+    color: #FFFFFF;
+}
+.calendarPreview {
+    background-image: url("/imgs/calendar/calendar-head.png");
+    background-repeat: no-repeat;
+    left: 200px;
+    padding-top: 7px;
+    position: absolute;
+    top: -100px;
+    width: 242px;
+    z-index: 60000;
+}
+.calendarPreviewOuter {
+    background-image: url("/imgs/calendar/calendar-foot.png");
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 16px;
+}
+.calendarPreviewInner {
+    background-image: url("/imgs/calendar/calendar-body.png");
+    background-repeat: repeat-y;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.calendarPreview ol.moreLinks, .calendarPreview .closeLink {
+    display: none;
+}
+.calendarPreview .closeLink a {
+    background-image: url("/imgs/supportUs/close.png");
+    background-repeat: no-repeat;
+    height: 15px;
+    position: absolute;
+    right: -3px;
+    text-indent: -5000px;
+    top: -1px;
+    width: 15px;
+}
+.calendarPreview h4, .calendarPreview p {
+    font-size: 0.9em;
+    font-weight: normal;
+    padding-bottom: 0;
+}
+.calendarPreview h4 a {
+    text-decoration: none;
+}
+.calendarPreviewItem {
+    border-bottom: 1px solid #707070;
+    clear: both;
+    padding-bottom: 5px;
+}
+.calendarPreview .last {
+    border-bottom: medium none;
+    padding-bottom: 1px;
+}
+.calendarPreview .noImage {
+    padding-left: 10px;
+}
+.calendarPreviewItem .img {
+    float: left;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-top: 8px;
+    width: 50px;
+}
+.calendarPreviewItem .copy {
+    float: left;
+    padding-top: 3px;
+    width: 162px;
+}
+.calendarPreview div.clear {
+    clear: both;
+    display: block;
+    height: 1px;
+    overflow: hidden;
+}
+.subNav {
+    padding-bottom: 50px;
+}
+.subNav h3 {
+    background-color: #EBEBEB;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 6px 0 2px 8px;
+}
+.subNav a {
+    text-decoration: none;
+}
+.subNav li {
+    background-color: #BED7DA;
+    list-style-type: none;
+    margin-bottom: 1px;
+    padding: 4px 0 0;
+}
+.subNav ol {
+    padding: 0;
+}
+.subNav ol a {
+    background-image: url("/imgs/child-link-dot.png");
+    background-position: 11px 4px;
+    background-repeat: no-repeat;
+    display: block;
+    font-weight: bold;
+    padding-bottom: 2px;
+    padding-left: 23px;
+}
+.subNav ol {
+    background-color: #FFFFFF;
+    padding: 0;
+}
+.subNav ol ol {
+    padding-bottom: 1px;
+}
+.subNav ol ol li {
+    background-color: #DAE8EA;
+    overflow: hidden;
+    width: 200px;
+}
+.subNav ol ol li a {
+    background-position: 20px 4px;
+    font-weight: normal;
+    padding-left: 32px;
+}
+.subNav li.active {
+    background-color: #136972;
+    background-image: url("/imgs/2nav-active.png");
+    background-position: 0 4px;
+    background-repeat: no-repeat;
+}
+.subNav li.active a {
+    background-image: url("/imgs/child-link-dot-white.png");
+    color: #FFFFFF;
+}
+.subNav li.active li a {
+    background-image: url("/imgs/child-link-dot.png");
+    color: #136972;
+}
+.subNav li.active li a:hover {
+    color: #0B3539;
+}
+.pageCrossSells h3, .homepage .templateCrossSell h3 {
+    color: #136972;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 10px;
+}
+.pageCrossSells .item h3, .homepage .templateCrossSell .item h3 {
+    background-image: url("/imgs/overlay1.png");
+    height: 20px;
+    overflow: hidden;
+    padding: 6px 0 2px 8px;
+    position: relative;
+    top: -28px;
+}
+.pageCrossSells .item h3 a, .homepage .templateCrossSell .item h3 a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.pageCrossSells .item h3 a:hover, .homepage .templateCrossSell .item h3 a:hover {
+    color: #CCCCCC;
+}
+.pageCrossSells .item ol.moreLinks, .homepage .templateCrossSell .item ol.moreLinks {
+    display: none;
+}
+.pageCrossSells p, .homepage .templateCrossSell p {
+    line-height: 1.15em;
+    margin-top: -22px;
+}
+.pageCrossSells .clear, .homepage .templateCrossSell .clear {
+    display: none;
+}
+.breadCrumb {
+    clear: both;
+    font-size: 0.8em;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    padding-top: 30px;
+    width: 940px;
+}
+.breadCrumb a.current {
+    color: #000000;
+    text-decoration: none;
+}
+.fieldGroup {
+    background-color: #EBF3F5;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.fieldGroup h3.formTitle {
+    color: #126972;
+    margin-top: -19px;
+    padding-left: 45px;
+}
+.fieldGroup .number {
+    background-color: #126972;
+    color: #FFFFFF;
+    font-size: 1.6em;
+    font-weight: bold;
+    height: 30px;
+    left: -10px;
+    padding-top: 7px;
+    position: relative;
+    text-align: center;
+    top: 10px;
+    width: 35px;
+}
+.fieldGroup .l, .fieldGroup .r {
+    float: left;
+}
+.fieldGroup .l {
+    padding-left: 45px;
+    padding-top: 5px;
+    width: 220px;
+}
+.fieldGroup .r {
+    width: 400px;
+}
+.fieldGroup .r input, .fieldGroup .r select {
+    border: 1px solid #CCCCCC;
+    font-family: Georgia,Times,serif;
+    font-size: 0.9em;
+    height: 36px;
+    padding-left: 10px;
+    width: 300px;
+}
+.formrow .fieldSpecs, .fieldGroup .frvisitorEmailAddress .r .req, .fieldGroup .frmessage .r .req, .fieldGroup .frsurname .r .req, .fieldGroup .fremail .r .req, .fieldGroup .frpostcode .r .req, .fieldGroup .frlogin_password .r .req {
+    display: none;
+}
+.fieldGroup .formrow {
+    clear: both;
+    margin-bottom: 10px;
+    overflow: auto !important;
+}
+.fieldGroup .r .req {
+    display: inline;
+    font-size: 0.8em;
+    padding-left: 10px;
+}
+.fieldGroup textarea {
+    border: 1px solid #CCCCCC;
+    font-family: Georgia,Times,serif;
+    height: 228px;
+    padding: 10px;
+    width: 290px;
+}
+.frmessage label {
+    visibility: hidden;
+}
+.frSubmit .l {
+    display: none;
+}
+#content .fieldGroup .r .f_button {
+    background: url("http://assets1.conwayhall.org.uk/imgs/submit.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 24px;
+    line-height: 0;
+    padding: 0;
+    text-indent: -9999px;
+    width: 78px;
+}
+.fieldGroup .r select {
+    width: 310px;
+}
+.fieldGroup .r select option {
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+#fieldGroup_foot {
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+.privacy {
+    padding: 10px;
+}
+.frclientGroup .l label {
+    display: none;
+}
+.frclientGroup .r input {
+    height: auto;
+    width: auto;
+}
+.frclientGroup .r fieldset div {
+    padding-bottom: 10px;
+}
+.choiceItem {
+    clear: both;
+    padding-bottom: 18px;
+}
+#records .last {
+    padding-bottom: 0;
+}
+.choiceItem .item {
+    background-color: #EBF3F4;
+    min-height: 160px;
+    width: 690px;
+}
+.choiceItem .item:hover {
+    background-color: #BED7DA;
+}
+.choiceItem .item .img {
+    float: left;
+    height: 160px;
+    overflow: hidden;
+    width: 380px;
+}
+.choiceItem .item .copy {
+    float: left;
+    padding-bottom: 7px;
+    padding-top: 20px;
+    width: 290px;
+}
+.choiceItem .item .copy h3 a {
+    text-decoration: none;
+}
+.choiceItem .item .copy ol.moreLinks {
+    display: none;
+}
+.choiceItem br.clear {
+    clear: both;
+    display: block;
+}
+#records .hasNoBoxImage .item .copy {
+    padding-left: 20px;
+}
+.textMultipleImages div.pageMedia {
+    height: auto;
+    overflow: visible;
+    width: 240px;
+}
+.textMultipleImages div.pageMedia h4, .textMultipleImages div.pageMedia h3 {
+    color: #666666;
+    font-size: 0.8em;
+    font-weight: normal;
+    line-height: 0.8em;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+.textMultipleImages #content .col1 {
+    float: left;
+    width: 260px;
+}
+.textMultipleImages #content .col2 {
+    float: left;
+    width: 420px;
+}
+.textMultipleImages blockquote {
+    padding-right: 40px;
+}
+.homepage div.pageMedia {
+    height: 270px;
+    padding-bottom: 30px;
+    width: 940px;
+}
+.homepage #content {
+    width: 940px;
+}
+.homepage #content .col {
+    width: 940px;
+}
+.homepage #widgets {
+    display: none;
+}
+.homepage div.mediaSwapper div.mediaCaption {
+    background-image: url("/imgs/imageSwapper/gradient-left.png");
+    background-repeat: repeat-y;
+    height: 270px;
+    left: 0;
+    padding: 55px 10px;
+    top: -270px;
+    width: 690px;
+}
+.homepage div.mediaSwapper div.mediaCaption p.intro {
+    color: #198C98;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+.homepage div.mediaSwapper div.mediaCaption h3 {
+    font-size: 1.9em;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+.homepage div.mediaSwapper div.mediaCaption p.time {
+}
+.homepage div.mediaSwapper div#transport {
+    top: 243px;
+}
+.homepage h2 {
+    color: #136972;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0 80px 35px;
+    text-align: center;
+}
+.homepage .templateCrossSell {
+    float: left;
+    height: 200px;
+    overflow: hidden;
+    width: 320px;
+}
+.homepage #content .templateCrossSell h3 {
+    font-size: 1.2em;
+    height: 20px;
+    padding: 3px 0 5px 8px;
+}
+.homepage .templateCrossSell .img {
+    height: 120px;
+    overflow: hidden;
+    width: 300px;
+}
+.homepage .templateCrossSell .copy {
+    width: 300px;
+}
+.homepage .tcs3 {
+    width: 300px;
+}
+.homepage .calendarHolderOuter {
+    padding-bottom: 30px;
+}
+.imageMap h2 {
+    display: none;
+}
+.imageMap #content, .imageMap #content .col {
+    width: 940px;
+}
+#imagemap {
+    position: relative;
+}
+#imagemap .marker {
+    position: absolute;
+}
+#imagemap .marker a.trigger {
+    background-image: url("/imgs/image-map/dot.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+}
+#imagemap .marker .popupBox {
+    background-image: url("/imgs/image-map/popup.png");
+    background-repeat: no-repeat;
+    display: none;
+    height: 240px;
+    left: -254px;
+    overflow: hidden;
+    padding: 23px 30px 10px 26px;
+    position: absolute;
+    top: -40px;
+    width: 205px;
+}
+#imagemap .marker .popupBox h3 {
+    font-size: 1em;
+}
+#imagemap .marker .popupBox h3 a {
+    text-decoration: none;
+}
+#imagemap .marker .popupBox p {
+    padding-top: 8px;
+}
+.whatson #records .choiceItem .item .img {
+    height: 280px;
+    width: 310px;
+}
+.whatson #records .choiceItem .item .copy {
+    width: 355px;
+}
+p.category a {
+    font-weight: bold;
+    text-decoration: none;
+}
+.pagechooser {
+    height: 1px;
+    position: relative;
+    right: 0;
+    text-align: right;
+    top: 25px;
+}
+.whatson #records .hasNoBoxImage .item .copy {
+    padding-left: 310px;
+}
+.whatson .bookLinks {
+    height: 37px;
+}
+.whatson .bookLink, .whatson .moreInfo, .whatson .facebookEvent, .whatson .twitterShare {
+    float: left;
+    width: 108px;
+}
+.whatson .bookLink a, .whatson .moreInfo a, .whatson .facebookEvent a {
+    background-image: url("http://assets2.conwayhall.org.uk/imgs/whats-on/book-left.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    height: 28px;
+    overflow: hidden;
+    padding-left: 6px;
+    text-decoration: none;
+    width: 92px;
+}
+.whatson .bookLink a span, .whatson .moreInfo a span, .whatson .facebookEvent a span {
+    background-image: url("http://assets3.conwayhall.org.uk/imgs/whats-on/book-right.png");
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    display: block;
+    height: 28px;
+    overflow: hidden;
+    padding-left: 2px;
+    padding-top: 3px;
+}
+.whatson .bookLink a:hover, .whatson .moreInfo a:hover, .whatson .facebookEvent a:hover {
+    background-position: 0 -28px;
+}
+.whatson .bookLink a:hover span, .whatson .moreInfo a:hover span, .whatson .facebookEvent a:hover span {
+    background-position: 100% -28px;
+}
+.whatson .moreInfo {
+    width: 106px;
+}
+.whatson .moreInfo a {
+    width: 90px;
+}
+.whatson .facebookEvent {
+    width: 132px;
+}
+.whatson .facebookEvent a {
+    width: 117px;
+}
+.whatson .twitterShare {
+    width: 85px;
+}
+.verticalCalendarHolder {
+    clear: both;
+}
+th.dayName, td.eventTime {
+    background-color: #BED7DB;
+    font-weight: normal;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    text-align: left;
+    width: 80px;
+}
+td.events {
+    background-color: #EBF3F5;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-top: 10px;
+    width: 460px;
+}
+td.events p {
+    padding: 0;
+}
+td.events h3 {
+    font-size: 1em;
+    padding: 0;
+}
+.monthHeader th {
+    background-color: #126972;
+    color: #FFFFFF;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-top: 7px;
+    text-align: left;
+}
+th.dayName, td.eventHolder {
+    border-bottom: 2px solid #FFFFFF;
+}
+.filterContainer .fieldGroup {
+    background-color: #BED7DB;
+}
+.monthPickForm .fieldGroup .r select {
+    height: auto;
+    width: 170px;
+}
+#content .filterContainer .l {
+    padding-left: 0;
+    width: 130px;
+}
+#content .filterContainer .r {
+    width: 175px;
+}
+.filterContainer .fieldGroup .formrow {
+    float: left;
+    padding-top: 10px;
+    width: 310px;
+}
+#content .monthPickOnly .frstartFrom {
+    padding-left: 20px;
+    width: 330px;
+}
+.monthPickForm .fieldGroup .frsubmit {
+    clear: none;
+    padding-top: 13px;
+    width: 100px;
+}
+.monthPickForm .fieldGroup .frsubmit .l {
+    display: none;
+}
+.monthPickForm .fieldGroup .frsubmit {
+    overflow: hidden !important;
+}
+.filterContainer {
+    background-color: #BED7DB;
+    height: 53px;
+}
+.filterContainer .iconContainer {
+    float: left;
+    width: 60px;
+}
+.filterContainer .iconContainer a {
+    display: block;
+    height: 34px;
+    overflow: hidden;
+    text-decoration: none;
+    width: 48px;
+}
+#content .filterContainer .switchView, #content .filterContainer .monthPickForm {
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    width: 255px;
+}
+#content .filterContainer .monthPickForm {
+    height: 40px;
+    width: 430px;
+}
+#content .monthPickOnly .monthPickForm {
+    width: 450px;
+}
+#content .filterContainer .switchView .formrow {
+    width: 280px;
+}
+#content .filterContainer .switchView .l {
+    padding-left: 20px;
+    width: 110px;
+}
+#content .filterContainer .switchView .r {
+    width: 120px;
+}
+.filterContainer #listViewIcon {
+    background-image: url("/imgs/whats-on/list-view-icon.png");
+    background-position: 0 0;
+    height: 34px;
+    width: 48px;
+}
+.filterContainer #calViewIcon {
+    background-image: url("/imgs/whats-on/calendar-view.png");
+    background-position: 0 0;
+    height: 34px;
+    width: 48px;
+}
+.filterContainer a:hover #listViewIcon, .filterContainer a:hover #calViewIcon {
+    background-position: 0 -68px;
+}
+.filterContainer a.active #listViewIcon, .filterContainer a.active #calViewIcon {
+    background-position: 0 -34px;
+}
+html body {
+    letter-spacing: 0;
+}
+html #nav ol {
+    padding: 1px 0 0;
+}
+html #nav li {
+    background-position: 0 5px;
+}
+html .subNav h3 {
+    padding: 4px 0 3px 8px;
+}
+html .subNav li {
+    padding: 2px 0 0;
+}
+html .subNav ol a {
+    background-position: 11px 8px;
+}
+html .subNav ol ol li a {
+    background-position: 20px 8px;
+}
+html #childNav ol a {
+    background-position: 3px 8px;
+}
+html #childNav li.backTo a {
+    background-position: 8px 14px;
+}
+html .pageCrossSells .item h3 {
+    padding: 4px 0 4px 8px;
+}
+html .calendarHolder caption .calPrev a {
+    background-position: 4px 5px;
+}
+html .calendarHolder caption .calPrev a:hover {
+    background-position: 4px -36px;
+}
+html .calendarHolder caption .calPrev a {
+    background-position: 4px 5px;
+}
+html .calendarHolder caption .calPrev a:hover {
+    background-position: 4px -36px;
+}
+html .calendarHolder caption .calNext a {
+    background-position: 100% 5px;
+}
+html .calendarHolder caption .calNext a:hover {
+    background-position: 100% -36px;
+}
+
+
+/* Panaround Planit */
+
+#back_home_button a{padding:6px; background:#DFE7EA; display:inline; margin:20px 0px; float:left; text-decoration:none;}
+
+
+#navOuter {background:#218C98}
+
+#nav ol {
+    margin: 0;
+    padding: 6px 0 0 !important;
+    width: 1500px;
+}
+
+#site_wrapper {
+
+	margin: 60px auto ; /* the bottom margin is the negative value of the footer's height */
+}
+#centerArea {
+    margin: 0px auto;
+    width: 940px;
+}
+
+#header {
+    height: 125px;
+    width: 940px;
+}
+
+#footerOuter, .push {
+	height: 155px; /* .push must be the same height as .footer */
+}
+
+#footerOuter {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+
+#fctext1 {
+    float: left;
+    padding-top: 22px;
+    width: 655px;
+}

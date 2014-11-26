@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<layouts>
+
+    <layout title="buffet">
+    <capacity>50</capacity>
+    </layout>
+	<layout title="clear floor">
+    <capacity></capacity>
+    </layout>
+		
+</layouts>

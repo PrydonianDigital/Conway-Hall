@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<layouts>
+
+    <layout title="boardroom">
+    <capacity>16</capacity>
+    </layout>
+	<layout title="cabaret">
+    <capacity>32</capacity>
+    </layout>
+	<layout title="u shape">
+    <capacity>30</capacity>
+    </layout>
+	<layout title="buffet">
+    <capacity>40</capacity>
+    </layout>
+	<layout title="theatre">
+    <capacity>35</capacity>
+    </layout>
+	<layout title="hollow square">
+    <capacity>20</capacity>
+    </layout>
+	
+</layouts>

@@ -1,0 +1,22 @@
+/*-----------------------------------------------------------------------------
+
+Panaround IE7 Alt Style Sheet 
+
+version:   2.0
+author:    Panaround Ltd
+email:     info@panaround.com
+website:   http://www.panaround.co.uk
+credits:   based on an original css structure by http://www.andybudd.com/
+
+-----------------------------------------------------------------------------*/
+
+/* =IE7 Specific
+-----------------------------------------------------------------------------*/
+
+#panaround_virtual_tour{
+
+	padding:20px 10px 10px 10px;
+	margin: 10px 0px 0px 10px;
+}
+
+

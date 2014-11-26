@@ -2,7 +2,7 @@
 
 <div class="row">
 	
-	<div class="twelve columns homePage">
+	<div class="twelve columns homePage" role="main">
 		<div id="ch-carousel" class="owl-carousel">
 			<?php
 			// WP_Query arguments
@@ -38,7 +38,7 @@
 </div>
 
 <div class="row">
-	<div class="twelve columns homePage">
+	<div class="twelve columns homePage" role="main">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<?php the_content(); ?>
 		<?php endwhile; ?>
@@ -49,7 +49,7 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 	
 		<section class="tabs">
 		
@@ -76,6 +76,11 @@
 						<div <?php post_class('sticky vevent hentry'); ?>>
 						<div class="row">
 							<div class="twelve columns ">
+								<?php if ( tribe_get_cost() ) : ?>
+									<div class="tribe-events-event-cost">
+										<span><?php echo tribe_get_cost( null, true ); ?></span>
+									</div>
+								<?php endif; ?>
 								<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><?php the_title(); ?></a></h4>
 								<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
 							</div>
@@ -161,7 +166,7 @@
 					if ( $library->have_posts() ) {
 						while ( $library->have_posts() ) {
 							$library->the_post();
-					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
+					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc', 'parent' => $post->ID ) );
 				
 					foreach( $mypages as $page ) {		
 						$content = $page->post_excerpt;
@@ -216,9 +221,14 @@
 							while ( $sunday_posts->have_posts() ) {
 								$sunday_posts->the_post();
 						?>
-						<div <?php post_class('sticky'); ?>>
+						<div <?php post_class('sticky vevent hentry'); ?>>
 							<div class="row">
 								<div class="twelve columns ">
+									<?php if ( tribe_get_cost() ) : ?>
+										<div class="tribe-events-event-cost">
+											<span><?php echo tribe_get_cost( null, true ); ?></span>
+										</div>
+									<?php endif; ?>
 									<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
 									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
 								</div>
@@ -260,21 +270,26 @@
 							while ( $sunday_posts->have_posts() ) {
 								$sunday_posts->the_post();
 						?>
-						<div <?php post_class('sticky'); ?>>
-						<div class="row">
-							<div class="twelve columns ">
-								<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
-								<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
+						<div <?php post_class('sticky vevent hentry'); ?>>
+							<div class="row">
+								<div class="twelve columns ">
+									<?php if ( tribe_get_cost() ) : ?>
+										<div class="tribe-events-event-cost">
+											<span><?php echo tribe_get_cost( null, true ); ?></span>
+										</div>
+									<?php endif; ?>
+									<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
+									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="five columns">
-								<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+							<div class="row">
+								<div class="five columns">
+									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+								</div>
+								<div class="seven columns">
+									<?php the_excerpt(); ?>
+								</div>
 							</div>
-							<div class="seven columns">
-								<?php the_excerpt(); ?>
-							</div>
-						</div>
 						</div>
 						<?php
 							}
@@ -290,7 +305,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

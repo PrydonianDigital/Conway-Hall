@@ -2,19 +2,14 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div <?php post_class('nine columns'); ?> role="main">
 	
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
 		<h2><?php the_title(); ?></h2>	
-		<div class="person">
-			<?php
-				if ( has_post_thumbnail() ) {
-					the_post_thumbnail('speaker');
-				}	
-			?>
-			<?php the_content(); ?>
-		</div>
+		<h5><?php the_time( 'D, jS M, Y' ); ?></h5>
+		<?php the_content(); ?>
+
 	<?php endwhile; ?>
 	<div class="row">
 		<div class="six columns">
@@ -28,7 +23,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

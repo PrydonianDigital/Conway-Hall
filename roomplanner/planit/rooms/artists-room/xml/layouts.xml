@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<layouts>
+
+    <layout title="boardroom">
+    	<capacity>16</capacity>
+    </layout>
+	<layout title="u shape">
+    	<capacity>15</capacity>
+    </layout>
+	<layout title="theatre">
+    	<capacity>16</capacity>
+    </layout>
+	
+</layouts>

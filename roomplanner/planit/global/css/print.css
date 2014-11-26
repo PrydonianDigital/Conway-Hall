@@ -1,0 +1,12 @@
+/* set selected colour */	
+
+body {background:#FFF;}
+
+#planit_container{ 
+   display: none;  /* hide all elements when printing */
+}
+#lightbox{display:block}
+#planit_container img{ 
+   position:absolute
+}
+#lightbox .print{display:none;}

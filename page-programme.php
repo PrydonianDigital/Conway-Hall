@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div class="nine columns">
+	<div class="nine columns" role="main">
 	
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
@@ -29,6 +29,11 @@
 						<div <?php post_class('sticky'); ?>>
 							<div class="row">
 								<div class="twelve columns ">
+									<?php if ( tribe_get_cost() ) : ?>
+										<div class="tribe-events-event-cost">
+											<span><?php echo tribe_get_cost( null, true ); ?></span>
+										</div>
+									<?php endif; ?>
 									<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
 									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
 								</div>
@@ -58,7 +63,7 @@
 	
 	</div>	
 	
-	<div class="three columns side">
+	<div class="three columns side" role="complementary">
 		
 		<div class="row">
 			<div class="twelve columns">

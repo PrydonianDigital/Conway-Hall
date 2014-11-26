@@ -39,13 +39,13 @@ $background_image = get_background_image();
 
 <body <?php body_class(); ?>>
 <!--div class="secondary alert" id="cookie">This site uses cookies to improve user experience. <a href="#" id="cookieOK">Click here</a> to dismiss this warning.</div-->
-<div class="navbar" id="nav1">
+<div class="navbar" id="nav1" role="navigation">
 	<div class="row">
 		<a class="toggle" gumby-trigger="#nav1 ul.menu" href="#"><i class="icon-menu"></i></a>
 		<?php wp_nav_menu( array( 'theme_location' => 'chmenu', 'container' => false, 'walker' => new Walker_Page_Custom ) ); ?>
 	</div>
 </div>
-<div class="header">
+<div class="header" role="banner">
 	<div class="row">
 		<div class="twelve columns">
 			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png"></a></h1>
