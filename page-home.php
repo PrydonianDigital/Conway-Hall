@@ -59,6 +59,7 @@
 		        <li><a href="#">Library</a></li>
 		        <li><a href="#">Sunday Concerts</a></li>
 		        <li><a href="#">Exhibitions</a></li>
+		        <li><a href="#">A2R Blog</a></li>
 		    </ul>
 		
 		    <div class="tab-content active">
@@ -299,6 +300,43 @@
 						wp_reset_postdata();							
 					?>
 					<p><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
+		    </div>
+		    <div class="tab-content">
+		        <h3>Alternatives to Religion Blog</h3>
+					<?php
+						$args = array (
+							'post_type' => 'post',
+							'posts_per_page' => '5',
+						);
+						$sunday_posts = new WP_Query( $args );
+						if ( $sunday_posts->have_posts() ) {
+							while ( $sunday_posts->have_posts() ) {
+								$sunday_posts->the_post();
+						?>
+						<div <?php post_class('sticky'); ?>>
+							<div class="row">
+								<div class="twelve columns ">
+									<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
+									<h5><?php the_time( 'D, jS M, Y' ); ?></h5>
+								</div>
+							</div>
+							<div class="row">
+								<div class="five columns">
+									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+								</div>
+								<div class="seven columns">
+									<?php the_excerpt(); ?>
+								</div>
+							</div>
+						</div>
+						<?php
+							}
+						} else {
+						
+						}
+						wp_reset_postdata();							
+					?>
+					<p><a href="/library/alternatives-to-religion/the-a2r-blog/"><?php _e( '&laquo; The Alternatives to Religion Blog', 'ch' ) ?></a></p>
 		    </div>
 		
 		</section>		

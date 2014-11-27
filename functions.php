@@ -76,6 +76,7 @@ function ch_styles() {
 	wp_register_style( 'normalise', get_template_directory_uri() . '/css/normalize.css', false, '3.0.1' );
 	wp_register_style( 'planit', get_template_directory_uri() . '/roomplanner/planit/global/css/style.css', false, '2.6' );
 	wp_register_style( 'planitskin', get_template_directory_uri() . '/roomplanner/planit/global/css/skin.css', false, '2.6' );
+	wp_register_style( 'planitfancyboxcss', get_template_directory_uri() . '/roomplanner/planit/global/lightwindow/jquery.fancybox.css', false, '2.6' );
 	wp_register_style( 'planitprint', get_template_directory_uri() . '/roomplanner/planit/global/css/print.css', false, '2.6', 'print' );
 	wp_enqueue_style( 'normalise' );
 	wp_enqueue_style( 'owl' );
@@ -96,6 +97,7 @@ function room_planner() {
         wp_enqueue_script('planit');
 		wp_enqueue_style( 'planit' );
 		wp_enqueue_style( 'planitskin' );
+		wp_enqueue_style( 'planitfancyboxcss' );
 		wp_enqueue_style( 'planitprint' );
     } 
 }

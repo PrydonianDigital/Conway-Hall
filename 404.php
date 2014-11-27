@@ -2,10 +2,10 @@
 
 <div class="row">
 
-	<div <?php post_class('nine columns'); ?> role="main">
+	<div class="nine columns" role="main">
 	
-	<h2>Page not found</h2>	
-	<p>The page you were looking for has either been deleted or moved. Please use the menu above to go to another section of the site</p>
+		<h2>Page not found</h2>	
+		<p>The page you were looking for has either been deleted or moved. Please use the menu above to go to another section of the site</p>
 	
 	</div>	
 	
