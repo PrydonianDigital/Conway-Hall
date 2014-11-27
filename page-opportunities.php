@@ -26,6 +26,7 @@
 				<div class="twelve columns">
 					<h3><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h3>
 					<?php the_excerpt(); ?>
+					<p><strong>Closing Date:</strong> <?php echo do_shortcode('[postexpirator]'); ?></p>
 					<p><?php echo get_the_term_list( $post->ID, 'job_type', 'Posted in: ', ', ', '' ); ?></p>
 				</div>
 			</div>

@@ -418,7 +418,7 @@ add_action( 'init', 'type', 0 );
 // Register Custom Jobs Taxonomy
 function job_type() {
 	$labels = array(
-		'name'                       => _x( 'Job Type', 'Taxonomy General Name', 'ch' ),
+		'name'                       => _x( 'Job Types', 'Taxonomy General Name', 'ch' ),
 		'singular_name'              => _x( 'Job Type', 'Taxonomy Singular Name', 'ch' ),
 		'menu_name'                  => __( 'Job Types', 'ch' ),
 		'all_items'                  => __( 'All Job Types', 'ch' ),
@@ -995,3 +995,4 @@ function my_login_logo() { ?>
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
