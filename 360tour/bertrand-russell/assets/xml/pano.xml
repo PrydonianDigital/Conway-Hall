@@ -3,7 +3,7 @@
 
 	<parameters>
 	
-	panoName=assets/mov/1
+	panoName=/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/mov/1
 	panoType=mov
 
 	panHome = 120
@@ -22,14 +22,14 @@
 	loaderBackColor = #FFFFFF
 	loaderText = 
 
-	layer_1 = assets/swf/hotspots.swf
-	layer_2 = assets/swf/glassMeterPanaround.swf
-	layer_3 = assets/swf/autorotator.swf
-	layer_5 = assets/swf/limits.swf
-	layer_6 = assets/swf/movDecoder.swf
-	layer_7 = assets/swf/fppcursor.swf
-	layer_8 = assets/swf/tooltips.swf
-	layer_9 = assets/swf/borders.swf
+	layer_1 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/hotspots.swf
+	layer_2 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/glassMeterPanaround.swf
+	layer_3 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/autorotator.swf
+	layer_5 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/limits.swf
+	layer_6 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/movDecoder.swf
+	layer_7 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/fppcursor.swf
+	layer_8 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/tooltips.swf
+	layer_9 = /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/borders.swf
 
 	</parameters>
 	
@@ -37,9 +37,9 @@
 		smooth=auto
 		minFps=12
 		externalCursors=false
-		iconNormal=assets/img/cursors/normal.png
-		iconMove=assets/img/cursors/move.png
-		iconPress=assets/img/cursors/press.png
+		iconNormal= /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/cursors/normal.png
+		iconMove= /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/cursors/move.png
+		iconPress= /wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/cursors/press.png
 		snapAngle=true
 		snapSteps=45
 		minMovement=2
@@ -134,42 +134,42 @@
 
 	<!--------------------------------------------------- GLOBAL --------------------------------------------->
 	
-	<spot id="copyright" visible="0" static="1" sAlign="LB" align="L" staticY="-10" depth="99" url="images/png/copyright.png" onClick="openUrl(http://www.panaround)"    />
+	<spot id="copyright" visible="0" static="1" sAlign="LB" align="L" staticY="-10" depth="99" url="/wp-content/themes/conwayhall/360tour/assets/img/ui/produced-by-panaround.jpg" onClick="openUrl(http://www.panaround)"    />
 	
 	<!--------------------------------------------------- NAV BG --------------------------------------------->
 	
-	<box id="nav" visible="0" static="1" url="assets/img/ui/nav-bg.png" staticY="100" staticX="0" depth="2" buttonmode="0" distorted="0" sAlign="MB" alpha="0"    />
+	<box id="nav" visible="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/ui/nav-bg.png" staticY="100" staticX="0" depth="2" buttonmode="0" distorted="0" sAlign="MB" alpha="0"    />
 
 	
 	<!--------------------------------------------------- ZOOM OUT --------------------------------------------->
 	
-	<box id="zoom_out" alpha="0"  visible="0" static="1" url="assets/img/buttons/zoom-out.png" staticY="-20" staticX="-20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=-1,50" onRelease="pano.zoomKey=0" alt="zoom out" onOver="zoomOutOver()" onOut="zoomOutAway()" />
+	<box id="zoom_out" alpha="0"  visible="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/zoom-out.png" staticY="-20" staticX="-20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=-1,50" onRelease="pano.zoomKey=0" alt="zoom out" onOver="zoomOutOver()" onOut="zoomOutAway()" />
 	
-	<box id="zoom_out_hover" visible="0"   static="1" url="assets/img/buttons/zoom-out-hover.png" staticY="-20" staticX="-20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=-1,50" onRelease="pano.zoomKey=0" alt="zoom out"  alpha="0" />
+	<box id="zoom_out_hover" visible="0"   static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/zoom-out-hover.png" staticY="-20" staticX="-20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=-1,50" onRelease="pano.zoomKey=0" alt="zoom out"  alpha="0" />
 	
 	<!--------------------------------------------------- ZOOM IN --------------------------------------------->
 	
-	<box id="zoom_in" visible="0" alpha="0" static="1" url="assets/img/buttons/zoom-in.png" staticY="-20" staticX="20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=1,50" onRelease="pano.zoomKey=0" alt="zoom in" onOver="zoomInOver()" onOut="zoomInAway()"  />
+	<box id="zoom_in" visible="0" alpha="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/zoom-in.png" staticY="-20" staticX="20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=1,50" onRelease="pano.zoomKey=0" alt="zoom in" onOver="zoomInOver()" onOut="zoomInAway()"  />
 	
-	<box id="zoom_in_hover" visible="0"  static="1" url="assets/img/buttons/zoom-in-hover.png" staticY="-20" staticX="20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=1,50" onRelease="pano.zoomKey=0" alt="zoom in" alpha="0"  />
+	<box id="zoom_in_hover" visible="0"  static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/zoom-in-hover.png" staticY="-20" staticX="20" depth="100" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=1,50" onRelease="pano.zoomKey=0" alt="zoom in" alpha="0"  />
 	
 	<!--------------------------------------------------- AUTO ROTATE OFF  --------------------------------------------->
 	
-	<box id="auto_rotate_off" visible="0" static="1" url="assets/img/buttons/auto-off.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=0; auto_rotate_on.visible=1;" alt="auto rotate on" onOver="autorotateOffOver()" onOut="autorotateOffAway()"   />
+	<box id="auto_rotate_off" visible="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/auto-off.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=0; auto_rotate_on.visible=1;" alt="auto rotate on" onOver="autorotateOffOver()" onOut="autorotateOffAway()"   />
 	
-	<box id="auto_rotate_off_hover" visible="0" static="1" url="assets/img/buttons/auto-off-hover.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=0; auto_rotate_on.visible=1;" alt="auto rotate on"  alpha="0" />
+	<box id="auto_rotate_off_hover" visible="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/auto-off-hover.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=0; auto_rotate_on.visible=1;" alt="auto rotate on"  alpha="0" />
 	
 	<!--------------------------------------------------- AUTO ROTATE ON  --------------------------------------------->
 	
-	<box id="auto_rotate_on" visible="0" static="1" url="assets/img/buttons/auto-on.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=1; auto_rotate_on.visible=0;" alt="auto rotate off" alpha="0"  onOver="autorotateOnOver()" onOut="autorotateOnAway()"  />
+	<box id="auto_rotate_on" visible="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/auto-on.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=1; auto_rotate_on.visible=0;" alt="auto rotate off" alpha="0"  onOver="autorotateOnOver()" onOut="autorotateOnAway()"  />
 	
-	<box id="auto_rotate_on_hover" visible="0" static="1" url="assets/img/buttons/auto-on-hover.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=1; auto_rotate_on.visible=0;" alt="auto rotate off" alpha="0"    />
+	<box id="auto_rotate_on_hover" visible="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/auto-on-hover.png" staticY="-20" staticX="65" depth="100" sAlign="MB" buttonmode="2" distorted="0"   onClick="external.autorotator.disabled+=1; pano.pan_v=0; pano.tilt_v=0; pano.zoom_v=0; auto_rotate_off.visible=1; auto_rotate_on.visible=0;" alt="auto rotate off" alpha="0"    />
 	
 	<!--------------------------------------------------- FULLSCREEN  --------------------------------------------->
 	
-	<box id="fullscreen" alpha="0"  visible="0" static="1" url="assets/img/buttons/fullscreen.png" staticY="-20" staticX="-65" depth="110" sAlign="MB" buttonmode="2" distorted="0" onClick="fullscreen()"  alt="full screen on & off" onOver="fullscreenOver()" onOut="fullscreenAway()" />
+	<box id="fullscreen" alpha="0"  visible="0" static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/fullscreen.png" staticY="-20" staticX="-65" depth="110" sAlign="MB" buttonmode="2" distorted="0" onClick="fullscreen()"  alt="full screen on & off" onOver="fullscreenOver()" onOut="fullscreenAway()" />
 	
-	<box id="fullscreen_hover" visible="0"   static="1" url="assets/img/buttons/fullscreen-hover.png" staticY="-20" staticX="-65" depth="110" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=-1,50" onRelease="pano.zoomKey=0" alt="full screen on & off"  alpha="0" />
+	<box id="fullscreen_hover" visible="0"   static="1" url="/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/img/buttons/fullscreen-hover.png" staticY="-20" staticX="-65" depth="110" sAlign="MB" buttonmode="2" distorted="0" onPress="pano.zoomKey=-1,50" onRelease="pano.zoomKey=0" alt="full screen on & off"  alpha="0" />
 	
 
 	    </global>

@@ -92,7 +92,62 @@ $(function() {
 		so.addParam("allowScriptAccess","sameDomain"); 
 		so.write("artists360"); 
 	};
-	$('#artists360').sixteenbynine();
+	if (element_exists('#bertrand360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("bertrand360"); 
+	};
+	if (element_exists('#mainhall360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/main-hall/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/main-hall/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("mainhall360"); 
+	};
+	if (element_exists('#brockway360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/brockway-room/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/brockway-room/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("brockway360"); 
+	};
+	if (element_exists('#clubsquare360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/club-room-1/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/club-room-1/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("clubsquare360"); 
+	};
+	if (element_exists('#clubtheatre360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/club-room-2/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/club-room-2/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("clubtheatre360"); 
+	};
+	if (element_exists('#foyer360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/foyer-1/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/foyer-1/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("foyer360"); 
+	};
+	if (element_exists('#foyeropen360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/foyer-2/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/foyer-2/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("foyeropen360"); 
+	};
+	if (element_exists('#library360')){
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/library/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/library/assets/xml/pano.xml");    
+		so.addParam("allowFullScreen","true");
+		so.addParam("allowScriptAccess","sameDomain"); 
+		so.write("library360"); 
+	};
 	$('#pano').sixteenbynine();
 	$("#ch-carousel").owlCarousel({
 		items: 1,

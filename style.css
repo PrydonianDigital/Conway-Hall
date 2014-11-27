@@ -732,6 +732,21 @@ iframe {
 .pano {
 	margin: 0 auto 1.5em auto;
 }
+.btn.secondary, .skiplink.secondary {
+    background: #136972;
+    border: 1px solid #136972;
+}
+.btn.secondary:hover, .skiplink.secondary:hover {
+	background: #EBF3F4;
+	border: 1px solid #c6e1e3;   
+}
+.btn.secondary a, .skiplink.secondary a {
+    color: #fff;
+    text-decoration: none;
+}
+.btn.secondary:hover a, .skiplink.secondary:hover a {
+    color: #136972;
+}
 
 @media only screen and (max-width: 768px) {
 	#nav2 {

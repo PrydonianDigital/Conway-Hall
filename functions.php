@@ -102,7 +102,7 @@ function room_planner() {
 add_action('wp_enqueue_scripts', 'room_planner');
 
 function tour() {
-    if ( is_page(array('artists-room-360o-tour')) ) {
+    if ( is_page(array('artists-room-360o-tour', 'club-room-hollow-square-360o-tour', 'club-room-theatre-360o-tour', 'foyer-360o-tour', 'foyer-open-360o-tour', 'bertrand-russell-room-360o-tour', 'brockway-room-360o-tour', 'main-hall-360o-tour', 'library-360o-tour')) ) {
         wp_enqueue_script('swf');
         wp_enqueue_script('json2');
     } 
