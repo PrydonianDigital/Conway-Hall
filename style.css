@@ -1009,3 +1009,42 @@ iframe {
 		padding-right: 20px;
 		width: 100%;
 }
+#comments {
+	
+}
+.comment-meta {
+	padding: 0;
+}
+.comment-metadata {
+	padding: 0 0.5em;
+}
+.comment-metadata a {
+	color: #fff;	
+}
+.comment {
+	border-bottom: 1px solid #c6e1e3;
+}
+.commentlist li {
+	margin-bottom: 10px;
+}
+.parent, .comment {
+	background: #EBF3F4;
+}
+.children {
+	margin-left: 20px;
+}
+.children .odd {
+	background: #fff;
+}
+.children .even {
+	background: #EBF3F4;
+}
+.comment-body {
+	padding: 10px;
+}
+.comment-reply-link {
+	font-size: 80%;
+}
+.comment-form-comment label {
+	display: block !important;
+}

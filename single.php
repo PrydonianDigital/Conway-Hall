@@ -20,7 +20,9 @@
 		</div>
 	</div>	
 	<?php endif; ?>
-	
+	<div class="row">
+		<?php comments_template(); ?>
+	</div>
 	</div>	
 	
 	<div class="three columns side" role="complementary">

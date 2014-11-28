@@ -87,10 +87,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="five columns">
+							<div class="four columns">
 								<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 							</div>
-							<div class="seven columns entry-content description">
+							<div class="eight columns entry-content description">
 								<?php the_excerpt(); ?>
 								<?php echo tribe_get_event_categories( $event_id ); ?>
 							</div>
@@ -235,10 +235,10 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="five columns">
+								<div class="four columns">
 									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 								</div>
-								<div class="seven columns">
+								<div class="eight columns">
 									<?php the_excerpt(); ?>
 								</div>
 							</div>
@@ -284,10 +284,10 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="five columns">
+								<div class="four columns">
 									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
 								</div>
-								<div class="seven columns">
+								<div class="eight columns">
 									<?php the_excerpt(); ?>
 								</div>
 							</div>

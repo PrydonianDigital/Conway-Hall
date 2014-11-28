@@ -387,9 +387,9 @@ add_action( 'init', 'pdf', 0 );
 // Register Custom Types Taxonomy
 function type() {
 	$labels = array(
-		'name'                       => _x( 'Types', 'Taxonomy General Name', 'ch' ),
-		'singular_name'              => _x( 'Type', 'Taxonomy Singular Name', 'ch' ),
-		'menu_name'                  => __( 'Types', 'ch' ),
+		'name'                       => _x( 'Product Types', 'Taxonomy General Name', 'ch' ),
+		'singular_name'              => _x( 'Product Type', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'                  => __( 'Product Types', 'ch' ),
 		'all_items'                  => __( 'All Types', 'ch' ),
 		'parent_item'                => __( 'Parent Type', 'ch' ),
 		'parent_item_colon'          => __( 'Parent Type:', 'ch' ),
