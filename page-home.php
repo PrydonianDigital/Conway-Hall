@@ -87,7 +87,7 @@
 						</div>
 						<div class="row">
 							<div class="four columns">
-								<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+								<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('speaker'); ?></a>
 							</div>
 							<div class="eight columns entry-content description">
 								<?php the_excerpt(); ?>
@@ -245,7 +245,7 @@
 							</div>
 							<div class="row">
 								<div class="four columns">
-									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('speaker'); ?></a>
 								</div>
 								<div class="eight columns">
 									<?php the_excerpt(); ?>
@@ -293,7 +293,7 @@
 							</div>
 							<div class="row">
 								<div class="five columns">
-									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
+									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('speaker'); ?></a>
 								</div>
 								<div class="seven columns">
 									<?php the_excerpt(); ?>
