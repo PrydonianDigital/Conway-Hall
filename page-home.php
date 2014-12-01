@@ -57,7 +57,6 @@
 		        <li class="active"><a href="#">Events</a></li>
 		        <li> <a href="#">Venue Hire</a></li>
 		        <li><a href="#">Library</a></li>
-		        <li><a href="#">Sunday Concerts</a></li>
 		        <li><a href="#">Exhibitions</a></li>
 		        <li><a href="#">A2R Blog</a></li>
 		    </ul>
@@ -92,7 +91,17 @@
 							</div>
 							<div class="eight columns entry-content description">
 								<?php the_excerpt(); ?>
-								<?php echo tribe_get_event_categories( $event_id ); ?>
+								<div class="row">
+									<div class="six columns eventCategory">
+										<?php echo tribe_get_event_categories( $event_id ); ?>
+									</div>
+									<div class="six columns">
+										<h6>Organiser:</h6>
+										<ul class="tribe-event-categories">
+											<li><?php echo tribe_get_organizer() ?></li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 						</div>
@@ -204,55 +213,6 @@
 				?>
 		    </div>
 		    <div class="tab-content">
-		        <h3>Sunday Concerts</h3>
-					<?php
-						$args = array (
-							'post_type' => 'tribe_events',
-							'posts_per_page' => '5',
-							'tax_query' => array(
-								array(
-									'taxonomy' => 'tribe_events_cat',
-									'field' => 'slug',
-									'terms' => array('sunday-concerts'),
-								)
-							),
-						);
-						$sunday_posts = new WP_Query( $args );
-						if ( $sunday_posts->have_posts() ) {
-							while ( $sunday_posts->have_posts() ) {
-								$sunday_posts->the_post();
-						?>
-						<div <?php post_class('sticky vevent hentry'); ?>>
-							<div class="row">
-								<div class="twelve columns ">
-									<?php if ( tribe_get_cost() ) : ?>
-										<div class="tribe-events-event-cost">
-											<span><?php echo tribe_get_cost( null, true ); ?></span>
-										</div>
-									<?php endif; ?>
-									<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
-									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
-								</div>
-							</div>
-							<div class="row">
-								<div class="four columns">
-									<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('article'); ?></a>
-								</div>
-								<div class="eight columns">
-									<?php the_excerpt(); ?>
-								</div>
-							</div>
-						</div>
-						<?php
-							}
-						} else {
-						
-						}
-						wp_reset_postdata();							
-					?>
-					<p><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
-		    </div>
-		    <div class="tab-content">
 		        <h3>Exhibitions</h3>
 					<?php
 						$args = array (
@@ -289,6 +249,17 @@
 								</div>
 								<div class="eight columns">
 									<?php the_excerpt(); ?>
+								<div class="row">
+									<div class="six columns eventCategory">
+										<?php echo tribe_get_event_categories( $event_id ); ?>
+									</div>
+									<div class="six columns">
+										<h6>Organiser:</h6>
+										<ul class="tribe-event-categories">
+											<li><?php echo tribe_get_organizer() ?></li>
+										</ul>
+									</div>
+								</div>
 								</div>
 							</div>
 						</div>

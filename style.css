@@ -301,6 +301,27 @@ input.search-field {
 	display: inline;
 	float: none;
 }
+.post-sticky .tribe-events-single-section-title, #tribe-events-content h3.tribe-events-single-section-title {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.tribe-events-event-image {
+	float: left;
+	margin: 0 0.75em 0 0 !important;
+}
+.eventCategory div {
+	font-size: 1rem;
+	color: #136972;
+	font-family: "Clarendon",Georgia,​ Times,​serif;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0.273em;
+}
+.tribe-event-categories li {
+	line-height: 1.1;
+}
 .tab-nav {
 	border-color: #136972 !important;
 }

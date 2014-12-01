@@ -188,7 +188,7 @@ $(function() {
 	});
 });
 function bikes() {
-	var dock = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/bikestation.php?dock=003421';
+	var dock = '/wp-content/themes/conwayhall/php/bikestation.php?dock=003421';
 	$.getJSON(dock, function(data){
 		var tfl = '';
 		$.each(data, function(i,a) {
@@ -218,7 +218,7 @@ function bikes() {
 			marker: {
 				latLng: [$('#map').data('lat'),$('#map').data('lng')],
 				options: {
-					icon: '//localhost:8888/conwayhall/wp-content/themes/conwayhall/img/bikeMarker.png'
+					icon: '/wp-content/themes/conwayhall/img/bikeMarker.png'
 				}
 			},
 			map: {
@@ -233,7 +233,7 @@ function bikes() {
 	});	
 }
 function holBornC() {
-	var holBornC = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=C&station=HOL';
+	var holBornC = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=C&station=HOL';
 	$.getJSON(holBornC, function(data){
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
@@ -311,7 +311,7 @@ function holBornC() {
 	});	
 }
 function chanceryL() {
-	var chanceryL = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=C&station=CYL';
+	var chanceryL = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=C&station=CYL';
 	$.getJSON(chanceryL, function(data){
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
@@ -390,7 +390,7 @@ function chanceryL() {
 	});	
 }
 function holBornP() {
-	var holBornP = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=P&station=HOL';
+	var holBornP = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=P&station=HOL';
 	$.getJSON(holBornP, function(data){
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
@@ -442,7 +442,7 @@ function holBornP() {
 	});	
 }
 function russellSq() {
-	var russellSq = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=P&station=RSQ';
+	var russellSq = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=P&station=RSQ';
 	$.getJSON(russellSq, function(data){
 		if(exists(data.LineName)) {
 		var lineName = data.LineName,
@@ -527,7 +527,7 @@ function busses() {
 						swLng = lng - 0.003,
 						neLat = lat + 0.003,
 						neLng = lng + 0.003,
-					stops = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/bus.php?swLat='+swLat+'&swLng='+swLng+'&neLat='+neLat+'&neLng='+neLng;
+					stops = '/wp-content/themes/conwayhall/php/bus.php?swLat='+swLat+'&swLng='+swLng+'&neLat='+neLat+'&neLng='+neLng;
 					
 	$.getJSON(stops, function(data) {
 		$.each(data.markers, function (i, a) {
@@ -547,7 +547,7 @@ function busses() {
 						}
 					},
 					options: {
-						icon: '//localhost:8888/conwayhall/wp-content/themes/conwayhall/img/busMarker.png'
+						icon: '/wp-content/themes/conwayhall/img/busMarker.png'
 					}
 				},
 				circle:{
@@ -571,7 +571,7 @@ function busses() {
 	});
 }
 function getStop(id, name, towards, stopID) {
-	var stopSearch = '//localhost:8888/conwayhall/wp-content/themes/conwayhall/php/busstop.php?stop='+id;
+	var stopSearch = '/wp-content/themes/conwayhall/php/busstop.php?stop='+id;
 	$.getJSON(stopSearch, function(data) {
 		if(data.arrivals != '') {
 			var stop = '<div class="row"><div class="twelve columns stationTitle bus"><h4>'+name+' <br /> Towards '+towards+' <br /> Stop '+stopID+'</h4></div></div><div class="row"><div class="two columns"><h5>Route</h5></div><div class="eight columns"><h5>To</h5></div><div class="two columns"><h5>Arrives</h5></div></div>';
