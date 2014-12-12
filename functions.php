@@ -135,6 +135,24 @@ register_sidebar( array(
 	'aftch_widget' => '</li>',
 ));
 
+$result = add_role(
+	'member', __( 'Member' ),
+	array(
+		'read'         => true,  // true allows this capability
+		'edit_posts'   => false,
+		'delete_posts' => false, // Use false to explicitly deny
+	)
+);
+
+$result = add_role(
+	'trustee', __( 'Trustee' ),
+	array(
+		'read'         => true,  // true allows this capability
+		'edit_posts'   => false,
+		'delete_posts' => false, // Use false to explicitly deny
+	)
+);
+
 // Register Carousel Post Type
 function carousel() {
 	$labels = array(
@@ -998,3 +1016,46 @@ function my_login_logo() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
+function my_wootickets_tribe_get_cost( $cost, $postId, $withCurrencySymbol ) {
+	if ( empty($cost) && class_exists('TribeWooTickets') ) {
+  		// see if the event has tickets associated with it
+		$wootickets = TribeWooTickets::get_instance();
+		$ticket_ids = $wootickets->get_Tickets_ids( $postId );
+		if ( empty($ticket_ids) ) {
+			return '';
+		}
+
+		// see if any tickets remain, and what price range they have
+		$max_price = 0;
+		$min_price = 0;
+		$sold_out = TRUE;
+		foreach ( $ticket_ids as $ticket_id ) {
+			$ticket = $wootickets->get_ticket($postId, $ticket_id);
+			if ( $ticket->stock ) {
+				$sold_out = FALSE;
+				$price = $ticket->price;
+				if ( $price > $max_price ) {
+					$max_price = $price;
+				}
+				if ( empty($min_price) || $price < $min_price ) {
+					$min_price = $price;
+				}
+			}
+		}
+		if ( $sold_out ) { // all of the tickets are sold out
+			return __('Sold Out');
+		}
+		if ( empty($max_price) ) { // none of the tickets costs anything
+			return __('Free');
+		}
+
+		// make a string showing the price (or range, if applicable)
+		$currency = tribe_get_option( 'defaultCurrencySymbol', '$' );
+		if ( empty($min_price) || $min_price == $max_price ) {
+			return $currency . $max_price;
+		}
+		return $currency . $min_price . ' - ' . $currency . $max_price;
+	}
+	return $cost; // return the default, if nothing above returned
+}
+add_filter( 'tribe_get_cost', 'my_wootickets_tribe_get_cost', 10, 3 );

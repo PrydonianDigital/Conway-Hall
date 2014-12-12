@@ -4,22 +4,7 @@
 
 	<div <?php post_class('nine columns'); ?> role="main">
 	
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-		<h2><?php the_title(); ?></h2>	
-		<h5><?php the_time( 'D, jS M, Y' ); ?></h5>
-		<h3><?php global $post; $text = get_post_meta( $post->ID, '_cmb_speaker', true ); echo $text; ?></h3>
-		<div class="person">
-			<?php
-				if ( has_post_thumbnail() ) {
-					the_post_thumbnail('speaker');
-				}	
-			?>
-			<?php the_content(); ?>
-		</div>
-	<?php endwhile; ?>
-	
-	<?php endif; ?>
+	<?php woocommerce_content(); ?>
 	
 	</div>	
 	
@@ -31,7 +16,7 @@
 					<?php
 					// Find connected pages
 					$connected = new WP_Query( array(
-						'connected_type' => 'pdf_to_lecture',
+						'connected_type' => 'pdf_to_page',
 						'connected_items' => get_queried_object(),
 						'nopaging' => true,
 					) );
@@ -40,7 +25,7 @@
 					if ( $connected->have_posts() ) :
 					?>
 					<li class="widget">
-					<h5 class="widget">Download Full Text:</h3>
+					<h5 class="widget">Related Documents:</h3>
 					<ul class="menu related">
 					<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
 					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>"><?php the_title(); ?></a></li>
@@ -52,7 +37,7 @@
 					wp_reset_postdata();
 					
 					endif;
-					?>	
+					?>					
 					<?php dynamic_sidebar( 'homepage' ); ?>
 				</ul>
 			</div>
