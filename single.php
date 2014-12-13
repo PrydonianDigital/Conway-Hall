@@ -1,15 +1,18 @@
 <?php get_header(); ?>
 
-<div class="row">
+<div class="row hfeed">
 
-	<div <?php post_class('nine columns'); ?> role="main">
+	<div <?php post_class('nine columns h-entry'); ?> role="main" itemscope itemtype="http://schema.org/BlogPosting">
 	
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
-		<h2><?php the_title(); ?></h2>	
-		<h5><?php the_time( 'D, jS M, Y' ); ?></h5>
-		<?php the_content(); ?>
-
+		<h2 itemprop="name headline" class="entry-title p-name"><?php the_title(); ?></h2>	
+		<h5 datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished" class="updated dtstart"><?php the_time( 'D, jS M, Y' ); ?></h5>
+		<p>By: <span class="vcard author"><span class="fn"><?php the_author('nicename'); ?></span></span></p>
+		<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
+		<div itemprop="articleBody" class="e-content">
+			<?php the_content(); ?>
+		</div>
 	<?php endwhile; ?>
 	<div class="row">
 		<div class="six columns">

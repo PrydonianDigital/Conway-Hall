@@ -1,11 +1,13 @@
 <footer>
 <div class="row" id="footer">
 
-	<div class="eight columns">
-		<p>Conway Hall | 25 Red Lion Square | London | WC1R 4RL | 020 7405 1818<br />
-		Conway Hall is owned by Conway Hall Ethical Society (registered charity 1156033)<br />
-		Terms & Conditions | Privacy Policy<br />
-		&copy; 1787 - <?php echo date('Y'); ?> Conway Hall</p>
+	<div class="eight columns" itemtype="http://schema.org/NGO">
+		<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+			<p>Conway Hall | <span itemprop="streetAddress">25 Red Lion Square</span> | <span itemprop="addressLocality">London</span> | <span itemprop="postalCode">WC1R 4RL</span> | 020 7405 1818<br />
+				Conway Hall is owned by <a itemprop="url" href="http://conwayhall.org.uk/ethical-society/"><span itemprop="name">Conway Hall Ethical Society</span></a> (registered charity 1156033)<br />
+			<a href="/terms-conditions/">Terms &amp; Conditions</a> | <a href="/privacy-policy/">Privacy Policy</a><br />
+			&copy; 1787 - <?php echo date('Y'); ?> Conway Hall</p>
+		</div>
 	</div>
 	
 	<div class="four columns">

@@ -8,24 +8,31 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php
-			global $user_login;
-			$current_user = new WP_User(wp_get_current_user()->id);
-			$user_roles = $current_user->roles; 
-			foreach ($user_roles as $role) {
-				if  ($role == 'trustee' || $role == 'member' || $role == 'editor' || $role == 'administrator' ) {
-					global $current_user;
-					if ( isset($current_user) ) {
-						echo '<p><strong>Welcome, ' . $current_user->user_firstname . ', to the Members\' Area of Conway Hall Ethical Society!</p>';
+			if(is_user_logged_in()) {
+				global $user_login;
+				$current_user = new WP_User(wp_get_current_user()->id);
+				$user_roles = $current_user->roles; 
+				foreach ($user_roles as $role) {
+					if  ($role == 'trustee' || $role == 'member' || $role == 'editor' || $role == 'administrator' ) {
+						global $current_user;
+						if ( isset($current_user) ) {
+							echo '<p><strong>Welcome, ' . $current_user->user_firstname . ', to the Members\' Area of Conway Hall Ethical Society!</p>';
+						}
+				?>
+				<?php the_content(); ?>
+				<?php
+					} else {
+				?>
+					<h4>Please enter your details in order to access this part of the site:</h4>
+				<?php
+						wp_login_form( $args ); 	
 					}
-			?>
-			<?php the_content(); ?>
-			<?php
-				} else {
-			?>
-				<h4>Please enter your details in order to access this part of the site:</h4>
-			<?php
-					wp_login_form( $args ); 	
 				}
+			} else {
+		?>
+				<h4>Please enter your details in order to access this part of the site:</h4>
+		<?php
+				wp_login_form( $args );
 			}	
 		?>
 	

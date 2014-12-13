@@ -90,6 +90,7 @@
 									<?php endif; ?>
 									<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>
 									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><span itemprop="summary"><?php the_title(); ?></span></a></h4>
+									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 									<time itemprop="startDate" datetime="<?php echo tribe_get_start_date( $post->ID, false, 'c' ); ?>"><?php the_time('D, jS M, Y'); ?></time>
 									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
 									<meta itemprop="url" content="<?php the_permalink(); ?>">
@@ -250,6 +251,7 @@
 								<div class="twelve columns ">
 									<h4 itemprop="name headline"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
 									<h5 datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished"><?php the_time( 'D, jS M, Y' ); ?></h5>
+									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 								</div>
 							</div>
 							<div class="row">
@@ -258,6 +260,7 @@
 								</div>
 								<div class="seven columns" itemprop="articleBody">
 									<?php the_excerpt(); ?>
+									<p>By: <span class="vcard author"><span class="fn"><?php the_author('nicename'); ?></span></span></p>
 								</div>
 							</div>
 						</div>

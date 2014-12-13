@@ -279,6 +279,47 @@ function amazon_products() {
 // Hook into the 'init' action
 add_action( 'init', 'amazon_products', 0 );
 
+// Register Amazon Product Post Type
+function am_products() {
+	$labels = array(
+		'name'                => _x( 'Products', 'Post Type General Name', 'ch' ),
+		'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'ch' ),
+		'menu_name'           => __( 'Products', 'ch' ),
+		'parent_item_colon'   => __( 'Parent Product:', 'ch' ),
+		'all_items'           => __( 'All Products', 'ch' ),
+		'view_item'           => __( 'View Product', 'ch' ),
+		'add_new_item'        => __( 'Add New Product', 'ch' ),
+		'add_new'             => __( 'Add New', 'ch' ),
+		'edit_item'           => __( 'Edit Product', 'ch' ),
+		'update_item'         => __( 'Update Product', 'ch' ),
+		'search_items'        => __( 'Search Products', 'ch' ),
+		'not_found'           => __( 'Not found', 'ch' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+	);
+	$args = array(
+		'label'               => __( 'product', 'ch' ),
+		'description'         => __( 'products', 'ch' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'          => array( 'type' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+	);
+	register_post_type( 'product', $args );
+}
+// Hook into the 'init' action
+add_action( 'init', 'am_products', 0 );
+
 // Register People Post Type
 function people() {
 	$labels = array(
@@ -958,7 +999,7 @@ function add_menu_icons_styles(){
 	    content: "\f497";
 	}
 	#adminmenu #menu-posts-product div.wp-menu-image:before, #dashboard_right_now .product-count a:before {
-	    content: "\f313";
+	    content: "\f174";
 	}
 	#adminmenu #menu-posts-memorial_lecture div.wp-menu-image:before, #dashboard_right_now .memorial_lecture-count a:before {
 	    content: "\f488";

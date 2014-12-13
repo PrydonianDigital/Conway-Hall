@@ -20,10 +20,10 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="five columns">
-						<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_post_thumbnail('speaker'); ?></a>
+					<div class="three columns">
+						<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_post_thumbnail('article'); ?></a>
 					</div>
-					<div class="seven columns">
+					<div class="nine columns">
 						<?php the_excerpt(); ?>	
 						<p><?php global $post; $text = get_post_meta( $post->ID, '_cmb_url', true ); if($text !='') : ?><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_url', true ); echo $text; ?>" target="blank"><img src="<?php bloginfo('template_url'); ?>/img/amazon_buy.gif"></a><?php endif; ?></p>
 					</div>
