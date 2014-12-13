@@ -20,7 +20,19 @@
 			</div>
 			<div class="row">
 				<div class="five columns">
-					<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('speaker'); ?></a>
+				<?php
+					if ( get_the_post_thumbnail($post_id) != '' ) {
+						echo '<a href="'; the_permalink(); echo '" rel="permalink" class="th">';
+						the_post_thumbnail('speaker');
+						echo '</a>';
+					} else {
+						echo '<a href="'; the_permalink(); echo '" rel="permalink" class="th">';
+						echo '<img src="';
+						echo catch_that_image();
+						echo '" alt="" />';
+						echo '</a>';
+					}
+				?>
 				</div>
 				<div class="seven columns p-summary" itemprop="articleBody">
 					<?php the_excerpt(); ?>

@@ -3,7 +3,7 @@
 if ( ! isset( $content_width ) )
 	$content_width = 700;
 	
-function conway_hall_init()  {
+function conway_hall_init()	{
 	remove_action( 'wp_head', 'wp_generator' );
 	show_admin_bar( false );
 	add_theme_support( 'automatic-feed-links' );
@@ -15,17 +15,17 @@ function conway_hall_init()  {
 	add_image_size( 'article', 350, 197, false );
 	add_image_size( 'speaker', 290, 290, true );
 	$defaults = array(
-		'default-image'          => get_template_directory_uri() . '/img/header/header.png',
-		'random-default'         => true,
-		'width'                  => 1920,
-		'height'                 => 200,
-		'flex-height'            => false,
-		'flex-width'             => false,
-		'default-text-color'     => '',
-		'header-text'            => false,
-		'uploads'                => true,
-		'wp-head-callback'       => '',
-		'admin-head-callback'    => '',
+		'default-image'					=> get_template_directory_uri() . '/img/header/header.png',
+		'random-default'				 => true,
+		'width'									=> 1920,
+		'height'								 => 200,
+		'flex-height'						=> false,
+		'flex-width'						 => false,
+		'default-text-color'		 => '',
+		'header-text'						=> false,
+		'uploads'								=> true,
+		'wp-head-callback'			 => '',
+		'admin-head-callback'		=> '',
 		'admin-preview-callback' => '',
 	);
 	add_theme_support( 'custom-header', $defaults );
@@ -86,28 +86,28 @@ function ch_styles() {
 add_action( 'wp_enqueue_scripts', 'ch_styles' );
 
 function room_planner() {
-    if ( is_page(array('main-hall-room-planner', 'brockway-room-planner', 'balcony-room-planner', 'artists-room-planner', 'bertrand-russell-room-planner', 'foyer-room-planner', 'club-room-planner')) ) {
-        wp_enqueue_script('planittooltip');
-        wp_enqueue_script('planitcarousel');
-        wp_enqueue_script('planitswf');
-        wp_enqueue_script('planitflash');
-        wp_enqueue_script('planittour');
-        wp_enqueue_script('planitfancybox');
-        wp_enqueue_script('planitprint');
-        wp_enqueue_script('planit');
+		if ( is_page(array('main-hall-room-planner', 'brockway-room-planner', 'balcony-room-planner', 'artists-room-planner', 'bertrand-russell-room-planner', 'foyer-room-planner', 'club-room-planner')) ) {
+				wp_enqueue_script('planittooltip');
+				wp_enqueue_script('planitcarousel');
+				wp_enqueue_script('planitswf');
+				wp_enqueue_script('planitflash');
+				wp_enqueue_script('planittour');
+				wp_enqueue_script('planitfancybox');
+				wp_enqueue_script('planitprint');
+				wp_enqueue_script('planit');
 		wp_enqueue_style( 'planit' );
 		wp_enqueue_style( 'planitskin' );
 		wp_enqueue_style( 'planitfancyboxcss' );
 		wp_enqueue_style( 'planitprint' );
-    } 
+		} 
 }
 add_action('wp_enqueue_scripts', 'room_planner');
 
 function tour() {
-    if ( is_page(array('artists-room-360o-tour', 'club-room-hollow-square-360o-tour', 'club-room-theatre-360o-tour', 'foyer-360o-tour', 'foyer-open-360o-tour', 'bertrand-russell-room-360o-tour', 'brockway-room-360o-tour', 'main-hall-360o-tour', 'library-360o-tour')) ) {
-        wp_enqueue_script('swf');
-        wp_enqueue_script('json2');
-    } 
+		if ( is_page(array('artists-room-360o-tour', 'club-room-hollow-square-360o-tour', 'club-room-theatre-360o-tour', 'foyer-360o-tour', 'foyer-open-360o-tour', 'bertrand-russell-room-360o-tour', 'brockway-room-360o-tour', 'main-hall-360o-tour', 'library-360o-tour')) ) {
+				wp_enqueue_script('swf');
+				wp_enqueue_script('json2');
+		} 
 }
 add_action('wp_enqueue_scripts', 'tour');
 
@@ -121,8 +121,8 @@ add_action( 'init', 'ch_menu' );
 
 add_filter('wp_nav_menu_args', 'prefix_nav_menu_args');
 function prefix_nav_menu_args($args = ''){
-    $args['container'] = false;
-    return $args;
+		$args['container'] = false;
+		return $args;
 }
 
 register_sidebar( array(
@@ -138,8 +138,8 @@ register_sidebar( array(
 $result = add_role(
 	'member', __( 'Member' ),
 	array(
-		'read'         => true,  // true allows this capability
-		'edit_posts'   => false,
+		'read'				 => true,	// true allows this capability
+		'edit_posts'	 => false,
 		'delete_posts' => false, // Use false to explicitly deny
 	)
 );
@@ -147,8 +147,8 @@ $result = add_role(
 $result = add_role(
 	'trustee', __( 'Trustee' ),
 	array(
-		'read'         => true,  // true allows this capability
-		'edit_posts'   => false,
+		'read'				 => true,	// true allows this capability
+		'edit_posts'	 => false,
 		'delete_posts' => false, // Use false to explicitly deny
 	)
 );
@@ -156,38 +156,38 @@ $result = add_role(
 // Register Carousel Post Type
 function carousel() {
 	$labels = array(
-		'name'                => _x( 'Carousels', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Carousel', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Carousels', 'ch' ),
-		'parent_item_colon'   => __( 'Parent Carousel:', 'ch' ),
-		'all_items'           => __( 'All Carousels', 'ch' ),
-		'view_item'           => __( 'View Carousel', 'ch' ),
-		'add_new_item'        => __( 'Add New Carousel', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Carousel', 'ch' ),
-		'update_item'         => __( 'Update Carousel', 'ch' ),
-		'search_items'        => __( 'Search Carousels', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+		'name'								=> _x( 'Carousels', 'Post Type General Name', 'ch' ),
+		'singular_name'			 => _x( 'Carousel', 'Post Type Singular Name', 'ch' ),
+		'menu_name'					 => __( 'Carousels', 'ch' ),
+		'parent_item_colon'	 => __( 'Parent Carousel:', 'ch' ),
+		'all_items'					 => __( 'All Carousels', 'ch' ),
+		'view_item'					 => __( 'View Carousel', 'ch' ),
+		'add_new_item'				=> __( 'Add New Carousel', 'ch' ),
+		'add_new'						 => __( 'Add New', 'ch' ),
+		'edit_item'					 => __( 'Edit Carousel', 'ch' ),
+		'update_item'				 => __( 'Update Carousel', 'ch' ),
+		'search_items'				=> __( 'Search Carousels', 'ch' ),
+		'not_found'					 => __( 'Not found', 'ch' ),
+		'not_found_in_trash'	=> __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'venue', 'ch' ),
-		'description'         => __( 'Home page carousel', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'thumbnail', 'page-attributes', 'excerpt' ),
-		'taxonomies'          => array(),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
+		'label'							 => __( 'venue', 'ch' ),
+		'description'				 => __( 'Home page carousel', 'ch' ),
+		'labels'							=> $labels,
+		'supports'						=> array( 'title', 'thumbnail', 'page-attributes', 'excerpt' ),
+		'taxonomies'					=> array(),
+		'hierarchical'				=> false,
+		'public'							=> true,
+		'show_ui'						 => true,
+		'show_in_menu'				=> true,
+		'show_in_nav_menus'	 => true,
+		'show_in_admin_bar'	 => true,
+		'menu_position'			 => 5,
+		'can_export'					=> true,
+		'has_archive'				 => true,
 		'exclude_from_search' => true,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'publicly_queryable'	=> true,
+		'capability_type'		 => 'page',
 	);
 	register_post_type( 'carousel', $args );
 }
@@ -198,38 +198,38 @@ add_action( 'init', 'carousel', 0 );
 function chml() {
 
 	$labels = array(
-		'name'                => _x( 'Conway Memorial Lectures', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Conway Memorial Lecture', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Conway Lecture', 'ch' ),
-		'parent_item_colon'   => __( 'Parent Conway Lecture:', 'ch' ),
-		'all_items'           => __( 'All Conway Lectures', 'ch' ),
-		'view_item'           => __( 'View Conway Lecture', 'ch' ),
-		'add_new_item'        => __( 'Add New Conway Lecture', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Conway Lecture', 'ch' ),
-		'update_item'         => __( 'Update Conway Lecture', 'ch' ),
-		'search_items'        => __( 'Search Conway Lecture', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+		'name'								=> _x( 'Conway Memorial Lectures', 'Post Type General Name', 'ch' ),
+		'singular_name'			 => _x( 'Conway Memorial Lecture', 'Post Type Singular Name', 'ch' ),
+		'menu_name'					 => __( 'Conway Lecture', 'ch' ),
+		'parent_item_colon'	 => __( 'Parent Conway Lecture:', 'ch' ),
+		'all_items'					 => __( 'All Conway Lectures', 'ch' ),
+		'view_item'					 => __( 'View Conway Lecture', 'ch' ),
+		'add_new_item'				=> __( 'Add New Conway Lecture', 'ch' ),
+		'add_new'						 => __( 'Add New', 'ch' ),
+		'edit_item'					 => __( 'Edit Conway Lecture', 'ch' ),
+		'update_item'				 => __( 'Update Conway Lecture', 'ch' ),
+		'search_items'				=> __( 'Search Conway Lecture', 'ch' ),
+		'not_found'					 => __( 'Not found', 'ch' ),
+		'not_found_in_trash'	=> __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'memorial_lecture', 'ch' ),
-		'description'         => __( '<h4>The Conway Memorial Lectures were introduced in 1910 to honour Moncure Conway.</h4><p>For over one hundred years, a guest lecturer has been selected each year to give the Conway Memorial Lecture.</p><p><em>Please note that the views and ideas expressed within these lectures are of their time and they should be regarded as historicial documents which may not represent the current views of Conway Hall Ethical Society.</em></p>', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
-		'taxonomies'          => array( 'category', 'post_tag' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
+		'label'							 => __( 'memorial_lecture', 'ch' ),
+		'description'				 => __( '<h4>The Conway Memorial Lectures were introduced in 1910 to honour Moncure Conway.</h4><p>For over one hundred years, a guest lecturer has been selected each year to give the Conway Memorial Lecture.</p><p><em>Please note that the views and ideas expressed within these lectures are of their time and they should be regarded as historicial documents which may not represent the current views of Conway Hall Ethical Society.</em></p>', 'ch' ),
+		'labels'							=> $labels,
+		'supports'						=> array( 'title', 'editor', 'excerpt', 'thumbnail', ),
+		'taxonomies'					=> array( 'category', 'post_tag' ),
+		'hierarchical'				=> false,
+		'public'							=> true,
+		'show_ui'						 => true,
+		'show_in_menu'				=> true,
+		'show_in_nav_menus'	 => true,
+		'show_in_admin_bar'	 => true,
+		'menu_position'			 => 5,
+		'can_export'					=> true,
+		'has_archive'				 => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'publicly_queryable'	=> true,
+		'capability_type'		 => 'page',
 	);
 	register_post_type( 'memorial_lecture', $args );
 
@@ -241,38 +241,38 @@ add_action( 'init', 'chml', 0 );
 // Register Amazon Product Post Type
 function amazon_products() {
 	$labels = array(
-		'name'                => _x( 'Amazon Products', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Amazon Product', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Amazon Products', 'ch' ),
-		'parent_item_colon'   => __( 'Parent Amazon Product:', 'ch' ),
-		'all_items'           => __( 'All Amazon Products', 'ch' ),
-		'view_item'           => __( 'View Amazon Product', 'ch' ),
-		'add_new_item'        => __( 'Add New Amazon Product', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Amazon Product', 'ch' ),
-		'update_item'         => __( 'Update Amazon Product', 'ch' ),
-		'search_items'        => __( 'Search Amazon Products', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+		'name'								=> _x( 'Amazon Products', 'Post Type General Name', 'ch' ),
+		'singular_name'			 => _x( 'Amazon Product', 'Post Type Singular Name', 'ch' ),
+		'menu_name'					 => __( 'Amazon Products', 'ch' ),
+		'parent_item_colon'	 => __( 'Parent Amazon Product:', 'ch' ),
+		'all_items'					 => __( 'All Amazon Products', 'ch' ),
+		'view_item'					 => __( 'View Amazon Product', 'ch' ),
+		'add_new_item'				=> __( 'Add New Amazon Product', 'ch' ),
+		'add_new'						 => __( 'Add New', 'ch' ),
+		'edit_item'					 => __( 'Edit Amazon Product', 'ch' ),
+		'update_item'				 => __( 'Update Amazon Product', 'ch' ),
+		'search_items'				=> __( 'Search Amazon Products', 'ch' ),
+		'not_found'					 => __( 'Not found', 'ch' ),
+		'not_found_in_trash'	=> __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'amazon_product', 'ch' ),
-		'description'         => __( 'Conway Hall shop products', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'          => array( 'type' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
+		'label'							 => __( 'amazon_product', 'ch' ),
+		'description'				 => __( 'Conway Hall shop products', 'ch' ),
+		'labels'							=> $labels,
+		'supports'						=> array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'					=> array( 'type' ),
+		'hierarchical'				=> false,
+		'public'							=> true,
+		'show_ui'						 => true,
+		'show_in_menu'				=> true,
+		'show_in_nav_menus'	 => true,
+		'show_in_admin_bar'	 => true,
+		'menu_position'			 => 5,
+		'can_export'					=> true,
+		'has_archive'				 => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'post',
+		'publicly_queryable'	=> true,
+		'capability_type'		 => 'post',
 	);
 	register_post_type( 'amazon_product', $args );
 }
@@ -282,38 +282,38 @@ add_action( 'init', 'amazon_products', 0 );
 // Register Amazon Product Post Type
 function am_products() {
 	$labels = array(
-		'name'                => _x( 'Products', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Products', 'ch' ),
-		'parent_item_colon'   => __( 'Parent Product:', 'ch' ),
-		'all_items'           => __( 'All Products', 'ch' ),
-		'view_item'           => __( 'View Product', 'ch' ),
-		'add_new_item'        => __( 'Add New Product', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Product', 'ch' ),
-		'update_item'         => __( 'Update Product', 'ch' ),
-		'search_items'        => __( 'Search Products', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+		'name'								=> _x( 'Products', 'Post Type General Name', 'ch' ),
+		'singular_name'			 => _x( 'Product', 'Post Type Singular Name', 'ch' ),
+		'menu_name'					 => __( 'Products', 'ch' ),
+		'parent_item_colon'	 => __( 'Parent Product:', 'ch' ),
+		'all_items'					 => __( 'All Products', 'ch' ),
+		'view_item'					 => __( 'View Product', 'ch' ),
+		'add_new_item'				=> __( 'Add New Product', 'ch' ),
+		'add_new'						 => __( 'Add New', 'ch' ),
+		'edit_item'					 => __( 'Edit Product', 'ch' ),
+		'update_item'				 => __( 'Update Product', 'ch' ),
+		'search_items'				=> __( 'Search Products', 'ch' ),
+		'not_found'					 => __( 'Not found', 'ch' ),
+		'not_found_in_trash'	=> __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'product', 'ch' ),
-		'description'         => __( 'products', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'          => array( 'type' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
+		'label'							 => __( 'product', 'ch' ),
+		'description'				 => __( 'products', 'ch' ),
+		'labels'							=> $labels,
+		'supports'						=> array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'					=> array( 'type' ),
+		'hierarchical'				=> false,
+		'public'							=> true,
+		'show_ui'						 => true,
+		'show_in_menu'				=> true,
+		'show_in_nav_menus'	 => true,
+		'show_in_admin_bar'	 => true,
+		'menu_position'			 => 5,
+		'can_export'					=> true,
+		'has_archive'				 => true,
 		'exclude_from_search' => true,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'post',
+		'publicly_queryable'	=> true,
+		'capability_type'		 => 'post',
 	);
 	register_post_type( 'product', $args );
 }
@@ -323,38 +323,38 @@ add_action( 'init', 'am_products', 0 );
 // Register People Post Type
 function people() {
 	$labels = array(
-		'name'                => _x( 'People', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Person', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'People', 'ch' ),
-		'parent_item_colon'   => __( 'Parent Person:', 'ch' ),
-		'all_items'           => __( 'All People', 'ch' ),
-		'view_item'           => __( 'View Person', 'ch' ),
-		'add_new_item'        => __( 'Add New Person', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Person', 'ch' ),
-		'update_item'         => __( 'Update Person', 'ch' ),
-		'search_items'        => __( 'Search People', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+		'name'								=> _x( 'People', 'Post Type General Name', 'ch' ),
+		'singular_name'			 => _x( 'Person', 'Post Type Singular Name', 'ch' ),
+		'menu_name'					 => __( 'People', 'ch' ),
+		'parent_item_colon'	 => __( 'Parent Person:', 'ch' ),
+		'all_items'					 => __( 'All People', 'ch' ),
+		'view_item'					 => __( 'View Person', 'ch' ),
+		'add_new_item'				=> __( 'Add New Person', 'ch' ),
+		'add_new'						 => __( 'Add New', 'ch' ),
+		'edit_item'					 => __( 'Edit Person', 'ch' ),
+		'update_item'				 => __( 'Update Person', 'ch' ),
+		'search_items'				=> __( 'Search People', 'ch' ),
+		'not_found'					 => __( 'Not found', 'ch' ),
+		'not_found_in_trash'	=> __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'people', 'ch' ),
-		'description'         => __( 'Staff listings', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
-		'taxonomies'          => array(),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
+		'label'							 => __( 'people', 'ch' ),
+		'description'				 => __( 'Staff listings', 'ch' ),
+		'labels'							=> $labels,
+		'supports'						=> array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
+		'taxonomies'					=> array(),
+		'hierarchical'				=> false,
+		'public'							=> true,
+		'show_ui'						 => true,
+		'show_in_menu'				=> true,
+		'show_in_nav_menus'	 => true,
+		'show_in_admin_bar'	 => true,
+		'menu_position'			 => 5,
+		'can_export'					=> true,
+		'has_archive'				 => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'publicly_queryable'	=> true,
+		'capability_type'		 => 'page',
 	);
 	register_post_type( 'people', $args );
 }
@@ -364,38 +364,38 @@ add_action( 'init', 'people', 0 );
 // Register Jobs Post Type
 function jobs() {
 	$labels = array(
-		'name'                => _x( 'Jobs', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Job', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Jobs', 'ch' ),
-		'parent_item_colon'   => __( 'Parent Job:', 'ch' ),
-		'all_items'           => __( 'All Jobs', 'ch' ),
-		'view_item'           => __( 'View Job', 'ch' ),
-		'add_new_item'        => __( 'Add New Job', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Job', 'ch' ),
-		'update_item'         => __( 'Update Job', 'ch' ),
-		'search_items'        => __( 'Search Jobs', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+		'name'								=> _x( 'Jobs', 'Post Type General Name', 'ch' ),
+		'singular_name'			 => _x( 'Job', 'Post Type Singular Name', 'ch' ),
+		'menu_name'					 => __( 'Jobs', 'ch' ),
+		'parent_item_colon'	 => __( 'Parent Job:', 'ch' ),
+		'all_items'					 => __( 'All Jobs', 'ch' ),
+		'view_item'					 => __( 'View Job', 'ch' ),
+		'add_new_item'				=> __( 'Add New Job', 'ch' ),
+		'add_new'						 => __( 'Add New', 'ch' ),
+		'edit_item'					 => __( 'Edit Job', 'ch' ),
+		'update_item'				 => __( 'Update Job', 'ch' ),
+		'search_items'				=> __( 'Search Jobs', 'ch' ),
+		'not_found'					 => __( 'Not found', 'ch' ),
+		'not_found_in_trash'	=> __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'jobs', 'ch' ),
-		'description'         => __( 'Job/Volunteering listings', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
-		'taxonomies'          => array( 'job_type' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
+		'label'							 => __( 'jobs', 'ch' ),
+		'description'				 => __( 'Job/Volunteering listings', 'ch' ),
+		'labels'							=> $labels,
+		'supports'						=> array( 'title', 'editor', 'excerpt', 'thumbnail', ),
+		'taxonomies'					=> array( 'job_type' ),
+		'hierarchical'				=> false,
+		'public'							=> true,
+		'show_ui'						 => true,
+		'show_in_menu'				=> true,
+		'show_in_nav_menus'	 => true,
+		'show_in_admin_bar'	 => true,
+		'menu_position'			 => 5,
+		'can_export'					=> true,
+		'has_archive'				 => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'publicly_queryable'	=> true,
+		'capability_type'		 => 'page',
 	);
 	register_post_type( 'jobs', $args );
 }
@@ -405,37 +405,37 @@ add_action( 'init', 'jobs', 0 );
 // Register PDF Post Type
 function pdf() {
 	$labels = array(
-		'name'                => _x( 'PDFs', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'PDF', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'PDFs', 'ch' ),
-		'parent_item_colon'   => __( 'Parent PDF:', 'ch' ),
-		'all_items'           => __( 'All PDFs', 'ch' ),
-		'view_item'           => __( 'View PDF', 'ch' ),
-		'add_new_item'        => __( 'Add New PDF', 'ch' ),
-		'add_new'             => __( 'Add PDF', 'ch' ),
-		'edit_item'           => __( 'Edit PDF', 'ch' ),
-		'update_item'         => __( 'Update PDF', 'ch' ),
-		'search_items'        => __( 'Search PDFs', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
-		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+		'name'								=> _x( 'PDFs', 'Post Type General Name', 'ch' ),
+		'singular_name'			 => _x( 'PDF', 'Post Type Singular Name', 'ch' ),
+		'menu_name'					 => __( 'PDFs', 'ch' ),
+		'parent_item_colon'	 => __( 'Parent PDF:', 'ch' ),
+		'all_items'					 => __( 'All PDFs', 'ch' ),
+		'view_item'					 => __( 'View PDF', 'ch' ),
+		'add_new_item'				=> __( 'Add New PDF', 'ch' ),
+		'add_new'						 => __( 'Add PDF', 'ch' ),
+		'edit_item'					 => __( 'Edit PDF', 'ch' ),
+		'update_item'				 => __( 'Update PDF', 'ch' ),
+		'search_items'				=> __( 'Search PDFs', 'ch' ),
+		'not_found'					 => __( 'Not found', 'ch' ),
+		'not_found_in_trash'	=> __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'pdf', 'ch' ),
-		'description'         => __( 'All PDFs for the site', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => true,
+		'label'							 => __( 'pdf', 'ch' ),
+		'description'				 => __( 'All PDFs for the site', 'ch' ),
+		'labels'							=> $labels,
+		'supports'						=> array( 'title', ),
+		'hierarchical'				=> false,
+		'public'							=> true,
+		'show_ui'						 => true,
+		'show_in_menu'				=> true,
+		'show_in_nav_menus'	 => true,
+		'show_in_admin_bar'	 => true,
+		'menu_position'			 => 5,
+		'can_export'					=> true,
+		'has_archive'				 => true,
 		'exclude_from_search' => true,
-		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'publicly_queryable'	=> true,
+		'capability_type'		 => 'page',
 	);
 	register_post_type( 'pdf', $args );
 }
@@ -445,30 +445,30 @@ add_action( 'init', 'pdf', 0 );
 // Register Custom Types Taxonomy
 function type() {
 	$labels = array(
-		'name'                       => _x( 'Product Types', 'Taxonomy General Name', 'ch' ),
-		'singular_name'              => _x( 'Product Type', 'Taxonomy Singular Name', 'ch' ),
-		'menu_name'                  => __( 'Product Types', 'ch' ),
-		'all_items'                  => __( 'All Types', 'ch' ),
-		'parent_item'                => __( 'Parent Type', 'ch' ),
-		'parent_item_colon'          => __( 'Parent Type:', 'ch' ),
-		'new_item_name'              => __( 'New Type', 'ch' ),
-		'add_new_item'               => __( 'Add New Type', 'ch' ),
-		'edit_item'                  => __( 'Edit Type', 'ch' ),
-		'update_item'                => __( 'Update Types', 'ch' ),
+		'name'											 => _x( 'Product Types', 'Taxonomy General Name', 'ch' ),
+		'singular_name'							=> _x( 'Product Type', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'									=> __( 'Product Types', 'ch' ),
+		'all_items'									=> __( 'All Types', 'ch' ),
+		'parent_item'								=> __( 'Parent Type', 'ch' ),
+		'parent_item_colon'					=> __( 'Parent Type:', 'ch' ),
+		'new_item_name'							=> __( 'New Type', 'ch' ),
+		'add_new_item'							 => __( 'Add New Type', 'ch' ),
+		'edit_item'									=> __( 'Edit Type', 'ch' ),
+		'update_item'								=> __( 'Update Types', 'ch' ),
 		'separate_items_with_commas' => __( 'Separate Types with commas', 'ch' ),
-		'search_items'               => __( 'Search Types', 'ch' ),
-		'add_or_remove_items'        => __( 'Add or remove Types', 'ch' ),
-		'choose_from_most_used'      => __( 'Choose from the most used Types', 'ch' ),
-		'not_found'                  => __( 'Not Found', 'ch' ),
+		'search_items'							 => __( 'Search Types', 'ch' ),
+		'add_or_remove_items'				=> __( 'Add or remove Types', 'ch' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used Types', 'ch' ),
+		'not_found'									=> __( 'Not Found', 'ch' ),
 	);
 	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
+		'labels'										 => $labels,
+		'hierarchical'							 => true,
+		'public'										 => true,
+		'show_ui'										=> true,
+		'show_admin_column'					=> true,
+		'show_in_nav_menus'					=> true,
+		'show_tagcloud'							=> true,
 	);
 	register_taxonomy( 'type', array( 'amazon_product' ), $args );
 }
@@ -478,30 +478,30 @@ add_action( 'init', 'type', 0 );
 // Register Custom Jobs Taxonomy
 function job_type() {
 	$labels = array(
-		'name'                       => _x( 'Job Types', 'Taxonomy General Name', 'ch' ),
-		'singular_name'              => _x( 'Job Type', 'Taxonomy Singular Name', 'ch' ),
-		'menu_name'                  => __( 'Job Types', 'ch' ),
-		'all_items'                  => __( 'All Job Types', 'ch' ),
-		'parent_item'                => __( 'Parent Job Type', 'ch' ),
-		'parent_item_colon'          => __( 'Parent Job Type:', 'ch' ),
-		'new_item_name'              => __( 'New Job Type', 'ch' ),
-		'add_new_item'               => __( 'Add New Job Type', 'ch' ),
-		'edit_item'                  => __( 'Edit Job Type', 'ch' ),
-		'update_item'                => __( 'Update Job Types', 'ch' ),
+		'name'											 => _x( 'Job Types', 'Taxonomy General Name', 'ch' ),
+		'singular_name'							=> _x( 'Job Type', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'									=> __( 'Job Types', 'ch' ),
+		'all_items'									=> __( 'All Job Types', 'ch' ),
+		'parent_item'								=> __( 'Parent Job Type', 'ch' ),
+		'parent_item_colon'					=> __( 'Parent Job Type:', 'ch' ),
+		'new_item_name'							=> __( 'New Job Type', 'ch' ),
+		'add_new_item'							 => __( 'Add New Job Type', 'ch' ),
+		'edit_item'									=> __( 'Edit Job Type', 'ch' ),
+		'update_item'								=> __( 'Update Job Types', 'ch' ),
 		'separate_items_with_commas' => __( 'Separate Job Types with commas', 'ch' ),
-		'search_items'               => __( 'Search Job Types', 'ch' ),
-		'add_or_remove_items'        => __( 'Add or remove Job Types', 'ch' ),
-		'choose_from_most_used'      => __( 'Choose from the most used Job Types', 'ch' ),
-		'not_found'                  => __( 'Not Found', 'ch' ),
+		'search_items'							 => __( 'Search Job Types', 'ch' ),
+		'add_or_remove_items'				=> __( 'Add or remove Job Types', 'ch' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used Job Types', 'ch' ),
+		'not_found'									=> __( 'Not Found', 'ch' ),
 	);
 	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
+		'labels'										 => $labels,
+		'hierarchical'							 => true,
+		'public'										 => true,
+		'show_ui'										=> true,
+		'show_admin_column'					=> true,
+		'show_in_nav_menus'					=> true,
+		'show_tagcloud'							=> true,
 	);
 	register_taxonomy( 'job_type', array( 'jobs' ), $args );
 }
@@ -510,35 +510,35 @@ add_action( 'init', 'job_type', 0 );
 
 
 function my_connection_types() {
-    p2p_register_connection_type( array(
-        'name' => 'pdf_to_page',
-        'from' => 'pdf',
-        'to' => 'page'
-    ) );
+		p2p_register_connection_type( array(
+				'name' => 'pdf_to_page',
+				'from' => 'pdf',
+				'to' => 'page'
+		) );
 }
 add_action( 'p2p_init', 'my_connection_types' );
 
 function job_pdf() {
-    p2p_register_connection_type( array(
-        'name' => 'pdf_to_job',
-        'from' => 'pdf',
-        'to' => 'jobs'
-    ) );
+		p2p_register_connection_type( array(
+				'name' => 'pdf_to_job',
+				'from' => 'pdf',
+				'to' => 'jobs'
+		) );
 }
 add_action( 'p2p_init', 'job_pdf' );
 
 function lecture_pdf() {
-    p2p_register_connection_type( array(
-        'name' => 'pdf_to_lecture',
-        'from' => 'pdf',
-        'to' => 'memorial_lecture'
-    ) );
+		p2p_register_connection_type( array(
+				'name' => 'pdf_to_lecture',
+				'from' => 'pdf',
+				'to' => 'memorial_lecture'
+		) );
 }
 add_action( 'p2p_init', 'lecture_pdf' );
 
 add_action( 'init', 'my_add_excerpts_to_pages' );
 function my_add_excerpts_to_pages() {
-     add_post_type_support( 'page', 'excerpt' );
+		 add_post_type_support( 'page', 'excerpt' );
 }
 
 function amazon_link( $meta_boxes ) {
@@ -553,12 +553,12 @@ function amazon_link( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => __( 'Author', 'ch' ),
-				'id'   => $prefix . 'author',
+				'id'	 => $prefix . 'author',
 				'type' => 'text',
 			),
 			array(
 				'name' => __( 'Link to Amazon', 'ch' ),
-				'id'   => $prefix . 'url',
+				'id'	 => $prefix . 'url',
 				'type' => 'text_url',
 			),
 		),
@@ -579,7 +579,7 @@ function carousel_link( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => __( 'Link to page', 'ch' ),
-				'id'   => $prefix . 'url',
+				'id'	 => $prefix . 'url',
 				'type' => 'text_url',
 			),
 		),
@@ -600,7 +600,7 @@ function job_title( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => __( 'Job title', 'ch' ),
-				'id'   => $prefix . 'title',
+				'id'	 => $prefix . 'title',
 				'type' => 'text',
 			),
 		),
@@ -621,7 +621,7 @@ function pdf_box( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => __( 'PDF file', 'ch' ),
-				'id'   => $prefix . 'pdf',
+				'id'	 => $prefix . 'pdf',
 				'type' => 'file',
 			),
 		),
@@ -642,7 +642,7 @@ function amazon_asin( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => __( 'ASIN #', 'ch' ),
-				'id'   => $prefix . 'asin',
+				'id'	 => $prefix . 'asin',
 				'type' => 'text',
 			),
 		),
@@ -663,7 +663,7 @@ function memorial_speaker( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => __( 'Speaker', 'ch' ),
-				'id'   => $prefix . 'speaker',
+				'id'	 => $prefix . 'speaker',
 				'type' => 'text',
 			),
 		),
@@ -686,12 +686,12 @@ function my_add_cpt_to_dashboard() {
 	if ($showTaxonomies) {
 		$taxonomies = get_taxonomies( array( '_builtin' => false ), 'objects' );
 		foreach ( $taxonomies as $taxonomy ) {
-			$num_terms  = wp_count_terms( $taxonomy->name );
+			$num_terms	= wp_count_terms( $taxonomy->name );
 			$num = number_format_i18n( $num_terms );
 			$text = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, $num_terms );
 			$associated_post_type = $taxonomy->object_type;
 			if ( current_user_can( 'manage_categories' ) ) {
-			  $output = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $num . ' ' . $text .'</a>';
+				$output = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $num . ' ' . $text .'</a>';
 			}
 			echo '<li class="taxonomy-count">' . $output . ' </li>';
 		}
@@ -774,30 +774,30 @@ add_action( 'widgets_init', 'be_subpages_load_widgets' );
 /**
  * Subpages Widget Class
  *
- * @author       Bill Erickson <bill@billerickson.net>
- * @copyright    Copyright (c) 2011, Bill Erickson
- * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @author			 Bill Erickson <bill@billerickson.net>
+ * @copyright		Copyright (c) 2011, Bill Erickson
+ * @license			http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 class BE_Subpages_Widget extends WP_Widget {
 	
-    /**
-     * Constructor
-     *
-     * @return void
-     **/
+		/**
+		 * Constructor
+		 *
+		 * @return void
+		 **/
 	function BE_Subpages_Widget() {
 		//load_plugin_textdomain( 'be-subpages', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		$widget_ops = array( 'classname' => 'widget_subpages', 'description' => __( 'Lists current section subpages', 'be-subpages' ) );
 		$this->WP_Widget( 'subpages-widget', __( 'Subpages Widget', 'be-subpages' ), $widget_ops );
 	}
 
-    /**
-     * Outputs the HTML for this widget.
-     *
-     * @param array, An array of standard parameters for widgets in this theme 
-     * @param array, An array of settings for this widget instance 
-     * @return void Echoes it's output
-     **/
+		/**
+		 * Outputs the HTML for this widget.
+		 *
+		 * @param array, An array of standard parameters for widgets in this theme 
+		 * @param array, An array of settings for this widget instance 
+		 * @return void Echoes it's output
+		 **/
 	function widget( $args, $instance ) {
 		extract( $args, EXTR_SKIP );
 		
@@ -987,38 +987,38 @@ function add_menu_icons_styles(){
 		content: "\f484";
 	}
 	#dashboard_right_now .tribe_events-count a:before {
-	    content: "\f145";
+		content: "\f145";
 	}
 	#dashboard_right_now .feedback-count a:before {
-	    content: "\f175";
+		content: "\f175";
 	}
 	#dashboard_right_now .taxonomy-count a:before {
-	    content: "\f325";
+		content: "\f325";
 	}
 	#adminmenu #menu-posts-pdf div.wp-menu-image:before, #dashboard_right_now .pdf-count a:before {
-	    content: "\f497";
+		content: "\f497";
 	}
 	#adminmenu #menu-posts-product div.wp-menu-image:before, #dashboard_right_now .product-count a:before {
-	    content: "\f174";
+		content: "\f174";
 	}
 	#adminmenu #menu-posts-memorial_lecture div.wp-menu-image:before, #dashboard_right_now .memorial_lecture-count a:before {
-	    content: "\f488";
+		content: "\f488";
 	}
 	#adminmenu #menu-posts-amazon_product div.wp-menu-image:before, #dashboard_right_now .amazon_product-count a:before {
-	    content: "\f174";
+		content: "\f174";
 	}
 	</style>';
 
 }
 add_action( 'admin_head', 'add_menu_icons_styles' );
 
-function additional_admin_color_schemes() {  
-	$theme_dir = get_template_directory_uri();  
-	wp_admin_css_color( 'er', __( 'Ethical Record' ),  
-		$theme_dir . '/css/er_admin.css',  
-		array( '#ebebeb', '#ebf3f4', '#136972', '#ffffff' )  
-	);  
-}  
+function additional_admin_color_schemes() {	
+	$theme_dir = get_template_directory_uri();	
+	wp_admin_css_color( 'er', __( 'Ethical Record' ),	
+		$theme_dir . '/css/er_admin.css',	
+		array( '#ebebeb', '#ebf3f4', '#136972', '#ffffff' )	
+	);	
+}	
 add_action('admin_init', 'additional_admin_color_schemes');
 
 function remove_footer_admin () {
@@ -1032,7 +1032,7 @@ function rdc_add_views_column( $cols ) {
 	return $cols;
 }
 add_filter( 'manage_edit-post_columns', 'rdc_add_views_column' );
-  
+	
 function rdc_add_views_colurdc_data( $colname ) {
 	global $post;
 	if ( 'pageviews' !== $colname )
@@ -1061,33 +1061,33 @@ function rdc_add_views_colurdc_data( $colname ) {
 add_action( 'manage_posts_custom_column', 'rdc_add_views_colurdc_data' );
 
 function my_login_logo() { ?>
-    <style type="text/css">
-        body.login  {
-	    	background: #fff;
-	    }
-        body.login div#login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/header/logo.png);
-            padding-bottom: 30px;
-		    background-position: center top;
-		    background-repeat: no-repeat;
-		    background-size: 257px auto;
-		    height: 99px;
-		    line-height: 1;
-		    margin: 0 auto 25px;
-		    outline: 0 none;
-		    overflow: hidden;
-		    padding: 0;
-		    text-decoration: none;
-		    text-indent: -9999px;
-		    width: 257px;
+		<style type="text/css">
+				body.login	{
+				background: #fff;
+			}
+				body.login div#login h1 a {
+						background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/header/logo.png);
+						padding-bottom: 30px;
+				background-position: center top;
+				background-repeat: no-repeat;
+				background-size: 257px auto;
+				height: 99px;
+				line-height: 1;
+				margin: 0 auto 25px;
+				outline: 0 none;
+				overflow: hidden;
+				padding: 0;
+				text-decoration: none;
+				text-indent: -9999px;
+				width: 257px;
 		}
-    </style>
+		</style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 function my_wootickets_tribe_get_cost( $cost, $postId, $withCurrencySymbol ) {
 	if ( empty($cost) && class_exists('TribeWooTickets') ) {
-  		// see if the event has tickets associated with it
+			// see if the event has tickets associated with it
 		$wootickets = TribeWooTickets::get_instance();
 		$ticket_ids = $wootickets->get_Tickets_ids( $postId );
 		if ( empty($ticket_ids) ) {
@@ -1128,3 +1128,16 @@ function my_wootickets_tribe_get_cost( $cost, $postId, $withCurrencySymbol ) {
 	return $cost; // return the default, if nothing above returned
 }
 add_filter( 'tribe_get_cost', 'my_wootickets_tribe_get_cost', 10, 3 );
+
+function catch_that_image() {
+	global $post, $posts;
+	$first_img = '';
+	ob_start();
+	ob_end_clean();
+	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+	$first_img = $matches[1][0];
+	if(empty($first_img)) {
+		$first_img = "/path/to/default.png";
+	}
+	return $first_img;
+}
