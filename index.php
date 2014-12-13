@@ -10,22 +10,22 @@
 		?>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
-			<div <?php post_class('sticky'); ?>>
-				<div class="row">
-					<div class="twelve columns">
-						<h3><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h3>
-						<h5><?php the_time( 'D, jS M, Y' ); ?></h5>
-					</div>
-				</div>
-				<div class="row">
-					<div class="five columns">
-						<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_post_thumbnail(); ?></a>
-					</div>
-					<div class="seven columns">
-						<?php the_excerpt(); ?>	
-					</div>
+		<div <?php post_class('sticky'); ?> itemscope itemtype="http://schema.org/BlogPosting">
+			<div class="row">
+				<div class="twelve columns ">
+					<h4 itemprop="name headline"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
+					<h5 datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished"><?php the_time( 'D, jS M, Y' ); ?></h5>
 				</div>
 			</div>
+			<div class="row">
+				<div class="five columns">
+					<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="th"><?php the_post_thumbnail('speaker'); ?></a>
+				</div>
+				<div class="seven columns" itemprop="articleBody">
+					<?php the_excerpt(); ?>
+				</div>
+			</div>
+		</div>
 	
 	<?php endwhile; ?>
 	<?php wp_pagenavi(); ?>

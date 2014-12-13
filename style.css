@@ -264,6 +264,9 @@ input.search-field {
 	background-repeat: no-repeat;
 	background-position: right bottom;
 }
+.updated, time {
+	display: none;
+}
 form[action*="?wootickets_process"] {
 	display: none;
 }
@@ -313,7 +316,10 @@ form[action*="?wootickets_process"] {
 	display: inline;
 	float: none;
 }
-.post-sticky .tribe-events-single-section-title, #tribe-events-content h3.tribe-events-single-section-title {
+.post-sticky .tribe-events-single-section-title, #tribe-events-content h3.tribe-events-single-section-title, .home .tribe-events-single-section-title, #tribe-events-content h3.tribe-events-single-section-title {
+    font-size: 1.15em;
+    font-weight: bold;
+} {
     font-size: 1.25em;
     font-weight: bold;
 }
@@ -439,6 +445,10 @@ form[action*="?wootickets_process"] {
 	color: #136972 !important;
 	background: #EBF3F4 !important;
 }
+.tribe_events form.cart {
+	display: none;
+}
+
 .line1, .B {
 	background: #AE6118;
 	color: #fff !important;

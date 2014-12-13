@@ -238,28 +238,28 @@ function chml() {
 // Hook into the 'init' action
 add_action( 'init', 'chml', 0 );
 
-// Register Product Post Type
-function products() {
+// Register Amazon Product Post Type
+function amazon_products() {
 	$labels = array(
-		'name'                => _x( 'Products', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Products', 'ch' ),
-		'parent_item_colon'   => __( 'Parent Product:', 'ch' ),
-		'all_items'           => __( 'All Products', 'ch' ),
-		'view_item'           => __( 'View Product', 'ch' ),
-		'add_new_item'        => __( 'Add New Product', 'ch' ),
+		'name'                => _x( 'Amazon Products', 'Post Type General Name', 'ch' ),
+		'singular_name'       => _x( 'Amazon Product', 'Post Type Singular Name', 'ch' ),
+		'menu_name'           => __( 'Amazon Products', 'ch' ),
+		'parent_item_colon'   => __( 'Parent Amazon Product:', 'ch' ),
+		'all_items'           => __( 'All Amazon Products', 'ch' ),
+		'view_item'           => __( 'View Amazon Product', 'ch' ),
+		'add_new_item'        => __( 'Add New Amazon Product', 'ch' ),
 		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Product', 'ch' ),
-		'update_item'         => __( 'Update Product', 'ch' ),
-		'search_items'        => __( 'Search Products', 'ch' ),
+		'edit_item'           => __( 'Edit Amazon Product', 'ch' ),
+		'update_item'         => __( 'Update Amazon Product', 'ch' ),
+		'search_items'        => __( 'Search Amazon Products', 'ch' ),
 		'not_found'           => __( 'Not found', 'ch' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'product', 'ch' ),
+		'label'               => __( 'amazon_product', 'ch' ),
 		'description'         => __( 'Conway Hall shop products', 'ch' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'          => array( 'type' ),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -270,15 +270,14 @@ function products() {
 		'menu_position'       => 5,
 		'can_export'          => true,
 		'has_archive'         => true,
-		'rewrite'			  => array('slug' => 'shop'),
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
 	);
-	register_post_type( 'product', $args );
+	register_post_type( 'amazon_product', $args );
 }
 // Hook into the 'init' action
-add_action( 'init', 'products', 0 );
+add_action( 'init', 'amazon_products', 0 );
 
 // Register People Post Type
 function people() {
@@ -430,7 +429,7 @@ function type() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'type', array( 'product' ), $args );
+	register_taxonomy( 'type', array( 'amazon_product' ), $args );
 }
 // Hook into the 'init' action
 add_action( 'init', 'type', 0 );
@@ -500,6 +499,32 @@ add_action( 'init', 'my_add_excerpts_to_pages' );
 function my_add_excerpts_to_pages() {
      add_post_type_support( 'page', 'excerpt' );
 }
+
+function amazon_link( $meta_boxes ) {
+	$prefix = '_cmb_';
+	$meta_boxes[] = array(
+		'id' => 'amazon',
+		'title' => 'Amazon Link',
+		'pages' => array('amazon_product'),
+		'context' => 'normal',
+		'priority' => 'high',
+		'show_names' => true,
+		'fields' => array(
+			array(
+				'name' => __( 'Author', 'ch' ),
+				'id'   => $prefix . 'author',
+				'type' => 'text',
+			),
+			array(
+				'name' => __( 'Link to Amazon', 'ch' ),
+				'id'   => $prefix . 'url',
+				'type' => 'text_url',
+			),
+		),
+	);
+	return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'amazon_link' );
 
 function carousel_link( $meta_boxes ) {
 	$prefix = '_cmb_';
@@ -937,6 +962,9 @@ function add_menu_icons_styles(){
 	}
 	#adminmenu #menu-posts-memorial_lecture div.wp-menu-image:before, #dashboard_right_now .memorial_lecture-count a:before {
 	    content: "\f488";
+	}
+	#adminmenu #menu-posts-amazon_product div.wp-menu-image:before, #dashboard_right_now .amazon_product-count a:before {
+	    content: "\f174";
 	}
 	</style>';
 
