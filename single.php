@@ -12,6 +12,7 @@
 		<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 		<div itemprop="articleBody" class="e-content">
 			<?php the_content(); ?>
+			<p><?php the_tags(); ?></p>
 		</div>
 	<?php endwhile; ?>
 	<div class="row">

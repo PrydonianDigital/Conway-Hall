@@ -25,6 +25,7 @@
 				<div class="seven columns p-summary" itemprop="articleBody">
 					<?php the_excerpt(); ?>
 					<p>By: <span class="vcard author"><span class="fn"><?php the_author('nicename'); ?></span></span></p>
+					<p><?php the_tags(); ?></p>
 				</div>
 			</div>
 		</div>
