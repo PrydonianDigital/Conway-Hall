@@ -119,7 +119,7 @@
 										<div class="six columns">
 											<h6>Organiser:</h6>
 											<ul class="tribe-event-categories">
-												<li><span class="vcard author"><span class="fn"><?php echo tribe_get_organizer() ?></span></span></li>
+												<li><span class="vcard author"><span class="fn"><?php echo tribe_get_organizer_link() ?></span></span></li>
 											</ul>
 										</div>
 									</div>
