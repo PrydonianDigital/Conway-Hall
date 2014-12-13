@@ -341,7 +341,7 @@ function people() {
 		'label'               => __( 'people', 'ch' ),
 		'description'         => __( 'Staff listings', 'ch' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
 		'taxonomies'          => array(),
 		'hierarchical'        => false,
 		'public'              => true,

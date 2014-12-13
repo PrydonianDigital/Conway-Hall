@@ -13,6 +13,8 @@
 		// WP_Query arguments
 		$args = array (
 			'post_type' => 'people',
+			'order' => 'ASC',
+			'orderby' => 'menu_order',
 		);
 		// The Query
 		$room_hire = new WP_Query( $args );
