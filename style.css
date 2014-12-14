@@ -294,6 +294,9 @@ h5.updated {
 form[action*="?wootickets_process"] {
 	display: none;
 }
+#tribe-bar-collapse-toggle {
+	background: #136972;
+}
 .tribe-mini-calendar .tribe-events-has-events div[id*="daynum-"] a:before {
 	background: #136972;
 }
