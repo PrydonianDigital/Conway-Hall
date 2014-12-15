@@ -114,13 +114,13 @@
 
 		<?php echo tribe_meta_event_tags( __( 'Event Tags:', 'tribe-events-calendar' ), ', ', false ) ?>
 
-		<?php
-		$website = tribe_get_event_website_link();
-		if ( ! empty( $website ) ):
-			?>
-			<dt> <?php _e( 'Tickets:', 'tribe-events-calendar' ) ?> </dt>
-			<dd class="tribe-events-event-url"> <?php echo $website ?> </dd>
-		<?php endif ?>
+			<?php
+			$website = tribe_get_event_website_button();
+			if ( ! empty( $website ) ):
+				?>
+				<div class="medium primary btn"><?php echo $website ?></div></dd>
+			<?php endif ?>
+
 
 		<?php do_action( 'tribe_events_single_meta_details_section_end' ) ?>
 	</dl>

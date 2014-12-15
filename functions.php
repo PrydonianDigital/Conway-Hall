@@ -1141,3 +1141,17 @@ function catch_that_image() {
 	}
 	return $first_img;
 }
+function tribe_get_event_website_button( $event = null, $label = 'Book Now' ) {
+	$url = tribe_get_event_website_url( $event );
+	if ( ! empty( $url ) ) {
+		$label = is_null( $label ) ? $url : $label;
+		$html  = sprintf(
+			'<a href="%s" target="_blank">%s</a>',
+			$url,
+			'Book Now'
+		);
+	} else {
+		$html = '';
+	}
+	return apply_filters( 'tribe_get_event_website_button', $html );
+}

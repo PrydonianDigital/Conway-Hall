@@ -57,7 +57,20 @@ $event_id = get_the_ID();
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 			<div class="tribe-events-single-event-description tribe-events-content entry-content description">
+			<?php
+			$website = tribe_get_event_website_button();
+			if ( ! empty( $website ) ):
+				?>
+				<div class="medium primary btn"><?php echo $website ?></div></dd>
+			<?php endif ?>
+
 				<?php the_content(); ?>
+			<?php
+			$website = tribe_get_event_website_button();
+			if ( ! empty( $website ) ):
+				?>
+				<div class="medium primary btn"><?php echo $website ?></div></dd>
+			<?php endif ?>
 			</div>
 			<!-- .tribe-events-single-event-description -->
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
