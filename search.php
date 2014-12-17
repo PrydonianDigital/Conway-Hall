@@ -25,7 +25,21 @@
 			</div>
 			<div class="row">
 				<div class="five columns">
-					<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID, 'speaker');?></a>
+					<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>">
+						<?php
+							if ( get_the_post_thumbnail($post_id) != '' ) {
+								echo '<a href="'; the_permalink(); echo '" rel="permalink" class="th">';
+								the_post_thumbnail('speaker');
+								echo '</a>';
+							} else {
+								echo '<a href="'; the_permalink(); echo '" rel="permalink" class="th">';
+								echo '<img src="';
+								echo catch_that_image();
+								echo '" alt="" />';
+								echo '</a>';
+							}
+						?>
+					</a>
 				</div>
 				<div class="seven columns">
 					<?php the_excerpt(); ?>	

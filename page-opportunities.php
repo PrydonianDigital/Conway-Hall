@@ -21,11 +21,13 @@
 			while ( $room_hire->have_posts() ) {
 				$room_hire->the_post();
 		?>
-		<div <?php post_class('sticky'); ?>>
+		<div <?php post_class('sticky'); ?> itemscope itemtype="http://schema.org/JobPosting">
 			<div class="row">
 				<div class="twelve columns">
-					<h3><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h3>
-					<?php the_excerpt(); ?>
+					<h3 itemprop="title"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="entry-title"><?php the_title(); ?></a></h3>
+					<time datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished" class="updated dtstart"><?php the_time( 'D, jS M, Y' ); ?></time>
+					<span itemprop="description"><?php the_excerpt(); ?></span>
+					<meta itemprop="url" content="<?php the_permalink(); ?>">
 					<p><strong>Closing Date:</strong> <?php echo do_shortcode('[postexpirator]'); ?></p>
 					<p><?php echo get_the_term_list( $post->ID, 'job_type', 'Posted in: ', ', ', '' ); ?></p>
 				</div>

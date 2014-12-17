@@ -207,7 +207,6 @@ add_action( 'init', 'carousel', 0 );
 
 // Register Custom Conway Memorial Lectures Type
 function chml() {
-
 	$labels = array(
 		'name' => _x( 'Conway Memorial Lectures', 'Post Type General Name', 'ch' ),
 		'singular_name' => _x( 'Conway Memorial Lecture', 'Post Type Singular Name', 'ch' ),
@@ -227,8 +226,8 @@ function chml() {
 		'label' => __( 'memorial_lecture', 'ch' ),
 		'description' => __( '<h4>The Conway Memorial Lectures were introduced in 1910 to honour Moncure Conway.</h4><p>For over one hundred years, a guest lecturer has been selected each year to give the Conway Memorial Lecture.</p><p><em>Please note that the views and ideas expressed within these lectures are of their time and they should be regarded as historicial documents which may not represent the current views of Conway Hall Ethical Society.</em></p>', 'ch' ),
 		'labels' => $labels,
-		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
-		'taxonomies' => array( 'category', 'post_tag' ),
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author' ),
+		'taxonomies' => array( ),
 		'hierarchical' => false,
 		'public' => true,
 		'show_ui' => true,
@@ -244,7 +243,6 @@ function chml() {
 	);
 	register_post_type( 'memorial_lecture', $args );
 }
-
 // Hook into the 'init' action
 add_action( 'init', 'chml', 0 );
 
