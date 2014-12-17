@@ -53,6 +53,22 @@
 		<div class="row">
 			<div class="twelve columns">
 				<ul>
+					<li class="widget">
+					<h5 class="widget">Categories</h5>
+					<ul class="menu">
+				<?php
+					$taxonomy = 'job_type';
+					$tax_terms = get_terms($taxonomy);
+				?>
+				<?php
+					foreach ($tax_terms as $tax_term) {
+					echo '<li>' . '<a href="' . esc_attr(get_term_link($tax_term, $taxonomy)) . '" title="' . sprintf( __( "View all posts in %s" ), $tax_term->name ) . '" ' . '>' . $tax_term->name.'</a></li>';
+					}
+				?>
+				</ul>
+					</li>
+				</ul>
+				<ul>
 					<?php
 					// Find connected pages
 					$connected = new WP_Query( array(
@@ -68,7 +84,7 @@
 					<h5 class="widget">Related Documents:</h3>
 					<ul class="menu related">
 					<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>"><?php the_title(); ?></a></li>
+					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>" download><?php the_title(); ?></a></li>
 					<?php endwhile; ?>
 					</ul>
 					</li>

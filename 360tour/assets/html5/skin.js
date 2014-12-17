@@ -9,23 +9,23 @@ function pano2vrSkin(player,skinlayer,base) {
 	this.player=player;
 	this.player.skinObj=this;
 	this.divSkin=(skinlayer)?skinlayer:player.divSkin;
-	var basePath="";
+	var basePath="/wp-content/themes/conwayhall/360tour/main-hall/";
 	// auto detect base path
-	if (base=='?') {
-		var scripts = document.getElementsByTagName('script');
-		for(var i=0;i<scripts.length;i++) {
-			var src=scripts[i].src;
-			if (src.indexOf('skin.js')>=0) {
-				var p=src.lastIndexOf('/');
-				if (p>=0) {
-					basePath=src.substr(0,p+1);
-				}
-			}
-		}
-	} else
-	if (base) {
-		basePath=base;
-	}
+//	if (base=='?') {
+//		var scripts = document.getElementsByTagName('script');
+//		for(var i=0;i<scripts.length;i++) {
+//			var src=scripts[i].src;
+//			if (src.indexOf('skin.js')>=0) {
+//				var p=src.lastIndexOf('/');
+//				if (p>=0) {
+//					basePath=src.substr(0,p+1);
+//				}
+//			}
+//		}
+//	} else
+//	if (base) {
+//		basePath=base;
+//	}
 	this.elementMouseDown=new Array();
 	this.elementMouseOver=new Array();
 	var cssPrefix='';

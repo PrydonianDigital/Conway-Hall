@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: Trustees Only
+*/	
+get_header();?>
 
 <div class="row">
 
@@ -13,13 +17,14 @@
 				$current_user = new WP_User(wp_get_current_user()->id);
 				$user_roles = $current_user->roles; 
 				foreach ($user_roles as $role) {
-					if  ($role == 'trustee' || $role == 'member' || $role == 'editor' || $role == 'administrator' ) {
+					if  ($role == 'trustee' || $role == 'editor' || $role == 'administrator' ) {
 						global $current_user;
 						if ( isset($current_user) ) {
 							echo '<p><strong>Welcome, ' . $current_user->user_firstname . ', to the Members\' Area of Conway Hall Ethical Society!</p>';
 						}
 				?>
 				<?php the_content(); ?>
+				<p><br /><a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Logout"><i class="icon-lock-open"></i>Logout</a></p>
 				<?php
 					} else {
 				?>
@@ -51,7 +56,7 @@
 					$current_user = new WP_User(wp_get_current_user()->id);
 					$user_roles = $current_user->roles; 
 					foreach ($user_roles as $role) {
-						if  ($role == 'trustee' || $role == 'member' || $role == 'editor' || $role == 'administrator' ) {
+						if  ($role == 'trustee' || $role == 'editor' || $role == 'administrator' ) {
 					?>
 					<?php
 					// Find connected pages
@@ -65,10 +70,10 @@
 					if ( $connected->have_posts() ) :
 					?>
 					<li class="widget">
-					<h5 class="widget">Members Area:</h3>
+					<h5 class="widget">Trustees Area:</h3>
 					<ul class="menu related">
 					<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>"><?php the_title(); ?></a></li>
+					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>" download><?php the_title(); ?></a></li>
 					<?php endwhile; ?>
 					</ul>
 					</li>

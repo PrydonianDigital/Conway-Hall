@@ -311,7 +311,7 @@
 					<h5 class="widget">Related Documents:</h3>
 					<ul class="menu related">
 					<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>"><?php the_title(); ?></a></li>
+					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>" download><?php the_title(); ?></a></li>
 					<?php endwhile; ?>
 					</ul>
 					</li>
