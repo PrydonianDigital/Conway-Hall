@@ -37,7 +37,7 @@ add_action( 'after_setup_theme', 'conway_hall_init' );
 
 function ch_scripts() {
 	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js', false, '1.11.1', true );
+	wp_register_script( 'jquery', get_template_directory_uri() . '/js/libs/jquery-1.10.1.min.js', false, '1.10.1', true );
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', false, '2.8.1', false );
 	wp_register_script( 'gumby', get_template_directory_uri() . '/js/libs/gumby.min.js', false, '2.6', true );
 	wp_register_script( 'cookie', get_template_directory_uri() . '/js/libs/cookie.js', false, '1.4.1', true );
@@ -1124,7 +1124,7 @@ function catch_that_image() {
 	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
 	$first_img = $matches[1][0];
 	if(empty($first_img)) {
-		$first_img = "/path/to/default.png";
+		$first_img = get_template_directory_uri() . '/img/ConwayHall.jpg';
 	}
 	return $first_img;
 }
