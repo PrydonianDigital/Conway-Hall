@@ -8,7 +8,7 @@
 	
 		<h2><?php the_title(); ?></h2>	
 		<?php the_content(); ?>
-
+		<div style="clear: both;"></div>
 		<?php
 		// WP_Query arguments
 		$args = array (

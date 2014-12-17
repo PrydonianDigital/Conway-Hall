@@ -67,3 +67,20 @@ a {
 		outline: 0 none;
 		text-decoration: underline;
 }
+[align=alignleft],
+.alignleft {
+	float: left;
+	margin: 0 1em 0 0 !important;
+	clear: left;
+}
+[align=alignright],
+.alignright {
+	float: right;
+	margin: 0 0 0 1em !important;
+	clear: right;
+}
+[align=aligncenter],
+.aligncenter {
+	margin: 0 auto !important;
+	display: block;
+}

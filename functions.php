@@ -114,6 +114,7 @@ add_action('wp_enqueue_scripts', 'tour');
 function ch_menu() {
 	$locations = array(
 		'chmenu' => __( 'Conway Hall Menu', 'ch' ),
+		'chsubmenu' => __( 'Conway Hall SubMenu', 'ch' ),
 	);
 	register_nav_menus( $locations );
 }

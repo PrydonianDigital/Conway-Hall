@@ -178,6 +178,65 @@ footer h2 a {
 .header h1 {
 	padding-bottom: 0;
 }
+#subnav ul {
+    display: table;
+    float: right;
+    margin: 0;
+    vertical-align: middle;
+}
+#subnav ul li:first-child a {
+	border-radius: 0 0 0 5px;
+}
+#subnav ul li:last-child a {
+	border-radius: 0 0 5px 0;
+}
+#subnav ul li .dropdown li a {
+	border-radius: 0;
+	border: 0;
+}
+#subnav ul li, #subnav ul li .dropdown li {
+	display: table-cell;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-weight: 700;
+	width: auto;
+	padding-bottom: 0;
+	margin-left: 5px;
+}
+#subnav ul li .dropdown li {
+	width: 200px;
+	float: none;
+	display: block;
+}
+#subnav ul li > a, #subnav ul li .dropdown ul li > a {
+    height: 30px;
+    line-height: 28px;
+    background: #136972;
+    color: #fff;
+    width: 100%;
+    display: block;
+    padding: 0 10px;
+}
+#subnav ul li > a:hover, #subnav ul li .dropdown li > a:hover, #subnav ul li.current-menu-item > a, #subnav ul li.current-menu-parent > a, #subnav ul li .dropdown li.current-menu-item > a {
+	background: #EBF3F4;
+    color: #136972;
+}
+#subnav ul li .dropdown {
+    max-width: 300px;
+}
+#subnav ul li .dropdown {
+    background: #fafafa;
+    height: 0;
+    max-width: 320px;
+    min-width: 0;
+    overflow: hidden;
+    position: absolute;
+    width: auto;
+    z-index: 999;
+}
+#subnav ul li:hover .dropdown {
+	height: auto;
+    margin-left: -100px;
+}
 .sticky, .post-sticky, .post-stick {
 	background-color: #EBF3F4;
 	padding: 10px !important;
@@ -653,14 +712,33 @@ a.liked:focus { /* default on hover */
 .alignleft {
 	float: left;
 	margin: 0 1em 0 0;
+	clear: left;
 }
 .alignright {
 	float: right;
 	margin: 0 0 0 1em;
+	clear: right;
 }
 .aligncenter {
 	margin: 0 auto;
 	display: block;
+}
+.jetpack-video-wrapper {
+	clear: both;
+	margin-bottom: 20px;
+}
+.contact-form textarea {
+    float: none;
+    height: 200px;
+    margin-bottom: 13px;
+    width: auto;
+	min-width: 300px;
+}
+figure {
+	margin-bottom: 10px !important;
+}
+figcaption {
+	font-size: 0.8rem;
 }
 #loading {
 	min-height: 300px;
