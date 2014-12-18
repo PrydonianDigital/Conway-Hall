@@ -183,8 +183,25 @@ $(function() {
 	if (element_exists('#busses')){
 		busses();
 	}
-	$('body').on('click', '.tube-loop', function(e){
-		location.reload();
+	$('body').on('click', '#holbornStationC .tube-loop', function(e){
+		$('#holbornStationC').html('<div id="loading"></div>');
+		holBornC();
+	});
+	$('body').on('click', '#holbornStationP .tube-loop', function(e){
+		$('#holbornStationP').html('<div id="loading"></div>');
+		holBornP();
+	});
+	$('body').on('click', '#chanceryStationC .tube-loop', function(e){
+		$('#chanceryStationC').html('<div id="loading"></div>');
+		chanceryL();
+	});
+	$('body').on('click', '#russellSqP .tube-loop', function(e){
+		$('#russellSqP').html('<div id="loading"></div>');
+		russellSq();
+	});
+	$('body').on('click', '#bikestation .tube-loop', function(e){
+		$('#bikestation').html('<div id="loading"></div>');
+		bikes();
 	});
 });
 function bikes() {
@@ -193,7 +210,7 @@ function bikes() {
 		var tfl = '';
 		$.each(data, function(i,a) {
 			$('title').prepend(a.name + ' | ');
-			tfl = '<div class="row"><div class="twelve columns stationTitle bike"><h4>'+a.name+'</h4></div></div>';
+			tfl = '<div class="row"><div class="twelve columns stationTitle bike"><h4>'+a.name+' <i class="tube-loop"></i></h4></div></div>';
 			tfl += '<div class="row"><div class="four columns"><h5>Available Bikes</h5></div><div class="four columns"><h5>Spaces Available</h5></div><div class="four columns"><h5>Total Spaces</h5></div></div>';
 			tfl += '<div class="row">';
 			tfl += '<div class="four columns">';
@@ -212,8 +229,7 @@ function bikes() {
 			tfl += '</div>';
 		});
 		tfl += '</table>';
-		$('#bikestation').html(tfl).append('<h6>Data provided by Transport for London and Barclays Cycle Hire <i class="tube-tfl"></i></h6>');
-		
+		$('#bikestation').html(tfl).append('<h6>Data provided by Transport for London and Barclays Cycle Hire <i class="tube-tfl"></i></h6>');		
 		$('#map').gmap3({
 			marker: {
 				latLng: [$('#map').data('lat'),$('#map').data('lng')],
@@ -272,7 +288,7 @@ function holBornC() {
 			}
 		});
 		plat += '</div>';
-		$('#holbornStationC').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
+		$('#holbornStationC').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');	
 		$('th').on('click', 'i', function(){
 			stationSniff(line, station);
 		});
