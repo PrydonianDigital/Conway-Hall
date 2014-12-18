@@ -29,6 +29,15 @@
 			</div>
 			
 		</div>
+		<div class="row">
+			
+			<div class="twelve columns">
+			
+				<?php echo do_shortcode('[mc4wp_form]'); ?>
+			
+			</div>
+			
+		</div>
 	
 	<?php endwhile; ?>
 	

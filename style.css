@@ -219,6 +219,10 @@ footer h2 a {
 	text-decoration: none;
 	color: #000;
 }
+#subnav {
+	position: relative;
+	z-index: 100;
+}
 #subnav ul {
     display: table;
     float: right;
