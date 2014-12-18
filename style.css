@@ -211,6 +211,12 @@ footer h2 a {
 }
 .header h1 a {
 	text-decoration: none;
+	color: #136972;
+	-webkit-transition: color 0.5s ease;
+		transition: color 0.5s ease;
+}
+.header h1 a:hover {
+	text-decoration: none;
 	color: #000;
 }
 #subnav ul {
