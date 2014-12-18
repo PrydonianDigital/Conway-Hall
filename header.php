@@ -55,7 +55,7 @@ $background_image = get_background_image();
 <div class="header" role="banner">
 	<div class="row">
 		<div class="twelve columns">
-			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png"></a></h1>
+			<h1><a href="<?php bloginfo( 'url' ); ?>"><i class="ch-logo"></i></a></h1>
 		</div>
 	</div>
 </div>
