@@ -9,3 +9,6 @@
 * Custom Fonts & Icons
 * Room Planners
 * 360º Tours
+* schema.org Markup
+* Custom Shop
+* Event Tickets
