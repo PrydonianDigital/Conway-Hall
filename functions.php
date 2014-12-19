@@ -13,6 +13,7 @@ function conway_hall_init()	{
 	add_image_size( 'featured', 700, 394, true );
 	add_image_size( 'full', 1000, 563, true );
 	add_image_size( 'article', 350, 197, false );
+	add_image_size( 'lecture', 220, 353, false );
 	add_image_size( 'speaker', 290, 290, true );
 	$defaults = array(
 		'default-image' => get_template_directory_uri() . '/img/header/header.png',

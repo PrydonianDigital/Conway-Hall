@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="six columns">
-				<div class="fb-like" data-href="https://www.facebook.com/ConwayHallLDN" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+				<div class="fb-like" data-href="https://www.facebook.com/109921265690429" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 			</div>
 			
 		</div>

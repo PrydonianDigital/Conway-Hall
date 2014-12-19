@@ -9,14 +9,8 @@
 		<h2><?php the_title(); ?></h2>	
 		<h5><?php the_time( 'D, jS M, Y' ); ?></h5>
 		<h3><?php global $post; $text = get_post_meta( $post->ID, '_cmb_speaker', true ); echo $text; ?></h3>
-		<div class="person">
-			<?php
-				if ( has_post_thumbnail() ) {
-					the_post_thumbnail('speaker');
-				}	
-			?>
-			<?php the_content(); ?>
-		</div>
+		<?php the_content(); ?>
+
 	<?php endwhile; ?>
 	
 	<?php endif; ?>
