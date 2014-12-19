@@ -991,7 +991,7 @@ function add_menu_icons_styles(){
 		content: "\f174";
 	}
 	#adminmenu #menu-posts-memorial_lecture div.wp-menu-image:before, #dashboard_right_now .memorial_lecture-count a:before {
-		content: "\f488";
+		content: "\f473";
 	}
 	#adminmenu #menu-posts-amazon_product div.wp-menu-image:before, #dashboard_right_now .amazon_product-count a:before {
 		content: "\f174";
