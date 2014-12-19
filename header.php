@@ -27,7 +27,7 @@
 <meta name="msapplication-TileColor" content="#0078ae">
 <meta name="msapplication-TileImage" content="//localhost:8888/conwayhall/wp-content/themes/conwayhall/img/icons/mstile-144x144.png">
 <meta name="msapplication-config" content="//localhost:8888/conwayhall/wp-content/themes/conwayhall/img/icons/browserconfig.xml">
-<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
+<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 <?php
