@@ -321,6 +321,7 @@ footer h2 a {
 [role="main"] ol, [role="main"] ul {
 	list-style: disc;
 	margin: 0 0 16px 24px;
+	padding: 0 0 0 20px;
 }
 section.tabs ul {
 	margin-left: 0 !important;
@@ -388,6 +389,9 @@ input.search-field {
 	padding: 0 10px;
 	margin: 0 -10px 10px -10px;
 	border: 0;
+}
+.widget h5 a {
+	color: #fff;
 }
 .widget #search h5 {
 	background: #136972;
@@ -848,6 +852,12 @@ figcaption {
 }
 .widget_subpages_current_page ul.menu li a {
 	color: #136972;
+}
+.widget .current-menu-parent .menu-item a {
+	color: #136972;
+}
+.widget .current-menu-parent .current_page_item a {
+	color: #000;
 }
 .person {
 	overflow: hidden;

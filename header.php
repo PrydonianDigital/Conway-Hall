@@ -47,11 +47,6 @@ $background_image = get_background_image();
 		<?php wp_nav_menu( array( 'theme_location' => 'chmenu', 'container' => false, 'walker' => new Walker_Page_Custom ) ); ?>
 	</div>
 </div>
-<div class="subnavbar" id="subnav" role="navigation">
-	<div class="row">
-		<?php wp_nav_menu( array( 'theme_location' => 'chsubmenu', 'container' => false, 'walker' => new Walker_Page_Custom ) ); ?>
-	</div>
-</div>
 <div class="header" role="banner">
 	<div class="row">
 		<div class="twelve columns">
