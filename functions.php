@@ -15,7 +15,7 @@ function conway_hall_init()	{
 	add_image_size( 'article', 350, 197, false );
 	add_image_size( 'lecture', 220, 353, false );
 	add_image_size( 'speaker', 290, 290, true );
-	add_image_size( 'calendar', 200, 113, true );
+	add_image_size( 'calendar', 160, 90, true );
 	$defaults = array(
 		'default-image' => get_template_directory_uri() . '/img/header/header.png',
 		'random-default' => true,

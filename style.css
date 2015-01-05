@@ -323,6 +323,10 @@ footer h2 a {
 	margin: 0 0 16px 24px;
 	padding: 0 0 0 20px;
 }
+[role="main"] ul.tribe-event-categories, [role="main"] ul.tab-nav {
+	margin: 0;
+	padding: 0;	
+}
 section.tabs ul {
 	margin-left: 0 !important;
 }
@@ -416,6 +420,9 @@ h5.updated {
 }
 form[action*="?wootickets_process"] {
 	display: none;
+}
+.tribe-mini-calendar-event .list-date .list-dayname {
+    padding: 0 !important;
 }
 #tribe-bar-collapse-toggle {
 	background: #136972;
