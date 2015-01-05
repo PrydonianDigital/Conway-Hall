@@ -20,11 +20,6 @@
 						<div <?php post_class('sticky vevent hentry'); ?> itemscope itemtype="http://schema.org/Event">
 							<div class="row">
 								<div class="twelve columns ">
-									<?php if ( tribe_get_cost() ) : ?>
-										<div class="tribe-events-event-cost">
-											<span><?php echo tribe_get_cost( null, true ); ?></span>
-										</div>
-									<?php endif; ?>
 									<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>
 									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><span itemprop="summary"><?php the_title(); ?></span></a></h4>
 									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
