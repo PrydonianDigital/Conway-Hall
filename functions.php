@@ -15,6 +15,7 @@ function conway_hall_init()	{
 	add_image_size( 'article', 350, 197, false );
 	add_image_size( 'lecture', 220, 353, false );
 	add_image_size( 'speaker', 290, 290, true );
+	add_image_size( 'calendar', 200, 113, true );
 	$defaults = array(
 		'default-image' => get_template_directory_uri() . '/img/header/header.png',
 		'random-default' => true,
@@ -1149,3 +1150,9 @@ add_action( 'login_form_middle', 'add_lost_password_link' );
 function add_lost_password_link() {
 	return '<a href="/wp-login.php?action=lostpassword">Lost Password?</a>';
 }
+
+function custom_widget_featured_image() {
+	global $post;
+	echo tribe_event_featured_image( $post->ID, 'calendar' );
+}
+add_action( 'tribe_events_list_widget_before_the_event_title', 'custom_widget_featured_image' );
