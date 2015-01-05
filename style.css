@@ -169,6 +169,20 @@ footer h2 a {
 .navbar ul li .dropdown {
 	max-width: 300px;
 }
+#subBarToggle {
+	background: #136972;
+	margin-bottom: 20px;
+}
+#subBarToggle a#subToggle {
+	float: right;
+	color: #fff;
+	height: 50px;
+	line-height: 48px;
+	font-size: 1.875rem;
+}
+#subBarContent {
+	display: none;
+}
 // menu icon position when go to mobile mode
 @media only screen and (max-width: 767px) { 
 	.navbar a.toggle { 
@@ -201,6 +215,7 @@ footer h2 a {
 	text-align: center;
 	clear: both;
 	background: #ffffff;
+	overflow: hidden;
 }
 .header h1 {
 	padding-bottom: 0;

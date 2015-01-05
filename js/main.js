@@ -1,5 +1,9 @@
 Gumby.init();
 $(function() {
+	$('#subToggle').on('click', function(e){
+		e.preventDefault();
+		$('#subBarContent').toggle();
+	});
 	if (element_exists('#mainhall')){
 	   $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
