@@ -515,6 +515,7 @@
 						}
 					}
 				?>
+				<p><a href="http://ethicalrecord.org.uk" target="_blank">More from the Ethical Record</a></p>
 		    </div>
 		<?php } ?>
 		
