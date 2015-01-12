@@ -17,7 +17,7 @@ get_header();?>
 				$current_user = new WP_User(wp_get_current_user()->id);
 				$user_roles = $current_user->roles; 
 				foreach ($user_roles as $role) {
-					if  ($role == 'trustee' || $role == 'member' || $role == 'editor' || $role == 'administrator' ) {
+					if  ($role == 'trustee' || $role == 'member' || $role == 'nonukmember'|| $role == 'nonukinstitution' || $role == 'editor' || $role == 'administrator' ) {
 						global $current_user;
 						if ( isset($current_user) ) {
 							echo '<p><strong>Welcome, ' . $current_user->user_firstname . ', to the Members\' Area of Conway Hall Ethical Society!</strong></p>';
@@ -56,7 +56,7 @@ get_header();?>
 					$current_user = new WP_User(wp_get_current_user()->id);
 					$user_roles = $current_user->roles; 
 					foreach ($user_roles as $role) {
-						if  ($role == 'trustee' || $role == 'member' || $role == 'editor' || $role == 'administrator' ) {
+						if  ($role == 'trustee' || $role == 'member' || $role == 'nonukmember'|| $role == 'nonukinstitution' || $role == 'editor' || $role == 'administrator' ) {
 					?>
 					<?php
 					// Find connected pages

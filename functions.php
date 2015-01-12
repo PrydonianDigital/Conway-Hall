@@ -145,7 +145,7 @@ define ('view_trustee_pages', 'page-trustees.php');
 
 
 $result = add_role(
-	'member', 'Member',
+	'member', 'UK Member',
 	array(
 		'read' => true,
 		'edit_posts' => false,
@@ -153,7 +153,24 @@ $result = add_role(
 		'CH_member_pages' => true,
 	)
 );
-
+$result = add_role(
+	'nonukmember', 'Non UK Member',
+	array(
+		'read' => true,
+		'edit_posts' => false,
+		'delete_posts' => false,
+		'CH_member_pages' => true,
+	)
+);
+$result = add_role(
+	'nonukinstitution', 'Non UK Institution',
+	array(
+		'read' => true,
+		'edit_posts' => false,
+		'delete_posts' => false,
+		'CH_member_pages' => true,
+	)
+);
 $result = add_role(
 	'trustee', 'Trustee',
 	array(
