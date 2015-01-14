@@ -1092,6 +1092,20 @@ function my_login_logo() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
+add_action( 'tribe_eb_after_event_creation', 'my_change_tribe_eventbrite_currency', 10, 4 );
+  
+function my_change_tribe_eventbrite_currency( $eventbrite_id, $venue_id, $organizer_id, $post_id ) {
+	$currency_acro = 'GBP';	
+	$parameters = 'id=' . $eventbrite_id . '&currency=' . $currency_acro;
+	$success = Event_Tickets_PRO::instance()->sendEventBriteRequest( 'event_update', $parameters, $post_id, true, true, false );
+	if ( !$success ) {
+		add_filter( 'tribe_eb_error_message', 'my_change_tribe_eventbrite_currency_failed' );
+	}
+}
+function my_change_tribe_eventbrite_currency_failed() {
+	return 'Failed to update the currency.';
+}
+
 function my_wootickets_tribe_get_cost( $cost, $postId, $withCurrencySymbol ) {
 	if ( empty($cost) && class_exists('TribeWooTickets') ) {
 			// see if the event has tickets associated with it
