@@ -14,7 +14,7 @@ get_header();?>
 		<?php
 			if(is_user_logged_in()) {
 				global $user_login;
-				$current_user = new WP_User(wp_get_current_user()->id);
+				$current_user = new WP_User(wp_get_current_user()->ID);
 				$user_roles = $current_user->roles; 
 				foreach ($user_roles as $role) {
 					if  ($role == 'trustee' || $role == 'editor' || $role == 'administrator' ) {
@@ -53,7 +53,7 @@ get_header();?>
 			<div class="twelve columns">
 				<ul>
 				<?php
-					$current_user = new WP_User(wp_get_current_user()->id);
+					$current_user = new WP_User(wp_get_current_user()->ID);
 					$user_roles = $current_user->roles; 
 					foreach ($user_roles as $role) {
 						if  ($role == 'trustee' || $role == 'editor' || $role == 'administrator' ) {

@@ -192,7 +192,7 @@ footer h2 a {
 #nav1 {
 	margin-bottom: 0;
 }
-.navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a, .navbar li.current-page-ancestor .dropdown .current-menu-item > a, .page-template-taxonomy-type-php .menu-item-607 a {
+.navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a, .navbar li.current-page-ancestor .dropdown .current-menu-item > a, .page-template-taxonomy-type-php .menu-item-607 a, .navbar li.current-menu-ancestor .dropdown .current-menu-item > a {
 	background: #EBF3F4;
 	color: #000; 
 	text-decoration: none;
@@ -1303,4 +1303,144 @@ iframe {
 	margin-bottom: 0.5em !important;
 	margin-left: 0 !important;
 	border-bottom: 1px solid #c6e1e3;
+}
+.usersultra-dahsboard-cont .usersultra-dahsboard-center {
+    display: inline-block;
+    margin: 0 auto 20px;
+    vertical-align: top;
+    width: 70%;
+}
+.ethicalrecord h1 a, .ethicalrecord h2 a, .ethicalrecord h3 a, .ethicalrecord h4 a, .ethicalrecord h5 a, .ethicalrecord h6 a {
+	text-decoration: none;
+}
+.taxonomies {
+	margin: 0;
+	padding: 0;
+	font-size: 40px;
+	text-align: center;
+}
+.taxonomies li {
+	padding: 10px 0;
+	border-bottom: 1px dotted #000;
+	line-height: 1;
+}
+.taxonomies li a {
+	text-decoration: none;
+}
+.category-humanism a {
+	color: #6f002b;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-size: 90px;
+	font-weight: bold;
+}
+.category-atheism-secularism a {
+	color: #a77cb7;
+	font-style: italic;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-size: 50px;
+}
+.category-moral-philosophy-ethics a {
+	color: #d4a500;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-size: 42px;
+}
+.category-philosophy-of-science a {
+	color: #00390d;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-size: 44px;
+	font-weight: bold;
+}
+.category-rationalism a {
+	color: #007b87;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-size: 90px;
+}
+.category-the-politics-of-unbelief a {
+	color: #008ccc;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-size: 46px;
+	font-style: italic;
+}
+.category-philosophy a {
+	color: #00386b;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-size: 84px;
+	font-weight: bold;
+}
+.category-contemporary-ethical-issues a {
+	color: #3f2151;
+	font-style: italic;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+}
+.category-humanrights a {
+	color: #007b87;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	text-transform: uppercase;
+	font-size: 64px;
+}
+.category-free-speech a {
+	color: #ea6025;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-size: 66px;
+	font-style: italic;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.category-history a {
+	color: #d4a500;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-size: 76px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+h2.humanism {
+	color: #6f002b;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-weight: bold;
+}
+h2.atheism-secularism {
+	color: #a77cb7;
+	font-style: italic;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+}
+h2.moral-philosophy-ethics {
+	color: #d4a500;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+}
+h2.philosophy-of-science {
+	color: #00390d;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-weight: bold;
+}
+h2.rationalism {
+	color: #007b87;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+}
+h2.the-politics-of-unbelief {
+	color: #008ccc;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-style: italic;
+}
+h2.philosophy {
+	color: #00386b;
+	font-family: "Clarendon", Georgia,​ Times, ​serif;
+	font-weight: bold;
+}
+h2.contemporary-ethical-issues {
+	color: #3f2151;
+	font-style: italic;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+}
+h2.humanrights {
+	color: #007b87;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	text-transform: uppercase;
+}
+h2.free-speech {
+	color: #ea6025;
+	font-family: "Perpetua", Georgia,​ Times, ​serif;
+	font-style: italic;
+	font-weight: bold;
+	text-transform: uppercase;
 }

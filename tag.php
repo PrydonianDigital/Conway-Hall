@@ -3,7 +3,7 @@
 <div class="row">
 
 	<div class="nine columns hfeed" role="main">
-	<h2 class="<?php echo get_queried_object()->slug; ?>"><?php echo get_queried_object()->name; ?></h2>
+
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
 		<div <?php post_class('sticky'); ?> itemscope itemtype="http://schema.org/BlogPosting">
@@ -16,23 +16,10 @@
 			</div>
 			<div class="row">
 				<div class="five columns">
-				<?php
-					if ( get_the_post_thumbnail($post_id) != '' ) {
-						echo '<a href="'; the_permalink(); echo '" rel="permalink" class="th">';
-						the_post_thumbnail('speaker');
-						echo '</a>';
-					} else {
-						echo '<a href="'; the_permalink(); echo '" rel="permalink" class="th">';
-						echo '<img src="';
-						echo catch_that_image();
-						echo '" alt="" />';
-						echo '</a>';
-					}
-				?>
+				<?php the_post_thumbnail('speaker'); ?>
 				</div>
 				<div class="seven columns p-summary" itemprop="articleBody">
 					<?php the_excerpt(); ?>
-					<p>By: <span class="vcard author"><span class="fn"><?php the_author('nicename'); ?></span></span></p>
 					<p><?php the_tags(); ?></p>
 				</div>
 			</div>

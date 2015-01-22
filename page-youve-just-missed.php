@@ -24,7 +24,7 @@
 									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><span itemprop="summary"><?php the_title(); ?></span></a></h4>
 									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 									<time itemprop="startDate" datetime="<?php echo tribe_get_start_date( $post->ID, false, 'c' ); ?>"><?php the_time('D, jS M, Y'); ?></time>
-									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
+									<h5><?php echo tribe_events_event_schedule_details(); ?></h5>
 									<meta itemprop="url" content="<?php the_permalink(); ?>">
 									<meta itemprop="startDate" content="<?php echo tribe_get_start_date( $post->ID, false, 'c' ); ?>">
 									<span class="updated dtstart" datetime="<?php the_date( 'c' ); ?>"><?php the_time('D, jS M, Y'); ?></span>
@@ -46,7 +46,7 @@
 										</span>
 									<div class="row">
 										<div class="six columns eventCategory">
-											<?php echo tribe_get_event_categories( $event_id ); ?>
+											<?php echo tribe_get_event_categories(); ?>
 										</div>
 										<div class="six columns">
 											<h6>Organiser:</h6>

@@ -3,11 +3,7 @@
 <div class="row">
 
 	<div class="nine columns hfeed" role="main">
-		<?php
-		$id = 771;
-		$p = get_page($id);
-		echo apply_filters('the_content', $p->post_content);
-		?>
+
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
 		<div <?php post_class('sticky'); ?> itemscope itemtype="http://schema.org/BlogPosting">
