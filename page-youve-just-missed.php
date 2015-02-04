@@ -2,7 +2,7 @@
 
 <div class="row">
 
-	<div <?php post_class('nine columns'); ?> role="main">
+	<div <?php post_class('nine columns '); ?> role="main">
 	
 		    <div class="tab-content active">
 		        <h3>You've Just Missed</h3>
@@ -20,7 +20,7 @@
 						<div <?php post_class('sticky vevent hentry'); ?> itemscope itemtype="http://schema.org/Event">
 							<div class="row">
 								<div class="twelve columns ">
-									<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>
+									<h5 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h5>
 									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><span itemprop="summary"><?php the_title(); ?></span></a></h4>
 									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 									<time itemprop="startDate" datetime="<?php echo tribe_get_start_date( $post->ID, false, 'c' ); ?>"><?php the_time('D, jS M, Y'); ?></time>

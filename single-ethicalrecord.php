@@ -33,12 +33,6 @@
     			<h6 class="entry-date">Lecture date: <?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); echo date('D, jS M, Y', strtotime($date))  ?></h6>
     		<?php endif; ?>
 			<?php } ?>
-			<?php if(in_category('lectures')) { ?>
-			<h3 class="sd-title">Download lecture as an e-book</h3><?php echo do_shortcode('[readoffline]'); ?></p>
-			<?php } ?>
-			<?php if(in_category('the-vaults')) { ?>
-			<h3 class="sd-title">Download lecture as an e-book</h3><?php echo do_shortcode('[readoffline]'); ?></p>
-			<?php } ?>
     		<?php
 				if ( function_exists( 'sharing_display' ) ) {
 				    sharing_display( '', true );
@@ -101,12 +95,6 @@
     			wp_reset_postdata();
     			}				
     		?>
-			<?php if(has_term('talks-lectures', 'section')) { ?>
-			<h3 class="sd-title">Download lecture as an e-book</h3><?php echo do_shortcode('[readoffline]'); ?></p>
-			<?php } ?>
-			<?php if(has_term('the-vaults')) { ?>
-			<h3 class="sd-title">Download lecture as an e-book</h3><?php echo do_shortcode('[readoffline]'); ?></p>
-			<?php } ?>
 			<?php
 				if ( function_exists( 'sharing_display' ) ) {
 				    sharing_display( '', true );

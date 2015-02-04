@@ -73,6 +73,7 @@ $event_id = get_the_ID();
 			<?php endif ?>
 			</div>
 			<!-- .tribe-events-single-event-description -->
+
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
 
 			<!-- Event meta -->

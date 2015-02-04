@@ -1520,7 +1520,7 @@ function my_wootickets_tribe_get_cost( $cost, $postId, $withCurrencySymbol ) {
 		if ( $sold_out ) { // all of the tickets are sold out
 			return __('Sold Out');
 		}
-		if ( empty($max_price) ) { // none of the tickets costs anything
+		if ( empty($price) ) { // none of the tickets costs anything
 			return __('Free');
 		}
 
@@ -1593,3 +1593,28 @@ add_action( 'save_post_tribe_events', 'force_cost_update' );
 function force_cost_update( $event_id ) {
    TribeEventsAPI::update_event_cost( $event_id );
 }
+
+class TicketingCostConflict {
+    static $original_cost;
+ 
+    static function resolve() {
+        add_filter( 'tribe_get_cost', array( __CLASS__, 'store_pre_eb' ), 5 );
+        add_filter( 'tribe_get_cost', array( __CLASS__, 'maybe_undo_eb_change' ), 50, 2 );
+    }
+ 
+    static function store_pre_eb( $cost ) {
+        self::$original_cost = $cost;
+    }
+ 
+    static function maybe_undo_eb_change( $cost, $event_id ) {
+        if ( ! class_exists( 'Event_Tickets_PRO' ) ) return $cost;
+        if ( Event_Tickets_PRO::instance()->getEventId( $event_id ) ) return $cost;
+        return self::$original_cost;
+    }
+}
+ 
+TicketingCostConflict::resolve();
+
+@ini_set( 'upload_max_size' , '32M' );
+@ini_set( 'post_max_size', '32M');
+@ini_set( 'max_execution_time', '300' );
