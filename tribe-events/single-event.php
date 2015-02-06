@@ -57,24 +57,72 @@ $event_id = get_the_ID();
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 			<div class="tribe-events-single-event-description tribe-events-content entry-content description">
-			<?php
-			$website = tribe_get_event_website_button();
-			if ( ! empty( $website ) ):
+				<?php
+				global $post;
+				 
+				// Check if event has passed
+				$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
+				$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
+				 
+				if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
 				?>
-				<div class="medium primary btn"><?php echo $website ?></div></dd>
-			<?php endif ?>
+				
+				<?php
+				} else {
+				?>
+					<?php
+					$website = tribe_get_event_website_button();
+					if ( ! empty( $website ) ):
+						?>
+						<div class="medium primary btn"><?php echo $website ?></div></dd>
+					<?php endif ?>
+				<?php	
+				}
+				?>
 
 				<?php the_content(); ?>
-			<?php
-			$website = tribe_get_event_website_button();
-			if ( ! empty( $website ) ):
+				<?php
+				global $post;
+				 
+				// Check if event has passed
+				$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
+				$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
+				 
+				if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
 				?>
-				<div class="medium primary btn"><?php echo $website ?></div></dd>
-			<?php endif ?>
+				
+				<?php
+				} else {
+				?>
+					<?php
+					$website = tribe_get_event_website_button();
+					if ( ! empty( $website ) ):
+						?>
+						<div class="medium primary btn"><?php echo $website ?></div></dd>
+					<?php endif ?>
+				<?php	
+				}
+				?>
 			</div>
 			<!-- .tribe-events-single-event-description -->
-
+			
+			<?php
+			global $post;
+			 
+			// Check if event has passed
+			$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
+			$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
+			 
+			if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
+			?>
+			
+			<?php
+			} else {
+			?>
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
+			<?php	
+			}
+			?>
 
 			<!-- Event meta -->
 			<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
