@@ -1,5 +1,6 @@
 Gumby.init();
 $(function() {
+		
 	$('#subToggle').on('click', function(e){
 		e.preventDefault();
 		$('#subBarContent').toggle();
