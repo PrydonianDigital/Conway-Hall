@@ -9,13 +9,14 @@ function conway_hall_init()	{
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'jetpack-responsive-videos' );
+	add_theme_support( 'title-tag' );
 	set_post_thumbnail_size( 700, 394, true );
 	add_image_size( 'featured', 700, 394, true );
 	add_image_size( 'full', 1000, 563, true );
 	add_image_size( 'article', 350, 197, false );
 	add_image_size( 'lecture', 220, 353, false );
 	add_image_size( 'speaker', 290, 290, true );
-	add_image_size( 'calendar', 160, 90, true );
+	add_image_size( 'calendar', 90, 90, true );
 	$defaults = array(
 		'default-image' => get_template_directory_uri() . '/img/header/header.png',
 		'random-default' => true,
@@ -547,30 +548,30 @@ add_action( 'init', 'job_type', 0 );
 
 function er_post_tax() {
 	$labels = array(
-		'name'                       => _x( 'Sections', 'Taxonomy General Name', 'ch' ),
-		'singular_name'              => _x( 'Section', 'Taxonomy Singular Name', 'ch' ),
-		'menu_name'                  => __( 'Sections', 'ch' ),
-		'all_items'                  => __( 'All Sections', 'ch' ),
-		'parent_item'                => __( 'Parent Section', 'ch' ),
-		'parent_item_colon'          => __( 'Parent Section:', 'ch' ),
-		'new_item_name'              => __( 'New Section', 'ch' ),
-		'add_new_item'               => __( 'Add New Section', 'ch' ),
-		'edit_item'                  => __( 'Edit Section', 'ch' ),
-		'update_item'                => __( 'Update Section', 'ch' ),
+		'name'		   => _x( 'Sections', 'Taxonomy General Name', 'ch' ),
+		'singular_name'			  => _x( 'Section', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'	  => __( 'Sections', 'ch' ),
+		'all_items'	  => __( 'All Sections', 'ch' ),
+		'parent_item'	=> __( 'Parent Section', 'ch' ),
+		'parent_item_colon'		  => __( 'Parent Section:', 'ch' ),
+		'new_item_name'			  => __( 'New Section', 'ch' ),
+		'add_new_item'			   => __( 'Add New Section', 'ch' ),
+		'edit_item'	  => __( 'Edit Section', 'ch' ),
+		'update_item'	=> __( 'Update Section', 'ch' ),
 		'separate_items_with_commas' => __( 'Separate items with commas', 'ch' ),
-		'search_items'               => __( 'Search Sections', 'ch' ),
-		'add_or_remove_items'        => __( 'Add or remove items', 'ch' ),
-		'choose_from_most_used'      => __( 'Choose from the most used items', 'ch' ),
-		'not_found'                  => __( 'Not Found', 'ch' ),
+		'search_items'			   => __( 'Search Sections', 'ch' ),
+		'add_or_remove_items'		=> __( 'Add or remove items', 'ch' ),
+		'choose_from_most_used'	  => __( 'Choose from the most used items', 'ch' ),
+		'not_found'	  => __( 'Not Found', 'ch' ),
 	);
 	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
+		'labels'		 => $labels,
+		'hierarchical'			   => true,
+		'public'		 => true,
+		'show_ui'		=> true,
+		'show_admin_column'		  => true,
+		'show_in_nav_menus'		  => true,
+		'show_tagcloud'			  => true,
 	);
 	register_taxonomy( 'section', array( 'ethicalrecord' ), $args );
 }
@@ -578,30 +579,30 @@ add_action( 'init', 'er_post_tax', 0 );
 
 function er_tax() {
 	$labels = array(
-		'name'                       => _x( 'Taxonomies', 'Taxonomy General Name', 'ch' ),
-		'singular_name'              => _x( 'Taxonomy', 'Taxonomy Singular Name', 'ch' ),
-		'menu_name'                  => __( 'Taxonomy', 'ch' ),
-		'all_items'                  => __( 'All Items', 'ch' ),
-		'parent_item'                => __( 'Parent Item', 'ch' ),
-		'parent_item_colon'          => __( 'Parent Item:', 'ch' ),
-		'new_item_name'              => __( 'New Item Name', 'ch' ),
-		'add_new_item'               => __( 'Add New Item', 'ch' ),
-		'edit_item'                  => __( 'Edit Item', 'ch' ),
-		'update_item'                => __( 'Update Item', 'ch' ),
+		'name'		   => _x( 'Taxonomies', 'Taxonomy General Name', 'ch' ),
+		'singular_name'			  => _x( 'Taxonomy', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'	  => __( 'Taxonomy', 'ch' ),
+		'all_items'	  => __( 'All Items', 'ch' ),
+		'parent_item'	=> __( 'Parent Item', 'ch' ),
+		'parent_item_colon'		  => __( 'Parent Item:', 'ch' ),
+		'new_item_name'			  => __( 'New Item Name', 'ch' ),
+		'add_new_item'			   => __( 'Add New Item', 'ch' ),
+		'edit_item'	  => __( 'Edit Item', 'ch' ),
+		'update_item'	=> __( 'Update Item', 'ch' ),
 		'separate_items_with_commas' => __( 'Separate items with commas', 'ch' ),
-		'search_items'               => __( 'Search Items', 'ch' ),
-		'add_or_remove_items'        => __( 'Add or remove items', 'ch' ),
-		'choose_from_most_used'      => __( 'Choose from the most used items', 'ch' ),
-		'not_found'                  => __( 'Not Found', 'ch' ),
+		'search_items'			   => __( 'Search Items', 'ch' ),
+		'add_or_remove_items'		=> __( 'Add or remove items', 'ch' ),
+		'choose_from_most_used'	  => __( 'Choose from the most used items', 'ch' ),
+		'not_found'	  => __( 'Not Found', 'ch' ),
 	);
 	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
+		'labels'		 => $labels,
+		'hierarchical'			   => true,
+		'public'		 => true,
+		'show_ui'		=> true,
+		'show_admin_column'		  => true,
+		'show_in_nav_menus'		  => true,
+		'show_tagcloud'			  => true,
 	);
 	register_taxonomy( 'taxonomy', array( 'ethicalrecord' ), $args );
 }
@@ -610,53 +611,53 @@ add_action( 'init', 'er_tax', 0 );
 add_filter( 'post_class', 'er_taxonomy_post_class', 10, 3 );
  
 function er_taxonomy_post_class( $classes, $class, $ID ) {
-    $taxonomy = 'taxonomy';
-    $terms = get_the_terms( (int) $ID, $taxonomy );
-    if( !empty( $terms ) ) {
-        foreach( (array) $terms as $order => $term ) {
-            if( !in_array( $term->slug, $classes ) ) {
-                $classes[] = $term->slug;
-            }
-        }
-    }
-    return $classes;
+	$taxonomy = 'taxonomy';
+	$terms = get_the_terms( (int) $ID, $taxonomy );
+	if( !empty( $terms ) ) {
+		foreach( (array) $terms as $order => $term ) {
+			if( !in_array( $term->slug, $classes ) ) {
+	$classes[] = $term->slug;
+			}
+		}
+	}
+	return $classes;
 } 
 
 function er_posts() {
 	$labels = array(
-		'name'                => _x( 'Ethical Record', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Ethical Record', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Ethical Record', 'ch' ),
+		'name'	=> _x( 'Ethical Record', 'Post Type General Name', 'ch' ),
+		'singular_name'	   => _x( 'Ethical Record', 'Post Type Singular Name', 'ch' ),
+		'menu_name'		   => __( 'Ethical Record', 'ch' ),
 		'parent_item_colon'   => __( 'Parent ER Post:', 'ch' ),
-		'all_items'           => __( 'All ER Posts', 'ch' ),
-		'view_item'           => __( 'View ER Post', 'ch' ),
-		'add_new_item'        => __( 'Add New ER Post', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit ER Post', 'ch' ),
-		'update_item'         => __( 'Update ER Post', 'ch' ),
-		'search_items'        => __( 'Search ER Posts', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
+		'all_items'		   => __( 'All ER Posts', 'ch' ),
+		'view_item'		   => __( 'View ER Post', 'ch' ),
+		'add_new_item'		=> __( 'Add New ER Post', 'ch' ),
+		'add_new'			 => __( 'Add New', 'ch' ),
+		'edit_item'		   => __( 'Edit ER Post', 'ch' ),
+		'update_item'		 => __( 'Update ER Post', 'ch' ),
+		'search_items'		=> __( 'Search ER Posts', 'ch' ),
+		'not_found'		   => __( 'Not found', 'ch' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'ethicalrecord', 'ch' ),
-		'description'         => __( 'Ethical Record Posts', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail' ),
-		'taxonomies'          => array( 'post_tag', 'tags' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
+		'label'			   => __( 'ethicalrecord', 'ch' ),
+		'description'		 => __( 'Ethical Record Posts', 'ch' ),
+		'labels'			  => $labels,
+		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail' ),
+		'taxonomies'		  => array( 'post_tag', 'tags' ),
+		'hierarchical'		=> false,
+		'public'			  => true,
+		'show_ui'			 => true,
+		'show_in_menu'		=> true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'menu_icon'           => '',
-		'can_export'          => true,
-		'has_archive'         => true,
+		'menu_position'	   => 5,
+		'menu_icon'		   => '',
+		'can_export'		  => true,
+		'has_archive'		 => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'capability_type'	 => 'page',
 	);
 	register_post_type( 'ethicalrecord', $args );
 }
@@ -664,39 +665,39 @@ add_action( 'init', 'er_posts', 0 );
 
 function speaker() {
 	$labels = array(
-		'name'                => _x( 'Speakers', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Speaker', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Speakers', 'ch' ),
+		'name'	=> _x( 'Speakers', 'Post Type General Name', 'ch' ),
+		'singular_name'	   => _x( 'Speaker', 'Post Type Singular Name', 'ch' ),
+		'menu_name'		   => __( 'Speakers', 'ch' ),
 		'parent_item_colon'   => __( 'Parent Speaker:', 'ch' ),
-		'all_items'           => __( 'All Speakers', 'ch' ),
-		'view_item'           => __( 'View Speaker', 'ch' ),
-		'add_new_item'        => __( 'Add New Speaker', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Speaker', 'ch' ),
-		'update_item'         => __( 'Update Speaker', 'ch' ),
-		'search_items'        => __( 'Search Speakers', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
+		'all_items'		   => __( 'All Speakers', 'ch' ),
+		'view_item'		   => __( 'View Speaker', 'ch' ),
+		'add_new_item'		=> __( 'Add New Speaker', 'ch' ),
+		'add_new'			 => __( 'Add New', 'ch' ),
+		'edit_item'		   => __( 'Edit Speaker', 'ch' ),
+		'update_item'		 => __( 'Update Speaker', 'ch' ),
+		'search_items'		=> __( 'Search Speakers', 'ch' ),
+		'not_found'		   => __( 'Not found', 'ch' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'speaker', 'ch' ),
-		'description'         => __( 'Lecture Speakers', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'          => array(),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
+		'label'			   => __( 'speaker', 'ch' ),
+		'description'		 => __( 'Lecture Speakers', 'ch' ),
+		'labels'			  => $labels,
+		'supports'			=> array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'		  => array(),
+		'hierarchical'		=> false,
+		'public'			  => true,
+		'show_ui'			 => true,
+		'show_in_menu'		=> true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'menu_icon'           => '',
-		'can_export'          => true,
-		'has_archive'         => true,
+		'menu_position'	   => 5,
+		'menu_icon'		   => '',
+		'can_export'		  => true,
+		'has_archive'		 => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'capability_type'	 => 'page',
 	);
 	register_post_type( 'speaker', $args );
 }
@@ -704,59 +705,59 @@ add_action( 'init', 'speaker', 0 );
 
 function issue() {
 	$labels = array(
-		'name'                => _x( 'Issues', 'Post Type General Name', 'ch' ),
-		'singular_name'       => _x( 'Issue', 'Post Type Singular Name', 'ch' ),
-		'menu_name'           => __( 'Issues', 'ch' ),
+		'name'	=> _x( 'Issues', 'Post Type General Name', 'ch' ),
+		'singular_name'	   => _x( 'Issue', 'Post Type Singular Name', 'ch' ),
+		'menu_name'		   => __( 'Issues', 'ch' ),
 		'parent_item_colon'   => __( 'Parent Issue:', 'ch' ),
-		'all_items'           => __( 'All Issues', 'ch' ),
-		'view_item'           => __( 'View Issue', 'ch' ),
-		'add_new_item'        => __( 'Add New Issue', 'ch' ),
-		'add_new'             => __( 'Add New', 'ch' ),
-		'edit_item'           => __( 'Edit Issue', 'ch' ),
-		'update_item'         => __( 'Update Issue', 'ch' ),
-		'search_items'        => __( 'Search Issues', 'ch' ),
-		'not_found'           => __( 'Not found', 'ch' ),
+		'all_items'		   => __( 'All Issues', 'ch' ),
+		'view_item'		   => __( 'View Issue', 'ch' ),
+		'add_new_item'		=> __( 'Add New Issue', 'ch' ),
+		'add_new'			 => __( 'Add New', 'ch' ),
+		'edit_item'		   => __( 'Edit Issue', 'ch' ),
+		'update_item'		 => __( 'Update Issue', 'ch' ),
+		'search_items'		=> __( 'Search Issues', 'ch' ),
+		'not_found'		   => __( 'Not found', 'ch' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
 	);
 	$args = array(
-		'label'               => __( 'issue', 'ch' ),
-		'description'         => __( 'Ethical Record Issue', 'ch' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'post_tag', 'tags' ),
-		'taxonomies'          => array( 'post_tag', 'tags' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
+		'label'			   => __( 'issue', 'ch' ),
+		'description'		 => __( 'Ethical Record Issue', 'ch' ),
+		'labels'			  => $labels,
+		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags' ),
+		'taxonomies'		  => array( 'post_tag', 'tags' ),
+		'hierarchical'		=> false,
+		'public'			  => true,
+		'show_ui'			 => true,
+		'show_in_menu'		=> true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'menu_icon'           => '',
-		'can_export'          => true,
-		'has_archive'         => true,
+		'menu_position'	   => 5,
+		'menu_icon'		   => '',
+		'can_export'		  => true,
+		'has_archive'		 => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'capability_type'	 => 'page',
 	);
 	register_post_type( 'issue', $args );
 }
 add_action( 'init', 'issue', 0 );
 
 function lectureSpeaker() {
-    p2p_register_connection_type( array(
-        'name' => 'lectures2speakers',
-        'from' => 'speaker',
-        'to' => 'ethicalrecord'
+	p2p_register_connection_type( array(
+		'name' => 'lectures2speakers',
+		'from' => 'speaker',
+		'to' => 'ethicalrecord'
 	) );
 }
 add_action( 'p2p_init', 'lectureSpeaker' );
 
 function issuePost() {
-    p2p_register_connection_type( array(
-        'name' => 'issue2post',
-        'from' => 'issue',
-        'to' => 'ethicalrecord'
-    ) );
+	p2p_register_connection_type( array(
+		'name' => 'issue2post',
+		'from' => 'issue',
+		'to' => 'ethicalrecord'
+	) );
 }
 add_action( 'p2p_init', 'issuePost' );
 
@@ -894,6 +895,28 @@ function archive_issue( $meta_boxes ) {
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'archive_issue' );
+
+function free_events( $meta_boxes ) {
+	$prefix = '_cmb_'; 
+	$meta_boxes[] = array(
+		'id' => 'meta',
+		'title' => 'Free Event?',
+		'pages' => array('tribe_events'), 
+		'context' => 'side',
+		'priority' => 'high',
+		'show_names' => true,
+		'fields' => array(	
+			array(
+				'name' => 'Tick if a free event',
+				'desc' => '',
+				'type' => 'checkbox',
+				'id' => $prefix . 'free'
+			)			
+		),
+	);
+	return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'free_events' );
 
 function my_connection_types() {
 		p2p_register_connection_type( array(
@@ -1385,19 +1408,19 @@ function add_menu_icons_styles(){
 		content: "\f464";
 	}
 	#dashboard_right_now .speaker-count a:before {
-	    content: "\f488";
+		content: "\f488";
 	}
 	#dashboard_right_now .issue-count a:before {
-	    content: "\f331";
+		content: "\f331";
 	}
 	#dashboard_right_now .taxonomy-count a:before {
-	    content: "\f325";
+		content: "\f325";
 	}
 	#dashboard_right_now .feedback-count a:before {
-	    content: "\f466";
+		content: "\f466";
 	}
 	#dashboard_right_now .ethicalrecord-count a:before {
-	    content: "\f464";
+		content: "\f464";
 	}
 	</style>';
 
@@ -1595,25 +1618,47 @@ function force_cost_update( $event_id ) {
 }
 
 class TicketingCostConflict {
-    static $original_cost;
+	static $original_cost;
  
-    static function resolve() {
-        add_filter( 'tribe_get_cost', array( __CLASS__, 'store_pre_eb' ), 5 );
-        add_filter( 'tribe_get_cost', array( __CLASS__, 'maybe_undo_eb_change' ), 50, 2 );
-    }
+	static function resolve() {
+		add_filter( 'tribe_get_cost', array( __CLASS__, 'store_pre_eb' ), 5 );
+		add_filter( 'tribe_get_cost', array( __CLASS__, 'maybe_undo_eb_change' ), 50, 2 );
+	}
  
-    static function store_pre_eb( $cost ) {
-        self::$original_cost = $cost;
-    }
+	static function store_pre_eb( $cost ) {
+		self::$original_cost = $cost;
+	}
  
-    static function maybe_undo_eb_change( $cost, $event_id ) {
-        if ( ! class_exists( 'Event_Tickets_PRO' ) ) return $cost;
-        if ( Event_Tickets_PRO::instance()->getEventId( $event_id ) ) return $cost;
-        return self::$original_cost;
-    }
+	static function maybe_undo_eb_change( $cost, $event_id ) {
+		if ( ! class_exists( 'Event_Tickets_PRO' ) ) return $cost;
+		if ( Event_Tickets_PRO::instance()->getEventId( $event_id ) ) return $cost;
+		return self::$original_cost;
+	}
 }
  
 TicketingCostConflict::resolve();
+
+function theme_options_panel(){
+  add_menu_page('Conway Hall', 'Conway Hall', 'manage_options', 'conway-hall-admin', 'conway_hall_admin', 'dashicons-shield', 30);
+  add_submenu_page( 'conway-hall-admin', 'Email Signature Generator', 'Email Signature', 'manage_options', 'email-signature', 'ch_email');
+  add_submenu_page( 'conway-hall-admin', 'Secure Password Generator', 'Password Generator', 'manage_options', 'password-generator', 'ch_password');
+}
+add_action('admin_menu', 'theme_options_panel');
+
+function conway_hall_admin(){
+	echo '<div class="wrap">
+		<h2><i class="dashicons dashicons-shield"></i> Conway Hall Admin</h2>
+		<p>You can generate your email signature or a secure password from here.</p>
+		<p><i class="dashicons dashicons-email-alt"></i> <a href="/wp-admin/admin.php?page=email-signature">Generate an email signature</a></p>
+		<p><i class="dashicons dashicons-admin-network"></i> <a href="/wp-admin/admin.php?page=password-generator">Generate a secure password</a></p>
+	</div>';
+}
+function ch_email(){
+	include(get_template_directory().'/email-signature.php');
+}
+function ch_password(){
+	include(get_template_directory().'/password-generator.php');
+}
 
 @ini_set( 'upload_max_size' , '32M' );
 @ini_set( 'post_max_size', '32M');

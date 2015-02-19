@@ -70,8 +70,8 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-    margin: 0 !important;
-    min-width: 16px !important;
+	margin: 0 !important;
+	min-width: 16px !important;
 }
 .icon-ch-google-plus:before {
 	content: "\ea88";
@@ -243,8 +243,8 @@ footer h2 a {
 	color: #136972; 
 }
 .navbar i[class^="icon-"], .navbar i[class*=" icon-"] {
-    margin: 0 1px;
-    min-width: 20px;
+	margin: 0 1px;
+	min-width: 20px;
 }
 .widget_subpages_current_page a {
 	color: #000;
@@ -279,10 +279,10 @@ footer h2 a {
 	z-index: 100;
 }
 #subnav ul {
-    display: table;
-    float: right;
-    margin: 0;
-    vertical-align: middle;
+	display: table;
+	float: right;
+	margin: 0;
+	vertical-align: middle;
 }
 #subnav ul li:first-child a {
 	border-radius: 0 0 0 5px;
@@ -308,34 +308,34 @@ footer h2 a {
 	display: block;
 }
 #subnav ul li > a, #subnav ul li .dropdown ul li > a {
-    height: 30px;
-    line-height: 28px;
-    background: #136972;
-    color: #fff;
-    width: 100%;
-    display: block;
-    padding: 0 10px;
+	height: 30px;
+	line-height: 28px;
+	background: #136972;
+	color: #fff;
+	width: 100%;
+	display: block;
+	padding: 0 10px;
 }
 #subnav ul li > a:hover, #subnav ul li .dropdown li > a:hover, #subnav ul li.current-menu-item > a, #subnav ul li.current-menu-parent > a, #subnav ul li .dropdown li.current-menu-item > a {
 	background: #EBF3F4;
-    color: #136972;
+	color: #136972;
 }
 #subnav ul li .dropdown {
-    max-width: 300px;
+	max-width: 300px;
 }
 #subnav ul li .dropdown {
-    background: #fafafa;
-    height: 0;
-    max-width: 320px;
-    min-width: 0;
-    overflow: hidden;
-    position: absolute;
-    width: auto;
-    z-index: 999;
+	background: #fafafa;
+	height: 0;
+	max-width: 320px;
+	min-width: 0;
+	overflow: hidden;
+	position: absolute;
+	width: auto;
+	z-index: 999;
 }
 #subnav ul li:hover .dropdown {
 	height: auto;
-    margin-left: -100px;
+	margin-left: -100px;
 }
 .sticky, .post-sticky, .post-stick {
 	background-color: #EBF3F4;
@@ -469,7 +469,7 @@ form[action*="?wootickets_process"] {
 	display: none;
 }
 .tribe-mini-calendar-event .list-date .list-dayname {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 #tribe-bar-collapse-toggle {
 	background: #136972;
@@ -478,19 +478,19 @@ form[action*="?wootickets_process"] {
 	background: #136972;
 }
 #tribe-events .tribe-events-content p, .tribe-events-after-html p, .tribe-events-before-html p {
-    line-height: 1.4;
-    margin: 0 0 13px 0;
+	line-height: 1.4;
+	margin: 0 0 13px 0;
 }
 .tribe-events-list h2.tribe-events-list-event-title {
-    border: medium none;
-    display: inline;
-    float: none;
-    font-size: 1.4em;
-    letter-spacing: 0;
-    line-height: 1em;
-    margin: 0;
-    padding: 0;
-    text-transform: none;
+	border: medium none;
+	display: inline;
+	float: none;
+	font-size: 1.4em;
+	letter-spacing: 0;
+	line-height: 1em;
+	margin: 0;
+	padding: 0;
+	text-transform: none;
 }
 .tribe-event-categories li {
 	display: inline-block;
@@ -519,45 +519,47 @@ form[action*="?wootickets_process"] {
 	border-color: #136972 !important;
 }
 .tribe-events-event-cost {
-    float: right;
-    margin: 0 0 5px 5px;
+	float: right;
+	margin: 0 0 5px 5px;
 }
 .tribe-events-list .tribe-events-event-cost span, .sticky .tribe-events-event-cost span {
-    background: #136972;
-    border: 1px solid #fefefe;
-    color: #fff;
-    display: block;
-    font-style: normal;
-    font-weight: bold;
-    line-height: 1.3;
-    padding: 5px 10px;
-    text-align: center;
-    text-overflow: ellipsis;
+	background: #136972;
+	border: 1px solid #fefefe;
+	color: #fff;
+	display: block;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 1.3;
+	padding: 5px 10px;
+	text-align: center;
+	text-overflow: ellipsis;
 }
 .tribe_events.sticky h4 {
 	display: inline;
 	float: none;
 }
 .post-sticky .tribe-events-single-section-title, #tribe-events-content h3.tribe-events-single-section-title, .home .tribe-events-single-section-title, #tribe-events-content h3.tribe-events-single-section-title {
-    font-size: 1.15em;
-    font-weight: bold;
+	font-size: 1.15em;
+	font-weight: bold;
 } {
-    font-size: 1.25em;
-    font-weight: bold;
+	font-size: 1.25em;
+	font-weight: bold;
 }
 .tribe-events-event-image {
 	float: left;
 	margin: 0 0.75em 0 0 !important;
+	width: 50px;
+	height: 50px;
 }
 .eventCategory div {
 	font-size: 1rem;
 	color: #136972;
 	font-family: "Clarendon",Georgia,​ Times,​serif;
-    font-weight: 700;
-    line-height: 1;
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 0.273em;
+	font-weight: 700;
+	line-height: 1;
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0.273em;
 }
 .tribe-event-categories li {
 	line-height: 1.1;
@@ -584,6 +586,7 @@ form[action*="?wootickets_process"] {
 	background: #136972;
 	color: #ffffff;
 	border-color: #136972 !important;
+	clear: both;
 }
 .tab-nav > li > a, .gumby-no-touch .navbar li .dropdown ul li a {
 	background: #136972;
@@ -846,10 +849,10 @@ a.liked:focus { /* default on hover */
 	margin-bottom: 20px;
 }
 .contact-form textarea {
-    float: none;
-    height: 200px;
-    margin-bottom: 13px;
-    width: auto;
+	float: none;
+	height: 200px;
+	margin-bottom: 13px;
+	width: auto;
 	min-width: 300px;
 }
 figure {
@@ -1033,19 +1036,19 @@ iframe {
 	margin: 0 auto 1.5em auto;
 }
 .btn.secondary, .skiplink.secondary {
-    background: #136972;
-    border: 1px solid #136972;
+	background: #136972;
+	border: 1px solid #136972;
 }
 .btn.secondary:hover, .skiplink.secondary:hover {
 	background: #EBF3F4;
 	border: 1px solid #c6e1e3;   
 }
 .btn.secondary a, .skiplink.secondary a {
-    color: #fff;
-    text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 .btn.secondary:hover a, .skiplink.secondary:hover a {
-    color: #136972;
+	color: #136972;
 }
 
 @media only screen and (max-width: 768px) {
@@ -1352,10 +1355,10 @@ iframe {
 	border-bottom: 1px solid #c6e1e3;
 }
 .usersultra-dahsboard-cont .usersultra-dahsboard-center {
-    display: inline-block;
-    margin: 0 auto 20px;
-    vertical-align: top;
-    width: 70%;
+	display: inline-block;
+	margin: 0 auto 20px;
+	vertical-align: top;
+	width: 70%;
 }
 .ethicalrecord h1 a, .ethicalrecord h2 a, .ethicalrecord h3 a, .ethicalrecord h4 a, .ethicalrecord h5 a, .ethicalrecord h6 a {
 	text-decoration: none;
@@ -1551,42 +1554,158 @@ h2.free-speech {
 	height: auto;
 }
 form label {
-    font-size: 0.85rem;
-    line-height: 1.1em;
-    margin-bottom: 9px;
+	font-size: 0.85rem;
+	line-height: 1.1em;
+	margin-bottom: 9px;
 }
 .crm-form-radio, .crm-form-checkbox {
 	margin-right: 7px;
 }
 .crm-container .crm-section .label {
-    float: left;
-    text-align: right;
-    width: 22%;
+	float: left;
+	text-align: right;
+	width: 35%;
 }
 .crm-container .crm-section .content {
-    margin-left: 23%;
+	margin-left: 36%;
 }
 #crm-container.crm-public .label {
-    padding-top: 2px;
+	padding-top: 2px;
 }
 #crm-container.crm-public .label label {
-    line-height: 1.1;
+	line-height: 1.1;
 }
 .crm-container.crm-public .select2-container .select2-choice {
-    font-size: 15px;
-    height: 36px;
-    line-height: 25px;
-    padding: 5px 5px 5px 8px;
+	font-size: 15px;
+	height: 36px;
+	line-height: 25px;
+	padding: 5px 5px 5px 8px;
 }
 .crm-container .select2-container .select2-choice abbr {
-    top: 12px;
+	top: 12px;
 }
 .crm-container a, .crm-container a:link, .crm-container a:visited {
-    color: #136972;
-    line-height: inherit;
-    outline: 0 none;
-    text-decoration: underline;
+	color: #136972;
+	line-height: inherit;
+	outline: 0 none;
+	text-decoration: underline;
 }
 #crm-main-content-wrapper img {
 	margin-right: 12px;
+}
+.action-link, .crm-dashboard-pcp, .crm-dashboard-civipledge {
+	display: none;
+}
+.price_set-section {
+	margin-bottom: 10px;
+}
+.widget_wp_sidebarlogin ul.sidebar_login_links {
+	margin-left: 50px !important;
+}
+.tribe-events-list .four.columns .tribe-events-event-image {
+	float: none;
+	margin: 0 3% 0 0;
+	width: 100%;
+	height: auto;	
+}
+.tribe-events-single-event-description .readoffline-embed {
+	display: none;
+}
+.type-tribe_events .tribe-events-event-image {
+	width: 30%;
+}
+.single-tribe_events .tribe-events-content {
+	max-width: 100%;
+	padding: 0;
+}
+.single-tribe_events .tribe-events-event-image {
+	float: left;
+	height: auto;
+	margin: 0 0.75em 0 0 !important;
+	width: 30%;
+}
+.crm-container .header-dark {
+	background-color: #136972;
+}
+.crm-container .even-row, .crm-container .even, tbody.scrollContent tr.alternateRow {
+	background-color: #ebebeb;
+}
+.crm-container .odd-row, .crm-container .odd, tbody.scrollContent {
+	background-color: #fafafa;
+}
+.crm-container table.selector td {
+	border-right: 1px dotted #dddddd;
+}
+.crm-container tr.even-row td, .crm-container tr.odd-row td, .crm-container table.display td, .crm-container table.pagerDisplay td {
+	border-bottom-color: #efefef;
+	border-left-color: #efefef;
+	border-right: 1px solid #efefef;
+	border-top-color: #efefef;
+}
+.crm-container table.selector td {
+	border-right: 1px solid #dddddd;
+}
+.crm-container th {
+	color: #000;
+}
+.crm-container th.sorting {
+	color: #fff;
+}
+.crm-container .status {
+	background-color: #ebebeb;
+	border-color: #136972;
+	position: relative;
+	border-top-width: 3px;
+	padding-left: 40px;
+	box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05) inset, 0 -2px 30px rgba(0, 0, 0, 0.016) inset, 0 1px 0 #fff inset, 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.crm-container .status:before {
+	background-color: #136972;
+	content: "𝒊";
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset;
+	position: absolute;
+	left: 10px;
+	top: 0;
+	height: 20px;
+	padding: 3px 8px;
+	border-radius: 0 0 4px 4px;
+}
+.crm-container .status img {
+	display: none;
+}
+.icon.inform-icon {
+	display: none;
+}
+div[id*='__lpform_email-'], #printer-friendly {
+	display: none;
+}
+.crm-container .description {
+	display: block;
+}
+.crm-submit-buttons {
+	padding: 5px 0 20px 0;
+}
+#crm-container.crm-public input[type="text"], #crm-container.crm-public input[type="password"], #crm-container.crm-public input[type="email"], #crm-container.crm-public select, #inputPostCode_Primary {
+	border-radius: 3px;
+	font-size: 15px;
+	max-width: 95%;
+	padding: 5px;
+	vertical-align: middle;
+	border: 1px solid #999;
+	height: 1.8em;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eee), color-stop(15%, #fff));
+	background-image: -webkit-linear-gradient(top, #eee 1%, #fff 15%);
+	background-image: -moz-linear-gradient(top, #eee 1%, #fff 15%);
+	background-image: linear-gradient(top, #eee 1%, #fff 15%);
+}
+.other_amount-section, .is_recur-section {
+	margin-bottom: 10px !important;
+}
+.crm-container fieldset legend {
+	font-weight: bold;
+	font-family: "Clarendonlig",​Georgia,​Times,​serif;
+	color: #136972;
+	font-size: 1rem;
 }
