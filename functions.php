@@ -911,6 +911,12 @@ function free_events( $meta_boxes ) {
 				'desc' => '',
 				'type' => 'checkbox',
 				'id' => $prefix . 'free'
+			),
+			array(
+				'name' => 'Non-EventBrite ticket costs',
+				'desc' => '',
+				'type' => 'text',
+				'id' => $prefix . 'tickets'
 			)			
 		),
 	);

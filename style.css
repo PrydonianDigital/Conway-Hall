@@ -967,7 +967,13 @@ td {
 }
 iframe {
 	width: 100% !important;
+	height: auto;
 	margin-bottom: 1em;
+}
+.eventbrite-ticket-embed iframe {
+	width: 100% !important;
+	height: 350px;
+	min-height: 350px;
 }
 #nav2 {
 	display: none;

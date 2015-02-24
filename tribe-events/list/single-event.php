@@ -44,6 +44,13 @@ $organizer = tribe_get_organizer();
 		<span>Free</span>
 	</div>
 <?php endif; ?>
+<?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); if( $tix != '' ) :  ?>
+	<div class="tribe-events-event-cost">
+		<span>
+			<?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); echo $tix;  ?>
+		</span>
+	</div>
+<?php endif; ?>
 <!-- Event Title -->
 <?php do_action( 'tribe_events_before_the_event_title' ) ?>
 <h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>

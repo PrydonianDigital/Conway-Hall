@@ -35,6 +35,12 @@ $event_id = get_the_ID();
 			<span class="tribe-events-divider">|</span>
 			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
 		<?php endif; ?>
+		<?php global $post; $free = get_post_meta( $post->ID, '_cmb_free', true ); if( $free == 'on' ) : ?>
+			<span class="tribe-events-divider">|</span> <span class="tribe-events-cost">Free</span>
+		<?php endif; ?>
+		<?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); if( $tix != '' ) :  ?>
+			<span class="tribe-events-divider">|</span> <span class="tribe-events-cost"><?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); echo $tix;  ?></span>
+		<?php endif; ?>
 	</div>
 
 	<!-- Event header -->
