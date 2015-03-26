@@ -14,6 +14,7 @@
 		<h2><a href="https://www.facebook.com/pages/Conway-Hall/109921265690429" target="_blank" rel="Facebook"><i class="icon-ch-facebook"></i></a> <a href="https://twitter.com/conwayhall" target="_blank" rel="Twitter"><i class="icon-ch-twitter"></i></a> <a href="https://www.youtube.com/user/ConwayHall1929" target="_blank" rel="YouTube"><i class="icon-ch-youtube"></i></a> <a href="https://plus.google.com/+conwayhall/posts" target="_blank" rel="Google+"><i class="icon-ch-google-plus"></i></a></h2>
 	</div>
 	
+	<small class="alignright">Site by <a href="http://prydonian.digital/" target="_blank" rel="author" title="Prydonian Digital">Prydonian Digital</a></small>
 
 </div>
 </footer>

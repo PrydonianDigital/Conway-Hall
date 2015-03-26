@@ -965,11 +965,7 @@ td {
 	width: 340px !important;
 	height: 255px !important;
 }
-iframe {
-	width: 100% !important;
-	height: auto;
-	margin-bottom: 1em;
-}
+
 .eventbrite-ticket-embed iframe {
 	width: 100% !important;
 	height: 350px;
@@ -1616,6 +1612,9 @@ form label {
 }
 .tribe-events-single-event-description .readoffline-embed {
 	display: none;
+}
+h3.tribe-events-single-section-title {
+	font-size: 1.2rem;
 }
 .type-tribe_events .tribe-events-event-image {
 	width: 30%;

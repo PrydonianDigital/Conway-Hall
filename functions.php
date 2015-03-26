@@ -139,15 +139,29 @@ function the_post_thumbnail_caption() {
 	}
 }
 
-register_sidebar( array(
-	'id' => 'homepage',
-	'name' => __( 'Main Sidebar', 'ch' ),
-	'description' => __( '', 'ch' ),
-	'before_title' => '<h5 class="widget">',
-	'aftch_title' => '</h5>',
-	'before_widget' => '<li id="%1$s" class="widget field %2$s">',
-	'after_widget' => '</li>',
-));
+register_sidebar( 
+	array(
+		'id' => 'homepage',
+		'name' => __( 'Main Sidebar', 'ch' ),
+		'description' => __( '', 'ch' ),
+		'before_title' => '<h5 class="widget">',
+		'aftch_title' => '</h5>',
+		'before_widget' => '<li id="%1$s" class="widget field %2$s">',
+		'after_widget' => '</li>',
+	)
+);
+
+register_sidebar( 
+	array(
+		'id' => 'join',
+		'name' => __( 'Join/Donate', 'ch' ),
+		'description' => __( '', 'ch' ),
+		'before_title' => '<h5 class="widget">',
+		'aftch_title' => '</h5>',
+		'before_widget' => '<li id="%1$s" class="widget field %2$s">',
+		'after_widget' => '</li>',
+	)
+);
 
 define ('CH_member_pages', 'view_member_pages');
 define ('CH_trustee_pages', 'view_trustee_pages');
@@ -1159,6 +1173,13 @@ class Walker_Page_Custom extends Walker_Nav_menu{
 		$output .= "$indent</ul></div>\n";
 	}
 }
+
+function custom_getarchives_where( $where ){
+    remove_filter( 'getarchives_where', 'custom_getarchives_where' );
+    $where = str_replace( "post_type = 'post'", "post_type in ( 'post', 'ethicalrecord' )", $where );
+    return $where;
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
 
 function be_subpages_load_widgets() {
 	register_widget( 'BE_Subpages_Widget' );
