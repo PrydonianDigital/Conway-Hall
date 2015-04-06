@@ -70,6 +70,9 @@
 				</ul>
 					</li>
 				</ul>
+				<ul>			
+					<?php dynamic_sidebar( 'join' ); ?>
+				</ul>
 				<ul>
 					<?php
 					// Find connected pages

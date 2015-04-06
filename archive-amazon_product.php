@@ -5,7 +5,7 @@
 	<div class="nine columns" role="main">
 
 		<?php
-		$id = 356;
+		$id = 8073;
 		$p = get_page($id);
 		echo apply_filters('the_content', $p->post_content);
 		?>
@@ -20,11 +20,11 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="three columns">
-						<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_post_thumbnail('article'); ?></a>
+					<div class="four columns">
+						<a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_post_thumbnail('shop'); ?></a>
 					</div>
-					<div class="nine columns">
-						<?php the_excerpt(); ?>	
+					<div class="eight columns">
+						<?php the_excerpt(); ?>
 						<p><?php global $post; $text = get_post_meta( $post->ID, '_cmb_url', true ); if($text !='') : ?><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_url', true ); echo $text; ?>" target="blank"><img src="<?php bloginfo('template_url'); ?>/img/amazon_buy.gif"></a><?php endif; ?></p>
 					</div>
 				</div>
@@ -32,11 +32,11 @@
 		<?php endwhile; ?>
 		<?php wp_pagenavi(); ?>
 		<?php endif; ?>
-	
-	</div>	
-	
+
+	</div>
+
 	<div class="three columns side" role="complementary">
-		
+
 		<div class="row">
 			<div class="twelve columns">
 				<ul>
@@ -56,6 +56,9 @@
 					</li>
 				</ul>
 				<ul>
+					<?php dynamic_sidebar( 'join' ); ?>
+				</ul>
+				<ul>
 					<?php
 					// Find connected pages
 					$connected = new WP_Query( array(
@@ -63,7 +66,7 @@
 						'connected_items' => get_queried_object(),
 						'nopaging' => true,
 					) );
-					
+
 					// Display connected pages
 					if ( $connected->have_posts() ) :
 					?>
@@ -75,16 +78,16 @@
 					<?php endwhile; ?>
 					</ul>
 					</li>
-					<?php 
+					<?php
 					// Prevent weirdness
 					wp_reset_postdata();
-					
+
 					endif;
-					?>					
+					?>
 					<?php dynamic_sidebar( 'homepage' ); ?>
 				</ul>
 			</div>
-		</div>		
+		</div>
 
 	</div>
 

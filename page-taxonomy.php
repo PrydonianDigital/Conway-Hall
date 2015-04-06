@@ -3,19 +3,19 @@
 Template Name: Taxonomy Archive
 */
 get_header(); ?>
-	
+
 	<div class="row article">
-			
+
 		<div class="nine columns">
 			<ul class="taxonomies">
-			<?php  
+			<?php
 				$taxonomy = 'taxonomy';
 				$orderby = 'name';
 				$show_count = 0;
 				$pad_counts = 0;
 				$hierarchical = 1;
 				$title = '';
-				
+
 				$args = array (
 					'taxonomy' => $taxonomy,
 					'orderby' => $orderby,
@@ -25,19 +25,20 @@ get_header(); ?>
 					'title_li' => $title,
 					'hide_empty' => 0
 				);
-				wp_list_categories($args) 
+				wp_list_categories($args)
 			?>
-			</ul>			
+			</ul>
 		</div>
 		<div class="three columns">
 			<div class="row">
 				<div class="twelve columns">
 					<ul>
+						<?php dynamic_sidebar( 'join' ); ?>
 						<?php dynamic_sidebar( 'homepage' ); ?>
 					</ul>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
-	
+
 <?php get_footer(); ?>

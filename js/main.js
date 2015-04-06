@@ -1,12 +1,12 @@
 Gumby.init();
 $(function() {
-		
+
 	$('#subToggle').on('click', function(e){
 		e.preventDefault();
 		$('#subBarContent').toggle();
 	});
 	if (element_exists('#mainhall')){
-	   $('#planit').planit({
+		 $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
 			roomName: 'main-hall',
 			selectedLayout: 'boardroom',
@@ -18,10 +18,10 @@ $(function() {
 		 });
 	};
 	if (element_exists('#brockway')){
-	   $('#planit').planit({
+		 $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
 			roomName: 'brockway-room',
-            selectedLayout: 'boardroom',
+						selectedLayout: 'boardroom',
 			pageTitle: 'Brockway Room',
 			roomDimensions: true,
 			power:true,
@@ -30,10 +30,10 @@ $(function() {
 		 });
 	};
 	if (element_exists('#artists')){
-	   $('#planit').planit({
+		 $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
 			roomName: 'artists-room',
-            selectedLayout: 'boardroom',
+						selectedLayout: 'boardroom',
 			pageTitle: "Artists' Room",
 			roomDimensions: true,
 			power:true,
@@ -42,10 +42,10 @@ $(function() {
 		 });
 	};
 	if (element_exists('#foyer')){
-	   $('#planit').planit({
+		 $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
 			roomName: 'foyer',
-            selectedLayout: 'buffet',
+						selectedLayout: 'buffet',
 			pageTitle: 'Foyer',
 			roomDimensions: true,
 			power:true,
@@ -54,22 +54,22 @@ $(function() {
 		 });
 	};
 	if (element_exists('#bertrand')){
-	   $('#planit').planit({
+		 $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
 			roomName: 'bertrand-russell-room',
-            selectedLayout: 'boardroom',
+						selectedLayout: 'boardroom',
 			pageTitle: 'Bertrand Russell Room',
 			roomDimensions: true,
-			power:true,		
+			power:true,
 			fireEscapes: false,
 			tvScreens: false,
 		 });
 	};
 	if (element_exists('#club')){
-	   $('#planit').planit({
+		 $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
 			roomName: 'club-room',
-            selectedLayout: 'boardroom',
+						selectedLayout: 'boardroom',
 			pageTitle: 'Club Room',
 			roomDimensions: true,
 			power:true,
@@ -78,10 +78,10 @@ $(function() {
 		 });
 	};
 	if (element_exists('#balcony')){
-	   $('#planit').planit({
+		 $('#planit').planit({
 			basepath: '/wp-content/themes/conwayhall/roomplanner/planit',
 			roomName: 'balcony',
-            selectedLayout: 'theatre',
+						selectedLayout: 'theatre',
 			pageTitle: 'Balcony',
 			roomDimensions: false,
 			power:true,
@@ -91,67 +91,67 @@ $(function() {
 		 });
 	};
 	if (element_exists('#artists360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/artists-room/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/artists-room/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/artists-room/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/artists-room/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("artists360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("artists360");
 	};
 	if (element_exists('#bertrand360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/bertrand-russell/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("bertrand360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("bertrand360");
 	};
 	if (element_exists('#mainhall360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/main-hall/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/main-hall/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/main-hall/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/main-hall/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("mainhall360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("mainhall360");
 	};
 	if (element_exists('#brockway360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/brockway-room/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/brockway-room/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/brockway-room/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/brockway-room/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("brockway360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("brockway360");
 	};
 	if (element_exists('#clubsquare360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/club-room-1/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/club-room-1/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/club-room-1/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/club-room-1/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("clubsquare360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("clubsquare360");
 	};
 	if (element_exists('#clubtheatre360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/club-room-2/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/club-room-2/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/club-room-2/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/club-room-2/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("clubtheatre360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("clubtheatre360");
 	};
 	if (element_exists('#foyer360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/foyer-1/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/foyer-1/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/foyer-1/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/foyer-1/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("foyer360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("foyer360");
 	};
 	if (element_exists('#foyeropen360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/foyer-2/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/foyer-2/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/foyer-2/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/foyer-2/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("foyeropen360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("foyeropen360");
 	};
 	if (element_exists('#library360')){
-		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/library/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF"); 
-		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/library/assets/xml/pano.xml");    
+		var so = new SWFObject("/wp-content/themes/conwayhall/360tour/library/assets/swf/pano.swf", "pano", "955", "350", "9", "#FFFFFF");
+		so.addVariable("xml_file","/wp-content/themes/conwayhall/360tour/library/assets/xml/pano.xml");
 		so.addParam("allowFullScreen","true");
-		so.addParam("allowScriptAccess","sameDomain"); 
-		so.write("library360"); 
+		so.addParam("allowScriptAccess","sameDomain");
+		so.write("library360");
 	};
 	$('#pano').sixteenbynine();
 	$("#ch-carousel").owlCarousel({
@@ -208,6 +208,31 @@ $(function() {
 		$('#bikestation').html('<div id="loading"></div>');
 		bikes();
 	});
+	var winHeight = $(window).height(),
+		docHeight = $(document).height(),
+		progressBar = $('progress'),
+		max, value;
+	/* Set the max scrollable area */
+	max = docHeight - winHeight;
+	progressBar.attr('max', max);
+
+	$(document).on('scroll', function(){
+		value = $(window).scrollTop();
+		progressBar.attr('value', value);
+	});
+
+	$(progressBar).attr('max', max);
+
+	$(window).on('resize', function() {
+		winHeight = $(window).height(),
+		docHeight = $(document).height();
+
+		max = docHeight - winHeight;
+		progressBar.attr('max', max);
+
+		value =  $(window).scrollTop();
+		progressBar.attr('value', value);
+	});
 });
 function bikes() {
 	var dock = '/wp-content/themes/conwayhall/php/bikestation.php?dock=003421';
@@ -234,7 +259,7 @@ function bikes() {
 			tfl += '</div>';
 		});
 		tfl += '</table>';
-		$('#bikestation').html(tfl).append('<h6>Data provided by Transport for London and Barclays Cycle Hire <i class="tube-tfl"></i></h6>');		
+		$('#bikestation').html(tfl).append('<h6>Data provided by Transport for London and Barclays Cycle Hire <i class="tube-tfl"></i></h6>');
 		$('#map').gmap3({
 			marker: {
 				latLng: [$('#map').data('lat'),$('#map').data('lng')],
@@ -251,7 +276,7 @@ function bikes() {
 				}
 			}
 		});
-	});	
+	});
 }
 function holBornC() {
 	var holBornC = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=C&station=HOL';
@@ -265,7 +290,7 @@ function holBornC() {
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
 					if(i < 5) {
-						if(exists(b.TimeTo)) { 
+						if(exists(b.TimeTo)) {
 							var mins = (b.TimeTo).replace(':00', ' mins'),
 								halfMins = (mins).replace(':30', '&frac12; mins'),
 								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
@@ -284,7 +309,7 @@ function holBornC() {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
 							} else {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-							}					
+							}
 						}
 					}
 				});
@@ -293,7 +318,7 @@ function holBornC() {
 			}
 		});
 		plat += '</div>';
-		$('#holbornStationC').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');	
+		$('#holbornStationC').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		$('th').on('click', 'i', function(){
 			stationSniff(line, station);
 		});
@@ -303,8 +328,8 @@ function holBornC() {
 			plat += '</div>';
 			$('#station').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		}
-	});	
-	$("#map").gmap3({ 
+	});
+	$("#map").gmap3({
 		getroute:{
 			options:{
 				origin:"Conway Hall, 25 Red Lion Square, London, WC1R 4RL",
@@ -316,7 +341,7 @@ function holBornC() {
 				$(this).gmap3({
 					map:{
 						options:{
-							zoom: 13,	
+							zoom: 13,
 							center: [-33.879, 151.235]
 						}
 					},
@@ -324,12 +349,12 @@ function holBornC() {
 						container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#map")),
 						options:{
 							directions:results
-						} 
+						}
 					}
 				});
 			}
 		}
-	});	
+	});
 }
 function chanceryL() {
 	var chanceryL = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=C&station=CYL';
@@ -343,7 +368,7 @@ function chanceryL() {
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
 					if(i < 5) {
-						if(exists(b.TimeTo)) { 
+						if(exists(b.TimeTo)) {
 							var mins = (b.TimeTo).replace(':00', ' mins'),
 								halfMins = (mins).replace(':30', '&frac12; mins'),
 								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
@@ -363,7 +388,7 @@ function chanceryL() {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
 							} else {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-							}					
+							}
 						}
 					}
 				});
@@ -382,8 +407,8 @@ function chanceryL() {
 			plat += '</div>';
 			$('#station').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		}
-	});	
-	$("#map").gmap3({ 
+	});
+	$("#map").gmap3({
 		getroute:{
 			options:{
 				origin:"Conway Hall, 25 Red Lion Square, London, WC1R 4RL",
@@ -395,7 +420,7 @@ function chanceryL() {
 				$(this).gmap3({
 					map:{
 						options:{
-							zoom: 13,	
+							zoom: 13,
 							center: [-33.879, 151.235]
 						}
 					},
@@ -403,12 +428,12 @@ function chanceryL() {
 						container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#map")),
 						options:{
 							directions:results
-						} 
+						}
 					}
 				});
 			}
 		}
-	});	
+	});
 }
 function holBornP() {
 	var holBornP = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=P&station=HOL';
@@ -422,7 +447,7 @@ function holBornP() {
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
 					if(i < 5) {
-						if(exists(b.TimeTo)) { 
+						if(exists(b.TimeTo)) {
 							var mins = (b.TimeTo).replace(':00', ' mins'),
 								halfMins = (mins).replace(':30', '&frac12; mins'),
 								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
@@ -441,7 +466,7 @@ function holBornP() {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
 							} else {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-							}					
+							}
 						}
 					}
 				});
@@ -460,7 +485,7 @@ function holBornP() {
 			plat += '</div>';
 			$('#station').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		}
-	});	
+	});
 }
 function russellSq() {
 	var russellSq = '/wp-content/themes/conwayhall/php/PredictionDetailed.php?id=P&station=RSQ';
@@ -474,7 +499,7 @@ function russellSq() {
 			if(exists(a.T)){
 				$.each(a.T, function(i,b) {
 					if(i < 5) {
-						if(exists(b.TimeTo)) { 
+						if(exists(b.TimeTo)) {
 							var mins = (b.TimeTo).replace(':00', ' mins'),
 								halfMins = (mins).replace(':30', '&frac12; mins'),
 								secs = (halfMins).replace('0 &frac12; mins', '30 secs'),
@@ -493,7 +518,7 @@ function russellSq() {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
 							} else {
 								plat += '<div class="row"><div class="stationName nine columns"><p>'+amp+'</p></div> <div class="timeTo three columns"><p>'+secs+'</p></div></div>';
-							}					
+							}
 						}
 					}
 				});
@@ -512,8 +537,8 @@ function russellSq() {
 			plat += '</div>';
 			$('#station').html(plat).append('<h6>Data provided by Transport for London <i class="tube-tfl"></i></h6>');
 		}
-	});	
-	$("#map").gmap3({ 
+	});
+	$("#map").gmap3({
 		getroute:{
 			options:{
 				origin:"Conway Hall, 25 Red Lion Square, London, WC1R 4RL",
@@ -525,7 +550,7 @@ function russellSq() {
 				$(this).gmap3({
 					map:{
 						options:{
-							zoom: 13,	
+							zoom: 13,
 							center: [-33.879, 151.235]
 						}
 					},
@@ -533,12 +558,12 @@ function russellSq() {
 						container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#map")),
 						options:{
 							directions:results
-						} 
+						}
 					}
 				});
 			}
 		}
-	});	
+	});
 }
 function busses() {
 	var lat = 51.519532,
@@ -549,7 +574,7 @@ function busses() {
 						neLat = lat + 0.003,
 						neLng = lng + 0.003,
 					stops = '/wp-content/themes/conwayhall/php/bus.php?swLat='+swLat+'&swLng='+swLng+'&neLat='+neLat+'&neLng='+neLng;
-					
+
 	$.getJSON(stops, function(data) {
 		$.each(data.markers, function (i, a) {
 			$('#map').gmap3({

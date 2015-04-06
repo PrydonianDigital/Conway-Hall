@@ -1,4 +1,4 @@
-/*	
+/*
 Theme Name: Conway Hall
 Theme URI: http://www.conwayhall.org.uk
 Description: WordPress theme for Conway Hall
@@ -9,24 +9,24 @@ Tags: schema.org, events, blog, responsive, conway hall, lectures, library, musi
 License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
 License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 */
-@font-face { 
-	font-family: 'Clarendon'; 
-	src: url('fonts/clarebtbol-webfont.eot'); 
-	src: url('fonts/clarebtbol-webfont.eot?#iefix') format('embedded-opentype'), 
-		url('fonts/clarebtbol-webfont.woff') format('woff'), 
-		url('fonts/clarebtbol-webfont.ttf') format('truetype'), 
-		url('fonts/clarebtbol-webfont.svg#ClarendonRegular') format('svg'); 
-	font-weight: bold; 
-	font-style: normal; 
-} 
-@font-face { 
-	font-family: 'Clarendonlig'; 
-	src: url('fonts/clarebtlig-webfont.eot'); 
-	src: url('fonts/clarebtlig-webfont.eot?#iefix') format('embedded-opentype'), 
-		url('fonts/clarebtlig-webfont.woff') format('woff'), 
-		url('fonts/clarebtlig-webfont.ttf') format('truetype'), 
-		url('fonts/clarebtlig-webfont.svg#') format('svg'); 
-	font-weight: normal; 
+@font-face {
+	font-family: 'Clarendon';
+	src: url('fonts/clarebtbol-webfont.eot');
+	src: url('fonts/clarebtbol-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/clarebtbol-webfont.woff') format('woff'),
+		url('fonts/clarebtbol-webfont.ttf') format('truetype'),
+		url('fonts/clarebtbol-webfont.svg#ClarendonRegular') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Clarendonlig';
+	src: url('fonts/clarebtlig-webfont.eot');
+	src: url('fonts/clarebtlig-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/clarebtlig-webfont.woff') format('woff'),
+		url('fonts/clarebtlig-webfont.ttf') format('truetype'),
+		url('fonts/clarebtlig-webfont.svg#') format('svg');
+	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
@@ -106,17 +106,17 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 	content: attr(data-tube);
 	speak: none;
 }
-html, body { 
-	margin: 0; 
-	padding: 0; 
-	height: 100%; 
-} 
-body { 
-	color: #000; 
-	background: #FFF; 
-	font-family: "Clarendonlig", Georgia, Times, serif; 
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+body {
+	color: #000;
+	background: #FFF;
+	font-family: "Clarendonlig", Georgia, Times, serif;
 	text-shadow: 0 0 0 rgba(0,0,0,0) !important;
-} 
+}
 h1, h2, h3, h4, h5, h6, .crm-container h1, .crm-container h2, .crm-container h3, .crm-container h4, .crm-container h5, .crm-container h6 {
 	font-family: "Clarendon", Georgia,​ Times, ​serif;
 	font-weight: 700;
@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5, h6, .crm-container h1, .crm-container h2, .crm-container h3,
 	font-size: 1.45rem;
 }
 p {
-	font-family: "Clarendonlig", Georgia, Times, serif; 
+	font-family: "Clarendonlig", Georgia, Times, serif;
 	line-height: 1.4em;
 }
 a {
@@ -143,11 +143,11 @@ a {
 }
 .menu li {
 	line-height: 1.2;
-	padding-bottom: 0.5em; 
+	padding-bottom: 0.5em;
 }
 .menu li:last-child {
 	line-height: 1.2;
-	padding-bottom: 0; 
+	padding-bottom: 0;
 }
 .menu a {
 	text-decoration: none;
@@ -194,13 +194,13 @@ footer h2 a {
 	min-height: 50px;
 	height: 50px;
 }
-.navbar ul li, .navbar ul li .dropdown ul li { 
-	height: 50px; 
-	line-height: 48px; 
+.navbar ul li, .navbar ul li .dropdown ul li {
+	height: 50px;
+	line-height: 48px;
 }
-.navbar ul li > a, .navbar ul li .dropdown ul li > a { 
-	height: 50px; 
-	line-height: 48px; 
+.navbar ul li > a, .navbar ul li .dropdown ul li > a {
+	height: 50px;
+	line-height: 48px;
 }
 .navbar ul li .dropdown {
 	max-width: 300px;
@@ -220,8 +220,8 @@ footer h2 a {
 	display: none;
 }
 // menu icon position when go to mobile mode
-@media only screen and (max-width: 767px) { 
-	.navbar a.toggle { 
+@media only screen and (max-width: 767px) {
+	.navbar a.toggle {
 		top: 0%;
 	}
 }
@@ -230,7 +230,7 @@ footer h2 a {
 }
 .navbar ul li.current-menu-item a, li.gumby-touch .navbar ul li.active > a, .navbar li.current-menu-parent > a, .navbar li.current-page-ancestor > a, .navbar li.current-menu-item > a, .navbar ul li.current-post-parent a, .navbar li.current-page-ancestor .dropdown .current-menu-item > a, .page-template-taxonomy-type-php .menu-item-607 a, .navbar li.current-menu-ancestor .dropdown .current-menu-item > a {
 	background: #EBF3F4;
-	color: #000; 
+	color: #000;
 	text-decoration: none;
 }
 .navbar ul li > a {
@@ -240,7 +240,7 @@ footer h2 a {
 }
 .gumby-no-touch .navbar ul li:hover > a {
 	background: #EBF3F4;
-	color: #136972; 
+	color: #136972;
 }
 .navbar i[class^="icon-"], .navbar i[class*=" icon-"] {
 	margin: 0 1px;
@@ -365,7 +365,7 @@ footer h2 a {
 }
 [role="main"] ul.tribe-event-categories, [role="main"] ul.tab-nav {
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 }
 section.tabs ul {
 	margin-left: 0 !important;
@@ -396,8 +396,8 @@ section.tabs ul {
 .contact-submit:hover, .search-submit:hover, .login-submit:hover {
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #ffffff)); background-image: -webkit-linear-gradient(#ffffff, #ffffff); background-image: -moz-linear-gradient(#ffffff, #ffffff); background-image: -o-linear-gradient(#ffffff, #ffffff); background-image: linear-gradient(#ffffff, #ffffff); -webkit-box-shadow: inset 0 0 3px white; -moz-box-shadow: inset 0 0 3px white; box-shadow: inset 0 0 3px white; border: 1px solid #d9d9d9;
 }
-input.text, input.email, input.phone, input.name, input.search-field, input[type='text'], input[type='password'], input[type='email'] {
-		background: none repeat scroll 0 0 #fff;
+input.text, input.email, input.phone, input.name, input.search-field, input[type='text'], input[type='password'], input[type='email'], .field textarea {
+		background: #fff;
 		border: 1px solid #d8d8d8;
 		border-radius: 4px;
 		font-size: 1rem;
@@ -408,7 +408,7 @@ input.text, input.email, input.phone, input.name, input.search-field, input[type
 		width: 100%;
 }
 input.search-field {
-	width: 90%;	
+	width: 90%;
 }
 .contact-submit input, #wp-submit {
 		padding: 0 18px;
@@ -497,7 +497,7 @@ form[action*="?wootickets_process"] {
 	padding: 0 5px 0 0;
 }
 .tribe-event-categories li:after {
-	content: " |"	
+	content: " |"
 }
 #tribe-bar-form input[type="text"] {
 	background: #EBF3F4;
@@ -507,7 +507,7 @@ form[action*="?wootickets_process"] {
 	border-bottom: 1px dashed #136972;
 }
 .tribe-event-categories li:last-child:after {
-	content: " "	
+	content: " "
 }
 .tribe-events-button.tribe-inactive,
 .tribe-events-button:hover,
@@ -613,7 +613,7 @@ form[action*="?wootickets_process"] {
 }
 .tribe-grid-header {
 	background: #136972;
-	color: #ffffff;	
+	color: #ffffff;
 }
 .tribe-grid-header .column a {
 	color: #000;
@@ -626,7 +626,7 @@ form[action*="?wootickets_process"] {
 	background: #EBF3F4;
 	text-shadow: none !important;
 	color: #136972;
-	border-color: #136972 !important;	
+	border-color: #136972 !important;
 }
 .tribe-events-notices {
 		background: #EBF3F4;
@@ -715,7 +715,7 @@ form[action*="?wootickets_process"] {
 	color: #fff !important;
 }
 .line10 {
-	
+
 }
 .line11, .M {
 	background: #893267;
@@ -745,7 +745,7 @@ form[action*="?wootickets_process"] {
 	margin: 0;
 	color: #fff;
 	line-height: 1;
-	padding: 0;	
+	padding: 0;
 }
 .stationTitle {
 	padding: 0.5em;
@@ -870,15 +870,15 @@ figcaption {
 	transition: height 2s linear;
 	background: url(img/Preloader_3.gif) no-repeat center center;
 }
-#map { 
-	height: 400px; 
+#map {
+	height: 400px;
 	margin-bottom: 0.5em;
 }
 #map img {
 	max-width: none !important;
 }
-#bikemap, #busmap { 
-	height: 350px; 
+#bikemap, #busmap {
+	height: 350px;
 }
 #map img, #bikemap img {
 	max-width: none;
@@ -953,7 +953,7 @@ td {
 	background-position: left center;
 	padding-left: 20px;
 }
-.size-auto, 
+.size-auto,
 .size-full,
 .size-large,
 .size-medium,
@@ -999,7 +999,7 @@ td {
 		-webkit-box-shadow: 0 1px 3px #888;*/
 }
 .ic_caption {
-		position: absolute;		
+		position: absolute;
 		overflow: hidden;
 		margin: 0;
 		padding: 0;
@@ -1043,7 +1043,7 @@ td {
 }
 .btn.secondary:hover, .skiplink.secondary:hover {
 	background: #EBF3F4;
-	border: 1px solid #c6e1e3;   
+	border: 1px solid #c6e1e3;
 }
 .btn.secondary a, .skiplink.secondary a {
 	color: #fff;
@@ -1289,7 +1289,7 @@ td {
 	content: "\41";
 }
 .tube-arrow-down {
-	display: none;	
+	display: none;
 }
 #container:before, .row:after {
 		content: "";
@@ -1311,7 +1311,7 @@ td {
 		width: 100%;
 }
 #comments {
-	
+
 }
 .comment-meta {
 	padding: 0;
@@ -1320,7 +1320,7 @@ td {
 	padding: 0 0.5em;
 }
 .comment-metadata a {
-	color: #fff;	
+	color: #fff;
 }
 .comment {
 	border-bottom: 1px solid #c6e1e3;
@@ -1497,7 +1497,7 @@ h2.free-speech {
 	text-transform: uppercase;
 }
 #comments {
-	
+
 }
 .comment {
 	border-bottom: 1px solid #c6e1e3;
@@ -1608,7 +1608,7 @@ form label {
 	float: none;
 	margin: 0 3% 0 0;
 	width: 100%;
-	height: auto;	
+	height: auto;
 }
 .tribe-events-single-event-description .readoffline-embed {
 	display: none;
@@ -1713,4 +1713,30 @@ div[id*='__lpform_email-'], #printer-friendly {
 	font-family: "Clarendonlig",​Georgia,​Times,​serif;
 	color: #136972;
 	font-size: 1rem;
+}
+.single-amazon_product .readoffline-embed, .single-jobs .readoffline-embed {
+	display: none;
+}
+progress {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1002;
+	width: 100%;
+	height: 5px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	background-color: transparent;
+	color: #136972;
+}
+progress::-webkit-progress-bar {
+	background-color: transparent;
+}
+progress::-webkit-progress-value {
+	background-color: #136972;
+}
+progress::-moz-progress-bar {
+	background-color: #136972;
 }

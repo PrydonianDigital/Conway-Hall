@@ -75,6 +75,9 @@
 		
 		<div class="row">
 			<div class="twelve columns">
+				<ul>			
+					<?php dynamic_sidebar( 'join' ); ?>
+				</ul>
 				<ul>
 					<?php
 					// Find connected pages

@@ -2,7 +2,7 @@
 
 if ( ! isset( $content_width ) )
 	$content_width = 700;
-	
+
 function conway_hall_init()	{
 	remove_action( 'wp_head', 'wp_generator' );
 	show_admin_bar( false );
@@ -15,7 +15,8 @@ function conway_hall_init()	{
 	add_image_size( 'full', 1000, 563, true );
 	add_image_size( 'article', 350, 197, false );
 	add_image_size( 'lecture', 220, 353, false );
-	add_image_size( 'speaker', 290, 290, true );
+	add_image_size( 'lecture', 220, 353, false );
+	add_image_size( 'shop', 200, 350, true );
 	add_image_size( 'calendar', 90, 90, true );
 	$defaults = array(
 		'default-image' => get_template_directory_uri() . '/img/header/header.png',
@@ -32,9 +33,9 @@ function conway_hall_init()	{
 		'admin-preview-callback' => '',
 	);
 	add_theme_support( 'custom-header', $defaults );
-	add_editor_style( 'editor-style.css' );	
+	add_editor_style( 'editor-style.css' );
 	$markup = array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', );
-	add_theme_support( 'html5', $markup );	
+	add_theme_support( 'html5', $markup );
 }
 add_action( 'after_setup_theme', 'conway_hall_init' );
 
@@ -51,7 +52,7 @@ function ch_scripts() {
 	wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', false, '2.6', true );
 	wp_register_script( 'planittooltip', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.tooltip.js', false, '2.6', true );
 	wp_register_script( 'planitcarousel', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.jcarousel.min.js', false, '2.6', true );
-	wp_register_script( 'planitswf', get_template_directory_uri() . '/roomplanner/planit/global/js/swfobject.js', false, '2.6', true );	
+	wp_register_script( 'planitswf', get_template_directory_uri() . '/roomplanner/planit/global/js/swfobject.js', false, '2.6', true );
 	wp_register_script( 'planitflash', get_template_directory_uri() . '/roomplanner/planit/global/js/flash-detection.js', false, '2.6', true );
 	wp_register_script( 'planittour', get_template_directory_uri() . '/roomplanner/planit/global/tour.js', false, '2.6', true );
 	wp_register_script( 'planitfancybox', get_template_directory_uri() . '/roomplanner/planit/global/lightwindow/jquery.fancybox.js', false, '2.6', true );
@@ -102,7 +103,7 @@ function room_planner() {
 		wp_enqueue_style( 'planitskin' );
 		wp_enqueue_style( 'planitfancyboxcss' );
 		wp_enqueue_style( 'planitprint' );
-	} 
+	}
 }
 add_action('wp_enqueue_scripts', 'room_planner');
 
@@ -110,7 +111,7 @@ function tour() {
 	if ( is_page(array('artists-room-360o-tour', 'club-room-hollow-square-360o-tour', 'club-room-theatre-360o-tour', 'foyer-360o-tour', 'foyer-open-360o-tour', 'bertrand-russell-room-360o-tour', 'brockway-room-360o-tour', 'main-hall-360o-tour', 'library-360o-tour')) ) {
 		wp_enqueue_script('swf');
 		wp_enqueue_script('json2');
-	} 
+	}
 }
 add_action('wp_enqueue_scripts', 'tour');
 
@@ -139,7 +140,7 @@ function the_post_thumbnail_caption() {
 	}
 }
 
-register_sidebar( 
+register_sidebar(
 	array(
 		'id' => 'homepage',
 		'name' => __( 'Main Sidebar', 'ch' ),
@@ -151,7 +152,7 @@ register_sidebar(
 	)
 );
 
-register_sidebar( 
+register_sidebar(
 	array(
 		'id' => 'join',
 		'name' => __( 'Join/Donate', 'ch' ),
@@ -268,7 +269,7 @@ function chml() {
 	);
 	$args = array(
 		'label' => __( 'memorial_lecture', 'ch' ),
-		'description' => __( '<h4>The Conway Memorial Lectures were introduced in 1910 to honour Moncure Conway.</h4><p>For over one hundred years, a guest lecturer has been selected each year to give the Conway Memorial Lecture.</p><p><em>Please note that the views and ideas expressed within these lectures are of their time and they should be regarded as historicial documents which may not represent the current views of Conway Hall Ethical Society.</em></p>', 'ch' ),
+		'description' => __( "<p>Every year guest lecturers have been invited to speak on subjects across disciplines such as philosophy, history, science, sociology and art, all wth the intent of presenting the latest thinking on those subjects by leading experts in their respective fields. Since 1910, a staggering portfolio of speakers and topics have been presented that is worthy of comparison to other such similar memorial lectures run by other institutions.</p><p>Bertrand Russell, Herbert Read, Gilbert Murray, Jonathan Miller, A J Ayer and Christopher Hill are some of those among the many who have given Conway Memorial Lectures. Those sitting in the Chair at these lectures have been equally illustrious, for example E M Forster chaired Edward Thompson's 1942 lecture on Ethical Ideals in India Today.</p><p>In hindsight, the decision taken in 1908 at a conference of friends and admirers of Dr Moncure Conway (1832 - 1907) to set up an endownment for an 'annual lecture or lectures perpetuating Dr. Conway's memory' rather than funding a medallion or statue of him has been borne out magnificently. Indeed, Edward Clodd, in his introduction to the inaugral lecture by John Russell must, as a respresentative of that group of 'friends and admirers', take credit for taking this course of action, even though as he stated an annual lecture series was 'more in line' with Conway's own wishes.</p><p>So, in memory of the man whom Barbara Wootton described, in her Chairman's introduction to Lord Chorley's 1953 Conway Memorial Lecture, as one 'who died in 1907 after a life-time spent fighting for freedom on both sides of the atlantic', we have significant body of work in the legacy that the Conway Memorial Lectures provide. And, as a modern day testament to that legacy Conway Hall is prioritising the digitising of every available lecture.</p>", 'ch' ),
 		'labels' => $labels,
 		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author' ),
 		'taxonomies' => array( ),
@@ -623,7 +624,7 @@ function er_tax() {
 add_action( 'init', 'er_tax', 0 );
 
 add_filter( 'post_class', 'er_taxonomy_post_class', 10, 3 );
- 
+
 function er_taxonomy_post_class( $classes, $class, $ID ) {
 	$taxonomy = 'taxonomy';
 	$terms = get_the_terms( (int) $ID, $taxonomy );
@@ -635,7 +636,7 @@ function er_taxonomy_post_class( $classes, $class, $ID ) {
 		}
 	}
 	return $classes;
-} 
+}
 
 function er_posts() {
 	$labels = array(
@@ -657,7 +658,7 @@ function er_posts() {
 		'label'			   => __( 'ethicalrecord', 'ch' ),
 		'description'		 => __( 'Ethical Record Posts', 'ch' ),
 		'labels'			  => $labels,
-		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail' ),
+		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail', 'comments' ),
 		'taxonomies'		  => array( 'post_tag', 'tags' ),
 		'hierarchical'		=> false,
 		'public'			  => true,
@@ -776,11 +777,11 @@ function issuePost() {
 add_action( 'p2p_init', 'issuePost' );
 
 function extra_info( $meta_boxes ) {
-	$prefix = '_cmb_'; 
+	$prefix = '_cmb_';
 	$meta_boxes[] = array(
 		'id' => 'meta',
 		'title' => 'Meta Info',
-		'pages' => array('ethicalrecord'), 
+		'pages' => array('ethicalrecord'),
 		'context' => 'normal',
 		'priority' => 'default',
 		'show_names' => true,
@@ -824,7 +825,7 @@ function extra_info( $meta_boxes ) {
 					'teeny' => true, // output the minimal editor config used in Press This
 					'dfw' => false, // replace the default fullscreen with DFW (needs specific css)
 					'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
-					'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()  
+					'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
 				),
 				'id' => $prefix . 'ref'
 			),
@@ -863,7 +864,7 @@ function extra_info( $meta_boxes ) {
 				'desc' => '',
 				'type' => 'text',
 				'id' => $prefix . 'vpauthor'
-			),	
+			),
 			array(
 				'name' => 'Videos',
 				'desc' => '',
@@ -883,15 +884,15 @@ function extra_info( $meta_boxes ) {
 add_filter( 'cmb_meta_boxes', 'extra_info' );
 
 function archive_issue( $meta_boxes ) {
-	$prefix = '_cmb_'; 
+	$prefix = '_cmb_';
 	$meta_boxes[] = array(
 		'id' => 'meta',
 		'title' => 'Meta Info',
-		'pages' => array('issue'), 
+		'pages' => array('issue'),
 		'context' => 'normal',
 		'priority' => 'default',
 		'show_names' => true,
-		'fields' => array(	
+		'fields' => array(
 			array(
 				'name' => 'PDF Archive Issue',
 				'desc' => '',
@@ -903,7 +904,7 @@ function archive_issue( $meta_boxes ) {
 				'desc' => '',
 				'type' => 'file',
 				'id' => $prefix . 'issue'
-			)			
+			)
 		),
 	);
 	return $meta_boxes;
@@ -911,15 +912,15 @@ function archive_issue( $meta_boxes ) {
 add_filter( 'cmb_meta_boxes', 'archive_issue' );
 
 function free_events( $meta_boxes ) {
-	$prefix = '_cmb_'; 
+	$prefix = '_cmb_';
 	$meta_boxes[] = array(
 		'id' => 'meta',
 		'title' => 'Free Event?',
-		'pages' => array('tribe_events'), 
+		'pages' => array('tribe_events'),
 		'context' => 'side',
 		'priority' => 'high',
 		'show_names' => true,
-		'fields' => array(	
+		'fields' => array(
 			array(
 				'name' => 'Tick if a free event',
 				'desc' => '',
@@ -931,7 +932,7 @@ function free_events( $meta_boxes ) {
 				'desc' => '',
 				'type' => 'text',
 				'id' => $prefix . 'tickets'
-			)			
+			)
 		),
 	);
 	return $meta_boxes;
@@ -1123,7 +1124,7 @@ function my_add_cpt_to_dashboard() {
 function wpclean_add_metabox_menu_posttype_archive() {
 	add_meta_box('wpclean-metabox-nav-menu-posttype', 'Custom Post Type Archives', 'wpclean_metabox_menu_posttype_archive', 'nav-menus', 'side', 'default');
 }
- 
+
 function wpclean_metabox_menu_posttype_archive() {
 	$post_types = get_post_types(array('show_in_nav_menus' => true, 'has_archive' => true), 'object');
 	if ($post_types) :
@@ -1194,7 +1195,7 @@ add_action( 'widgets_init', 'be_subpages_load_widgets' );
  * @license			http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 class BE_Subpages_Widget extends WP_Widget {
-	
+
 		/**
 		 * Constructor
 		 *
@@ -1209,18 +1210,18 @@ class BE_Subpages_Widget extends WP_Widget {
 		/**
 		 * Outputs the HTML for this widget.
 		 *
-		 * @param array, An array of standard parameters for widgets in this theme 
-		 * @param array, An array of settings for this widget instance 
+		 * @param array, An array of standard parameters for widgets in this theme
+		 * @param array, An array of settings for this widget instance
 		 * @return void Echoes it's output
 		 **/
 	function widget( $args, $instance ) {
 		extract( $args, EXTR_SKIP );
-		
+
 		// Only run on hierarchical post types
 		$post_types = get_post_types( array( 'hierarchical' => true ) );
 		if ( !is_singular( $post_types ) && !apply_filters( 'be_subpages_widget_display_override', false ) )
 			return;
-			
+
 		// Find top level parent and create path to it
 		global $post;
 		$parents = array_reverse( get_ancestors( $post->ID, 'page' ) );
@@ -1236,13 +1237,13 @@ class BE_Subpages_Widget extends WP_Widget {
 		);
 		$depth = 1;
 		$subpages = get_pages( apply_filters( 'be_subpages_widget_args', $args, $depth ) );
-		
+
 		// If there are pages, display the widget
-		if ( empty( $subpages ) ) 
+		if ( empty( $subpages ) )
 			return;
-			
+
 		echo $before_widget;
-		
+
 		global $be_subpages_is_first;
 		$be_subpages_is_first = true;
 
@@ -1252,23 +1253,23 @@ class BE_Subpages_Widget extends WP_Widget {
 			$title = get_the_title( $parents[0] );
 			if( 1 == $instance['title_link'] )
 				$title = '<a href="' . get_permalink( $parents[0] ) . '">' . apply_filters( 'be_subpages_widget_title', $title ) . '</a>';
-		}	
+		}
 
-		if( !empty( $title ) ) 
+		if( !empty( $title ) )
 			echo $before_title . $title . $after_title;
-		
+
 		if( !isset( $instance['deep_subpages'] ) )
 			$instance['deep_subpages'] = 0;
-			
+
 		if( !isset( $instance['nest_subpages'] ) )
 			$instance['nest_subpages'] = 0;
 
 		// Print the tree
 		$this->build_subpages( $subpages, $parents, $instance['deep_subpages'], $depth, $instance['nest_subpages'] );
-		
-		echo $after_widget;			
+
+		echo $after_widget;
 	}
-	
+
 	/**
 	 * Build the Subpages
 	 *
@@ -1280,25 +1281,25 @@ class BE_Subpages_Widget extends WP_Widget {
 	function build_subpages( $subpages, $parents, $deep_subpages = 0, $depth = 1, $nest_subpages = 0 ) {
 		if( empty( $subpages ) )
 			return;
-			
+
 		global $post, $be_subpages_is_first;
-		// Build the page listing	
+		// Build the page listing
 		echo '<ul class="menu">';
 		foreach ( $subpages as $subpage ) {
 			$class = array();
-			
+
 			// Unique Identifier
 			$class[] = 'menu-item-' . $subpage->ID;
-			
+
 			// Set special class for current page
 			if ( $subpage->ID == $post->ID )
 				$class[] = 'widget_subpages_current_page';
-				
+
 			// First menu item
 			if( $be_subpages_is_first )
 				$class[] .= 'first-menu-item';
 			$be_subpages_is_first = false;
-			
+
 			$class = apply_filters( 'be_subpages_widget_class', $class, $subpage );
 			$class = !empty( $class ) ? ' class="' . implode( ' ', $class ) . '"' : '';
 
@@ -1306,9 +1307,9 @@ class BE_Subpages_Widget extends WP_Widget {
 			// If nesting supress the closing li
 			if (!$nest_subpages)
 				echo '</li>';
-			
+
 			do_action( 'be_subpages_widget_menu_extra', $subpage, $class );
-			
+
 			// Check if the subpage is in parent tree to go deeper
 			if ( $deep_subpages && in_array( $subpage->ID, $parents ) ) {
 				$args = array(
@@ -1331,7 +1332,7 @@ class BE_Subpages_Widget extends WP_Widget {
 
 	/**
 	 * Sanitizes form inputs on save
-	 * 
+	 *
 	 * @param array $new_instance
 	 * @param array $old_instance
 	 * @return array $new_instance
@@ -1345,14 +1346,14 @@ class BE_Subpages_Widget extends WP_Widget {
 		$instance['title_link'] = (int) $new_instance['title_link'];
 		$instance['deep_subpages'] = (int) $new_instance['deep_subpages'];
 		$instance['nest_subpages'] = (int) $new_instance['nest_subpages'];
-		
+
 		return $instance;
 	}
 
 	/**
 	 * Build the widget's form
 	 *
-	 * @param array $instance, An array of settings for this widget instance 
+	 * @param array $instance, An array of settings for this widget instance
 	 * @return null
 	 */
 	function form( $instance ) {
@@ -1360,16 +1361,16 @@ class BE_Subpages_Widget extends WP_Widget {
 		/* Set up some default widget settings. */
 		$defaults = array( 'title' => '', 'title_from_parent' => 0, 'title_link' => 0, 'deep_subpages' => 0, 'nest_subpages' => 0 );
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
-		 
+
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'be-subpages' );?></label>
 			<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
 		</p>
-		
+
 		<p>
 			<input class="checkbox" type="checkbox" value="1" <?php checked( $instance['title_from_parent'], 1 ); ?> id="<?php echo $this->get_field_id( 'title_from_parent' ); ?>" name="<?php echo $this->get_field_name( 'title_from_parent' ); ?>" />
 			<label for="<?php echo $this->get_field_id( 'title_from_parent' ); ?>"><?php _e( 'Use top level page as section title.', 'be-subpages' );?></label>
-		</p>		
+		</p>
 
 		<p>
 			<input class="checkbox" type="checkbox" value="1" <?php checked( $instance['title_link'], 1 ); ?> id="<?php echo $this->get_field_id( 'title_link' ); ?>" name="<?php echo $this->get_field_name( 'title_link' ); ?>" />
@@ -1386,11 +1387,11 @@ class BE_Subpages_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'nest_subpages' ); ?>"><?php _e( 'Nest sub-page &lt;ul&gt; inside parent &lt;li&gt;', 'be-subpages' ); echo '<br /><em>('; _e( "only if &quot;Include the current page's subpages&quot; is checked", 'be-subpages' ); echo ')</em></label>';?></p>
 
 		<?php
-	}	
+	}
 }
 
 function add_menu_icons_styles(){
- 
+
 	echo '<style>
 	#adminmenu #menu-posts-carousel div.wp-menu-image:before, #dashboard_right_now .carousel-count a:before {
 		content: "\f233";
@@ -1454,13 +1455,13 @@ function add_menu_icons_styles(){
 }
 add_action( 'admin_head', 'add_menu_icons_styles' );
 
-function additional_admin_color_schemes() {	
-	$theme_dir = get_template_directory_uri();	
-	wp_admin_css_color( 'er', __( 'Ethical Record' ),	
-		$theme_dir . '/css/er_admin.css',	
-		array( '#ebebeb', '#ebf3f4', '#136972', '#ffffff' )	
-	);	
-}	
+function additional_admin_color_schemes() {
+	$theme_dir = get_template_directory_uri();
+	wp_admin_css_color( 'er', __( 'Ethical Record' ),
+		$theme_dir . '/css/er_admin.css',
+		array( '#ebebeb', '#ebf3f4', '#136972', '#ffffff' )
+	);
+}
 add_action('admin_init', 'additional_admin_color_schemes');
 
 function remove_footer_admin () {
@@ -1474,7 +1475,7 @@ function rdc_add_views_column( $cols ) {
 	return $cols;
 }
 add_filter( 'manage_edit-post_columns', 'rdc_add_views_column' );
-	
+
 function rdc_add_views_colurdc_data( $colname ) {
 	global $post;
 	if ( 'pageviews' !== $colname )
@@ -1528,9 +1529,9 @@ function my_login_logo() { ?>
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 add_action( 'tribe_eb_after_event_creation', 'my_change_tribe_eventbrite_currency', 10, 4 );
-  
+
 function my_change_tribe_eventbrite_currency( $eventbrite_id, $venue_id, $organizer_id, $post_id ) {
-	$currency_acro = 'GBP';	
+	$currency_acro = 'GBP';
 	$parameters = 'id=' . $eventbrite_id . '&currency=' . $currency_acro;
 	$success = Event_Tickets_PRO::instance()->sendEventBriteRequest( 'event_update', $parameters, $post_id, true, true, false );
 	if ( !$success ) {
@@ -1639,30 +1640,30 @@ $cats = get_categories(array('taxonomy' => 'taxonomy'));
 return $list;
 }
 add_action( 'save_post_tribe_events', 'force_cost_update' );
- 
+
 function force_cost_update( $event_id ) {
    TribeEventsAPI::update_event_cost( $event_id );
 }
 
 class TicketingCostConflict {
 	static $original_cost;
- 
+
 	static function resolve() {
 		add_filter( 'tribe_get_cost', array( __CLASS__, 'store_pre_eb' ), 5 );
 		add_filter( 'tribe_get_cost', array( __CLASS__, 'maybe_undo_eb_change' ), 50, 2 );
 	}
- 
+
 	static function store_pre_eb( $cost ) {
 		self::$original_cost = $cost;
 	}
- 
+
 	static function maybe_undo_eb_change( $cost, $event_id ) {
 		if ( ! class_exists( 'Event_Tickets_PRO' ) ) return $cost;
 		if ( Event_Tickets_PRO::instance()->getEventId( $event_id ) ) return $cost;
 		return self::$original_cost;
 	}
 }
- 
+
 TicketingCostConflict::resolve();
 
 function theme_options_panel(){
