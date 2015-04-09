@@ -73,6 +73,24 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 	margin: 0 !important;
 	min-width: 16px !important;
 }
+.ch-dimensions:before {
+	content: "\e989";
+}
+.ch-enlarge:before {
+	content: "\e98b";
+}
+.ch-fire:before {
+	content: "\e9a9";
+}
+.ch-screens:before {
+	content: "\e956";
+}
+.ch-power:before {
+	content: "\e9b5";
+}
+.ch-tour:before {
+	content: "\ea2e";
+}
 .icon-ch-google-plus:before {
 	content: "\ea88";
 }
@@ -1714,7 +1732,7 @@ div[id*='__lpform_email-'], #printer-friendly {
 	color: #136972;
 	font-size: 1rem;
 }
-.single-amazon_product .readoffline-embed, .single-jobs .readoffline-embed {
+.single-amazon_product .readoffline-embed, .single-jobs .readoffline-embed, .sidebar.widget .readoffline-embed {
 	display: none;
 }
 progress {
@@ -1739,4 +1757,8 @@ progress::-webkit-progress-value {
 }
 progress::-moz-progress-bar {
 	background-color: #136972;
+}
+#mainhall, #balcony, #club, #bertrand, #foyer, #artists, #brockway {
+	width: 90%;
+	margin: 20px auto;
 }

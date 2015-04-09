@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Home Page
+Template Name: Home Page (old)
 */
 	get_header();
 	require_once 'Mobile_Detect.php';
@@ -8,7 +8,7 @@ Template Name: Home Page
 ?>
 
 <div class="row">
-	
+
 	<div class="twelve columns homePage" role="main">
 		<div id="ch-carousel" class="owl-carousel">
 			<?php
@@ -29,16 +29,16 @@ Template Name: Home Page
 				<div class="ic_caption">
 					<h3><?php the_title(); ?></h3>
 					<?php the_excerpt(); ?>
-				</div>			
+				</div>
 			</div>
 			<?php
 				}
 			} else {
 				// no posts found
 			}
-			
+
 			// Restore original Post Data
-			wp_reset_postdata();	
+			wp_reset_postdata();
 			?>
 		</div>
 	</div>
@@ -51,13 +51,13 @@ Template Name: Home Page
 		<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
-	
+
 </div>
 
 <div class="row">
 
 	<div class="nine columns" role="main">
-	
+
 		<section class="tabs">
 		<?php if( $detect->isMobile() && !$detect->isTablet() ){ ?>
 		<section class="tabs pill">
@@ -74,8 +74,8 @@ Template Name: Home Page
 		        <li><a href="#">Library</a></li>
 		        <li><a href="#">London Thinks</a></li>
 		        <li><a href="#">Ethical Record</a></li>
-		    </ul>	
-		<?php } ?>  
+		    </ul>
+		<?php } ?>
 		<?php if( $detect->isMobile() && !$detect->isTablet() ){ ?>
 
 		    <div class="tab-content active">
@@ -96,7 +96,7 @@ Template Name: Home Page
 									<?php if ( tribe_get_cost() ) : ?>
 										<div class="tribe-events-event-cost">
 											<span><?php echo tribe_get_cost( null, true ); ?></span>
-										</div>																		
+										</div>
 									<?php endif; ?>
 									<?php global $post; $free = get_post_meta( $post->ID, '_cmb_free', true ); if( $free == 'on' ) : ?>
 										<div class="tribe-events-event-cost">
@@ -151,9 +151,9 @@ Template Name: Home Page
 						<?php
 							}
 						} else {
-						
+
 						}
-						wp_reset_postdata();							
+						wp_reset_postdata();
 					?>
 					<p><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
 		    </div>
@@ -171,8 +171,8 @@ Template Name: Home Page
 						while ( $library->have_posts() ) {
 							$library->the_post();
 					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
-				
-					foreach( $mypages as $page ) {		
+
+					foreach( $mypages as $page ) {
 						$content = $page->post_excerpt;
 						if ( ! $content ) // Check for empty excerpt content & fallback to full content
 						    $content = $page->post_content;
@@ -191,17 +191,17 @@ Template Name: Home Page
 								<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
 							</div>
 							<div class="seven columns">
-								<?php echo $content; ?>	
+								<?php echo $content; ?>
 							</div>
 						</div>
 					</div>
 				<?php
-					}	
+					}
 						}
 					} else {
 						// no posts found
 					}
-					
+
 					// Restore original Post Data
 					wp_reset_postdata();
 				?>
@@ -221,8 +221,8 @@ Template Name: Home Page
 							$library->the_post();
 					the_content();
 					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc', 'parent' => $post->ID ) );
-				
-					foreach( $mypages as $page ) {		
+
+					foreach( $mypages as $page ) {
 						$content = $page->post_excerpt;
 						if ( ! $content ) // Check for empty excerpt content & fallback to full content
 						    $content = $page->post_content;
@@ -241,17 +241,17 @@ Template Name: Home Page
 								<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
 							</div>
 							<div class="seven columns">
-								<?php echo $content; ?>	
+								<?php echo $content; ?>
 							</div>
 						</div>
 					</div>
 				<?php
-					}	
+					}
 						}
 					} else {
 						// no posts found
 					}
-					
+
 					// Restore original Post Data
 					wp_reset_postdata();
 				?>
@@ -331,9 +331,9 @@ Template Name: Home Page
 						<?php
 							}
 						} else {
-						
+
 						}
-						wp_reset_postdata();							
+						wp_reset_postdata();
 					?>
 					<p><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
 		    </div>
@@ -351,8 +351,8 @@ Template Name: Home Page
 						while ( $library->have_posts() ) {
 							$library->the_post();
 					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
-				
-					foreach( $mypages as $page ) {		
+
+					foreach( $mypages as $page ) {
 						$content = $page->post_excerpt;
 						if ( ! $content ) // Check for empty excerpt content & fallback to full content
 						    $content = $page->post_content;
@@ -371,17 +371,17 @@ Template Name: Home Page
 								<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
 							</div>
 							<div class="seven columns">
-								<?php echo $content; ?>	
+								<?php echo $content; ?>
 							</div>
 						</div>
 					</div>
 				<?php
-					}	
+					}
 						}
 					} else {
 						// no posts found
 					}
-					
+
 					// Restore original Post Data
 					wp_reset_postdata();
 				?>
@@ -401,8 +401,8 @@ Template Name: Home Page
 							$library->the_post();
 					the_content();
 					$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc', 'parent' => $post->ID ) );
-				
-					foreach( $mypages as $page ) {		
+
+					foreach( $mypages as $page ) {
 						$content = $page->post_excerpt;
 						if ( ! $content ) // Check for empty excerpt content & fallback to full content
 						    $content = $page->post_content;
@@ -421,17 +421,17 @@ Template Name: Home Page
 								<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>"><?php echo get_the_post_thumbnail($page->ID);?></a>
 							</div>
 							<div class="seven columns">
-								<?php echo $content; ?>	
+								<?php echo $content; ?>
 							</div>
 						</div>
 					</div>
 				<?php
-					}	
+					}
 						}
 					} else {
 						// no posts found
 					}
-					
+
 					// Restore original Post Data
 					wp_reset_postdata();
 				?>
@@ -508,7 +508,7 @@ Template Name: Home Page
 						<h2>Nothing found</h2>
 						<?php
 						}
-						wp_reset_postdata();							
+						wp_reset_postdata();
 					?>
 					<p><a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a></p>
 		    </div>
@@ -521,7 +521,7 @@ Template Name: Home Page
 					'posts_per_page' => 10,
 				);
 				$featured = new WP_Query( $args );
-				?>	
+				?>
 				<?php if ( $featured->have_posts() ) :  while ( $featured->have_posts() ) : $featured->the_post(); ?>
 				<div class="row">
 					<div <?php post_class('twelve columns sticky'); ?>>
@@ -536,7 +536,7 @@ Template Name: Home Page
 				    		<h5>Book Review</h5>
 				    	<?php } ?>
 						<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-		    			
+
 		    			<h6>Posted on: <?php the_time( 'D, jS M, Y' ); ?></h6>
 		    			<?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); if( $date != '' ) :  ?>
 		    				<h6>Lecture date: <?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); echo date('D, jS M, Y', strtotime($date))  ?></h6>
@@ -563,11 +563,11 @@ Template Name: Home Page
 								} else {
 									// no posts found
 								}
-								wp_reset_postdata();				
+								wp_reset_postdata();
 							?>
 		    			<?php } elseif (has_term('book-reviews', 'section')) { ?>
 		    				<?php global $post; $author = get_post_meta( $post->ID, '_cmb_author', true ); if( $author != '' ) :  ?>
-		    					<p>By: <strong><?php global $post; $publisher = get_post_meta( $post->ID, '_cmb_author', true ); echo $publisher;  ?></strong> 
+		    					<p>By: <strong><?php global $post; $publisher = get_post_meta( $post->ID, '_cmb_author', true ); echo $publisher;  ?></strong>
 		    					<?php global $post; $author = get_post_meta( $post->ID, '_cmb_publisher', true ); if( $author != '' ) :  ?>
 		    						(<?php global $post; $publisher = get_post_meta( $post->ID, '_cmb_publisher', true ); echo $publisher;  ?>)
 		    					<?php endif; ?>
@@ -581,23 +581,23 @@ Template Name: Home Page
 					</div>
 				</div>
 				<?php endwhile; ?>
-				
+
 				<?php else : ?>
-				
+
 				<?php endif; ?>
 				<p><a href="http://ethicalrecord.org.uk" target="_blank">More from the Ethical Record</a></p>
 		    </div>
 		<?php } ?>
-		
-		</section>		
-	
-	</div>	
-	
+
+		</section>
+
+	</div>
+
 	<div class="three columns side" role="complementary">
-		
+
 		<div class="row">
 			<div class="twelve columns">
-				<ul>			
+				<ul>
 					<?php dynamic_sidebar( 'join' ); ?>
 				</ul>
 				<ul>
@@ -608,7 +608,7 @@ Template Name: Home Page
 						'connected_items' => get_queried_object(),
 						'nopaging' => true,
 					) );
-					
+
 					// Display connected pages
 					if ( $connected->have_posts() ) :
 					?>
@@ -620,16 +620,16 @@ Template Name: Home Page
 					<?php endwhile; ?>
 					</ul>
 					</li>
-					<?php 
+					<?php
 					// Prevent weirdness
 					wp_reset_postdata();
-					
+
 					endif;
-					?>					
+					?>
 					<?php dynamic_sidebar( 'homepage' ); ?>
 				</ul>
 			</div>
-		</div>		
+		</div>
 
 	</div>
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+                <planTitle>Main Hall</planTitle>
+    <layout title="boardroom">
+    <capacity>42</capacity>
+    </layout>
+    <layout title="dinner">
+    <capacity>108</capacity>
+    </layout>
+    <layout title="cabaret">
+    <capacity>75</capacity>
+    </layout>
+    <layout title="ushape">
+    <capacity>75</capacity>
+    </layout>
+    <layout title="exam">
+    <capacity>99</capacity>
+    </layout>
+    <layout title="buffet">
+    <capacity>250</capacity>
+    </layout>
+    <layout title="theatre">
+    <capacity>250</capacity>
+    </layout>
+    <layout title="hollow square">
+    <capacity>60</capacity>
+    </layout>
+                <layoutFileType>svg</layoutFileType>
+                <showVirtualTour>true</showVirtualTour>
+                <showGallery>false</showGallery>
+                <showOptions>true</showOptions>
+                <options>
+                                <option title="showTvScreens" id="screens" data-name="Screens">true</option>
+                                <option title="showPower" id="power" data-name="Power">true</option>
+                                <option title="showFireEscapes" id="fire" data-name="Fire Exits">true</option>
+                                <option title="showRoomDimensions" id="dimensions" data-name="Dimensions">true</option>
+                </options>
+                <showEnquiry>true</showEnquiry>
+                <enquiryEmailAddress>lettings@ethicalsoc.org.uk</enquiryEmailAddress>
+                <gallery>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy">image-4.jpg</image>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit2">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy">image-4.jpg</image>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy">image-4.jpg</image>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy2">image-4.jpg</image>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy">image-4.jpg</image>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit2">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy">image-4.jpg</image>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy">image-4.jpg</image>
+                                <image title="This is a test">image-1.jpg</image>
+                                <image title="Rabiit">image-2.jpg</image>
+                                <image title="Hammertime">image-3.jpg</image>
+                                <image title="Psy2">image-4.jpg</image>
+                </gallery>
+                <colours>
+                                <primaryColour>#218C98</primaryColour>
+                                <secondaryColour>#218C98</secondaryColour>
+                </colours>
+</config>

@@ -50,6 +50,7 @@ function ch_scripts() {
 	wp_register_script( 'gmap', '//maps.googleapis.com/maps/api/js?sensor=false&region=GB', false, '6.0.0', true );
 	wp_register_script( 'gmap3', get_template_directory_uri() . '/js/gmap3.js', false, '6.0.0', true );
 	wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', false, '2.6', true );
+	wp_register_script( 'planit', get_template_directory_uri() . '/planit/global/js/jquery.planit.js', false, '', true );
 	wp_register_script( 'planittooltip', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.tooltip.js', false, '2.6', true );
 	wp_register_script( 'planitcarousel', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.jcarousel.min.js', false, '2.6', true );
 	wp_register_script( 'planitswf', get_template_directory_uri() . '/roomplanner/planit/global/js/swfobject.js', false, '2.6', true );
@@ -91,24 +92,13 @@ add_action( 'wp_enqueue_scripts', 'ch_styles' );
 
 function room_planner() {
 	if ( is_page(array('main-hall-room-planner', 'brockway-room-planner', 'balcony-room-planner', 'artists-room-planner', 'bertrand-russell-room-planner', 'foyer-room-planner', 'club-room-planner')) ) {
-		wp_enqueue_script('planittooltip');
-		wp_enqueue_script('planitcarousel');
-		wp_enqueue_script('planitswf');
-		wp_enqueue_script('planitflash');
-		wp_enqueue_script('planittour');
-		wp_enqueue_script('planitfancybox');
-		wp_enqueue_script('planitprint');
 		wp_enqueue_script('planit');
-		wp_enqueue_style( 'planit' );
-		wp_enqueue_style( 'planitskin' );
-		wp_enqueue_style( 'planitfancyboxcss' );
-		wp_enqueue_style( 'planitprint' );
 	}
 }
 add_action('wp_enqueue_scripts', 'room_planner');
 
 function tour() {
-	if ( is_page(array('artists-room-360o-tour', 'club-room-hollow-square-360o-tour', 'club-room-theatre-360o-tour', 'foyer-360o-tour', 'foyer-open-360o-tour', 'bertrand-russell-room-360o-tour', 'brockway-room-360o-tour', 'main-hall-360o-tour', 'library-360o-tour')) ) {
+	if ( is_page(array('foyer-360o-tour', 'foyer-open-360o-tour', 'library-360o-tour')) ) {
 		wp_enqueue_script('swf');
 		wp_enqueue_script('json2');
 	}

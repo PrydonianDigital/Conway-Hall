@@ -166,7 +166,7 @@
 
 		<div class="three columns side">
 
-			<?php if(has_term('lectures', 'the-vaults')) { ?>
+			<?php if(has_term('talks-lectures', 'section')) { ?>
 			<div class="row">
 
 				<?php
@@ -185,6 +185,48 @@
 					<div class="sidebar widget">
 
 						<h5>Speaker:</h5>
+
+						<h4 itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><?php the_title(); ?></span></h4>
+
+						<div class="thumb">
+							<?php if ( has_post_thumbnail() ) { ?>
+								<p><?php the_post_thumbnail('speaker'); ?><br/><small><?php the_post_thumbnail_caption(); ?></small></p>
+							<?php } ?>
+						</div>
+						<?php the_content(); ?>
+
+					</div>
+
+				</div>
+
+				<?php
+						}
+					} else {
+						// no posts found
+					}
+					wp_reset_postdata();
+				?>
+			</div>
+			<?php } ?>
+			<?php if(has_term('the-vaults', 'section')) { ?>
+			<div class="row">
+
+				<?php
+					$args = array (
+						'connected_type' => 'lectures2speakers',
+						'connected_items' => get_queried_object(),
+						'nopaging' => true,
+					);
+					$lecture_speaker = new WP_Query( $args );
+					if ( $lecture_speaker->have_posts() ) {
+						while ( $lecture_speaker->have_posts() ) {
+							$lecture_speaker->the_post();
+				?>
+				<div class="twelve columns">
+
+					<div class="sidebar widget">
+
+						<h5>Writer:</h5>
 
 						<h4 itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><?php the_title(); ?></span></h4>
 
