@@ -154,7 +154,7 @@
 			</div>
 			<?php } ?>
 			<div class="row">
-				<?php comments_template(); ?>
+				<?php //comments_template(); ?>
 			</div>
 		<?php if(has_term('book-reviews', 'section')) { ?>
 			</div>

@@ -1762,3 +1762,6 @@ progress::-moz-progress-bar {
 	width: 90%;
 	margin: 20px auto;
 }
+.home .tag-nofrontpage {
+	display: none;
+}
