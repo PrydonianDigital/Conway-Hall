@@ -223,7 +223,10 @@ function bikes() {
 			tfl += '</div>';
 		});
 		tfl += '</table>';
-		$('#bikestation').html(tfl).append('<h6>Data provided by Transport for London and Barclays Cycle Hire <i class="tube-tfl"></i></h6>');
+		var d = new Date();
+		var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+		var strDate = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+		$('#bikestation').html(tfl).append('<h6>Santander Cycles data supplied at ('+time+') on ('+strDate+') by Transport for London <i class="tube-tfl"></i></h6>');
 		$('#map').gmap3({
 			marker: {
 				latLng: [$('#map').data('lat'),$('#map').data('lng')],

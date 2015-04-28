@@ -3,13 +3,18 @@
 <div class="row">
 
 	<div class="nine columns hfeed" role="main">
+		<?php
+		$id = 150;
+		$p = get_page($id);
+		echo apply_filters('the_content', $p->post_content);
+		?>
 		<h2><?php post_type_archive_title(); ?></h2>
 		<h5><?php $obj = get_post_type_object( 'memorial_lecture' ); echo $obj->description;  ?> </h5>
 		<?php
 			$temp = $wp_query;
 			$portfolio_query = null;
 			$portfolio_query = new WP_Query();
-			$portfolio_query->query('showposts=10&post_type=memorial_lecture&order=ASC'.'&paged='.$paged);
+			$portfolio_query->query('showposts=10&post_type=sunday_converts&order=ASC'.'&paged='.$paged);
 			while ($portfolio_query->have_posts()) : $portfolio_query->the_post();
 		?>
 				<div <?php post_class('sticky'); ?>>

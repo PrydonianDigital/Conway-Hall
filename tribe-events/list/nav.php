@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( tribe_has_previous_event() ) : ?>
 		<li class="<?php echo tribe_left_navigation_classes(); ?>">
-			<a href="<?php echo tribe_get_listview_link() ?>" rel="prev"><?php _e( '<span>&laquo;</span> Previous Events', 'tribe-events-calendar' ) ?></a>
+
 		</li><!-- .tribe-events-nav-left -->
 	<?php endif; ?>
 

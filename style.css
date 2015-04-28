@@ -361,6 +361,7 @@ footer h2 a {
 	margin-bottom: 0.5em !important;
 	margin-left: 0 !important;
 	border-bottom: 1px solid #c6e1e3;
+	width: 100%;
 }
 .thumb {
 	padding: 0;
@@ -485,6 +486,10 @@ h5.updated {
 }
 form[action*="?wootickets_process"] {
 	display: none;
+}
+#tribe-events-header p {
+	text-align: center;
+	font-size: 1.2rem;
 }
 .tribe-mini-calendar-event .list-date .list-dayname {
 	padding: 0 !important;
@@ -752,7 +757,7 @@ form[action*="?wootickets_process"] {
 	color: #fff !important;
 }
 .bike {
-	background: #61abd2;
+	background: #e30e13;
 	color: #fff !important;
 }
 .bus {

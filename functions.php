@@ -628,6 +628,46 @@ function er_taxonomy_post_class( $classes, $class, $ID ) {
 	return $classes;
 }
 
+function sc_posts() {
+	$labels = array(
+		'name'	=> _x( 'Sunday Concerts', 'Post Type General Name', 'ch' ),
+		'singular_name'	   => _x( 'Sunday Concert', 'Post Type Singular Name', 'ch' ),
+		'menu_name'		   => __( 'Sunday Concerts', 'ch' ),
+		'parent_item_colon'   => __( 'Parent Sunday Concert:', 'ch' ),
+		'all_items'		   => __( 'All Sunday Concerts', 'ch' ),
+		'view_item'		   => __( 'View Sunday Concert', 'ch' ),
+		'add_new_item'		=> __( 'Add New Sunday Concert', 'ch' ),
+		'add_new'			 => __( 'Add New', 'ch' ),
+		'edit_item'		   => __( 'Edit Sunday Concert', 'ch' ),
+		'update_item'		 => __( 'Update Sunday Concert', 'ch' ),
+		'search_items'		=> __( 'Search Sunday Concerts', 'ch' ),
+		'not_found'		   => __( 'Not found', 'ch' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'ch' ),
+	);
+	$args = array(
+		'label'			   => __( 'sunday_concerts', 'ch' ),
+		'description'		 => __( 'Sunday Concert Posts', 'ch' ),
+		'labels'			  => $labels,
+		'supports'			=> array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'taxonomies'		  => array( ),
+		'hierarchical'		=> false,
+		'public'			  => true,
+		'show_ui'			 => true,
+		'show_in_menu'		=> true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'	   => 5,
+		'menu_icon'		   => '',
+		'can_export'		  => true,
+		'has_archive'		 => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'	 => 'page',
+	);
+	register_post_type( 'sunday_concerts', $args );
+}
+add_action( 'init', 'sc_posts', 0 );
+
 function er_posts() {
 	$labels = array(
 		'name'	=> _x( 'Ethical Record', 'Post Type General Name', 'ch' ),
@@ -955,6 +995,15 @@ function lecture_pdf() {
 		) );
 }
 add_action( 'p2p_init', 'lecture_pdf' );
+
+function concert_pdf() {
+		p2p_register_connection_type( array(
+				'name' => 'pdf_to_concert',
+				'from' => 'pdf',
+				'to' => 'sunday_concerts'
+		) );
+}
+add_action( 'p2p_init', 'concert_pdf' );
 
 add_action( 'init', 'my_add_excerpts_to_pages' );
 function my_add_excerpts_to_pages() {
@@ -1391,6 +1440,9 @@ function add_menu_icons_styles(){
 	}
 	#adminmenu #menu-posts-jobs div.wp-menu-image:before, #dashboard_right_now .jobs-count a:before {
 		content: "\f484";
+	}
+	#adminmenu #menu-posts-sunday_concerts div.wp-menu-image:before, #dashboard_right_now .sunday_concerts-count a:before {
+		content: "\f127";
 	}
 	#dashboard_right_now .tribe_events-count a:before {
 		content: "\f145";
