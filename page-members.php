@@ -1,21 +1,21 @@
 <?php
 /*
 Template Name: Members Only
-*/	
+*/
 get_header();?>
 
 <div class="row">
 
 	<div <?php post_class('nine columns'); ?> role="main">
-	
+
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-		<h2><?php the_title(); ?></h2>	
+
+		<h2><?php the_title(); ?></h2>
 		<?php
 			if(is_user_logged_in()) {
 				global $user_login;
 				$current_user = new WP_User(wp_get_current_user()->ID);
-				$user_roles = $current_user->roles; 
+				$user_roles = $current_user->roles;
 				foreach ($user_roles as $role) {
 					if  ($role == 'trustee' || $role == 'member' || $role == 'nonukmember'|| $role == 'nonukinstitution' || $role == 'editor' || $role == 'administrator' ) {
 						global $current_user;
@@ -30,7 +30,10 @@ get_header();?>
 				?>
 					<h4>Please enter your details in order to access this part of the site:</h4>
 				<?php
-						wp_login_form( $args ); 	
+						wp_login_form( $args );
+				?>
+				<p><a href="/password-recovery/">Lost password?</a></p>
+				<?php
 					}
 				}
 			} else {
@@ -38,23 +41,24 @@ get_header();?>
 				<h4>Please enter your details in order to access this part of the site:</h4>
 		<?php
 				wp_login_form( $args );
-			}	
+			}
 		?>
-	
+		<p><a href="/password-recovery/">Lost password?</a></p>
+
 	<?php endwhile; ?>
-	
+
 	<?php endif; ?>
-	
-	</div>	
-	
+
+	</div>
+
 	<div class="three columns side" role="complementary">
-		
+
 		<div class="row">
 			<div class="twelve columns">
 				<ul>
 				<?php
 					$current_user = new WP_User(wp_get_current_user()->ID);
-					$user_roles = $current_user->roles; 
+					$user_roles = $current_user->roles;
 					foreach ($user_roles as $role) {
 						if  ($role == 'trustee' || $role == 'member' || $role == 'nonukmember'|| $role == 'nonukinstitution' || $role == 'editor' || $role == 'administrator' ) {
 					?>
@@ -65,7 +69,7 @@ get_header();?>
 						'connected_items' => get_queried_object(),
 						'nopaging' => true,
 					) );
-					
+
 					// Display connected pages
 					if ( $connected->have_posts() ) :
 					?>
@@ -77,20 +81,20 @@ get_header();?>
 					<?php endwhile; ?>
 					</ul>
 					</li>
-					<?php 
+					<?php
 					// Prevent weirdness
 					wp_reset_postdata();
-					
+
 					endif;
-					?>		
+					?>
 					<?php
 						}
-					}	
-				?>			
+					}
+				?>
 					<?php dynamic_sidebar( 'homepage' ); ?>
 				</ul>
 			</div>
-		</div>		
+		</div>
 
 	</div>
 

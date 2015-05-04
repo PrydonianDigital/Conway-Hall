@@ -199,6 +199,11 @@ $result = add_role(
 get_role('administrator')->add_cap('CH_member_pages', 'CH_trustee_pages');
 get_role('editor')->add_cap('CH_member_pages', 'CH_trustee_pages');
 
+add_action('init', 'my_custom_init');
+	function my_custom_init() {
+	add_post_type_support( 'tribe_events', 'publicize' );
+}
+
 // Register Carousel Post Type
 function carousel() {
 	$labels = array(
@@ -261,7 +266,7 @@ function chml() {
 		'label' => __( 'memorial_lecture', 'ch' ),
 		'description' => __( "<p>Every year guest lecturers have been invited to speak on subjects across disciplines such as philosophy, history, science, sociology and art, all wth the intent of presenting the latest thinking on those subjects by leading experts in their respective fields. Since 1910, a staggering portfolio of speakers and topics have been presented that is worthy of comparison to other such similar memorial lectures run by other institutions.</p><p>Bertrand Russell, Herbert Read, Gilbert Murray, Jonathan Miller, A J Ayer and Christopher Hill are some of those among the many who have given Conway Memorial Lectures. Those sitting in the Chair at these lectures have been equally illustrious, for example E M Forster chaired Edward Thompson's 1942 lecture on Ethical Ideals in India Today.</p><p>In hindsight, the decision taken in 1908 at a conference of friends and admirers of Dr Moncure Conway (1832 - 1907) to set up an endownment for an 'annual lecture or lectures perpetuating Dr. Conway's memory' rather than funding a medallion or statue of him has been borne out magnificently. Indeed, Edward Clodd, in his introduction to the inaugral lecture by John Russell must, as a respresentative of that group of 'friends and admirers', take credit for taking this course of action, even though as he stated an annual lecture series was 'more in line' with Conway's own wishes.</p><p>So, in memory of the man whom Barbara Wootton described, in her Chairman's introduction to Lord Chorley's 1953 Conway Memorial Lecture, as one 'who died in 1907 after a life-time spent fighting for freedom on both sides of the atlantic', we have significant body of work in the legacy that the Conway Memorial Lectures provide. And, as a modern day testament to that legacy Conway Hall is prioritising the digitising of every available lecture.</p>", 'ch' ),
 		'labels' => $labels,
-		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author' ),
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author', 'publicize' ),
 		'taxonomies' => array( ),
 		'hierarchical' => false,
 		'public' => true,
@@ -425,7 +430,7 @@ function jobs() {
 		'label' => __( 'jobs', 'ch' ),
 		'description' => __( 'Job/Volunteering listings', 'ch' ),
 		'labels' => $labels,
-		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'publicize' ),
 		'taxonomies' => array( 'job_type' ),
 		'hierarchical' => false,
 		'public' => true,
@@ -648,7 +653,7 @@ function sc_posts() {
 		'label'			   => __( 'sunday_concerts', 'ch' ),
 		'description'		 => __( 'Sunday Concert Posts', 'ch' ),
 		'labels'			  => $labels,
-		'supports'			=> array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'supports'			=> array( 'title', 'editor', 'thumbnail', 'excerpt', 'publicize' ),
 		'taxonomies'		  => array( ),
 		'hierarchical'		=> false,
 		'public'			  => true,
@@ -688,7 +693,7 @@ function er_posts() {
 		'label'			   => __( 'ethicalrecord', 'ch' ),
 		'description'		 => __( 'Ethical Record Posts', 'ch' ),
 		'labels'			  => $labels,
-		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail', 'comments' ),
+		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail', 'comments', 'publicize' ),
 		'taxonomies'		  => array( 'post_tag', 'tags' ),
 		'hierarchical'		=> false,
 		'public'			  => true,
@@ -768,7 +773,7 @@ function issue() {
 		'label'			   => __( 'issue', 'ch' ),
 		'description'		 => __( 'Ethical Record Issue', 'ch' ),
 		'labels'			  => $labels,
-		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags' ),
+		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags' , 'publicize'),
 		'taxonomies'		  => array( 'post_tag', 'tags' ),
 		'hierarchical'		=> false,
 		'public'			  => true,
@@ -1653,11 +1658,6 @@ function tribe_get_event_website_button( $event = null, $label = 'Book Now' ) {
 		$html = '';
 	}
 	return apply_filters( 'tribe_get_event_website_button', $html );
-}
-
-add_action( 'login_form_middle', 'add_lost_password_link' );
-function add_lost_password_link() {
-	return '<a href="/wp-login.php?action=lostpassword">Lost Password?</a>';
 }
 
 function custom_widget_featured_image() {

@@ -447,6 +447,10 @@ input.search-field {
 	padding: 0 10px 10px 10px;
 	background: #EBEBEB;
 }
+.widget fieldset {
+	border: none;
+	padding: 0;
+}
 .sidebar h2, .widget h4, .widget h5 {
 	padding-top: 0;
 }
