@@ -97,7 +97,8 @@
 							'field' => 'slug',
 							'terms' => array('talks-lectures', 'book-reviews', 'an-ethical-thirst')
 						),
-					),					'paged' => $paged
+					),
+					'paged' => $paged
 				);
 				$loop = new WP_Query( $args );
 				?>
