@@ -482,7 +482,7 @@ input.search-field {
 	width: 100%;
 	height: auto;
 }
-.updated, time {
+.updated, time, .eventLocation {
 	display: none;
 }
 h5.updated {

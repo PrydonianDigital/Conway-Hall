@@ -111,7 +111,7 @@ Template Name: Home Page
 										</div>
 									<?php endif; ?>
 									<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>
-									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><span itemprop="summary"><?php the_title(); ?></span></a></h4>
+									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="entry-title"><?php the_title(); ?></a></h4>
 									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 									<time itemprop="startDate" datetime="<?php echo tribe_get_start_date( $post->ID, false, 'c' ); ?>"><?php the_time('D, jS M, Y'); ?></time>
 									<h5><?php echo tribe_events_event_schedule_details(); ?></h5>
@@ -291,7 +291,7 @@ Template Name: Home Page
 										</div>
 									<?php endif; ?>
 									<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>
-									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><span itemprop="summary"><?php the_title(); ?></span></a></h4>
+									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="entry-title"><?php the_title(); ?></a></h4>
 									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 									<time itemprop="startDate" datetime="<?php echo tribe_get_start_date( $post->ID, false, 'c' ); ?>"><?php the_time('D, jS M, Y'); ?></time>
 									<h5><?php echo tribe_events_event_schedule_details(); ?></h5>
@@ -306,14 +306,14 @@ Template Name: Home Page
 								</div>
 								<div class="eight columns entry-content description summary" itemprop="description">
 									<?php the_excerpt(); ?>
-									<span itemprop="location" itemscope itemtype="http://schema.org/Place">
-										<meta itemprop="name" content="Conway Hall">
-											<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-												<meta itemprop="streetAddress" content="25 Red Lion Square">
-												<meta itemprop="addressLocality" content="London">
-												<meta itemprop="postalCode" content="WC1R 4RL">
-											</span>
+									<span itemprop="location" itemscope itemtype="http://schema.org/Place" class="location vcard">
+									<meta itemprop="name" content="Conway Hall" />
+										<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="adr">
+											<meta itemprop="streetAddress" content="25 Red Lion Square" class="locality" />
+											<meta itemprop="addressLocality" content="London" />
+											<meta itemprop="postalCode" content="WC1R 4RL" />
 										</span>
+									</span>
 									<div class="row">
 										<div class="six columns eventCategory">
 											<?php echo tribe_get_event_categories(); ?>
@@ -464,7 +464,7 @@ Template Name: Home Page
 										</div>
 									<?php endif; ?>
 									<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>
-									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><span itemprop="summary"><?php the_title(); ?></span></a></h4>
+									<h4 itemprop="name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="entry-title"><?php the_title(); ?></a></h4>
 									<a href="https://plus.google.com/+ConwayhallOrgUk1929" rel="publisher"></a>
 									<time itemprop="startDate" datetime="<?php echo tribe_get_start_date( $post->ID, false, 'c' ); ?>"><?php the_time('D, jS M, Y'); ?></time>
 									<?php echo tribe_events_event_schedule_details( $event_id, '<h5>', '</h5>' ); ?>
@@ -479,14 +479,14 @@ Template Name: Home Page
 								</div>
 								<div class="eight columns entry-content description summary" itemprop="description">
 									<?php the_excerpt(); ?>
-									<span itemprop="location" itemscope itemtype="http://schema.org/Place">
-										<meta itemprop="name" content="Conway Hall">
-											<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-												<meta itemprop="streetAddress" content="25 Red Lion Square">
-												<meta itemprop="addressLocality" content="London">
-												<meta itemprop="postalCode" content="WC1R 4RL">
-											</span>
+									<span itemprop="location" itemscope itemtype="http://schema.org/Place" class="location vcard">
+									<meta itemprop="name" content="Conway Hall" />
+										<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="adr">
+											<meta itemprop="streetAddress" content="25 Red Lion Square" class="locality" />
+											<meta itemprop="addressLocality" content="London" />
+											<meta itemprop="postalCode" content="WC1R 4RL" />
 										</span>
+									</span>
 									<div class="row">
 										<div class="six columns eventCategory">
 											<?php echo tribe_get_event_categories( $event_id ); ?>
