@@ -9,6 +9,7 @@ Tags: schema.org, events, blog, responsive, conway hall, lectures, library, musi
 License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
 License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 */
+@import url('genericons/genericons.css');
 @font-face {
 	font-family: 'Clarendon';
 	src: url('fonts/clarebtbol-webfont.eot');
@@ -446,6 +447,14 @@ input.search-field {
 .widget {
 	padding: 0 10px 10px 10px;
 	background: #EBEBEB;
+}
+.widget form input[type="checkbox"] {
+	float: left !important;
+	width: 16px;
+	margin: 3px 10px 3px 0;
+}
+.widget form p {
+	clear: both;
 }
 .widget fieldset {
 	border: none;

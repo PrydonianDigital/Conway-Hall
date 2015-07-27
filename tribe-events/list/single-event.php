@@ -39,9 +39,22 @@ $organizer = tribe_get_organizer();
 		<span><?php echo tribe_get_cost( null, true ); ?></span>
 	</div>
 <?php endif; ?>
-
+<?php global $post; $free = get_post_meta( $post->ID, '_cmb_free', true ); if( $free == 'on' ) : ?>
+	<div class="tribe-events-event-cost">
+		<span>Free</span>
+	</div>
+<?php endif; ?>
+<?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); if( $tix != '' ) :  ?>
+	<div class="tribe-events-event-cost">
+		<span>
+			<?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); echo $tix;  ?>
+		</span>
+	</div>
+<?php endif; ?>
 <!-- Event Title -->
 <?php do_action( 'tribe_events_before_the_event_title' ) ?>
+<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer() ?> presents: </h3>
+
 <h2 class="tribe-events-list-event-title entry-title summary">
 	<a class="url" href="<?php echo tribe_get_event_link() ?>" title="<?php the_title() ?>" rel="bookmark">
 		<?php the_title() ?>
@@ -69,14 +82,17 @@ $organizer = tribe_get_organizer();
 	</div>
 </div><!-- .tribe-events-event-meta -->
 <?php do_action( 'tribe_events_after_the_meta' ) ?>
-
+<div class="row">
 <!-- Event Image -->
-<?php echo tribe_event_featured_image( null, 'medium' ) ?>
+<div class="four columns">
+	<?php echo tribe_event_featured_image( null, 'speaker' ) ?>
+</div>
 
 <!-- Event Content -->
 <?php do_action( 'tribe_events_before_the_content' ) ?>
-<div class="tribe-events-list-event-description tribe-events-content description entry-summary">
+<div class="tribe-events-list-event-description tribe-events-content description entry-summary eight columns">
 	<?php the_excerpt() ?>
 	<a href="<?php echo tribe_get_event_link() ?>" class="tribe-events-read-more" rel="bookmark"><?php _e( 'Find out more', 'tribe-events-calendar' ) ?> &raquo;</a>
 </div><!-- .tribe-events-list-event-description -->
+</div>
 <?php do_action( 'tribe_events_after_the_content' ) ?>

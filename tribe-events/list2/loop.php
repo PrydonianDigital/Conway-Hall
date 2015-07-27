@@ -27,7 +27,7 @@ $more = false;
 		<?php tribe_events_list_the_date_headers(); ?>
 
 		<!-- Event  -->
-		<div id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes('sticky twelve columns') ?>">
+		<div id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes() ?>">
 			<?php tribe_get_template_part( 'list/single', 'event' ) ?>
 		</div><!-- .hentry .vevent -->
 

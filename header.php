@@ -12,9 +12,22 @@
 <meta name="DC.title" content="Conway Hall" />
 <meta name="ICBM" content="51.51972, -0.118386" />
 <meta name="geo.position" content="51.51972, -0.118386" />
-<title><?php wp_title('|', true, 'right'); ?> • <?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
+<script type="application/ld+json">
+{
+   "@context": "http://schema.org",
+   "@type": "WebSite",
+   "name" : "Conway Hall",
+   "alternateName" : "Conway Hall • The landmark of London's independent intellectual, political and cultural life",
+   "url": "http://conwayhall.org.uk/",
+   "potentialAction": {
+     "@type": "SearchAction",
+     "target": "http://conwayhall.org.uk/?s={search_term_string}",
+     "query-input": "required name=search_term_string"
+   }
+}
+</script>
 <?php
 $background_color = get_background_color();
 $background_image = get_background_image();
