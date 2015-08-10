@@ -356,13 +356,14 @@ footer h2 a {
 	height: auto;
 	margin-left: -100px;
 }
-.sticky, .post-sticky, .post-stick {
+.sticky, .post-sticky, .post-stick, .type-tribe_events {
 	background-color: #EBF3F4;
 	padding: 10px !important;
 	margin-bottom: 0.5em !important;
 	margin-left: 0 !important;
 	border-bottom: 1px solid #c6e1e3;
 	width: 100%;
+	overflow: hidden;
 }
 .thumb {
 	padding: 0;
@@ -374,7 +375,7 @@ footer h2 a {
 		margin: 0;
 		width: 57.6667%;
 }
-.sticky .four img {
+.sticky .four img, .type-tribe_events .four img {
 	width: 100%;
 	height: auto;
 }
@@ -406,11 +407,11 @@ section.tabs ul {
 		border-radius: 4px;
 		box-shadow: 0px 0px 3px white inset;
 }
-.sticky .recurringinfo {
+.sticky .recurringinfo, .type-tribe_events .recurringinfo {
 	font-size: 0.85rem;
 	display: inline-block;
 }
-.sticky .tribe-events-tooltip {
+.sticky .tribe-events-tooltip, .type-tribe_events .tribe-events-tooltip {
 	display: none;
 }
 .contact-submit:hover, .search-submit:hover, .login-submit:hover {
@@ -558,7 +559,7 @@ form[action*="?wootickets_process"] {
 	float: right;
 	margin: 0 0 5px 5px;
 }
-.tribe-events-list .tribe-events-event-cost span, .sticky .tribe-events-event-cost span {
+.tribe-events-list .tribe-events-event-cost span, .sticky .tribe-events-event-cost span, .type-tribe_events .tribe-events-event-cost span {
 	background: #136972;
 	border: 1px solid #fefefe;
 	color: #fff;
@@ -584,8 +585,6 @@ form[action*="?wootickets_process"] {
 .tribe-events-event-image {
 	float: left;
 	margin: 0 0.75em 0 0 !important;
-	width: 50px;
-	height: 50px;
 }
 .eventCategory div {
 	font-size: 1rem;

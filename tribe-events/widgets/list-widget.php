@@ -1,73 +1,70 @@
 <?php
 /**
- * Events List Widget Template
+ * Events Pro List Widget Template
  * This is the template for the output of the events list widget.
  * All the items are turned on and off through the widget admin.
- * There is currently no default styling, which is needed.
+ * There is currently no default styling, which is highly needed.
  *
- * This view contains the filters required to create an effective events list widget view.
+ * Override this template in your own theme by creating a file at [your-theme]/tribe-events/widgets/list-widget.php
  *
- * You can recreate an ENTIRELY new events list widget view by doing a template override,
- * and placing a list-widget.php file in a tribe-events/widgets/ directory
- * within your theme directory, which will override the /views/widgets/list-widget.php.
+ * When the template is loaded, the following vars are set:
  *
- * You can use any or all filters included in this file or create your own filters in
- * your functions.php. In order to modify or extend a single filter, please see our
- * readme on templates hooks and filters (TO-DO)
+ * @var string $start
+ * @var string $end
+ * @var string $venue
+ * @var string $address
+ * @var string $city
+ * @var string $state
+ * @var string $province
+ * @var string $zip
+ * @var string $country
+ * @var string $phone
+ * @var string $cost
+ * @var array  $instance
  *
- * @return string
- *
- * @package TribeEventsCalendar
+ * @package TribeEventsCalendarPro
  *
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
-//Check if any posts were found
-if ( $posts ) {
-	?>
+// Retrieves the posts used in the List Widget loop.
+$posts = tribe_get_list_widget_events();
 
-	<ol class="hfeed vcalendar">
-		<?php
-		foreach ( $posts as $post ) :
-			setup_postdata( $post );
-			?>
-			<li class="tribe-events-list-widget-events <?php tribe_events_event_classes() ?>">
+// The URL for this widget's "View More" link.
+$link_to_all = tribe_events_get_list_widget_view_all_link( $instance );
 
-				<?php do_action( 'tribe_events_list_widget_before_the_event_title' ); ?>
-				<!-- Event Title -->
-				<h4 class="entry-title summary">
-					<a href="<?php echo tribe_get_event_link(); ?>" rel="bookmark"><?php the_title(); ?></a>
-				</h4>
+// Check if any posts were found.
+if ( isset( $posts ) && $posts ) :
 
-				<?php do_action( 'tribe_events_list_widget_after_the_event_title' ); ?>
-				<!-- Event Time -->
+	foreach ( $posts as $post ) :
+		setup_postdata( $post );
+		do_action( 'tribe_events_widget_list_inside_before_loop' ); ?>
 
-				<?php do_action( 'tribe_events_list_widget_before_the_meta' ) ?>
+		<!-- Event  -->
+		<div class="<?php tribe_events_event_classes() ?>">
+			<?php tribe_get_template_part( 'pro/widgets/modules/single-event', null, $instance ) ?>
+		</div><!-- .hentry .vevent -->
 
-				<div class="duration">
-					<?php echo tribe_events_event_schedule_details(); ?>
-				</div>
+		<?php do_action( 'tribe_events_widget_list_inside_after_loop' ) ?>
 
-				<?php do_action( 'tribe_events_list_widget_after_the_meta' ) ?>
-
-
-			</li>
-		<?php
-		endforeach;
-		?>
-	</ol><!-- .hfeed -->
+	<?php endforeach ?>
 
 	<p class="tribe-events-widget-link">
-		<a href="<?php echo tribe_get_events_link(); ?>" rel="bookmark"><?php _e( 'View All Events', 'tribe-events-calendar' ); ?></a>
+		<a href="<?php esc_attr_e( esc_url( $link_to_all ) ) ?>" rel="bookmark">
+			<?php esc_html_e( 'View More&hellip;', 'tribe-events-calendar-pro' ) ?>
+		</a>
 	</p>
 
-	<?php
-	//No Events were Found
-} else {
-	?>
-	<p><?php _e( 'There are no upcoming events at this time.', 'tribe-events-calendar' ); ?></p>
 <?php
-}
+// No Events were found.
+else:
 ?>
+	<p><?php printf( __( 'There are no upcoming %s at this time.', 'tribe-events-calendar' ), strtolower( tribe_get_event_label_plural() ) ); ?></p>
+<?php
+endif;
+
+// Cleanup. Do not remove this.
+wp_reset_postdata();
