@@ -18,7 +18,7 @@ $event_id = get_the_ID();
 
 ?>
 
-<div id="tribe-events-content" class="tribe-events-single vevent hentry">
+<div id="tribe-events-content" class="tribe-events-single vevent hentry foo">
 
 	<p class="tribe-events-back">
 		<a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a>
@@ -65,14 +65,14 @@ $event_id = get_the_ID();
 			<div class="tribe-events-single-event-description tribe-events-content entry-content description">
 				<?php
 				global $post;
-				 
+
 				// Check if event has passed
 				$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
 				$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
-				 
+
 				if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
 				?>
-				
+
 				<?php
 				} else {
 				?>
@@ -82,21 +82,21 @@ $event_id = get_the_ID();
 						?>
 						<div class="medium primary btn"><?php echo $website ?></div></dd>
 					<?php endif ?>
-				<?php	
+				<?php
 				}
 				?>
 
 				<?php the_content(); ?>
 				<?php
 				global $post;
-				 
+
 				// Check if event has passed
 				$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
 				$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
-				 
+
 				if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
 				?>
-				
+
 				<?php
 				} else {
 				?>
@@ -106,27 +106,27 @@ $event_id = get_the_ID();
 						?>
 						<div class="medium primary btn"><?php echo $website ?></div></dd>
 					<?php endif ?>
-				<?php	
+				<?php
 				}
 				?>
 			</div>
 			<!-- .tribe-events-single-event-description -->
-			
+
 			<?php
 			global $post;
-			 
+
 			// Check if event has passed
 			$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
 			$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
-			 
+
 			if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
 			?>
-			
+
 			<?php
 			} else {
 			?>
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
-			<?php	
+			<?php
 			}
 			?>
 

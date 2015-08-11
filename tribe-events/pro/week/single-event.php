@@ -162,8 +162,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }?>
 
-<div id="tribe-events-event-<?php echo esc_attr( $event->ID ); ?>" <?php echo tribe_events_week_event_attributes(); ?> class="<?php tribe_events_event_classes( $event->ID, 'sticky' ) ?> tribe-week-event" data-tribejson='<?php echo tribe_events_template_data( $event ); ?>'>
-	<h3 class="entry-title summary">
+<div id="tribe-events-event-<?php echo esc_attr( $event->ID ); ?>" <?php echo tribe_events_week_event_attributes(); ?> class="<?php tribe_events_event_classes( $event->ID ) ?> tribe-week-event" data-tribejson='<?php echo tribe_events_template_data( $event ); ?>'>
+	<h3 class="entry-title summary foo">
 		<a href="<?php tribe_event_link( $event ); ?>" class="url" rel="bookmark"><?php echo $event->post_title; ?></a>
 	</h3>
 </div>

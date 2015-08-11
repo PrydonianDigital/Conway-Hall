@@ -356,7 +356,7 @@ footer h2 a {
 	height: auto;
 	margin-left: -100px;
 }
-.sticky, .post-sticky, .post-stick, .type-tribe_events {
+.sticky, .post-sticky, .post-stick {
 	background-color: #EBF3F4;
 	padding: 10px !important;
 	margin-bottom: 0.5em !important;
@@ -656,6 +656,11 @@ form[action*="?wootickets_process"] {
 #tribe-bar-form{
 	background: #136972;
 	color: #ffffff;
+}
+#tribe-events-pg-template .tribe-events-content ol li, #tribe-events-pg-template .tribe-events-content ul li, .tribe-events-after-html ol li, .tribe-events-after-html ul li, .tribe-events-before-html ol li, .tribe-events-before-html ul li {
+	margin: 0px 0 20px 10px;
+    padding: 0 0 0 15px;
+    line-height: 1.7;
 }
 #tribe-bar-form .tribe-bar-submit input[type="submit"], .tribe-bar-views-inner, #tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a, .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"], .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a, .tribe-grid-body div[id*="tribe-events-event-"] .hentry.vevent	{
 	background: #EBF3F4;
