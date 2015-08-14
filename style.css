@@ -662,6 +662,10 @@ form[action*="?wootickets_process"] {
     padding: 0 0 0 15px;
     line-height: 1.7;
 }
+#tribe-events-pg-template .tribe-events-content ul, .tribe-events-after-html ul, .tribe-events-before-html ul {
+	list-style: outside disc;
+	margin-left: 20px;
+}
 #tribe-bar-form .tribe-bar-submit input[type="submit"], .tribe-bar-views-inner, #tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a, .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"], .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a, .tribe-grid-body div[id*="tribe-events-event-"] .hentry.vevent	{
 	background: #EBF3F4;
 	text-shadow: none !important;
