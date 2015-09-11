@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <config>
-                <planTitle>Balcony</planTitle>
+                <planTitle>Brockway Room</planTitle>
                 <layout title="boardroom">
                     <capacity>28</capacity>
                     </layout>
@@ -22,8 +22,11 @@
                         <layout title="theatre">
                     <capacity>70</capacity>
                     </layout>
-                        <layout title="hollow square">
+                    <layout title="hollow square">
                     <capacity>36</capacity>
+                    </layout>
+ 		    <layout title="theatre landscape">
+                    <capacity>70</capacity>
                     </layout>
                 <layoutFileType>svg</layoutFileType>
                 <showVirtualTour>true</showVirtualTour>

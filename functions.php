@@ -54,7 +54,7 @@ function ch_scripts() {
 	wp_register_script( 'gmap', '//maps.googleapis.com/maps/api/js?sensor=false&region=GB', false, '6.0.0', true );
 	wp_register_script( 'gmap3', get_template_directory_uri() . '/js/gmap3.js', false, '6.0.0', true );
 	wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', false, '2.6', true );
-	wp_register_script( 'planit', get_template_directory_uri() . '/planit/global/js/jquery.planit.js', false, '', true );
+	wp_register_script( 'planit', get_template_directory_uri() . '/planit/global/js/jquery.planit.js', false, '4', true );
 	wp_register_script( 'planittooltip', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.tooltip.js', false, '2.6', true );
 	wp_register_script( 'planitcarousel', get_template_directory_uri() . '/roomplanner/planit/global/js/jquery.jcarousel.min.js', false, '2.6', true );
 	wp_register_script( 'planitswf', get_template_directory_uri() . '/roomplanner/planit/global/js/swfobject.js', false, '2.6', true );

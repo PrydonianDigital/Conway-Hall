@@ -1,0 +1,911 @@
+@charset "utf-8";
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-height: 1em;
+}
+#gallery_display {
+	display: none;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	/*background: #45494C;*/
+	opacity: 0;
+}
+#gallery_display img {
+	width: auto;
+	position: absolute;
+	border: 4px solid #FFF;
+	height: auto
+}
+#mycarousel {
+	padding: 10px;
+}
+#mycarousel li {
+	width: 250px
+}
+#mycarousel li a {
+	float: left;
+	display: block
+}
+#mycarousel li img {
+	display: block
+}
+.jcarousel-list {
+	top: 0px !important;
+}
+.jcarousel-skin {
+	height: 100%;
+}
+.jcarousel-skin a img {
+	padding: 3px;
+}
+.jcarousel-skin a img.left {
+	margin: 0px 7px 0px 0px;
+}
+.jcarousel-skin .jcarousel-container-vertical {
+	width: 250px;
+	padding: 0px 15px;
+	margin-top: 15px;
+	overflow-y: scroll;
+	height: 86% !important;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+.jcarousel-skin .jcarousel-clip {
+	overflow: hidden;
+}
+.jcarousel-skin .jcarousel-clip-vertical {
+	width: 250px;
+}
+.jcarousel-skin .jcarousel-item {
+	width: 105px;
+	height: 105px;
+	margin-right: 20px;
+}
+.jcarousel-skin .jcarousel-item-vertical {
+	margin-bottom: 10px;
+}
+.jcarousel-skin .jcarousel-item-placeholder {
+	background: #fff;
+	color: #000;
+}
+.jcarousel-skin .jcarousel-next-vertical, .jcarousel-skin .jcarousel-prev-vertical {
+	display: none !important;
+}
+img.left {
+	width: 100px;
+	height: 100px;
+}
+
+/**
+*  Gallery Buttons
+*/
+.jcarousel-skin .jcarousel-next-vertical, .jcarousel-skin .jcarousel-prev-vertical {
+	position: absolute;
+	bottom: 5px;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.jcarousel-skin .jcarousel-next-vertical {
+	left: 53px;
+	background: #CA7136 url(../img/arrow-up.png) no-repeat 12px 12px;
+}
+.jcarousel-skin .jcarousel-prev-vertical {
+	left: 93px;
+	background: #CA7136 url(../img/arrow-down.png) no-repeat 12px 12px;
+}
+
+/* Container Setup */
+#planit {
+	position: relative;
+	padding-bottom: 46.25%;
+	padding-top: 30px;
+	margin-bottom: 20px !important;
+	height: 0;
+	overflow: hidden;
+}
+#planit.mobile {
+	height: 100%;
+	width: 100%;
+}
+#planit_container, #planit_container embed {
+	font-size: 12px;
+	font-family: "Clarendon", Georgia, sans-serif;
+	background: #F9F9F9;
+	overflow: hidden;
+	width: 100%;
+	clear: both;
+	height: 100%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+#planit_left {
+	float: left;
+	width: 250px;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+	left: 0;
+	transition: all 1000ms ease;
+	background: #136972;
+}
+#planit_left.hide, #planit.mobile #planit_left, #planit_left.hide, #planit.menu_hidden #planit_left {
+	left: -500px;
+}
+#planit_right {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding-left: 250px;
+	box-sizing: border-box;
+	z-index: 0;
+	background: white;
+	transition: all 1000ms ease;
+}
+#planit_right.full, #planit.mobile #planit_right, #planit.menu_hidden #planit_right {
+	padding-left: 0px;
+}
+
+/* Left Column - Sidebar Setup */
+.planit_left_col {
+	width: 100%;
+	background: #136972;
+	margin: 0px;
+	overflow: hidden;
+}
+#planit_container .planit_left_col .title, #planit_container .planit_left_col_gallery .title {
+	padding: 20px 16px;
+	font-size: 16px;
+	color: #FFF;
+}
+#planit_container .planit_left_col ul, #gallery_enquire {
+	list-style: none;
+	padding: 0px;
+	margin: 0px 0px;
+	background: #136972;
+}
+#planit_container .planit_left_col ul#capacities li, #gallery_enquire li {
+	border-top: 1px solid #35383A;
+	border-bottom: 1px solid #35383A;
+	cursor: pointer;
+	text-transform: capitalize;
+	font-size: 12px;
+	line-height: 12px;
+	color: #FFF;
+	background: #136972;
+	padding: 10px 0;
+	margin: 0 16px;
+	position: relative;
+}
+#planit_container .planit_left_col ul#capacities li:first-child {
+	border-top: none;
+}
+#planit_container .planit_left_col ul#capacities li:last-child {
+	border-bottom: none;
+}
+#planit_container .planit_left_col ul#capacities li span {
+	float: right;
+	padding: 2px 4px;
+	margin: -2px 10px 0px 0px;
+	color: #fff;
+}
+#planit_container .planit_left_col ul#capacities li.selected span, #planit_container .planit_left_col ul#capacities li:hover span {
+	float: right;
+	padding: 2px 4px;
+	margin: -2px 10px 0px 0px;
+	color: #111;
+}
+#planit_container .planit_left_col ul#capacities li.selected, #planit_container .planit_left_col ul#capacities li:hover {
+	background: #ebf3f4 url(../img/indicator.png) no-repeat right center;
+	color: #111;
+	margin: 0px;
+	padding: 10px 16px;
+}
+#planit_container .planit_left_col ul#capacities li.selected::before, #planit_container .planit_left_col ul#capacities li:hover::before {
+	-webkit-box-shadow: 0px -2px 0px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px -2px 0px 0px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px -2px 0px 0px rgba(50, 50, 50, 0.75);
+	content: " ";
+	height: 2px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
+}
+#planit_container .planit_left_col ul#capacities li.selected::after, #planit_container .planit_left_col ul#capacities li:hover::after {
+	-webkit-box-shadow: 0px 2px 0px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px 2px 0px 0px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px 2px 0px 0px rgba(50, 50, 50, 0.75);
+	content: " ";
+	height: 2px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+}
+#planit_container .planit_left_col ul#capacities li.selected a {
+	color: #FFF;
+}
+
+/* Left Column - Options Setup */
+#planit_container .options ul li {
+	padding-top: 16px;
+}
+#planit_container .options ul li:first-child {
+	padding-top: 0;
+}
+#planit_container .options ul li:last-child {
+	padding-bottom: 11px;
+}
+#planit_container .planit_left_col ul a, #gallery_enquire a {
+	display: inline-block;
+	width: 44%;
+	box-sizing: border-box;
+	background: #555A5E;
+	margin: 0 0 0 4%;
+	border-radius: 3px;
+	height: 64px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 8px;
+	color: white;
+}
+#planit_container .planit_left_col ul a.selected, #planit_container .planit_left_col ul a.hovered {
+	background: #A2A4A6;
+	color: #45494C;
+}
+#planit_container .planit_left_col ul a.enquire, #gallery_enquire a {
+	width: 92%;
+	display: table;
+	background: #4D89CF;
+}
+#planit_container .planit_left_col ul a.enquire:hover, #gallery_enquire a:hover {
+	color: white;
+}
+#planit_container .planit_left_col ul a.enquire span, #gallery_enquire a span {
+	vertical-align: middle;
+	display: table-cell;
+	font-family: "Clarendon";
+	font-size: 12px;
+}
+#planit_container .planit_left_col ul a div {
+	margin: auto;
+	font-family: 'WebSymbolsRegular';
+	display: block;
+	text-align: center;
+	padding: 5px;
+	font-size: 24px;
+}
+#planit_container .planit_left_col.options {
+	position: absolute;
+	bottom: 0;
+}
+#planit_container .capacities .title,
+#planit_container .options .title {
+	background: #136972;
+	font-family: "Clarendon";
+	letter-spacing: 1px;
+}
+#planit_container .gallery .title {
+	background: #45494C;
+}
+
+/* Right Column */
+#planit_container #planit_floorplan_display {
+	background: #FFF;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+#planit_container #main_content_panel {
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	/*overflow: hidden;*/
+}
+#planit_container img#image_floorplan_base, img#current_layer, img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_compass {
+	margin: 20px auto;
+	position: absolute;
+}
+img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_compass {
+	display: none;
+}
+#menu_toggle {
+	padding: 10px;
+	position: absolute;
+	margin-left: 20px;
+	top: 14px;
+	cursor: pointer;
+	padding: 10px 24px 16px 0px;
+}
+#planit.mobile #menu_toggle {
+	display: none;
+}
+#menu_toggle span, #menu_toggle span:before, #menu_toggle span:after {
+	cursor: pointer;
+	border-radius: 1px;
+	height: 3px;
+	width: 24px;
+	background: #35383A;
+	position: absolute;
+	display: block;
+	content: '';
+
+}
+#menu_toggle span, #menu_toggle span:before, #menu_toggle span:after {
+	transition: all 500ms ease;
+}
+#menu_toggle span {
+	background-color: transparent;
+}
+#menu_toggle.active span {
+	background-color: #35383A;
+}
+#menu_toggle span:before {
+	transform: rotate(45deg);
+}
+#menu_toggle span:after {
+	transform: rotate(-45deg);
+}
+#menu_toggle.active span:before {
+	transform: rotate(0deg);
+	top: -8px;
+}
+#menu_toggle.active span:after {
+	transform: rotate(0deg);
+	bottom: -8px;
+}
+#planit_container #floorplan_title {
+	width: 100%;
+	font-size: 16px;
+	color: #35383A;
+	left: 65px;
+	position: relative;
+	top: 15px;
+	font-family: "Clarendon";
+	letter-spacing: 1px;
+}
+#planit.mobile #planit_container #floorplan_title {
+	display: none;
+}
+#planit.mobile #planit_container #floorplan_title_mobile {
+	left: 0px;
+	padding: 10px;
+	background: #45494C;
+	margin: 0;
+	color: white;
+	top: 0;
+	font-size: 16px;
+
+}
+#mobile_room_select, #mobile_virtual_tour, #mobile_gallery {
+	display: none;
+}
+#planit.mobile #mobile_room_select {
+	display: block;
+}
+#planit.mobile #mobile_room_select, #planit.mobile #mobile_virtual_tour, #planit.mobile #mobile_gallery {
+	background: #45494C;
+	padding: 0 10px 10px 10px;
+	color: white;
+	font-size: 14px;
+
+}
+
+#planit.mobile #mobile_room_select > div:first-child,
+#planit.mobile #mobile_virtual_tour > div:first-child,
+#planit.mobile #mobile_gallery > div:first-child {
+	border-top: solid 1px;
+}
+
+#planit.mobile #mobile_virtual_tour > div {
+	padding-top: 10px;
+}
+
+#planit.mobile #mobile_room_select > div div,
+#planit.mobile #mobile_gallery > div div  {
+	display: inline-block;
+	margin-top: 10px;
+}
+
+#planit.mobile #mobile_room_select > div div:first-child,
+#planit.mobile #mobile_gallery > div div:first-child {
+	width: 70%;
+	margin-right: 4%;
+}
+
+#planit.mobile #mobile_gallery > div:nth-child(2) div:first-child,
+#planit.mobile #mobile_gallery > div:nth-child(2) div:nth-child(2) {
+	font-weight: 400;
+}
+
+#planit.mobile #mobile_room_select > div div:nth-child(2),
+#planit.mobile #mobile_gallery > div div:nth-child(2) {
+	width: 26%;
+	text-align: right;
+}
+
+#planit.mobile #mobile_room_select > div div.left {
+	text-align: left;
+}
+
+select {
+	padding: 10px;
+	width: 100%;
+	text-transform: capitalize;
+	border-radius: 4px;
+	font-size:16px;
+}
+span.capacity {
+	background: #919395;
+	display: block;
+	padding: 10px;
+	text-align: center;
+	color: black;
+	border-radius: 4px;
+	font-weight: 400;
+}
+
+#top-bar-mobile {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 4;
+	width: 100%;
+}
+
+#planit_container #planit_right_footer {
+	margin: 0;
+	width: 100%;
+	background: #ebf3f4;
+	height: 90px;
+	position: relative;
+	bottom: 90px;
+	overflow: hidden;
+	z-index: 99999;
+	border-left: 20px solid #ebf3f4;
+	left: 0;
+	margin-left: 0px;
+	transition: height 500ms ease;
+}
+#planit_container button {
+	background: #CA7136;
+	padding: 7px 7px 7px 7px;
+	margin: 10px;
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+#planit_container button span {
+	margin: 0px 8px 0px 0px;
+	font-family: 'WebSymbolsRegular';
+}
+#planit_container #plan_button {
+	display: none;
+}
+#planit_container #tour_button {} #planit_container #compass {
+	background: url(../img/compass_n.png);
+	width: 30px;
+	height: 30px;
+	float: right;
+	margin: 10px;
+}
+#planit_container img#logo {
+	margin: 25px 10px;
+	float: right;
+}
+#planit_container #panaround_virtual_tour {
+	display: none;
+	float: left;
+	width: 100%;
+	height: 100%;
+	padding: 0 0 90px 0;
+	box-sizing: border-box;
+	background: #EDEDED;
+	position: relative;
+	z-index: 3;
+}
+#planit #top-bar-mobile {
+	display: none;
+}
+#planit.mobile #top-bar-mobile {
+	display: block;
+}
+#planit.mobile #planit_container #panaround_virtual_tour {
+	padding: 77px 0 145px 0;
+}
+#planit_container #image_floorplan_base {
+	display: block;
+	z-index: 1;
+}
+#planit_container #current_layer {
+	z-index: 2;
+}
+#planit_container img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#compass {
+	position: absolute;
+	z-index: 20;
+}
+#planit_container #planit_left_gallery {
+	float: left;
+	width: 250px;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+	left: 0px;
+	transition: all 1000ms ease;
+}
+#planit_container #planit_left_gallery.hide, #planit.mobile #planit_container #planit_left_gallery,
+#planit.menu_hidden #planit_container #planit_left_gallery {
+	left: -250px;
+	transition: all 1000ms ease;
+}
+#planit_container .planit_left_col_gallery {
+	width: 250px;
+	background: #45494C;
+	margin: 0px;
+	overflow: hidden;
+	height: 100%;
+}
+#planit_container .planit_left_col_gallery .title {
+	/*padding: 5px 5px 5px 25px;
+	margin: 5px;
+	font-size: 13px;
+	color: #FFF;*/
+}
+#planit_container #secondary_title {
+	color: white;
+	margin: 10px 16px;
+	border-bottom: 1px solid #35383A;
+	padding-bottom: 15px;
+}
+#planit_container ul#capacities {
+	position: relative;
+	background: #136972;
+}
+#planit_container ul#capacities span {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+#planit_container .planit_left_col ul li span,
+#gallery_enquire li span {
+	font-family: "Clarendon";
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+#planit_container #lightwindow {
+	position: relative;
+	margin: -30px 15px 0px 0px;
+	z-index: 1000px;
+}
+#planit #lightbox {
+	display: none;
+	position: relative;
+	width:800;
+	z-index:1000000;
+}
+#lightbox .print {
+	position: relative;
+	float: left;
+	text-decoration: none;
+	font-family: 'arial';
+	padding: 5px 5px 5px 5px;
+	margin: 10px 0px;
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 13px;
+	font-family: "Clarendon";
+	text-transform: uppercase;
+}
+#lightbox img {
+	max-width: 800px;
+	max-height: 600px;
+	position: absolute;
+	width: 800px;
+}
+#lightbox img#lightbox_main_image {
+	z-index: 1;
+	max-width: 800px;
+	max-height: 600px;
+	position: relative;
+	width: 800px;
+	z-index: 1;
+}
+#lightbox_current_layer {
+	z-index: 2;
+	top: 0;
+	left: 0;
+	max-width: 800px;
+	max-height: 600px;
+	width: 800px;
+	float: left;
+}
+#lightbox .lightbox_layers {
+	max-width: 800px;
+	max-height: 600px;
+	position: absolute;
+	width: 800px;
+	display: none;
+	left: 0;
+	z-index: 3;
+}
+#planit_container .button {
+	float: left;
+	text-decoration: none;
+	background: #CCC;
+	padding: 10px 20px;
+	margin: 5px 0px 5px 15px;
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-family: "Clarendon";
+	letter-spacing: 1px;
+	text-align: center;
+}
+#planit_container .button.options {
+	color: #464A4D;
+	margin-bottom: 0;
+}
+#planit_container .button.options.selected {
+	background: #464A4D;
+	color: #FFF;
+}
+#planit_container .button.options.one {
+	width: 92% !important;
+}
+#planit_container .button.options.two {
+	width: 44% !important;
+}
+#planit_container .button.options.three {
+	width: 28% !important;
+}
+#planit_container .button.options.four {
+	width: 20% !important;
+}
+#planit_container .button span {
+	margin: auto;
+	display: block;
+	text-align: center;
+	padding: 0 5px 5px;
+	font-size: 24px;
+}
+#logo_container {
+	position: relative;
+	float: right;
+}
+#planit_container .planit_left_col ul li.inactive {
+	cursor: default
+}
+#planit_container .planit_left_col ul li.inactive a {
+	cursor: default
+}
+#planit_container #preloader {
+	width: 100%;
+	height: 100%;
+	background: white;
+	position: fixed;
+	z-index: 10000;
+}
+#planit_container #preloader div {
+	background: url(../img/preloader.gif) no-repeat center white;
+	display: block;
+	height: 40px;
+	width: 40px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	margin-left: -145px;
+	margin-top: -45px;
+}
+#planit.mobile #planit_container #preloader div {
+	margin-left: -20px;
+	margin-top: -40px;
+}
+#planit_container #preloader img {
+	width: 40px;
+	margin: 0px auto;
+	margin-top: 100px
+}
+.fancybox-overlay {
+	z-index: 99999;
+}
+#lightbox, .fancybox-inner, #lightbox_main_image {
+	width: 100% !important;
+	max-width: 800px !important;
+}
+.fancybox-wrap {
+	width: 85% !important;
+	max-width: 800px !important;
+	z-index: 300000000 !important;
+}
+#lightbox_main_image {
+	position: relative;
+}
+
+.button.enquire {
+	display: none;
+}
+
+/*==========//
+||  MOBILE  ||
+//==========*/
+
+#planit.mobile #planit_container img#logo {
+	display: none;
+}
+
+#planit.mobile #planit_container #planit_right_footer .context_switch:first-of-type {
+	clear: both;
+}
+
+#planit.mobile #planit_container #planit_right_footer.three .button {
+	width: 28%;
+	position: relative;
+	margin-left: 4%;
+	margin-right: 0;
+	text-align: center;
+	padding: 10px 0;
+}
+#planit.mobile #planit_container #planit_right_footer.two .button {
+	width: 44%;
+	position: relative;
+	margin-left: 4%;
+	margin-right: 0;
+	text-align: center;
+	padding: 10px 0;
+}
+#planit.mobile #planit_container #planit_right_footer.one .button {
+	width: 92%;
+	position: relative;
+	margin-left: 4%;
+	margin-right: 0;
+	text-align: center;
+	padding: 10px 0;
+}
+#planit #planit_container #planit_right_footer.absolute {
+	position: absolute;
+	bottom: 0;
+	height: auto;
+	transition: height 500ms ease;
+}
+
+#planit.mobile #planit_container #planit_right_footer.one .button.enquire,
+#planit.mobile #planit_container #planit_right_footer.two .button.enquire,
+#planit.mobile #planit_container #planit_right_footer.three .button.enquire {
+	display: block;
+	width: 92%;
+	margin-left: 4%;
+	padding: 16px 0;
+	background: #4D89CF;
+	margin-top: 0;
+}
+
+#planit.mobile #planit_container #planit_right_footer .button.enquire {
+	height: 0;
+	transition: height 500ms ease;
+}
+
+#planit.mobile #planit_container #planit_right_footer.absolute .button.enquire {
+	height: 100%;
+	transition: height 500ms ease;
+	font-family: "Clarendon";
+	font-size: 12px;
+}
+
+#mobile_options {
+	display: none;
+}
+#planit.mobile #mobile_options {
+	/*display: block;*/
+}
+#mobile_options div.header {
+	margin-left: 4%;
+	font-size: 16px;
+	color: #464A4D;
+	margin-top: 10px;
+}
+#swipe-message {
+	position: absolute;
+	width: 100%;
+	background: rgba(0,0,0,0.7);
+	color: white;
+	padding: 2%;
+	text-align: center;
+	font-size: 1.5em;
+	bottom: 151px;
+	display: none;
+}
+#swipe-message img {
+	width: 4%;
+	margin-right: 2%;
+	position: relative;
+	vertical-align: middle;
+}
+#swipe-message div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.mCSB_outside+.mCSB_scrollTools {
+	right: 0px !important;
+}
+#current_gallery_image {
+	display: inline-block;
+	float: right;
+}
+#gallery_enquire {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+#gallery_enquire a {
+	width: 100%;
+	margin: 0;
+}
+#gallery_enquire li {
+	margin-bottom: 5px;
+	border-top: none;
+	border-bottom: none;
+}
+#plan_info {
+	position: absolute;
+	z-index: 1;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.25) {
+    #planit.mobile #planit_container #floorplan_title_mobile,
+    #planit.mobile #planit_container #planit_right_footer.absolute .button.enquire {
+        /*font-size: 1em;*/
+    }
+    #planit.mobile #mobile_room_select,
+    #planit.mobile #mobile_virtual_tour,
+    #planit.mobile #mobile_gallery,
+    #planit_container .button{
+    	/*font-size: 4em;*/
+    }
+    select {
+    	/*font-size: 1em;*/
+    }
+    #planit_container .button span {
+    	/*font-size: 2em*/
+    }
+}
+
+object {
+	width: 100%;
+	display: block;
+	height: auto;
+	position: relative;
+	padding-top: 100%;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}

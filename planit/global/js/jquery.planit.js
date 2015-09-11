@@ -13,7 +13,7 @@
 	$.fn.planit = function(options) {
 
 		var defaults = {
-				basepath: '/wp-content/themes/conwayhall/planit',
+				basepath: 'http://conwayhall.org.uk/wp-content/themes/conwayhall/planit/',
 				roomName: 'room-name',
 				userAgentDetection: false,
 				userAgentIsMobile: false,
@@ -152,7 +152,7 @@
 			}
 
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/lightwindow/jquery.fancybox.min.css" media="screen" />';
-			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/style.css" media="screen" />';
+			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/style.min.css" media="screen" />';
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/skin.css" media="screen"  />';
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/jquery.mCustomScrollbar.min.css" media="screen"  />';
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/print.min.css" media="print" />';
@@ -282,12 +282,12 @@
 				$.each(settings.options, function(key, value) {
 					if (counter === undefined) counter = key;
 					if (counter % 2 === 0) pLeft += ' <li>';
-					pLeft += '<a id="' + value.id + '" href="#" data-alt="' + value.id + '_mob"><div><i class="ch-' + value.id + '"></i></div><span>' + value.name + '</span></a>';
+					pLeft += '<a id="' + value.id + '" href="#" data-alt="' + value.id + '_mob"><div><i class="icon-' + value.id + '"></i></div><span>' + value.name + '</span></a>';
 					counter += 1;
 					if (counter % 2 === 0) pLeft += ' </li>';
 				});
 
-				if (settings.showEnquiry === true) pLeft += '<li><a id="venue" class="enquire" style="background:#218C98" href="/venue-hire/"><span>Enquire about this room</span></a></li>';
+				if (settings.showEnquiry === true) pLeft += '<li><a class="enquire" style="background:' + settings.secondaryColour + '" href="mailto:' + settings.enquiryEmailAddress + '"><span>Enquire about this room</span></a></li>';
 
 				pLeft += '</ul></div>';
 			}
@@ -332,7 +332,7 @@
 
 			// Overlay images
 			$.each(settings.options, function(key, value) {
-				pRight += '<img id="image_' + value.id + '" src ="' + settings.basepath + '/rooms/' + settings.roomName + '/floorplans/' + value.id + '.svg" />';
+				pRight += '<img id="image_' + value.id + '" class="overlays" src ="' + settings.basepath + '/rooms/' + settings.roomName + '/floorplans/' + value.id + '.svg" />';
 			});
 
 			pRight += '</div><div id="swipe-message"><img src="' + settings.basepath + '/global/img/swipe.svg">Swipe left & right to view</div>' +
@@ -345,17 +345,17 @@
 				var counter;
 				$.each(settings.options, function(key, value) {
 					if (counter === undefined) counter = key;
-					pRight += '<a id="' + value.id + '_mob" href="#" class="button options mob ' + prettyPrint(settings.options.length) + '" data-alt="' + value.id + '"><span><i class="ch-' + value.id + '"></i></span>' + value.name + '</a>';
+					pRight += '<a id="' + value.id + '_mob" href="#" class="button options mob ' + prettyPrint(settings.options.length) + '" data-alt="' + value.id + '"><span><i class="icon-' + value.id + '"></i></span>' + value.name + '</a>';
 				});
 
 				pRight += '</div>';
 			}
 
-			if (settings.showVirtualTour === true) pRight += '<a class="button context_switch" style="background:' + settings.secondaryColour + '" data-context="tour" id="tour_button"><span><i class="ch-tour"></i></span>Virtual Tour</a>';
-			pRight += '<a class="button context_switch" style="background:' + settings.secondaryColour + '" data-context="plan" id="plan_button"><span><i class="ch-plan"></i></span>Floor Plan</a>';
-			if (settings.showGallery === true) pRight += '<a class="button context_switch" style="background:' + settings.secondaryColour + '" data-context="gallery" id="gallery_button"><span><i class="ch-gallery"></i></span>Gallery</a>';
-			pRight += '<a class="fancybox button" style="background:' + settings.secondaryColour + '" id="enlarge_button" href="#lightbox" onclick="javascript:setTimeout(function(){$(window).resize();},250)"><span><i class="ch-enlarge"></i></span>Enlarge</a>';
-			if (settings.showEnquiry === true) pRight += '<a class="enquire button" style="background:' + settings.secondaryColour + '" href="/venue-hire/">Enquire about this room</a>';
+			if (settings.showVirtualTour === true) pRight += '<a class="button context_switch" style="background:' + settings.secondaryColour + '" data-context="tour" id="tour_button"><span><i class="icon-tour"></i></span>Virtual Tour</a>';
+			pRight += '<a class="button context_switch" style="background:' + settings.secondaryColour + '" data-context="plan" id="plan_button"><span><i class="icon-plan"></i></span>Floor Plan</a>';
+			if (settings.showGallery === true) pRight += '<a class="button context_switch" style="background:' + settings.secondaryColour + '" data-context="gallery" id="gallery_button"><span><i class="icon-gallery"></i></span>Gallery</a>';
+			pRight += '<a class="fancybox button" style="background:' + settings.secondaryColour + '" id="enlarge_button" href="#lightbox" onclick="javascript:setTimeout(function(){$(window).resize();},250)"><span><i class="icon-enlarge"></i></span>Enlarge</a>';
+			if (settings.showEnquiry === true) pRight += '<a class="enquire button" style="background:' + settings.secondaryColour + '" href="mailto:' + settings.enquiryEmailAddress + '">Enquire about this room</a>';
 			pRight += '<a href="http://www.panaround.co.uk" target="_blank"><img id="logo" src="' + settings.basepath + '/global/img/planit-logo.png" alt=""/></a></div></div></div>';
 
 			return pRight;
@@ -387,7 +387,7 @@
 
 			gallery += '</ul></div>';
 
-			if (settings.showEnquiry === true) gallery += '<ul id="gallery_enquire"><li><a class="enquire" style="' + settings.secondaryColour + '" href="/venue-hire/"><span>Enquire about this room</span></a></li></ul>';
+			if (settings.showEnquiry === true) gallery += '<ul id="gallery_enquire"><li><a class="enquire" style="' + settings.secondaryColour + '" href="mailto:' + settings.enquiryEmailAddress + '"><span>Enquire about this room</span></a></li></ul>';
 
 			gallery += '</div>';
 
@@ -451,7 +451,7 @@
 		||  OPTIONS SELECTION  ||
 		\*=====================*/
 
-		$("#planit_container .options ul li a, #mobile_options a").live('click', function(e) {
+		$("#planit_container .options ul li a:not(.enquire), #mobile_options a:not(.enquire)").live('click', function(e) {
 			e.preventDefault();
 			var id = $(this).hasClass('mob') ? $(this).data('alt') : $(this).attr('id');
 
@@ -471,10 +471,6 @@
 				$(this).removeClass('hovered');
 			}
 		});
-		$('#planit_container .options ul li a#venue').live('click', function(e){
-			var url = $(this).attr('href');
-			window.location = url;
-		});
 
 		/*===================*\
 		||  POSITION IMAGES  ||
@@ -487,8 +483,8 @@
 
 		function setImagePosition() {
 			var $imgContainer = $('#planit_container #planit_floorplan_display'),
-				$images = $('#planit_container img#image_floorplan_base, #current_layer, img#image_screens, img#image_dimensions, img#image_power, img#image_fire'),
-				$lightboxElements = $('#lightbox_main_image, #lightbox_current_layer, #lightbox_screens, #lightbox_power, #lightbox_fire, #lightbox_dimensions, .fancybox-skin'),
+				$images = $('#planit_container img#image_floorplan_base, #current_layer, img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_hdcams'),
+				$lightboxElements = $('#lightbox_main_image, #lightbox_current_layer, #lightbox_screens, #lightbox_power, #lightbox_fire, #lightbox_dimensions, #lightbox_hdcams, .fancybox-skin'),
 				imageHeight = $('#image_floorplan_base').height(),
 				containerHeight = $imgContainer.height() - 50, // deduct footer height
 				imageWidth = $('#image_floorplan_base').width(),

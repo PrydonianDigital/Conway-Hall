@@ -24,7 +24,7 @@
 		<div class="row article">
 			<div <?php post_class('twelve columns sticky'); ?>>
 				<?php if ( has_post_thumbnail() ) { ?>
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured'); ?></a>
+					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured',array('itemprop'=>'image')); ?></a>
 					<small><?php the_post_thumbnail_caption(); ?></small>
 				<?php } ?>
 				<?php if(has_term('talks-lectures','section')) { ?>
@@ -113,7 +113,7 @@
 		    			<h5>Book Review</h5>
 		    			<?php } ?>
 						<?php if ( has_post_thumbnail() ) { ?>
-							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured'); ?></a>
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured',array('itemprop'=>'image')); ?></a>
 							<small><?php the_post_thumbnail_caption(); ?></small>
 						<?php } ?>
 						<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>

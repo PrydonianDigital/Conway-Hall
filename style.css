@@ -1761,6 +1761,9 @@ div[id*='__lpform_email-'], #printer-friendly {
 .single-amazon_product .readoffline-embed, .single-jobs .readoffline-embed, .sidebar.widget .readoffline-embed {
 	display: none;
 }
+#planit {
+	min-height: 500px;
+}
 progress {
 	position: fixed;
 	left: 0;

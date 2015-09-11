@@ -1,0 +1,107 @@
+
+
+<!--
+	skin.xml template
+-->
+
+<krpano onstart="loadscene(0);">
+
+	<!-- use the Flashplayer BEST rendering quality for better rounded textfield edges -->
+	<display movequality10="BEST" stillquality10="BEST" />
+	
+	
+	<scene name="scene1" title="Scene 1"  >
+
+		<view hlookat="100" vlookat="5" fovtype="MFOV" fov="110" fovmin="50" fovmax="150"   limitview="range" vlookatmax="70"  />
+
+		<image>
+			<cube url="desktop/pano1_%s.jpg?nocache=%$random%" />
+		</image>	
+			<image devices="mobile">      
+			<cube url="mobile/pano1_%s.jpg?nocache=%$random%" /> 
+		</image>
+	</scene>
+
+	<scene name="scene2" title="Scene 2"  >
+
+		<view hlookat="155" vlookat="8" fovtype="MFOV" fov="110" fovmin="50" fovmax="150"   limitview="range" vlookatmax="70"  />
+
+		<image>
+			<cube url="desktop/pano2_%s.jpg?nocache=%$random%" />
+		</image>	
+			<image devices="mobile">      
+			<cube url="mobile/pano2_%s.jpg?nocache=%$random%" /> 
+		</image>
+	</scene>
+	
+	<!-- autorotate -->
+	<autorotate enabled="true" waittime="0.5" speed="3.0" horizon="off" />
+	
+	<!-- use the textfield with border, background, rounded edges and shadow as container for the buttons -->
+	<layer name="buttons" keep="true" url="skin/nav-bg.png" align="bottom" width="240" height="55" x="-10" scale="1.2" devices="desktop|tablet">
+	
+		<layer name="auto_on"  url="skin/vtourskin.png" scale="0.8" align="lefttop" x="185" y="17" crop="0|140|64|64" ondown="buttonglow(get(name)); "  onup="buttonglow(null);"  onclick="switch(autorotate.enabled); set(layer[auto_on].visible,false);  set(layer[auto_off].visible,true);" visible="true"/>
+		
+		<layer name="auto_off"  url="skin/vtourskin.png" scale="0.8" align="lefttop" x="185" y="17" crop="64|140|64|64" ondown="buttonglow(get(name)); "  onup="buttonglow(null);"  onclick="switch(autorotate.enabled); set(layer[auto_off].visible,false);  set(layer[auto_on].visible,true);"  visible="false"/>
+		
+		<layer name="out"   url="skin/vtourskin.png" scale="0.8" align="lefttop" x="95" y="17" crop="64|320|64|64" ondown="buttonglow(get(name));set(fov_moveforce,+1);"      onup="buttonglow(null);set(fov_moveforce,0);"     />
+	
+		<layer name="in"    url="skin/vtourskin.png" scale="0.8" align="lefttop" x="140" y="16" crop="0|320|64|64"  ondown="buttonglow(get(name));set(fov_moveforce,-1);"      onup="buttonglow(null);set(fov_moveforce,0);"     />
+
+		<plugin zorder="2" name="openfs" devices="all" scale="0.8" url="skin/vtourskin.png" crop="0|580|64|64" keep="true" align="lefttop" x="50" y="20" alpha="1"  onup="tween(scale,0.8);" onclick="set(fullscreen,true);" visible="true"/>
+		
+	    <plugin zorder="2" name="closefs" devices="all" scale="0.8" url="skin/vtourskin.png" crop="64|580|64|64" align="lefttop" x="50" y="20" keep="true" onhover="tween(scale,1);" onup="tween(scale,0.8);" onclick="set(fullscreen,false);" visible="false"/>
+	
+	</layer>
+
+
+		<!-- use the textfield with border, background, rounded edges and shadow as container for the buttons -->
+	<layer name="buttons" keep="true" url="skin/nav-bg.png" align="bottom" width="250" height="65" y="20" scale="1.8" devices="mobile">    
+	
+		<layer name="auto_on"  url="skin/vtourskin.png" scale="1.2" align="center" x="82" y="15" crop="0|140|64|64" ondown="buttonglow(get(name)); "  onup="buttonglow(null);"  onclick="switch(autorotate.enabled); set(layer[auto_on].visible,false);  set(layer[auto_off].visible,true);" visible="true"/>
+		
+		<layer name="auto_off"  url="skin/vtourskin.png" scale="1.2" align="center" x="82" y="15" crop="64|140|64|64" ondown="buttonglow(get(name)); "  onup="buttonglow(null);"  onclick="switch(autorotate.enabled); set(layer[auto_off].visible,false);  set(layer[auto_on].visible,true);"  visible="false"/>
+		
+		<layer name="out"   url="skin/vtourskin.png" scale="1.2" align="center" x="-80" y="15" crop="64|320|64|64" ondown="buttonglow(get(name));set(fov_moveforce,+1);"      onup="buttonglow(null);set(fov_moveforce,0);"     />
+	
+		<layer name="in"    url="skin/vtourskin.png" scale="1.2" align="center" x="0" y="15" crop="0|320|64|64"  ondown="buttonglow(get(name));set(fov_moveforce,-1);"      onup="buttonglow(null);set(fov_moveforce,0);"     />
+
+	</layer>
+			
+	
+	<!-- sidebar -->
+	<layer name="sidebar" keep="true" url="skin/textfield.swf" align="right" width="160" height="130" y="0" x="-20"
+		background="true" backgroundcolor="0x000000" backgroundalpha="0.667"
+		border="false" bordercolor="0xFFFFFF" roundedge="15"
+		shadow="0" shadowrange="0" shadowcolor="0xFFFFFF">
+		
+		<layer name="select_tour"  url="skin/select-tour.png" scale="0.7" align="lefttop" x="5" y="10"    handcursor="false" />
+		<layer name="tour1"  url="skin/tour1-button.png" scale="0.5" align="lefttop" x="10" y="50"    onclick="loadscene(scene1, null, MERGE  , NOBLEND );" />
+		<layer name="tour2"  url="skin/tour2-button.png" scale="0.5" align="lefttop" x="10" y="80"    onclick="loadscene(scene2, null, MERGE  , NOBLEND );" />
+
+	</layer>
+		
+	<!-- events to change the fullscreen buttons -->
+	<events name="buttonevents" keep="true" devices="all"
+	        onenterfullscreen="set(layer[openfs].visible,false); set(layer[closefs].visible,true);"
+	        onexitfullscreen ="set(layer[openfs].visible,true);  set(layer[closefs].visible,false);"
+	        />
+	
+
+	<!-- glow image -->
+	<layer name="buttonglow" keep="true" url="skin/vtourskin.png" crop="64|384|64|64" align="center" x="0" y="1" alpha="0.0" visible="false" enabled="false" />
+
+	<!-- action for adding or removing the glow image -->
+	<action name="buttonglow">
+		if(%1 != null,
+			set(layer[buttonglow].parent, %1);
+			set(layer[buttonglow].visible, true);
+			tween(layer[buttonglow].alpha, 0.7, 0.07);
+		  ,
+			tween(layer[buttonglow].alpha, 0.0, 0.1, default, set(layer[buttonglow].parent, null); set(layer[buttonglow].visible, false); );
+		  );
+	</action>
+	
+
+
+</krpano>

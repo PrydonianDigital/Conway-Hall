@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Basic Reset */
+body {
+	background: #FFF;
+	font-family: verdana
+}
+img {
+	border: none;
+}
+#planit_select_container {
+	width: 716px;
+	background: #F9F9F9;
+	height: 50px
+}
+#select_title {
+	float: left;
+	margin: 10px;
+	padding: 5px 20px;
+	background: url("../img/room-select.png") no-repeat left center;
+	font-family: verdana
+}
+#planit-nav {
+	width: 521px;
+	background: none repeat scroll 0% 0% #FFF;
+	height: 30px;
+	float: right;
+	margin: 7px 5px;
+}
+#planit-nav .planit-subnav {
+	display: none;
+	position: absolute;
+	top: 35px;
+	left: 0px;
+	width: 100%;
+	list-style-type: none;
+	background: #fff;
+	margin: 0;
+	z-index: 50;
+	padding: 0;
+}
+#planit-nav .planit-subnav li {
+	display: block;
+	border-top: solid 1px #eeeeee;
+	margin: 0;
+}
+#planit-nav .planit-subnav li a {
+	color: #333;
+	height: 18px;
+	padding: 6px 10px;
+	font-size: 13px;
+	background: none
+}
+#planit-nav .planit-subnav li a:hover {
+	background: #f9f9f9;
+}
+#nav-primary {
+	list-style-type: none;
+	margin: 0;
+	float: left;
+	padding: 0;
+}
+#nav-primary li {
+	float: left;
+	position: relative;
+}
+#nav-primary li a {
+	float: left;
+	color: #000;
+	text-align: left;
+	font-size: 14px;
+	width: 501px;
+	padding: 10px;
+	line-height: 16px;
+	text-decoration: none;
+	background: #FFF;
+	background: #FFF url("../img/down_arrow.jpg") no-repeat right center;
+}
+#nav-primary li a:hover {
+	text-decoration: none;
+}
