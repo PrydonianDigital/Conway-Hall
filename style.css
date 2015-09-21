@@ -83,7 +83,7 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 .ch-fire:before {
 	content: "\e9a9";
 }
-.ch-screens:before {
+.ch-screens:before, .ch-hdcams:before {
 	content: "\e956";
 }
 .ch-power:before {
@@ -659,7 +659,7 @@ form[action*="?wootickets_process"] {
 }
 #tribe-events-pg-template .tribe-events-content ol li, #tribe-events-pg-template .tribe-events-content ul li, .tribe-events-after-html ol li, .tribe-events-after-html ul li, .tribe-events-before-html ol li, .tribe-events-before-html ul li {
 	margin: 0px 0 20px 10px;
-    padding: 0 0 0 15px;
+    padding: 0 0 0 7px;
     line-height: 1.7;
 }
 #tribe-events-pg-template .tribe-events-content ul, .tribe-events-after-html ul, .tribe-events-before-html ul {
@@ -1670,7 +1670,7 @@ h3.tribe-events-single-section-title {
 .single-tribe_events .tribe-events-event-image {
 	float: left;
 	height: auto;
-	margin: 0 0.75em 0 0 !important;
+	margin: 0 2em 0 0 !important;
 	width: 30%;
 }
 .crm-container .header-dark {

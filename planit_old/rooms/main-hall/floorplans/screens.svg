@@ -2,8 +2,10 @@
 <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xml:space="preserve">
-<g>
-	<rect x="1505.9" y="434.6" fill="#1E7A85" width="10.5" height="273.6"/>
-</g>
+	 viewBox="0 0 881 600" enable-background="new 0 0 881 600" xml:space="preserve">
+<rect fill="none" width="881" height="600"/>
+<rect x="744" y="241.4" fill="#1E7A85" width="5.8" height="152"/>
+<path fill="#221F1F" d="M230.9,306.2v-2.4c0-0.6-0.4-1-1-1h-9.2c-0.6,0-1,0.4-1,1v12.6c0,0.6,0.4,1,1,1h9.2c0.6,0,1-0.4,1-1v-2.7h1
+	v-7.5H230.9z M222.6,313.7h-0.4v-7.5h0.4V313.7z M220.7,306.2h0.5v7.5h-0.5V306.2z M223.3,316.3h-1.8v-1.8h1.8V316.3z M224.1,313.7
+	h-0.5v-7.5h0.5V313.7z"/>
 </svg>

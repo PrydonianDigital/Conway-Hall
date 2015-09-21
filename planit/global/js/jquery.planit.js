@@ -152,7 +152,7 @@
 			}
 
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/lightwindow/jquery.fancybox.min.css" media="screen" />';
-			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/style.min.css" media="screen" />';
+			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/style.css" media="screen" />';
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/skin.css" media="screen"  />';
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/jquery.mCustomScrollbar.min.css" media="screen"  />';
 			headLayout += '<link rel="stylesheet" type="text/css" href="' + settings.basepath + '/global/css/print.min.css" media="print" />';
@@ -451,7 +451,7 @@
 		||  OPTIONS SELECTION  ||
 		\*=====================*/
 
-		$("#planit_container .options ul li a:not(.enquire), #mobile_options a:not(.enquire)").live('click', function(e) {
+		$("#planit_container .options ul li a:not(.enquire), #mobile_options a:not(.enquire)").on('click', function(e) {
 			e.preventDefault();
 			var id = $(this).hasClass('mob') ? $(this).data('alt') : $(this).attr('id');
 
@@ -461,9 +461,10 @@
 			$currentLightbox.toggle();
 			$(this).toggleClass('selected');
 			$('#' + $(this).data('alt')).toggleClass('selected');
+			console.log($currentItem);
 		});
 
-		$("#planit_container .options ul li a").live({
+		$("#planit_container .options ul li a").on({
 			mouseenter: function() {
 				$(this).addClass('hovered');
 			},
@@ -483,7 +484,7 @@
 
 		function setImagePosition() {
 			var $imgContainer = $('#planit_container #planit_floorplan_display'),
-				$images = $('#planit_container img#image_floorplan_base, #current_layer, img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_hdcams'),
+				$images = $('#planit_container img#image_floorplan_base, #current_layer, img#image_screens, img#image_dimensions, img#image_power, img#image_hdcams, img#image_fire'),
 				$lightboxElements = $('#lightbox_main_image, #lightbox_current_layer, #lightbox_screens, #lightbox_power, #lightbox_fire, #lightbox_dimensions, #lightbox_hdcams, .fancybox-skin'),
 				imageHeight = $('#image_floorplan_base').height(),
 				containerHeight = $imgContainer.height() - 50, // deduct footer height

@@ -1,139 +1,10 @@
 @charset "utf-8";
-
-/* Fonts */
-@font-face {
-	font-family: 'WebSymbolsRegular';
-	src: url('../fonts/websymbols-regular-webfont.eot');
-	src: url('../fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/websymbols-regular-webfont.woff') format('woff'), url('../fonts/websymbols-regular-webfont.ttf') format('truetype'), url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'interstatecondregular';
-	src: url('../fonts/interstatecondregular.eot?64154364');
-	src: url('../fonts/interstatecondregular.eot?64154364#iefix') format('embedded-opentype'),
-	     url('../fonts/interstatecondregular.woff?64154364') format('woff'),
-	     url('../fonts/interstatecondregular.ttf?64154364') format('truetype'),
-	     url('../fonts/interstatecondregular.svg?64154364#interstatecondregular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-    font-family: 'oswaldbold';
-    src: url('../fonts/Oswald-Bold-webfont.eot');
-    src: url('../fonts/Oswald-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Oswald-Bold-webfont.woff2') format('woff2'),
-         url('../fonts/Oswald-Bold-webfont.woff') format('woff'),
-         url('../fonts/Oswald-Bold-webfont.ttf') format('truetype'),
-         url('../fonts/Oswald-Bold-webfont.svg#oswaldbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'oswalddemibold';
-    src: url('../fonts/Oswald-DemiBold-webfont.eot');
-    src: url('../fonts/Oswald-DemiBold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Oswald-DemiBold-webfont.woff2') format('woff2'),
-         url('../fonts/Oswald-DemiBold-webfont.woff') format('woff'),
-         url('../fonts/Oswald-DemiBold-webfont.ttf') format('truetype'),
-         url('../fonts/Oswald-DemiBold-webfont.svg#oswalddemibold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'oswaldlight';
-    src: url('../fonts/Oswald-Light-webfont.eot');
-    src: url('../fonts/Oswald-Light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Oswald-Light-webfont.woff2') format('woff2'),
-         url('../fonts/Oswald-Light-webfont.woff') format('woff'),
-         url('../fonts/Oswald-Light-webfont.ttf') format('truetype'),
-         url('../fonts/Oswald-Light-webfont.svg#oswaldlight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'oswald_regularregular';
-    src: url('../fonts/Oswald-Regular-webfont.eot');
-    src: url('../fonts/Oswald-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Oswald-Regular-webfont.woff2') format('woff2'),
-         url('../fonts/Oswald-Regular-webfont.woff') format('woff'),
-         url('../fonts/Oswald-Regular-webfont.ttf') format('truetype'),
-         url('../fonts/Oswald-Regular-webfont.svg#oswald_regularregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-	font-family: 'planit';
-	src: url('../fonts/planit.eot?64154364');
-	src: url('../fonts/planit.eot?64154364#iefix') format('embedded-opentype'),
-	     url('../fonts/planit.woff?64154364') format('woff'),
-	     url('../fonts/planit.ttf?64154364') format('truetype'),
-	     url('../fonts/planit.svg?64154364#planit') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'planit';
-    src: url('../font/planit.svg?64154364#planit') format('svg');
-  }
-}
-*/
-
-[class^="icon-"]:before, [class*=" icon-"]:before {
-	font-family: "planit";
-	font-style: normal;
-	font-weight: normal;
-	speak: none;
-
-	display: inline-block;
-	text-decoration: inherit;
-	width: 1em;
-	margin-right: .2em;
-	text-align: center;
-	/* opacity: .8; */
-
-	/* For safety - reset parent styles, that can break glyph codes*/
-	font-variant: normal;
-	text-transform: none;
-
-	/* fix buttons height, for twitter bootstrap */
-	line-height: 1em;
-
-	/* Animation center compensation - margins should be symmetric */
-	/* remove if not needed */
-	margin-left: .2em;
-
-	/* you can be more comfortable with increased icons size */
-	/* font-size: 120%; */
-
-	/* Uncomment for 3D effect */
-	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
-
-.icon-fire:before { content: '\e800'; } /* '' */
-.icon-power:before { content: '\e801'; } /* '' */
-.icon-tour:before { content: '\e802'; } /* '' */
-.icon-screens:before { content: '\e803'; } /* '' */
-.icon-gallery:before { content: '\e804'; } /* '' */
-.icon-enlarge:before { content: '\e805'; } /* '' */
-.icon-dimensions:before { content: '\e806'; } /* '' */
-.icon-plan:before { content: '\e807'; } /* '' */
-.icon-hdcams:before { content: '\e807'; } /* '' */
-
 html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
+	font-height: 1em;
 }
 #gallery_display {
 	display: none;
@@ -234,22 +105,28 @@ img.left {
 
 /* Container Setup */
 #planit {
-	height: 100%;
-	overflow: hidden;
 	position: relative;
+	padding-bottom: 46.25%;
+	padding-top: 30px;
+	margin-bottom: 20px !important;
+	height: 0;
+	overflow: hidden;
 }
 #planit.mobile {
 	height: 100%;
 	width: 100%;
 }
-#planit_container {
+#planit_container, #planit_container embed {
 	font-size: 12px;
-	font-family: Verdana, sans-serif;
+	font-family: "Clarendon", Georgia, sans-serif;
 	background: #F9F9F9;
 	overflow: hidden;
 	width: 100%;
 	clear: both;
 	height: 100%;
+	position:absolute;
+	top:0;
+	left:0;
 }
 #planit_left {
 	float: left;
@@ -257,9 +134,9 @@ img.left {
 	height: 100%;
 	position: relative;
 	z-index: 1;
-	left: -250px;
+	left: 0;
 	transition: all 1000ms ease;
-	background: #45494C;
+	background: #136972;
 }
 #planit_left.hide, #planit.mobile #planit_left, #planit_left.hide, #planit.menu_hidden #planit_left {
 	left: -500px;
@@ -281,7 +158,7 @@ img.left {
 /* Left Column - Sidebar Setup */
 .planit_left_col {
 	width: 100%;
-	background: #EDEDED;
+	background: #136972;
 	margin: 0px;
 	overflow: hidden;
 }
@@ -294,7 +171,7 @@ img.left {
 	list-style: none;
 	padding: 0px;
 	margin: 0px 0px;
-	background: #45494C;
+	background: #136972;
 }
 #planit_container .planit_left_col ul#capacities li, #gallery_enquire li {
 	border-top: 1px solid #35383A;
@@ -304,7 +181,7 @@ img.left {
 	font-size: 12px;
 	line-height: 12px;
 	color: #FFF;
-	background: #45494C;
+	background: #136972;
 	padding: 10px 0;
 	margin: 0 16px;
 	position: relative;
@@ -319,11 +196,17 @@ img.left {
 	float: right;
 	padding: 2px 4px;
 	margin: -2px 10px 0px 0px;
-	color: #FFF;
+	color: #fff;
+}
+#planit_container .planit_left_col ul#capacities li.selected span, #planit_container .planit_left_col ul#capacities li:hover span {
+	float: right;
+	padding: 2px 4px;
+	margin: -2px 10px 0px 0px;
+	color: #111;
 }
 #planit_container .planit_left_col ul#capacities li.selected, #planit_container .planit_left_col ul#capacities li:hover {
-	background: #35383A url(../img/indicator.png) no-repeat right center;
-	color: #FFF;
+	background: #ebf3f4 url(../img/indicator.png) no-repeat right center;
+	color: #111;
 	margin: 0px;
 	padding: 10px 16px;
 }
@@ -392,7 +275,7 @@ img.left {
 #planit_container .planit_left_col ul a.enquire span, #gallery_enquire a span {
 	vertical-align: middle;
 	display: table-cell;
-	font-family: "oswald_regularregular";
+	font-family: "Clarendon";
 	font-size: 12px;
 }
 #planit_container .planit_left_col ul a div {
@@ -400,7 +283,7 @@ img.left {
 	font-family: 'WebSymbolsRegular';
 	display: block;
 	text-align: center;
-	padding: 10px 5px 8px;
+	padding: 5px;
 	font-size: 24px;
 }
 #planit_container .planit_left_col.options {
@@ -409,8 +292,8 @@ img.left {
 }
 #planit_container .capacities .title,
 #planit_container .options .title {
-	background: #45494C;
-	font-family: "oswald_regularregular";
+	background: #136972;
+	font-family: "Clarendon";
 	letter-spacing: 1px;
 }
 #planit_container .gallery .title {
@@ -431,11 +314,11 @@ img.left {
 	box-sizing: border-box;
 	/*overflow: hidden;*/
 }
-#planit_container img#image_floorplan_base, img#current_layer, img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_compass, .overlays {
+#planit_container img#image_floorplan_base, img#current_layer, img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_compass, img#image_hdcams {
 	margin: 20px auto;
 	position: absolute;
 }
-img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_compass, .overlays {
+img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#image_compass, img#image_hdcams {
 	display: none;
 }
 #menu_toggle {
@@ -490,7 +373,7 @@ img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#im
 	left: 65px;
 	position: relative;
 	top: 15px;
-	font-family: "oswald_regularregular";
+	font-family: "Clarendon";
 	letter-spacing: 1px;
 }
 #planit.mobile #planit_container #floorplan_title {
@@ -564,7 +447,6 @@ select {
 	border-radius: 4px;
 	font-size:16px;
 }
-
 span.capacity {
 	background: #919395;
 	display: block;
@@ -586,14 +468,14 @@ span.capacity {
 #planit_container #planit_right_footer {
 	margin: 0;
 	width: 100%;
-	background: #EDEDED;
+	background: #ebf3f4;
 	height: 90px;
 	position: relative;
 	bottom: 90px;
 	overflow: hidden;
 	z-index: 99999;
-	border-left: 250px solid #EDEDED;
-	left: -250px;
+	border-left: 20px solid #ebf3f4;
+	left: 0;
 	margin-left: 0px;
 	transition: height 500ms ease;
 }
@@ -653,7 +535,7 @@ span.capacity {
 #planit_container #current_layer {
 	z-index: 2;
 }
-#planit_container img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#compass, .overlays {
+#planit_container img#image_screens, img#image_dimensions, img#image_power, img#image_fire, img#compass, img#image_hdcams {
 	position: absolute;
 	z-index: 20;
 }
@@ -692,7 +574,7 @@ span.capacity {
 }
 #planit_container ul#capacities {
 	position: relative;
-	background: #45494C;
+	background: #136972;
 }
 #planit_container ul#capacities span {
 	float: right;
@@ -701,7 +583,7 @@ span.capacity {
 }
 #planit_container .planit_left_col ul li span,
 #gallery_enquire li span {
-	font-family: "oswald_regularregular";
+	font-family: "Clarendon";
 	font-size: 12px;
 	letter-spacing: 1px;
 }
@@ -730,7 +612,7 @@ span.capacity {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	font-size: 13px;
-	font-family: "oswald_regularregular";
+	font-family: "Clarendon";
 	text-transform: uppercase;
 }
 #lightbox img {
@@ -770,7 +652,7 @@ span.capacity {
 	text-decoration: none;
 	background: #CCC;
 	padding: 10px 20px;
-	margin: 15px 0px 15px 15px;
+	margin: 5px 0px 5px 15px;
 	border: none;
 	color: #FFF;
 	cursor: pointer;
@@ -779,7 +661,7 @@ span.capacity {
 	border-radius: 3px;
 	font-size: 12px;
 	text-transform: uppercase;
-	font-family: "oswald_regularregular";
+	font-family: "Clarendon";
 	letter-spacing: 1px;
 	text-align: center;
 }
@@ -929,7 +811,7 @@ span.capacity {
 #planit.mobile #planit_container #planit_right_footer.absolute .button.enquire {
 	height: 100%;
 	transition: height 500ms ease;
-	font-family: "oswald_regularregular";
+	font-family: "Clarendon";
 	font-size: 12px;
 }
 
