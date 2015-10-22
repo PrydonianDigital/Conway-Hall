@@ -1014,6 +1014,15 @@ function concert_pdf() {
 }
 add_action( 'p2p_init', 'concert_pdf' );
 
+function post_pdf() {
+		p2p_register_connection_type( array(
+				'name' => 'pdf_to_post',
+				'from' => 'pdf',
+				'to' => 'post'
+		) );
+}
+add_action( 'p2p_init', 'post_pdf' );
+
 add_action( 'init', 'my_add_excerpts_to_pages' );
 function my_add_excerpts_to_pages() {
 		 add_post_type_support( 'page', 'excerpt' );
