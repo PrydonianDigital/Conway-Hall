@@ -14,39 +14,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+$events_label_singular = tribe_get_event_label_singular();
+$events_label_plural = tribe_get_event_label_plural();
+
 $event_id = get_the_ID();
 
 ?>
 
-<div id="tribe-events-content" class="tribe-events-single vevent hentry foo">
+<div id="tribe-events-content" class="tribe-events-single vevent hentry">
 
 	<p class="tribe-events-back">
-		<a href="<?php echo tribe_get_events_link() ?>"> <?php _e( '&laquo; All Events', 'tribe-events-calendar' ) ?></a>
+		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( __( '&laquo; All %s', 'the-events-calendar' ), $events_label_plural ); ?></a>
 	</p>
 
 	<!-- Notices -->
 	<?php tribe_events_the_notices() ?>
-	<h3 class="tribe-events-single-section-title aligncenter"><?php echo tribe_get_organizer() ?> presents: </h3>
+
 	<?php the_title( '<h2 class="tribe-events-single-event-title summary entry-title">', '</h2>' ); ?>
 
 	<div class="tribe-events-schedule updated published tribe-clearfix">
-		<?php echo tribe_events_event_schedule_details( $event_id, '<h3>', '</h3>' ); ?>
+		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
 		<?php if ( tribe_get_cost() ) : ?>
 			<span class="tribe-events-divider">|</span>
 			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
-		<?php endif; ?>
-		<?php global $post; $free = get_post_meta( $post->ID, '_cmb_free', true ); if( $free == 'on' ) : ?>
-			<span class="tribe-events-divider">|</span> <span class="tribe-events-cost">Free</span>
-		<?php endif; ?>
-		<?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); if( $tix != '' ) :  ?>
-			<span class="tribe-events-divider">|</span> <span class="tribe-events-cost"><?php global $post; $tix = get_post_meta( $post->ID, '_cmb_tickets', true ); echo $tix;  ?></span>
 		<?php endif; ?>
 	</div>
 
 	<!-- Event header -->
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
 		<!-- Navigation -->
-		<h3 class="tribe-events-visuallyhidden"><?php _e( 'Event Navigation', 'tribe-events-calendar' ) ?></h3>
+		<h3 class="tribe-events-visuallyhidden"><?php printf( __( '%s Navigation', 'the-events-calendar' ), $events_label_singular ); ?></h3>
 		<ul class="tribe-events-sub-nav">
 			<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ) ?></li>
 			<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ) ?></li>
@@ -58,103 +55,28 @@ $event_id = get_the_ID();
 	<?php while ( have_posts() ) :  the_post(); ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<!-- Event featured image, but exclude link -->
-			<?php echo tribe_event_featured_image( $event_id, 'speaker', false ); ?>
+			<?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
 
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 			<div class="tribe-events-single-event-description tribe-events-content entry-content description">
-				<?php
-				global $post;
-
-				// Check if event has passed
-				$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
-				$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
-
-				if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
-				?>
-
-				<?php
-				} else {
-				?>
-					<?php
-					$website = tribe_get_event_website_button();
-					if ( ! empty( $website ) ):
-						?>
-						<div class="medium primary btn"><?php echo $website ?></div></dd>
-					<?php endif ?>
-				<?php
-				}
-				?>
-
 				<?php the_content(); ?>
-				<?php
-				global $post;
-
-				// Check if event has passed
-				$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
-				$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
-
-				if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
-				?>
-
-				<?php
-				} else {
-				?>
-					<?php
-					$website = tribe_get_event_website_button();
-					if ( ! empty( $website ) ):
-						?>
-						<div class="medium primary btn"><?php echo $website ?></div></dd>
-					<?php endif ?>
-				<?php
-				}
-				?>
 			</div>
 			<!-- .tribe-events-single-event-description -->
-
-			<?php
-			global $post;
-
-			// Check if event has passed
-			$gmt_offset = ( get_option( 'gmt_offset' ) >= '0' ) ? ' +' . get_option( 'gmt_offset' ) : " " . get_option( 'gmt_offset' );
-			$gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
-
-			if ( ! tribe_is_showing_all() && strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) <= time() ) {
-			?>
-
-			<?php
-			} else {
-			?>
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
-			<?php
-			}
-			?>
 
 			<!-- Event meta -->
 			<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
-			<?php
-			/**
-			 * The tribe_events_single_event_meta() function has been deprecated and has been
-			 * left in place only to help customers with existing meta factory customizations
-			 * to transition: if you are one of those users, please review the new meta templates
-			 * and make the switch!
-			 */
-			if ( ! apply_filters( 'tribe_events_single_event_meta_legacy_mode', false ) ) {
-				tribe_get_template_part( 'modules/meta' );
-			} else {
-				echo tribe_events_single_event_meta();
-			}
-			?>
+			<?php tribe_get_template_part( 'modules/meta' ); ?>
 			<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
 		</div> <!-- #post-x -->
-		<?php if ( get_post_type() == TribeEvents::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
+		<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
 	<?php endwhile; ?>
 
 	<!-- Event footer -->
 	<div id="tribe-events-footer">
 		<!-- Navigation -->
-		<!-- Navigation -->
-		<h3 class="tribe-events-visuallyhidden"><?php _e( 'Event Navigation', 'tribe-events-calendar' ) ?></h3>
+		<h3 class="tribe-events-visuallyhidden"><?php printf( __( '%s Navigation', 'the-events-calendar' ), $events_label_singular ); ?></h3>
 		<ul class="tribe-events-sub-nav">
 			<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ) ?></li>
 			<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ) ?></li>

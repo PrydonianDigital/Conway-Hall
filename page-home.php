@@ -16,6 +16,7 @@ Template Name: Home Page
 			$args = array (
 				'post_type' => 'carousel',
 				'posts_per_page' => '10',
+				'orderby' => 'menu_order'
 			);
 			// The Query
 			$carousel = new WP_Query( $args );

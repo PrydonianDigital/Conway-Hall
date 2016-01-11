@@ -208,6 +208,16 @@ add_action('init', 'my_custom_init');
 	add_post_type_support( 'tribe_events', 'publicize' );
 }
 
+function my_post_queries( $query ) {
+
+	if(is_tax()){
+      // show 50 posts on custom taxonomy pages
+      $query->set('posts_per_page', 25);
+    }
+  }
+add_action( 'pre_get_posts', 'my_post_queries' );
+
+
 // Register Carousel Post Type
 function carousel() {
 	$labels = array(
@@ -796,6 +806,37 @@ function issue() {
 	register_post_type( 'issue', $args );
 }
 add_action( 'init', 'issue', 0 );
+
+function issue_tax() {
+	$labels = array(
+		'name'		   => _x( 'Decade', 'Taxonomy General Name', 'ch' ),
+		'singular_name'			  => _x( 'Decade', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'	  => __( 'Decade', 'ch' ),
+		'all_items'	  => __( 'All Decades', 'ch' ),
+		'parent_item'	=> __( 'Parent Decade', 'ch' ),
+		'parent_item_colon'		  => __( 'Parent Decade:', 'ch' ),
+		'new_item_name'			  => __( 'New Decade', 'ch' ),
+		'add_new_item'			   => __( 'Add New Decade', 'ch' ),
+		'edit_item'	  => __( 'Edit Decade', 'ch' ),
+		'update_item'	=> __( 'Update Decade', 'ch' ),
+		'separate_items_with_commas' => __( 'Separate decades with commas', 'ch' ),
+		'search_items'			   => __( 'Search Decade', 'ch' ),
+		'add_or_remove_items'		=> __( 'Add or remove decades', 'ch' ),
+		'choose_from_most_used'	  => __( 'Choose from the most used decades', 'ch' ),
+		'not_found'	  => __( 'Not Found', 'ch' ),
+	);
+	$args = array(
+		'labels'		 => $labels,
+		'hierarchical'			   => true,
+		'public'		 => true,
+		'show_ui'		=> true,
+		'show_admin_column'		  => true,
+		'show_in_nav_menus'		  => true,
+		'show_tagcloud'			  => true,
+	);
+	register_taxonomy( 'decade', array( 'issue' ), $args );
+}
+add_action( 'init', 'issue_tax', 0 );
 
 function lectureSpeaker() {
 	p2p_register_connection_type( array(

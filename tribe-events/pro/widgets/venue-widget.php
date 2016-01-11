@@ -3,7 +3,7 @@
  * Events Pro Venue Widget
  * This is the template for the output of the venue widget.
  *
- * Override this template in your own theme by creating a file at [your-theme]/tribe-events/widgets/venue-widget.php
+ * Override this template in your own theme by creating a file at [your-theme]/tribe-events/pro/widgets/venue-widget.php
  *
  * @package TribeEventsCalendarPro
  *
@@ -56,5 +56,5 @@ $events_label_plural = tribe_get_event_label_plural();
 		<?php do_action( 'tribe_events_venue_widget_after_the_list' ); ?>
 	<?php endif; ?>
 
-	<a href="<?php echo esc_url( tribe_get_venue_link( $venue_ID, false ) ); ?>"><?php printf( __( 'View all %s at this %s', 'tribe-events-calendar' ), $events_label_plural, tribe_get_venue_label_singular() ); ?></a>
+	<a href="<?php echo esc_url( tribe_get_venue_link( $venue_ID, false ) ); ?>"><?php printf( __( 'View all %1$s at this %2$s', 'tribe-events-calendar' ), $events_label_plural, tribe_get_venue_label_singular() ); ?></a>
 </div>

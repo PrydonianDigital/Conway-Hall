@@ -3,7 +3,7 @@
 <div class="row">
 
 	<div <?php post_class('nine columns '); ?> role="main">
-	
+
 		    <div class="tab-content active">
 		        <h3>You've Just Missed</h3>
 					<?php
@@ -62,20 +62,20 @@
 							}
 							wp_pagenavi();
 						} else {
-						
+
 						}
-						wp_reset_postdata();							
+						wp_reset_postdata();
 					?>
-					
+
 		    </div>
-	
-	</div>	
-	
+
+	</div>
+
 	<div class="three columns side" role="complementary">
-		
+
 		<div class="row">
 			<div class="twelve columns">
-				<ul>			
+				<ul>
 					<?php dynamic_sidebar( 'join' ); ?>
 				</ul>
 				<ul>
@@ -86,7 +86,7 @@
 						'connected_items' => get_queried_object(),
 						'nopaging' => true,
 					) );
-					
+
 					// Display connected pages
 					if ( $connected->have_posts() ) :
 					?>
@@ -98,16 +98,16 @@
 					<?php endwhile; ?>
 					</ul>
 					</li>
-					<?php 
+					<?php
 					// Prevent weirdness
 					wp_reset_postdata();
-					
+
 					endif;
-					?>					
+					?>
 					<?php dynamic_sidebar( 'homepage' ); ?>
 				</ul>
 			</div>
-		</div>		
+		</div>
 
 	</div>
 

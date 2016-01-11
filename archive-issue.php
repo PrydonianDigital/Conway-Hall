@@ -3,16 +3,26 @@
 	<div class="row">
 
 		<div class="nine columns">
+			<!-- foo -->
 			<h2>Issues<div class="alignright"><a href="feed/"><i class="icon-rss"></i></a></div></h2>
 			<?php
-				if ( get_query_var('paged') )
-					$paged = get_query_var('paged');
-				elseif ( get_query_var('page') )
-					$paged = get_query_var('page');
-				else
-					$paged = 1;
-					query_posts(array('post_type' => 'issue', 'posts_per_page' => '25', 'paged' => $paged ));
-				while ( have_posts() ) : the_post(); ?>
+				$day = date( 'D' );
+				$week = date( 'W' );
+				$year = date( 'Y' );
+				$my_query = new WP_Query(
+					array(
+						'post_type' => 'issue',
+						'posts_per_page' => '25',
+						'paged' => get_query_var('paged'),
+						'date_query' => array(
+							array(
+								'column' => 'post_date_gmt',
+								'after' => '5 years ago',
+							)
+						)
+					)
+				);
+				while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
 			<div class="row article">
 				<div class="twelve columns">
@@ -29,7 +39,7 @@
 			<?php endwhile; ?>
 			<div class="row article">
 				<div class="twelve columns">
-					<?php wp_pagenavi(); ?>
+					<?php wp_pagenavi(array( 'query' => $my_query )); ?>
 				</div>
 			</div>
 
