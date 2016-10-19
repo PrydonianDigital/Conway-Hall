@@ -1794,3 +1794,19 @@ progress::-moz-progress-bar {
 .home .tag-nofrontpage {
 	display: none;
 }
+.type-page .wpas-checkbox-container {
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-align: center;
+	margin: 0 2px;
+	background: #efefef;
+}
+.type-page .wpas-search, .type-page .wpas-reset {
+	display: inline-block;
+}
+.side .wpas-ptype, .side .wpas-date_y, .side .wpas-posts_per_page {
+	display: none;
+}
+#optionsSearch {
+	cursor: pointer;
+}

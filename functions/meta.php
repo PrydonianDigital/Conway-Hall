@@ -163,56 +163,6 @@ function free_events( $meta_boxes ) {
 }
 add_filter( 'cmb_meta_boxes', 'free_events' );
 
-function my_connection_types() {
-		p2p_register_connection_type( array(
-				'name' => 'pdf_to_page',
-				'from' => 'pdf',
-				'to' => 'page'
-		) );
-}
-add_action( 'p2p_init', 'my_connection_types' );
-
-function job_pdf() {
-		p2p_register_connection_type( array(
-				'name' => 'pdf_to_job',
-				'from' => 'pdf',
-				'to' => 'jobs'
-		) );
-}
-add_action( 'p2p_init', 'job_pdf' );
-
-function lecture_pdf() {
-		p2p_register_connection_type( array(
-				'name' => 'pdf_to_lecture',
-				'from' => 'pdf',
-				'to' => 'memorial_lecture'
-		) );
-}
-add_action( 'p2p_init', 'lecture_pdf' );
-
-function concert_pdf() {
-		p2p_register_connection_type( array(
-				'name' => 'pdf_to_concert',
-				'from' => 'pdf',
-				'to' => 'sunday_concerts'
-		) );
-}
-add_action( 'p2p_init', 'concert_pdf' );
-
-function post_pdf() {
-		p2p_register_connection_type( array(
-				'name' => 'pdf_to_post',
-				'from' => 'pdf',
-				'to' => 'post'
-		) );
-}
-add_action( 'p2p_init', 'post_pdf' );
-
-add_action( 'init', 'my_add_excerpts_to_pages' );
-function my_add_excerpts_to_pages() {
-		 add_post_type_support( 'page', 'excerpt' );
-}
-
 function amazon_link( $meta_boxes ) {
 	$prefix = '_cmb_';
 	$meta_boxes[] = array(
@@ -322,3 +272,36 @@ function memorial_speaker( $meta_boxes ) {
 	return $meta_boxes;
 }
 add_filter( 'cmb_meta_boxes', 'memorial_speaker' );
+
+function project_meta( $meta_boxes ) {
+	$prefix = '_project_';
+	$meta_boxes[] = array(
+		'id' => 'meta',
+		'title' => 'Details',
+		'pages' => array('project'),
+		'context' => 'normal',
+		'priority' => 'high',
+		'show_names' => true,
+		'fields' => array(
+			array(
+				'name' => __( 'Start Date', 'ch' ),
+				'id' => $prefix . 'start',
+				'type' => 'text_date',
+				'date_format' => __( 'd-m-Y', 'ch' ),
+			),
+			array(
+				'name' => __( 'End Date', 'ch' ),
+				'id' => $prefix . 'end',
+				'type' => 'text_date',
+				'date_format' => __( 'd-m-Y', 'ch' ),
+			),
+			array(
+				'name' => __( 'Ongoing?', 'ch' ),
+				'id' => $prefix . 'ongoing',
+				'type' => 'checkbox',
+			),
+		),
+	);
+	return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'project_meta' );

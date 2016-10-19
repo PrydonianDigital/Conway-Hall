@@ -1,6 +1,20 @@
 Gumby.init();
 $(function() {
 
+	$('#optionsSearch').html('Show Search Options');
+	$('#optionsSearchMain').html('Show Search Options');
+
+	$('.wpas-ptype, .wpas-date_y, .wpas-posts_per_page, .wpas-orderby, .wpas-order').hide();
+
+	$('.wp-advanced-search').on('click', '.closed', function(){
+		$(this).addClass('open').removeClass('closed').html('Hide Search Options');
+		$('.wpas-ptype, .wpas-date_y, .wpas-posts_per_page, .wpas-orderby, .wpas-order').show();
+	});
+	$('.wp-advanced-search').on('click', '.open', function(){
+		$(this).addClass('closed').removeClass('open').html('Show Search Options');
+		$('.wpas-ptype, .wpas-date_y, .wpas-posts_per_page').hide();
+	});
+
 	$('#subToggle').on('click', function(e){
 		e.preventDefault();
 		$('#subBarContent').toggle();

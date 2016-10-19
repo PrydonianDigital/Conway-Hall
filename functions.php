@@ -17,10 +17,11 @@ add_filter( 'searchwp_process_term_limit', 'my_searchwp_process_term_limit' );
 @ini_set( 'max_execution_time', '300' );
 
 // Init CMB2
-if ( file_exists( dirname( __FILE__ ) . '/metabox/init.php' ) ) {
-	require_once dirname( __FILE__ ) . '/metabox/init.php';
-} elseif ( file_exists( dirname( __FILE__ ) . '/metabox/init.php' ) ) {
-	require_once dirname( __FILE__ ) . '/metabox/init.php';
+add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
+function be_initialize_cmb_meta_boxes() {
+	if ( !class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( 'metabox/init.php' );
+	}
 }
 
 // Require functions
@@ -42,17 +43,48 @@ function main_search() {
 		'order' => 'ASC'
 	);
 	$args['form'] = array(
-		'auto_submit' => false
+		'auto_submit' => false,
+		'enabled' => false,
 	);
 	$args['form']['ajax'] = array(
-		'enabled' => true,
-		'show_default_results' => false,
-		'results_template' => 'searches/main.php',
-		'button_text' => 'Load More Results'
+		'show_default_results' => false
 	);
 	$args['fields'][] = array(
 		'type' => 'search',
-		'placeholder' => 'Enter search terms'
+		'placeholder' => 'Enter search terms',
+		'pre_html' => '<div class="row"><div class="twelve columns">',
+		'post_html' => '<div id="optionsSearchMain" class="closed"></div></div></div>'
+	);
+	$args['fields'][] = array(
+		'type' => 'post_type',
+		'format' => 'checkbox',
+		'label' => 'Search by:',
+		'values' => array('page' => 'Pages', 'post' => 'Posts', 'tribe_events' => 'Events', 'tribe_events' => 'Events', 'pdf' => 'PDFs', 'sunday_concerts' => 'Sunday Concerts', 'ethicalrecord' => 'Ethical Record', 'issue' => 'Ethical Record Issue') ,
+		'default_all' => true
+	);
+    $args['fields'][] = array( 'type' => 'orderby',
+		'format' => 'select',
+		'label' => 'Order by',
+		'values' => array(
+			'title' => 'Title',
+			'date' => 'Date'
+		)
+	);
+    $args['fields'][] = array( 'type' => 'order',
+		'format' => 'select',
+		'label' => 'Order',
+		'values' => array(
+			'ASC' => 'Ascending',
+			'DESC' => 'Descending'
+		),
+		'default' => 'ASC'
+	);
+	$args['fields'][] = array(
+		'type' => 'posts_per_page',
+		'format' => 'select',
+		'label' => 'Results per page',
+		'values' => array(10=>10, 20=>20, 50=>50, 100=>100),
+		'default' => 10
 	);
 	$args['fields'][] = array(
 		'type' => 'submit',
@@ -64,6 +96,30 @@ function main_search() {
 		'class' => 'button',
 		'value' => 'Reset'
 	);
+	register_wpas_form('mainsearch', $args);
+}
+add_action('init', 'main_search');
+
+function aside_search() {
+	$args = array();
+	$args['wp_query'] = array(
+		'post_type' => array('page', 'post', 'tribe_events', 'memorial_lecture', 'pdf', 'sunday_concerts', 'ethicalrecord', 'issue'),
+		'orderby' => 'title',
+		'order' => 'ASC'
+	);
+	$args['form'] = array(
+		'action' => get_bloginfo('url') . '/test-search',
+		'method' => 'GET',
+		'auto_submit' => false,
+		'enabled' => false,
+		'show_default_results' => false
+	);
+	$args['fields'][] = array(
+		'type' => 'search',
+		'placeholder' => 'Enter search terms',
+		'pre_html' => '<div class="row"><div class="twelve columns">',
+		'post_html' => '<div id="optionsSearch" class="closed"></div></div></div>'
+	);
 	$args['fields'][] = array(
 		'type' => 'post_type',
 		'format' => 'checkbox',
@@ -71,13 +127,22 @@ function main_search() {
 		'values' => array('page' => 'Pages', 'post' => 'Posts', 'tribe_events' => 'Events', 'tribe_events' => 'Events', 'pdf' => 'PDFs', 'sunday_concerts' => 'Sunday Concerts', 'ethicalrecord' => 'Ethical Record', 'issue' => 'Ethical Record Issue') ,
 		'default_all' => true
 	);
-	$args['fields'][] = array(
-		'type' => 'date',
-		'format' => 'date',
-		'label' => 'Year:',
-		'date_type' => 'year',
-		'date_format' => 'Y',
-		'value' => ''
+    $args['fields'][] = array( 'type' => 'orderby',
+		'format' => 'select',
+		'label' => 'Order by',
+		'values' => array(
+			'title' => 'Title',
+			'date' => 'Date'
+		)
+	);
+    $args['fields'][] = array( 'type' => 'order',
+		'format' => 'select',
+		'label' => 'Order',
+		'values' => array(
+			'ASC' => 'Ascending',
+			'DESC' => 'Descending'
+		),
+		'default' => 'ASC'
 	);
 	$args['fields'][] = array(
 		'type' => 'posts_per_page',
@@ -86,6 +151,11 @@ function main_search() {
 		'values' => array(10=>10, 20=>20, 50=>50, 100=>100),
 		'default' => 10
 	);
-	register_wpas_form('mainsearch', $args);
+	$args['fields'][] = array(
+		'type' => 'submit',
+		'class' => 'button',
+		'value' => 'Search'
+	);
+	register_wpas_form('asidesearch', $args);
 }
-add_action('init', 'main_search');
+add_action('init', 'aside_search');
