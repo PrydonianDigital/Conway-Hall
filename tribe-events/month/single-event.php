@@ -11,21 +11,15 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
-}
+} ?>
 
+<?php
 global $post;
-
-/**
- * We build and gather information specific to the individual event prior to
- * the tribe_events_template_data() call to reduce the opportunities for 3rd
- * party code to call wp_reset_postdata() or similar, which can result in the
- * $post global referencing something other than the event we're interested
- * in.
- */
 $day      = tribe_events_get_current_month_day();
 $event_id = "{$post->ID}-{$day['daynum']}";
-$link     = tribe_get_event_link( $post );
-$title    = get_the_title( $post );
+$start    = tribe_get_start_date( $post, false, 'U' );
+$end      = tribe_get_end_date( $post, false, 'U' );
+
 
 /**
  * How to Use the Javascript Templating System in this View
@@ -190,9 +184,11 @@ $title    = get_the_title( $post );
  *	})(window, document, jQuery);
  *
  */
+
+
 ?>
 
-<div id="tribe-events-event-<?php echo esc_attr( $event_id ); ?>" class="<?php tribe_events_event_classes() ?>" data-tribejson='<?php echo esc_attr( tribe_events_template_data( $post ) ); ?>'>
-	<h3 class="tribe-events-month-event-title entry-title summary"><a href="<?php echo esc_url( $link ) ?>" class="url"><?php echo $title ?></a></h3>
+<div id="tribe-events-event-<?php echo $event_id ?>" class="<?php tribe_events_event_classes() ?>" data-tribejson='<?php echo tribe_events_template_data( $post ); ?>'>
+	<h3 class="tribe-events-month-event-title entry-title summary"><a href="<?php tribe_event_link( $post ); ?>" class="url"><?php the_title() ?></a></h3>
 </div><!-- #tribe-events-event-# -->
 

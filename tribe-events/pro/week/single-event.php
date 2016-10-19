@@ -3,7 +3,7 @@
  * Week View Single Event
  * This file sets up the structure for the week view single event
  *
- * Override this template in your own theme by creating a file at [your-theme]/tribe-events/pro/week/single-event.php
+ * Override this template in your own theme by creating a file at [your-theme]/tribe-events/week/single-event.php
  *
  * @package TribeEventsCalendar
  *
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }?>
 
 <div id="tribe-events-event-<?php echo esc_attr( $event->ID ); ?>" <?php echo tribe_events_week_event_attributes(); ?> class="<?php tribe_events_event_classes( $event->ID ) ?> tribe-week-event" data-tribejson='<?php echo tribe_events_template_data( $event ); ?>'>
-	<h3 class="entry-title summary">
+	<h3 class="entry-title summary foo">
 		<a href="<?php tribe_event_link( $event ); ?>" class="url" rel="bookmark"><?php echo $event->post_title; ?></a>
 	</h3>
 </div>

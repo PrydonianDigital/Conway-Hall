@@ -1,0 +1,22 @@
+html, body, #planit, #lightbox {
+	width: 100%;
+}
+body {
+	background:#FFF;
+	position: relative;
+}
+#planit_container {
+	display: none;
+}
+#lightbox {
+	display:block !important;
+	position: relative;
+}
+#lightbox a.print {
+	display: none !important;
+}
+#lightbox img {
+	max-width: 100% !important;
+	width: 100% !important;
+	max-height: none !important;
+}

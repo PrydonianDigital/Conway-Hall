@@ -11,14 +11,22 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
+} ?>
+
+<?php
+
+$venue_details = array();
+
+if ( $venue_name = tribe_get_meta( 'tribe_event_venue_name' ) ) {
+	$venue_details[] = $venue_name;
 }
 
-$venue_details = tribe_get_venue_details();
-
+if ( $venue_address = tribe_get_meta( 'tribe_event_venue_address' ) ) {
+	$venue_details[] = $venue_address;
+}
 // Venue microformats
 $has_venue = ( $venue_details ) ? ' vcard' : '';
-$has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : '';
-
+$has_venue_address = ( $venue_address ) ? ' location' : '';
 ?>
 
 <!-- Event Cost -->
@@ -31,7 +39,7 @@ $has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : ''
 <!-- Event Title -->
 <?php do_action( 'tribe_events_before_the_event_title' ) ?>
 <h2 class="tribe-events-list-event-title summary">
-	<a class="url" href="<?php echo esc_url( tribe_get_event_link() ); ?>" title="<?php the_title_attribute() ?>" rel="bookmark">
+	<a class="url" href="<?php echo tribe_get_event_link() ?>" title="<?php the_title() ?>" rel="bookmark">
 		<?php the_title() ?>
 	</a>
 </h2>
@@ -39,11 +47,11 @@ $has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : ''
 
 <!-- Event Meta -->
 <?php do_action( 'tribe_events_before_the_meta' ) ?>
-<div class="tribe-events-event-meta <?php echo esc_attr( $has_venue . $has_venue_address ); ?>">
+<div class="tribe-events-event-meta <?php echo $has_venue . $has_venue_address; ?>">
 
 	<!-- Schedule & Recurrence Details -->
 	<div class="updated published time-details">
-		<?php echo tribe_events_event_schedule_details(); ?>
+		<?php echo tribe_events_event_schedule_details() ?>
 	</div>
 
 	<?php if ( $venue_details ) : ?>
@@ -57,13 +65,12 @@ $has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : ''
 <?php do_action( 'tribe_events_after_the_meta' ) ?>
 
 <!-- Event Image -->
-<?php echo tribe_event_featured_image( null, 'medium' ); ?>
+<?php echo tribe_event_featured_image( null, 'medium' ) ?>
 
 <!-- Event Content -->
 <?php do_action( 'tribe_events_before_the_content' ) ?>
 <div class="tribe-events-list-event-description tribe-events-content description entry-summary">
-	<?php echo tribe_events_get_the_excerpt(); ?>
-	<a href="<?php echo esc_url( tribe_get_event_link() ); ?>" class="tribe-events-read-more" rel="bookmark"><?php esc_html_e( 'Find out more', 'the-events-calendar' ) ?> &raquo;</a>
+	<?php echo tribe_events_get_the_excerpt() ?>
+	<a href="<?php echo tribe_get_event_link() ?>" class="tribe-events-read-more" rel="bookmark"><?php _e( 'Find out more', 'tribe-events-calendar' ) ?> &raquo;</a>
 </div><!-- .tribe-events-list-event-description -->
-<?php
-do_action( 'tribe_events_after_the_content' );
+<?php do_action( 'tribe_events_after_the_content' ) ?>

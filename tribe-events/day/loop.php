@@ -37,7 +37,7 @@ $current_timeslot = null;
 		<?php endif; ?>
 
 		<!-- Event  -->
-		<div id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes() ?>">
+		<div id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes('stick') ?>">
 			<?php tribe_get_template_part( 'day/single', 'event' ) ?>
 		</div>
 		<!-- .hentry .vevent -->

@@ -73,3 +73,4 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 <?php
 endif;
 do_action( 'tribe_events_single_meta_after' );
+?>

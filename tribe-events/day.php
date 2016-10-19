@@ -11,10 +11,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
-}
+} ?>
 
-do_action( 'tribe_events_before_template' );
-?>
+<?php do_action( 'tribe_events_before_template' ); ?>
 
 <!-- Tribe Bar -->
 <?php tribe_get_template_part( 'modules/bar' ); ?>
@@ -24,5 +23,4 @@ do_action( 'tribe_events_before_template' );
 
 <div class="tribe-clear"></div>
 
-<?php
-do_action( 'tribe_events_after_template' );
+<?php do_action( 'tribe_events_after_template' ) ?>
