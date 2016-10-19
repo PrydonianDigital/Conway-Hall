@@ -84,7 +84,7 @@ Template Name: Home Page
 					<?php
 						$args = array (
 							'post_type' => 'tribe_events',
-							'posts_per_page' => '10',
+							//'posts_per_page' => '10',
 						);
 						$event_posts = new WP_Query( $args );
 						if ( $event_posts->have_posts() ) {
@@ -264,7 +264,7 @@ Template Name: Home Page
 					<?php
 						$args = array (
 							'post_type' => 'tribe_events',
-							'posts_per_page' => '10',
+							//'posts_per_page' => '10',
 						);
 						$event_posts = new WP_Query( $args );
 						if ( $event_posts->have_posts() ) {

@@ -13,7 +13,7 @@
 	$.fn.planit = function(options) {
 
 		var defaults = {
-				basepath: 'http://conwayhall.org.uk/wp-content/themes/conwayhall/planit/',
+				basepath: '//conwayhall.org.uk/wp-content/themes/conwayhall/planit/',
 				roomName: 'room-name',
 				userAgentDetection: false,
 				userAgentIsMobile: false,
@@ -452,6 +452,7 @@
 		\*=====================*/
 
 		$("#planit_container .options ul li a:not(.enquire), #mobile_options a:not(.enquire)").on('click', function(e) {
+			alert('foo');
 			e.preventDefault();
 			var id = $(this).hasClass('mob') ? $(this).data('alt') : $(this).attr('id');
 

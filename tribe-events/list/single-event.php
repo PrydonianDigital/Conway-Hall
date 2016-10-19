@@ -20,18 +20,26 @@ $has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : ''
 
 // Organizer
 $organizer = tribe_get_organizer();
-
+$website = tribe_get_event_website_url();
+$price = get_post_meta( get_the_ID(), '_cmb_tickets', true );
+$free = get_post_meta( get_the_ID(), '_cmb_free', true );
 ?>
 
 <!-- Event Cost -->
-<?php if ( tribe_get_cost() ) : ?>
+<?php if ( $free === 'on' ) : ?>
 	<div class="tribe-events-event-cost">
-		<span><?php echo tribe_get_cost( null, true ); ?></span>
+		<span>Free</span>
+	</div>
+<?php endif; ?>
+<?php if ( $price != '' ) : ?>
+	<div class="tribe-events-event-cost">
+		<span><?php echo $price; ?></span>
 	</div>
 <?php endif; ?>
 
 <!-- Event Title -->
 <?php do_action( 'tribe_events_before_the_event_title' ) ?>
+<h3 class="tribe-events-single-section-title aligncenter"><?php echo tribe_get_organizer() ?> presents: </h3>
 <h2 class="tribe-events-list-event-title entry-title summary">
 	<a class="url" href="<?php echo esc_url( tribe_get_event_link() ); ?>" title="<?php the_title_attribute() ?>" rel="bookmark">
 		<?php the_title() ?>
@@ -68,6 +76,14 @@ $organizer = tribe_get_organizer();
 <div class="tribe-events-list-event-description tribe-events-content description entry-summary">
 	<?php the_excerpt() ?>
 	<a href="<?php echo esc_url( tribe_get_event_link() ); ?>" class="tribe-events-read-more" rel="bookmark"><?php esc_html_e( 'Find out more', 'the-events-calendar' ) ?> &raquo;</a>
+	<?php if ( tribe_get_cost() ) : ?>
+	<div class="tribe-events-event-cost">
+		<span><?php echo tribe_get_cost( null, true ); ?></span>
+	</div>
+	<?php endif; ?>
+	<?php if ( ! empty( $website ) ) : ?>
+		<p><a href="<?php echo $website; ?>" class="tribe-events-button">BOOK NOW</a></p>
+	<?php endif ?>
 </div><!-- .tribe-events-list-event-description -->
 <?php
 do_action( 'tribe_events_after_the_content' );

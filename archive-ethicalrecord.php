@@ -35,7 +35,7 @@
 		    	<?php } ?>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-    			<h6>Posted on: <?php the_time( 'D, jS M, Y' ); ?></h6>
+    			<!--h6>Posted on: <?php the_time( 'D, jS M, Y' ); ?></h6-->
     			<?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); if( $date != '' ) :  ?>
     				<h6>Lecture date: <?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); echo date('D, jS M, Y', strtotime($date))  ?></h6>
     			<?php endif; ?>
@@ -118,7 +118,7 @@
 						<?php } ?>
 						<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 
-		    			<h6>Posted on: <?php the_time( 'D, jS M, Y' ); ?></h6>
+		    			<!--h6>Posted on: <?php the_time( 'D, jS M, Y' ); ?></h6-->
 		    			<?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); if( $date != '' ) :  ?>
 		    				<h6>Lecture date: <?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); echo date('D, jS M, Y', strtotime($date))  ?></h6>
 		    			<?php endif; ?>

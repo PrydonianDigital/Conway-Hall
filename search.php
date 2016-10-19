@@ -3,15 +3,15 @@
 <div class="row">
 
 	<div class="nine columns" role="main">
-		
+
 		<div class="row">
 			<div class="twelve columns">
 				<h2><?php echo $wp_query->found_posts; ?> results for: "<?php the_search_query(); ?>"</h2>
 			</div>
 		</div>
-	
+
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		
+
 		<div <?php post_class('sticky'); ?>>
 			<div class="row">
 				<div class="twelve columns">
@@ -42,26 +42,26 @@
 					</a>
 				</div>
 				<div class="seven columns">
-					<?php the_excerpt(); ?>	
+					<?php the_excerpt(); ?>
 				</div>
 			</div>
-		</div>	
-			
+		</div>
+
 		<?php endwhile; ?>
 		<?php wp_pagenavi(); ?>
 		<?php endif; ?>
-	
-	</div>	
-	
+
+	</div>
+
 	<div class="three columns side" role="complementary">
-		
+
 		<div class="row">
 			<div class="twelve columns">
 				<ul>
 					<?php dynamic_sidebar( 'homepage' ); ?>
 				</ul>
 			</div>
-		</div>		
+		</div>
 
 	</div>
 

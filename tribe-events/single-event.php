@@ -18,7 +18,9 @@ $events_label_singular = tribe_get_event_label_singular();
 $events_label_plural = tribe_get_event_label_plural();
 
 $event_id = get_the_ID();
-
+$website = tribe_get_event_website_url();
+$price = get_post_meta( get_the_ID(), '_cmb_tickets', true );
+$free = get_post_meta( get_the_ID(), '_cmb_free', true );
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single vevent hentry">
@@ -30,14 +32,14 @@ $event_id = get_the_ID();
 	<!-- Notices -->
 	<?php tribe_events_the_notices() ?>
 
+	<h3 class="tribe-events-single-section-title aligncenter"><?php echo tribe_get_organizer() ?> presents: </h3>
+
 	<?php the_title( '<h2 class="tribe-events-single-event-title summary entry-title">', '</h2>' ); ?>
+
+	<h5><?php echo tribe_events_event_schedule_details() ?></h5>
 
 	<div class="tribe-events-schedule updated published tribe-clearfix">
 		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
-		<?php if ( tribe_get_cost() ) : ?>
-			<span class="tribe-events-divider">|</span>
-			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
-		<?php endif; ?>
 	</div>
 
 	<!-- Event header -->
@@ -60,7 +62,24 @@ $event_id = get_the_ID();
 			<!-- Event content -->
 			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 			<div class="tribe-events-single-event-description tribe-events-content entry-content description">
+<!-- Event Cost -->
+<?php if ( $free === 'on' ) : ?>
+	<div class="tribe-events-event-cost">
+		<span>Free</span>
+	</div>
+<?php endif; ?>
+<?php if ( $price != '' ) : ?>
+	<div class="tribe-events-event-cost">
+		<span><?php echo $price; ?></span>
+	</div>
+<?php endif; ?>
+				<?php if ( ! empty( $website ) ) : ?>
+					<p><a href="<?php echo $website; ?>" class="tribe-events-button">BOOK NOW</a></p>
+				<?php endif ?>
 				<?php the_content(); ?>
+				<?php if ( ! empty( $website ) ) : ?>
+					<a href="<?php echo $website; ?>" class="tribe-events-button">BOOK NOW</a>
+				<?php endif ?>
 			</div>
 			<!-- .tribe-events-single-event-description -->
 			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>

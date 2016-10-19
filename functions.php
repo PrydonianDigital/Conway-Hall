@@ -1,5 +1,17 @@
 <?php
 
+add_filter( 'searchwp_missing_integration_notices', '__return_false' );
+
+function mySearchWPXpdfPath() {
+	return '/var/www/vhosts/conwayhall.org.uk/pdftotext';
+}
+add_filter( 'searchwp_xpdf_path', 'mySearchWPXpdfPath' );
+
+function my_searchwp_process_term_limit() {
+	return 500;
+}
+add_filter( 'searchwp_process_term_limit', 'my_searchwp_process_term_limit' );
+
 @ini_set( 'upload_max_size' , '64M' );
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
@@ -54,7 +66,6 @@ function ch_scripts() {
 	wp_register_script( 'gmap', '//maps.googleapis.com/maps/api/js?sensor=false&region=GB', false, '6.0.0', true );
 	wp_register_script( 'gmap3', get_template_directory_uri() . '/js/gmap3.js', false, '6.0.0', true );
 	wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', false, '2.6', true );
-	wp_register_script( 'planit', get_template_directory_uri() . '/planit/global/js/jquery.planit.js', false, '4', true );
 	//wp_register_script( 'planittooltip', get_template_directory_uri() . '/planit/global/js/jquery.tooltip.js', false, '2.6', true );
 	//wp_register_script( 'planitcarousel', get_template_directory_uri() . '/planit/global/js/jquery.jcarousel.min.js', false, '2.6', true );
 	//wp_register_script( 'planitswf', get_template_directory_uri() . '/planit/global/js/swfobject.js', false, '2.6', true );
@@ -95,6 +106,7 @@ function ch_styles() {
 add_action( 'wp_enqueue_scripts', 'ch_styles' );
 
 function room_planner() {
+	wp_register_script( 'planit', get_template_directory_uri() . '/planit/global/js/jquery.planit.js', false, '4', true );
 	if ( is_page(array('main-hall-room-planner', 'brockway-room-planner', 'balcony-room-planner', 'artists-room-planner', 'bertrand-russell-room-planner', 'foyer-room-planner', 'club-room-planner')) ) {
 		wp_enqueue_script('planit');
 	}
@@ -125,14 +137,7 @@ function prefix_nav_menu_args($args = ''){
 	return $args;
 }
 
-function the_post_thumbnail_caption() {
-	global $post;
-	$thumbnail_id = get_post_thumbnail_id($post->ID);
-	$thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
-	if ($thumbnail_image && isset($thumbnail_image[0])) {
-		echo '<span>'.$thumbnail_image[0]->post_excerpt.'</span>';
-	}
-}
+
 
 register_sidebar(
 	array(
@@ -707,7 +712,7 @@ function er_posts() {
 		'label'			   => __( 'ethicalrecord', 'ch' ),
 		'description'		 => __( 'Ethical Record Posts', 'ch' ),
 		'labels'			  => $labels,
-		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail', 'comments', 'publicize' ),
+		'supports'			=> array( 'title', 'editor', 'post_tag', 'tags', 'thumbnail', 'comments', 'publicize', 'page-attributes' ),
 		'taxonomies'		  => array( 'post_tag', 'tags' ),
 		'hierarchical'		=> false,
 		'public'			  => true,
@@ -1783,6 +1788,17 @@ function ch_email(){
 function ch_password(){
 	include(get_template_directory().'/password-generator.php');
 }
+
+function events_calendar_remove_scripts() {
+if (!is_admin() && !in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) ) {
+
+        wp_dequeue_script( 'the-events-calendar');
+        wp_dequeue_script( 'tribe-events-list');
+        wp_dequeue_script( 'tribe-events-ajax-day');
+
+}}
+add_action('wp_print_scripts', 'events_calendar_remove_scripts' , 10);
+add_action('wp_footer', 'events_calendar_remove_scripts' , 10);
 
 @ini_set( 'upload_max_size' , '32M' );
 @ini_set( 'post_max_size', '32M');

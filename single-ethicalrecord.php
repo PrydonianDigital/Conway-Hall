@@ -28,7 +28,7 @@
 			?>
 
 			<?php } else { ?>
-			<h6 class="entry-date"><meta itemprop="datePublished" content="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( 'l, jS M, Y' ); ?></meta></h6>
+
     		<?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); if( $date != '' ) :  ?>
     			<h6 class="entry-date">Lecture date: <?php global $post; $date = get_post_meta( $post->ID, '_cmb_lecdate', true ); echo date('D, jS M, Y', strtotime($date))  ?></h6>
     		<?php endif; ?>
@@ -49,6 +49,7 @@
 				<p><?php echo apply_filters( 'the_content', get_post_meta( get_the_ID(), $prefix . '_cmb_ref', true ) );  ?></p>
 			</div>
 			<?php endif; ?>
+			<h6 class="entry-date"><meta itemprop="datePublished" content="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( 'l, jS M, Y' ); ?></meta></h6>
 			<?php if( has_tag() ) { ?>
 			    <p><i class="icon-tag"></i><?php the_tags('', ', ', ''); ?></p>
 			<?php } else { ?>

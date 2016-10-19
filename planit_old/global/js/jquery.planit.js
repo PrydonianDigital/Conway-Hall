@@ -13,7 +13,7 @@
 	$.fn.planit = function(options) {
 
 		var defaults = {
-				basepath: 'http://conwayhall.org.uk/wp-content/themes/conwayhall/planit/',
+				basepath: '//conwayhall.org.uk/wp-content/themes/conwayhall/planit/',
 				roomName: 'room-name',
 				userAgentDetection: false,
 				userAgentIsMobile: false,
