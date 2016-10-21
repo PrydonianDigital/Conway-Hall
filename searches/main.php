@@ -7,6 +7,7 @@
 			<div class="row">
 				<div class="twelve columns">
 					<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><?php the_title(); ?></a></h4>
+					<h6>Found under: <?php echo $post_type->labels->singular_name; ?></h6>
 					<?php if ( tribe_get_cost() ) : ?>
 						<div class="tribe-events-event-cost">
 							<span><?php echo tribe_get_cost( null, true ); ?></span>
@@ -16,6 +17,7 @@
 			</div>
 			<div class="row">
 				<div class="five columns">
+
 					<a href="<?php echo get_permalink( $page->ID); ?>" rel="permalink" title="Permalink to <?php echo $page->post_title; ?>">
 						<?php
 							if ( get_the_post_thumbnail($post_id) != '' ) {

@@ -12,7 +12,7 @@ $(function() {
 	});
 	$('.wp-advanced-search').on('click', '.open', function(){
 		$(this).addClass('closed').removeClass('open').html('Show Search Options');
-		$('.wpas-ptype, .wpas-date_y, .wpas-posts_per_page').hide();
+		$('.wpas-ptype, .wpas-date_y, .wpas-posts_per_page, .wpas-orderby, .wpas-order').hide();
 	});
 
 	$('#subToggle').on('click', function(e){
