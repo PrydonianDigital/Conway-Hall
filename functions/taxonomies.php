@@ -176,3 +176,35 @@ function issue_tax() {
 	register_taxonomy( 'decade', array( 'issue' ), $args );
 }
 add_action( 'init', 'issue_tax', 0 );
+
+// Register Project Taxonomy
+function project_tax() {
+	$labels = array(
+		'name'		   => _x( 'Project Category', 'Taxonomy General Name', 'ch' ),
+		'singular_name'			  => _x( 'Project Category', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'	  => __( 'Project Category', 'ch' ),
+		'all_items'	  => __( 'All Project Categories', 'ch' ),
+		'parent_item'	=> __( 'Parent Project Category', 'ch' ),
+		'parent_item_colon'		  => __( 'Parent Project Category:', 'ch' ),
+		'new_item_name'			  => __( 'New Project Category', 'ch' ),
+		'add_new_item'			   => __( 'Add New Project Category', 'ch' ),
+		'edit_item'	  => __( 'Edit Project Category', 'ch' ),
+		'update_item'	=> __( 'Update Project Category', 'ch' ),
+		'separate_items_with_commas' => __( 'Separate Project Categories with commas', 'ch' ),
+		'search_items'			   => __( 'Search Project Category', 'ch' ),
+		'add_or_remove_items'		=> __( 'Add or remove Project Categories', 'ch' ),
+		'choose_from_most_used'	  => __( 'Choose from the most used Project Categories', 'ch' ),
+		'not_found'	  => __( 'Not Found', 'ch' ),
+	);
+	$args = array(
+		'labels'		 => $labels,
+		'hierarchical'			   => true,
+		'public'		 => true,
+		'show_ui'		=> true,
+		'show_admin_column'		  => true,
+		'show_in_nav_menus'		  => true,
+		'show_tagcloud'			  => true,
+	);
+	register_taxonomy( 'project_category', array( 'project' ), $args );
+}
+add_action( 'init', 'project_tax', 0 );
