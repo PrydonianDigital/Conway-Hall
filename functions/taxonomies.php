@@ -208,3 +208,61 @@ function project_tax() {
 	register_taxonomy( 'project_category', array( 'project' ), $args );
 }
 add_action( 'init', 'project_tax', 0 );
+
+// Register PDF Taxonomy
+function pdf_tax() {
+	$labels = array(
+		'name'		   => _x( 'PDF Category', 'Taxonomy General Name', 'ch' ),
+		'singular_name'			  => _x( 'PDF Category', 'Taxonomy Singular Name', 'ch' ),
+		'menu_name'	  => __( 'PDF Category', 'ch' ),
+		'all_items'	  => __( 'All PDF Categories', 'ch' ),
+		'parent_item'	=> __( 'Parent PDF Category', 'ch' ),
+		'parent_item_colon'		  => __( 'Parent PDF Category:', 'ch' ),
+		'new_item_name'			  => __( 'New PDF Category', 'ch' ),
+		'add_new_item'			   => __( 'Add New PDF Category', 'ch' ),
+		'edit_item'	  => __( 'Edit PDF Category', 'ch' ),
+		'update_item'	=> __( 'Update PDF Category', 'ch' ),
+		'separate_items_with_commas' => __( 'Separate PDF Categories with commas', 'ch' ),
+		'search_items'			   => __( 'Search PDF Category', 'ch' ),
+		'add_or_remove_items'		=> __( 'Add or remove PDF Categories', 'ch' ),
+		'choose_from_most_used'	  => __( 'Choose from the most used PDF Categories', 'ch' ),
+		'not_found'	  => __( 'Not Found', 'ch' ),
+	);
+	$args = array(
+		'labels'		 => $labels,
+		'hierarchical'			   => true,
+		'public'		 => true,
+		'show_ui'		=> true,
+		'show_admin_column'		  => true,
+		'show_in_nav_menus'		  => true,
+		'show_tagcloud'			  => true,
+	);
+	register_taxonomy( 'pdf_category', array( 'pdf' ), $args );
+}
+add_action( 'init', 'pdf_tax', 0 );
+
+	function wpdocs_custom_taxonomies_terms_links() {
+	    // Get post by post ID.
+	    $post = get_post( $post->ID );
+
+	    // Get post type by post.
+	    $post_type = $post->post_type;
+
+	    // Get post type taxonomies.
+	    $taxonomies = get_object_taxonomies( $post_type, 'objects' );
+
+	    $out = array();
+
+	    foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+	        $terms = get_the_terms( $post->ID, $taxonomy_slug );
+	        if ( ! empty( $terms ) ) {
+	            foreach ( $terms as $term ) {
+	                $out[] = sprintf( '<a href="%1$s">%2$s</a>',
+	                    esc_url( get_term_link( $term->slug, $taxonomy_slug ) ),
+	                    esc_html( $term->name )
+	                );
+	            }
+	        }
+	    }
+	    return implode( ', ', $out );
+	}

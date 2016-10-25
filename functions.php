@@ -23,6 +23,11 @@ function be_initialize_cmb_meta_boxes() {
 		require_once( 'metabox/init.php' );
 	}
 }
+if ( file_exists(  __DIR__ . '/metabox_new/init.php' ) ) {
+  require_once  __DIR__ . '/metabox_new/init.php';
+} elseif ( file_exists(  __DIR__ . '/metabox_new/init.php' ) ) {
+  require_once  __DIR__ . '/metabox_new/init.php';
+}
 
 // Require functions
 require_once('wp-advanced-search/wpas.php');
@@ -38,7 +43,7 @@ require_once('functions/events.php');
 function main_search() {
 	$args = array();
 	$args['wp_query'] = array(
-		'post_type' => array('page', 'post', 'tribe_events', 'memorial_lecture', 'pdf', 'sunday_concerts', 'ethicalrecord', 'issue', 'attachment'),
+		'post_type' => array('page', 'post', 'tribe_events', 'memorial_lecture', 'sunday_concerts', 'ethicalrecord', 'issue', 'attachment'),
 		'orderby' => 'title',
 		'order' => 'ASC'
 	);
@@ -66,7 +71,7 @@ function main_search() {
 			'post' => 'Posts',
 			'tribe_events' => 'Events',
 			'memorial_lecture' => 'Memorial Lectures',
-			'pdf' => 'PDFs',
+			'attachment' => 'PDFs',
 			'sunday_concerts' => 'Sunday Concerts',
 			'ethicalrecord' => 'Ethical Record',
 			'issue' => 'Issues'
@@ -120,7 +125,7 @@ add_action('init', 'main_search');
 function aside_search() {
 	$args = array();
 	$args['wp_query'] = array(
-		'post_type' => array('page', 'post', 'tribe_events', 'memorial_lecture', 'pdf', 'sunday_concerts', 'ethicalrecord', 'issue'),
+		'post_type' => array('page', 'post', 'tribe_events', 'memorial_lecture', 'sunday_concerts', 'ethicalrecord', 'issue', 'attachment'),
 		'orderby' => 'title',
 		'order' => 'ASC'
 	);
@@ -141,7 +146,7 @@ function aside_search() {
 		'type' => 'post_type',
 		'format' => 'checkbox',
 		'label' => 'Search by:',
-		'values' => array('page' => 'Pages', 'post' => 'Posts', 'tribe_events' => 'Events', 'tribe_events' => 'Events', 'sunday_concerts' => 'Sunday Concerts', 'ethicalrecord' => 'Ethical Record', 'issue' => 'Issues') ,
+		'values' => array('page' => 'Pages', 'post' => 'Posts', 'tribe_events' => 'Events', 'tribe_events' => 'Events', 'sunday_concerts' => 'Sunday Concerts', 'ethicalrecord' => 'Ethical Record', 'issue' => 'Issues', 'attachment' => 'PDFs') ,
 		'default_all' => true
 	);
 	$args['fields'][] = array(

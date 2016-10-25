@@ -77,7 +77,7 @@ get_header();?>
 					<h5 class="widget">Trustees Area:</h3>
 					<ul class="menu related">
 					<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>" download><?php the_title(); ?></a></li>
+					    <li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?><?php if( has_term( 'members', 'pdf_category' ) ) { ?>/download<?php } ?><?php if( has_term( 'trustees', 'pdf_category' ) ) { ?>/download<?php } ?>"><?php the_title(); ?></a></li>
 					<?php endwhile; ?>
 					</ul>
 					</li>

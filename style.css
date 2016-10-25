@@ -1800,6 +1800,7 @@ progress::-moz-progress-bar {
 	text-align: center;
 	margin: 0 2px;
 	background: #efefef;
+	width: 20%;
 }
 .type-page .wpas-search, .type-page .wpas-reset {
 	display: inline-block;
