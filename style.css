@@ -401,7 +401,7 @@ section.tabs ul {
 		line-height: 34px;
 		display: inline-block;
 		font-weight: 600;
-		padding: 0 !important;
+		padding: 0  1em !important;
 		text-align: center;
 		width: auto;
 		border-radius: 4px;
@@ -1817,4 +1817,8 @@ progress::-moz-progress-bar {
 #wpas-load img {
 	display: block;
 	margin: 0 auto;
+}
+.searchwp-highlight {
+	background: #ffff00;
+	color: #000;
 }
