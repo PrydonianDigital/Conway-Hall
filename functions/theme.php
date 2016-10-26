@@ -375,7 +375,7 @@ function additional_admin_color_schemes() {
 add_action('admin_init', 'additional_admin_color_schemes');
 
 function remove_footer_admin () {
-	echo '&copy; 1787 - '. date('Y') . ' Conway Hall. Site built by <a href="https://www.prydonian.digital">Mark Duwe</a>.';
+	echo '&copy; 1787 - '. date('Y') . ' Conway Hall. Site built by <a href="https://www.prydonian.digital">Prydonian Digital</a>.';
 	echo '<style>#wp-admin-bar-updates,.update-plugins{display:none !important;}.category-adder {display: none !important;}</style>';
 }
 add_filter('admin_footer_text', 'remove_footer_admin');
