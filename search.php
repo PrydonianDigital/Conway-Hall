@@ -13,7 +13,7 @@
 						<input type="search" class="search-field" placeholder="Search..." value="<?php echo get_search_query(); ?>" name="s" />
 					</label>
 					<input type="submit" class="search-submit" value=" Search ">
-					<p>If you want to search our extensive document library, please use our dedicated <br /><strong><a href="/pdf-search/?pdfsearch=<?php echo get_search_query(); ?>">PDF Search</a></strong> page.</p>
+					<p>If you want to search our extensive document library, please use our dedicated <br /><strong><a href="/pdf-search/?docsearch=<?php echo get_search_query(); ?>">PDF Search</a></strong> page.</p>
 				</form>
 
 				<h4><?php echo $wp_query->found_posts; ?> results for "<?php the_search_query(); ?>"</h4>

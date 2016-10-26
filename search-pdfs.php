@@ -3,20 +3,20 @@
 /* Template Name: PDF Search Page */
 
 global $post;
-$query = isset( $_REQUEST['pdfsearch'] ) ? sanitize_text_field( $_REQUEST['pdfsearch'] ) : '';
-$pdf = isset( $_REQUEST['pdf'] ) ? absint( $_REQUEST['pdf'] ) : 1;
+$query = isset( $_REQUEST['docsearch'] ) ? sanitize_text_field( $_REQUEST['docsearch'] ) : '';
+$doc = isset( $_REQUEST['doc'] ) ? absint( $_REQUEST['doc'] ) : 1;
 if ( class_exists( 'SWP_Query' ) ) {
 	$engine = 'pdf';
 	$swp_query = new SWP_Query(
 		array(
 			's'      => $query,
 			'engine' => $engine,
-			'page'   => $pdf,
+			'page'   => $doc,
 		)
 	);
 	$pagination = paginate_links( array(
-		'format'  => '?pdf=%#%',
-		'current' => $pdf,
+		'format'  => '?doc=%#%',
+		'current' => $doc,
 		'total'   => $swp_query->max_num_pages,
 	) );
 }
@@ -35,7 +35,7 @@ get_header();
 				<form role="search" method="get" class="searchform group" action="<?php echo esc_html( get_permalink() ); ?>">
 					<label>
 						<span class="offscreen"><?php echo _x( 'Search PDFs for:', 'label' ) ?></span>
-						<input type="search" class="search-field" placeholder="Search..." value="<?php echo $query; ?>" name="pdfsearch" />
+						<input type="search" class="search-field" placeholder="Search..." value="<?php echo $query; ?>" name="docsearch" />
 					</label>
 					<input type="submit" class="search-submit" value=" Search ">
 				</form>
