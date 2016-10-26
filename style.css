@@ -1819,6 +1819,9 @@ progress::-moz-progress-bar {
 	margin: 0 auto;
 }
 .searchwp-highlight {
-	background: #ffff00;
-	color: #000;
+	background: rgba(255, 255, 0, 0.5);
+	color: #333333;
+}
+.center {
+	text-align: center;
 }

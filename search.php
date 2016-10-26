@@ -25,7 +25,7 @@
 		<div <?php post_class('sticky'); ?>>
 			<div class="row">
 				<div class="twelve columns">
-					<h4><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>" class="summary entry-title"><?php the_title(); ?></a></h4>
+					<h4><a href="<?php the_permalink(); ?>" rel="permalink" class="summary entry-title"><?php the_title(); ?></a></h4>
 					<?php if ( tribe_get_cost() ) : ?>
 						<div class="tribe-events-event-cost">
 							<span><?php echo tribe_get_cost( null, true ); ?></span>
