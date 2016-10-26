@@ -149,7 +149,7 @@
 		    			<?php } elseif (has_term('book-reviews','section')) { ?>
 		    				<?php global $post; $author = get_post_meta( $post->ID, '_cmb_author', true ); if( $author != '' ) :  ?>
 		    					<p>By: <strong><?php global $post; $publisher = get_post_meta( $post->ID, '_cmb_author', true ); echo $publisher;  ?></strong>
-		    					<?php global $post; $author = get_post_meta( $post->ID, '_cmb_publisher', true ); if( $author != '' ) :  ?>
+		    					<?php global $post; $publisher = get_post_meta( $post->ID, '_cmb_publisher', true ); if( $publisher != '' ) :  ?>
 		    						(<?php global $post; $publisher = get_post_meta( $post->ID, '_cmb_publisher', true ); echo $publisher;  ?>)
 		    					<?php endif; ?>
 		    					</p>
