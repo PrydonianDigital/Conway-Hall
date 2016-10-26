@@ -6,6 +6,7 @@
 
 		<div class="row">
 			<div class="twelve columns">
+
 				<form role="search" method="get" class="searchform group" action="<?php echo home_url( '/' ); ?>">
 					<label>
 						<span class="offscreen"><?php echo _x( 'Search for:', 'label' ) ?></span>
@@ -13,7 +14,9 @@
 					</label>
 					<input type="submit" class="search-submit" value=" Search ">
 				</form>
+
 				<h2><?php echo $wp_query->found_posts; ?> results for: "<?php the_search_query(); ?>"</h2>
+
 			</div>
 		</div>
 
