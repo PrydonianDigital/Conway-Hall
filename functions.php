@@ -39,7 +39,7 @@ require_once('functions/widgets.php');
 require_once('functions/events.php');
 
 add_filter( 'the_permalink', function( $permalink, $post ){
-	if ( is_search() && 'application/pdf' == get_post_mime_type( $post->ID ) ) {
+	if ( is_page('pdf-search') && 'application/pdf' == get_post_mime_type( $post->ID ) ) {
 		$permalink = wp_get_attachment_url( $post->ID );
 	}
 	return esc_url( $permalink );
