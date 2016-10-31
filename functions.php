@@ -46,3 +46,11 @@ add_filter( 'the_permalink', function( $permalink, $post ){
 }, 10, 2 );
 
 add_filter( 'searchwp_force_wp_query', '__return_true' );
+
+function my_searchwp_return_orderby_date( $order_by_date, $engine ) {
+	if ( 'pdf' == $engine ) {
+		$order_by_date = true;
+	}
+	return $order_by_date;
+}
+add_filter( 'searchwp_return_orderby_date', 'my_searchwp_return_orderby_date', 10, 2 );

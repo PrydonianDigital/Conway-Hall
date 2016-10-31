@@ -41,6 +41,7 @@ get_header();
 				</form>
 
 				<?php if ( ! empty( $query ) ) : ?>
+				<p>Please be aware that the search results are dependant upon Optical Character Recognition (OCR) scanning technology and that, although, this has increased rapidly over the years there are limitations in regards to the source materials and character formatting.</p>
 				<h4><?php echo $swp_query->found_posts; ?> results for "<?php echo $query; ?>"</h4>
 				<?php endif; ?>
 
