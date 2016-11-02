@@ -4,30 +4,40 @@
 
 	<div <?php post_class('nine columns h-entry'); ?> role="main" itemscope itemtype="http://schema.org/BlogPosting">
 
+		<?php $today = current_time( 'timestamp' ); ?>
+
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 			<h2 itemprop="name headline" class="entry-title p-name"><?php the_title(); ?></h2>
 
 			<?php
 				date_default_timezone_set('Europe/London');
-				$start = get_post_meta( $post->ID, '_project_startdate', true );
-				$end = get_post_meta( $post->ID, '_project_enddate', true );
-				$ongoing = get_post_meta( $post->ID, '_project_ongoing', true );
-				$lead = get_post_meta( $post->ID, '_project_lead', true );
-				$leadpic = get_post_meta( $post->ID, '_project_leadpic', true );
-				$bio = get_post_meta( $post->ID, '_project_bio', true );
+				$start = get_post_meta( get_the_ID(), '_project_startdate', true );
+				$end = get_post_meta( get_the_ID(), '_project_enddate', true );
+				$ongoing = get_post_meta( get_the_ID(), '_project_ongoing', true );
+				$lead = get_post_meta( get_the_ID(), '_project_lead', true );
+				$leadpic = get_post_meta( get_the_ID(), '_project_leadpic', true );
+				$bio = get_post_meta( get_the_ID(), '_project_bio', true );
 			?>
 			<?php if($ongoing != ''){ ?>
 				<h6>Ongoing</h6>
 			<?php } else { ?>
 				<?php if($start != '' && $end != ''){ ?>
-					<h6>From: <?php echo date_i18n( 'jS F Y', $start ); ?> - <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+					<h6>From: <?php echo date_i18n( 'jS F Y', $start ); ?> - <?php echo date_i18n( 'jS F Y', $end ); ?><?php if($today > $end){ echo ' (Project Ended)'; } ?></h6>
 				<?php } else { ?>
 					<?php if($start != ''){ ?>
 						<h6>Start Date: <?php echo date_i18n( 'jS F Y', $start ); ?></h6>
 					<?php } ?>
 					<?php if($end != ''){ ?>
-						<h6>End Date: <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+						<?php
+							if($today > $end){
+								echo '<h6>Project Ended</h6>';
+							} else {
+						?>
+								<h6>End Date: <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+						<?php
+							}
+						?>
 					<?php } ?>
 				<?php } ?>
 			<?php } ?>
@@ -74,7 +84,7 @@
 					<h5 class="widget">Related Documents:</h3>
 					<ul class="menu related">
 					<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-						<li><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_pdf', true ); echo $text; ?>" download><?php the_title(); ?></a></li>
+						<li><a href="<?php global $post; $text = get_post_meta( get_the_ID(), '_cmb_pdf', true ); echo $text; ?>" download><?php the_title(); ?></a></li>
 					<?php endwhile; ?>
 					</ul>
 					</li>

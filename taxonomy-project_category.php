@@ -9,9 +9,12 @@
 			<h2 class="<?php echo $term->slug; ?>"><?php echo $term->name; ?><div class="alignright"><a href="feed/"><i class="icon-rss"></i></a></div></h2>
 
 			<?php
+				$today = current_time( 'timestamp' );
 				$args = array(
-					'post_type' => 'project',
-					'project_category' => $term->slug
+					'post_type'				=> 'project',
+					'orderby'				=> 'menu_order',
+					'order'					=> 'ASC',
+					'project_category'		=> $term->slug
 				);
 				$query = new WP_Query( $args );
 			?>
@@ -39,22 +42,30 @@
 
 								<?php
 									date_default_timezone_set('Europe/London');
-									$start = get_post_meta( $post->ID, '_project_startdate', true );
-									$end = get_post_meta( $post->ID, '_project_enddate', true );
-									$ongoing = get_post_meta( $post->ID, '_project_ongoing', true );
-									$lead = get_post_meta( $post->ID, '_project_lead', true );
+									$start = get_post_meta( get_the_ID(), '_project_startdate', true );
+									$end = get_post_meta( get_the_ID(), '_project_enddate', true );
+									$ongoing = get_post_meta( get_the_ID(), '_project_ongoing', true );
+									$lead = get_post_meta( get_the_ID(), '_project_lead', true );
 								?>
 									<?php if($ongoing != ''){ ?>
 										<h6>Ongoing</h6>
 									<?php } else { ?>
 										<?php if($start != '' && $end != ''){ ?>
-											<h6>From: <?php echo date_i18n( 'jS F Y', $start ); ?> - <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+											<h6>From: <?php echo date_i18n( 'jS F Y', $start ); ?> - <?php echo date_i18n( 'jS F Y', $end ); ?><?php if($today > $end){ echo ' (Project Ended)'; } ?></h6>
 										<?php } else { ?>
 											<?php if($start != ''){ ?>
 												<h6>Start Date: <?php echo date_i18n( 'jS F Y', $start ); ?></h6>
 											<?php } ?>
 											<?php if($end != ''){ ?>
-												<h6>End Date: <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+												<?php
+													if($today > $end){
+														echo '<h6>Project Ended</h6>';
+													} else {
+												?>
+														<h6>End Date: <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+												<?php
+													}
+												?>
 											<?php } ?>
 										<?php } ?>
 									<?php } ?>
@@ -77,13 +88,21 @@
 								<h6>Ongoing</h6>
 							<?php } else { ?>
 								<?php if($start != '' && $end != ''){ ?>
-									<h6>From: <?php echo date_i18n( 'jS F Y', $start ); ?> - <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+									<h6>From: <?php echo date_i18n( 'jS F Y', $start ); ?> - <?php echo date_i18n( 'jS F Y', $end ); ?><?php if($today > $end){ echo ' (Project Ended)'; } ?></h6>
 								<?php } else { ?>
 									<?php if($start != ''){ ?>
 										<h6>Start Date: <?php echo date_i18n( 'jS F Y', $start ); ?></h6>
 									<?php } ?>
 									<?php if($end != ''){ ?>
-										<h6>End Date: <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+										<?php
+											if($today > $end){
+												echo '<h6>Project Ended</h6>';
+											} else {
+										?>
+												<h6>End Date: <?php echo date_i18n( 'jS F Y', $end ); ?></h6>
+										<?php
+											}
+										?>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>

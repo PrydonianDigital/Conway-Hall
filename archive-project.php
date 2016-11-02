@@ -10,7 +10,7 @@
 	$args = array (
 		'post_type'				=> array( 'project' ),
 		'meta_key'				=> '_project_enddate',
-		'order'					=> 'DESC',
+		'order'					=> 'ASC',
 		'orderby'				=> 'meta_value_num',
 		'meta_type'				=> 'DATE',
 		'meta_query'			=> array(

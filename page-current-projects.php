@@ -4,18 +4,20 @@
 
 	<div class="nine columns hfeed" role="main">
 
+	<?php $today = current_time( 'timestamp' ); ?>
+
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<h2><?php the_title(); ?></h2>
 
 		<?php the_content(); ?>
 
-		<h2>Current Projects</h2>
-
 		<?php
 		$args = array (
 			'post_type'				=> array( 'project' ),
 			'posts_per_page'		=> -1,
+			'orderby'				=> 'menu_order',
+			'order'					=> 'ASC',
 			'meta_query'			=> array(
 				'relation'			=> 'OR',
 				 'ongoing'			=> array(
@@ -43,10 +45,10 @@
 						<h4 itemprop="name headline" class="entry-title p-name"><a href="<?php the_permalink(); ?>" rel="permalink" title="Permalink to <?php the_title(); ?>"><?php the_title(); ?></a></h4>
 						<?php
 							date_default_timezone_set('Europe/London');
-							$start = get_post_meta( $post->ID, '_project_startdate', true );
-							$end = get_post_meta( $post->ID, '_project_enddate', true );
-							$ongoing = get_post_meta( $post->ID, '_project_ongoing', true );
-							$lead = get_post_meta( $post->ID, '_project_lead', true );
+							$start = get_post_meta( get_the_ID(), '_project_startdate', true );
+							$end = get_post_meta( get_the_ID(), '_project_enddate', true );
+							$ongoing = get_post_meta( get_the_ID(), '_project_ongoing', true );
+							$lead = get_post_meta( get_the_ID(), '_project_lead', true );
 						?>
 
 						<?php if($ongoing != ''){ ?>
